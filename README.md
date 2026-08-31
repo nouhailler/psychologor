@@ -1,32 +1,164 @@
-# React + TypeScript + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+<img src="public/icons/icon-512.png" width="112" height="112" alt="Logo Psychologor" />
 
-Currently, two official plugins are available:
+# Psychologor
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### 🧠 Comprendre l'esprit humain. Explorer ses grandes idées.
 
-## React Compiler
+Une encyclopédie interactive de la psychologie — premium, éditoriale, et utilisable hors ligne.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+[![React](https://img.shields.io/badge/React-19-149ECA?logo=react&logoColor=white)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)](https://vitejs.dev)
+[![PWA](https://img.shields.io/badge/PWA-installable-5A0FC8?logo=pwa&logoColor=white)](https://web.dev/progressive-web-apps/)
+[![Dexie](https://img.shields.io/badge/IndexedDB-Dexie-FF7A00)](https://dexie.org)
+[![License](https://img.shields.io/badge/licence-non%20spécifiée-lightgrey)](#)
 
-## Expanding the Oxlint configuration
+</div>
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+---
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## ✨ Aperçu
+
+**Psychologor** permet de partir d'un·e psychologue et de remonter tout un réseau de connaissances :
+
+> Freud → Psychanalyse → Inconscient → Jung → Psychologie analytique
+
+Chaque fiche — psychologue, théorie, concept — est reliée aux autres. L'application est pensée comme :
+
+- 📖 une **encyclopédie scientifique**, rigoureuse et sourcée ;
+- 🗞️ un **magazine éditorial** haut de gamme ;
+- 🕸️ une **cartographie interactive** des idées et de leurs relations.
+
+## 🧭 Sommaire
+
+- [Fonctionnalités](#-fonctionnalités)
+- [Contenu](#-contenu)
+- [Design](#-design)
+- [Stack technique](#️-stack-technique)
+- [Démarrage](#-démarrage)
+- [Structure du projet](#-structure-du-projet)
+- [PWA & hors ligne](#-pwa--hors-ligne)
+- [Modèle de données](#-modèle-de-données)
+
+## 🚀 Fonctionnalités
+
+| | |
+|---|---|
+| 🔍 **Recherche** | Recherche plein texte tolérante, en temps réel, groupée par type (personnes / théories / concepts) |
+| 🧑‍🔬 **Fiches croisées** | Psychologues, théories et concepts intégralement navigables entre eux |
+| 🕰️ **Chronologie** | Timeline interactive — verticale sur mobile, horizontale sur desktop — filtrable par type et courant |
+| 🕸️ **Carte des idées** | Graphe de connaissances interactif (React Flow) sur desktop, chaîne d'influence adaptée sur mobile |
+| ⚖️ **Comparaison** | Comparez jusqu'à 3 théories côte à côte (tableau desktop / cartes empilées mobile) |
+| ⭐ **Favoris & historique** | Sauvegarde locale persistante via IndexedDB (Dexie) |
+| 🌗 **Thème clair / sombre** | Véritable thème graphique, pas une simple inversion, avec transition douce |
+| 📶 **Hors ligne** | Service worker + cache des données : consultable sans connexion |
+| ♿ **Accessible** | WCAG 2.2 AA visé — clavier, focus visible, `prefers-reduced-motion`, tailles de texte configurables |
+
+## 📚 Contenu
+
+Base de connaissances initiale, entièrement factuelle et sourcée (aucune citation ni date inventée) :
+
+| Entité | Nombre |
+|---|---|
+| 🧑‍🔬 Psychologues | 18 (Wundt → Beck) |
+| 💡 Théories | 17 |
+| 🔤 Concepts (glossaire) | 31 |
+| 🏛️ Courants de pensée | 9 |
+| 📖 Œuvres majeures | 20 |
+| 💬 Citations attribuées | 10 |
+| 🗓️ Événements chronologiques | 20 |
+
+## 🎨 Design
+
+Direction artistique : **encyclopédie scientifique premium + magazine contemporain + exploration interactive**.
+
+- Palette propriétaire indigo / violet profond, définie en variables CSS (`--color-primary`, `--color-surface`, …)
+- Typographie éditoriale : **Fraunces** (display), **Plus Jakarta Sans** (titres), **Source Sans 3** (texte)
+- Icônes SVG cohérentes ([Lucide](https://lucide.dev)) — aucun emoji comme icône d'interface
+- Animations discrètes (150–400 ms) via [Motion](https://motion.dev), respectant `prefers-reduced-motion`
+- Navigation basse à 5 sections sur mobile, barre latérale complète sur desktop
+
+## 🛠️ Stack technique
+
+| Domaine | Choix |
+|---|---|
+| Framework | [React 19](https://react.dev) + [TypeScript](https://www.typescriptlang.org) |
+| Build | [Vite](https://vitejs.dev) |
+| Routing | [React Router](https://reactrouter.com) |
+| PWA | [vite-plugin-pwa](https://vite-pwa-org.netlify.app) (service worker, manifest, cache) |
+| Stockage local | [Dexie](https://dexie.org) (IndexedDB) |
+| Animations | [Motion](https://motion.dev) |
+| Icônes | [Lucide](https://lucide.dev) |
+| Visualisation | [React Flow](https://reactflow.dev) |
+| Style | CSS moderne, CSS Modules, variables CSS |
+
+## ⚡ Démarrage
+
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Autres commandes utiles :
+
+```bash
+npm run build     # build de production + vérification TypeScript
+npm run preview   # sert le build de production en local
+npm run lint       # lint du code avec Oxlint
+```
+
+## 📁 Structure du projet
+
+```text
+src/
+  components/       # UI, cartes, layout (design system)
+  pages/             # écrans routés (Home, Explorer, fiches…)
+  visualizations/    # graphe de connaissances, chaîne d'influence
+  data/              # contenu — psychologues, théories, concepts…
+  models/            # types TypeScript des entités
+  services/          # repository, recherche, IndexedDB (Dexie)
+  store/             # contextes React (thème, recherche)
+  hooks/             # hooks partagés
+  styles/            # tokens, base, typographie, layout
+```
+
+La couche `services/repository.ts` abstrait l'accès aux données : le contenu est aujourd'hui local, mais le reste de l'application ne dépend jamais directement des fichiers JSON/TS de `data/`, ce qui permettra de brancher une API sans réécriture.
+
+## 📲 PWA & hors ligne
+
+Psychologor est une véritable PWA, installable sur Android, iOS et desktop :
+
+- `manifest.webmanifest` + icônes (192, 512, maskable)
+- Service worker généré (`vite-plugin-pwa`), cache des assets et des polices
+- Données persistées localement via IndexedDB — favoris, historique, recherches récentes
+- Indicateur discret **En ligne** / **Hors connexion**
+
+## 🗺️ Modèle de données
+
+```text
+Psychologist ──┬── schools
+               ├── theories
+               ├── concepts
+               ├── works · quotes · events
+               ├── influencedBy
+               └── influenced
+
+Theory ──┬── schools · psychologists
+         ├── concepts
+         └── relatedTheories
+
+Concept ──┬── theories · psychologists
+          └── relatedConcepts
+```
+
+Chaque entité possède un identifiant stable, pensé pour accueillir plusieurs centaines de fiches supplémentaires sans réécriture majeure.
+
+---
+
+<div align="center">
+
+*Basé sur le cahier des charges [`PROJET-PSYCHOLOGOR.md`](PROJET-PSYCHOLOGOR.md).*
+
+</div>
