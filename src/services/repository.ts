@@ -5,6 +5,7 @@ import { schools } from '../data/schools';
 import { works } from '../data/works';
 import { quotes } from '../data/quotes';
 import { events } from '../data/events';
+import { portraitCredits } from '../data/portraitCredits';
 import type {
   Concept,
   HistoricalEvent,
@@ -85,4 +86,8 @@ export function getSchoolSync(id: string): School | undefined {
 
 export function getEventSync(id: string): HistoricalEvent | undefined {
   return eventById.get(id);
+}
+
+export function getPortraitCredit(psychologistId: string) {
+  return portraitCredits[psychologistId];
 }

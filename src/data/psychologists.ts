@@ -3,6 +3,7 @@ import type { Psychologist } from '../models/types';
 export const psychologists: Psychologist[] = [
   {
     id: 'wilhelm-wundt',
+    portraitUrl: '/portraits/wilhelm-wundt.jpg',
     name: 'Wilhelm Wundt',
     birth: '1832',
     death: '1920',
@@ -35,6 +36,7 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'william-james',
+    portraitUrl: '/portraits/william-james.jpg',
     name: 'William James',
     birth: '1842',
     death: '1910',
@@ -66,6 +68,7 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'sigmund-freud',
+    portraitUrl: '/portraits/sigmund-freud.jpg',
     name: 'Sigmund Freud',
     birth: '1856',
     death: '1939',
@@ -101,6 +104,7 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'carl-gustav-jung',
+    portraitUrl: '/portraits/carl-gustav-jung.jpg',
     name: 'Carl Gustav Jung',
     birth: '1875',
     death: '1961',
@@ -134,6 +138,7 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'alfred-adler',
+    portraitUrl: '/portraits/alfred-adler.jpg',
     name: 'Alfred Adler',
     birth: '1870',
     death: '1937',
@@ -167,6 +172,7 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'ivan-pavlov',
+    portraitUrl: '/portraits/ivan-pavlov.jpg',
     name: 'Ivan Pavlov',
     birth: '1849',
     death: '1936',
@@ -199,6 +205,7 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'john-b-watson',
+    portraitUrl: '/portraits/john-b-watson.jpg',
     name: 'John B. Watson',
     fullName: 'John Broadus Watson',
     birth: '1878',
@@ -232,6 +239,7 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'b-f-skinner',
+    portraitUrl: '/portraits/b-f-skinner.jpg',
     name: 'B. F. Skinner',
     fullName: 'Burrhus Frederic Skinner',
     birth: '1904',
@@ -265,6 +273,7 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'jean-piaget',
+    portraitUrl: '/portraits/jean-piaget.jpg',
     name: 'Jean Piaget',
     birth: '1896',
     death: '1980',
@@ -330,6 +339,7 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'carl-rogers',
+    portraitUrl: '/portraits/carl-rogers.jpg',
     name: 'Carl Rogers',
     birth: '1902',
     death: '1987',
@@ -362,6 +372,7 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'abraham-maslow',
+    portraitUrl: '/portraits/abraham-maslow.jpg',
     name: 'Abraham Maslow',
     birth: '1908',
     death: '1970',
@@ -394,6 +405,7 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'albert-bandura',
+    portraitUrl: '/portraits/albert-bandura.jpg',
     name: 'Albert Bandura',
     birth: '1925',
     death: '2021',
@@ -427,6 +439,7 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'erik-erikson',
+    portraitUrl: '/portraits/erik-erikson.jpg',
     name: 'Erik Erikson',
     birth: '1902',
     death: '1994',
@@ -555,6 +568,7 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'aaron-beck',
+    portraitUrl: '/portraits/aaron-beck.jpg',
     name: 'Aaron Beck',
     fullName: 'Aaron Temkin Beck',
     birth: '1921',

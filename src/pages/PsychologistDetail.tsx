@@ -7,7 +7,7 @@ import { FavoriteButton } from '../components/ui/FavoriteButton';
 import { PageLoader } from '../components/ui/PageLoader';
 import { useAsync } from '../hooks/useAsync';
 import { useRecordVisit } from '../hooks/useHistory';
-import { getSchoolSync } from '../services/repository';
+import { getPortraitCredit, getSchoolSync } from '../services/repository';
 import { repository } from '../services/repository';
 import NotFound from './NotFound';
 import styles from './PsychologistDetail.module.css';
@@ -38,6 +38,7 @@ export default function PsychologistDetail() {
   if (!psychologist) return <NotFound />;
 
   const schools = psychologist.schoolIds.map((sid) => getSchoolSync(sid)).filter(Boolean);
+  const portraitCredit = getPortraitCredit(psychologist.id);
 
   return (
     <article>
@@ -48,7 +49,15 @@ export default function PsychologistDetail() {
             Explorer
           </Link>
           <div className={styles.portrait} style={{ background: 'hsl(0 0% 100% / 0.12)' }}>
-            {psychologist.portraitInitials}
+            {psychologist.portraitUrl ? (
+              <img
+                src={psychologist.portraitUrl}
+                alt={`Portrait de ${psychologist.name}`}
+                className={styles.portraitPhoto}
+              />
+            ) : (
+              psychologist.portraitInitials
+            )}
           </div>
           <h1 className={`text-display ${styles.name}`}>{psychologist.name}</h1>
           <p className={`text-h4 ${styles.dates}`} style={{ fontWeight: 400 }}>
@@ -57,6 +66,16 @@ export default function PsychologistDetail() {
           <div className={styles.schoolChips}>
             {schools.map((s) => s && <span key={s.id} className={styles.schoolChip}>{s.shortName}</span>)}
           </div>
+          {portraitCredit && (
+            <a
+              href={portraitCredit.sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.photoCredit}
+            >
+              Photo : {portraitCredit.artist} · {portraitCredit.license}
+            </a>
+          )}
         </div>
         <div className={styles.favoriteWrap}>
           <FavoriteButton entityId={psychologist.id} entityType="psychologist" label={psychologist.name} />

@@ -13,6 +13,12 @@ export interface DateRange {
   label?: string;
 }
 
+export interface PortraitCredit {
+  artist: string;
+  license: string;
+  sourceUrl: string;
+}
+
 export interface Quote {
   id: string;
   text: string;

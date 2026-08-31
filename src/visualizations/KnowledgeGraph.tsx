@@ -20,11 +20,15 @@ function gradientFor(color: string) {
   return `linear-gradient(155deg, ${color}, color-mix(in srgb, ${color} 55%, #1a1230))`;
 }
 
-function PersonNode({ data }: { data: { label: string; color: string; initials: string } }) {
+function PersonNode({ data }: { data: { label: string; color: string; initials: string; portraitUrl?: string } }) {
   return (
     <div className={styles.personNode}>
       <span className={styles.avatar} style={{ background: gradientFor(data.color) }}>
-        {data.initials}
+        {data.portraitUrl ? (
+          <img src={data.portraitUrl} alt="" loading="lazy" className={styles.avatarPhoto} />
+        ) : (
+          data.initials
+        )}
       </span>
       {data.label}
     </div>
@@ -47,7 +51,7 @@ export function KnowledgeGraph() {
       id: p.id,
       type: 'person',
       position: { x: (i % COLUMNS) * COLUMN_WIDTH, y: Math.floor(i / COLUMNS) * ROW_HEIGHT },
-      data: { label: p.name, color: p.accentColor, initials: p.portraitInitials },
+      data: { label: p.name, color: p.accentColor, initials: p.portraitInitials, portraitUrl: p.portraitUrl },
     }));
 
     const theoryRowY = Math.ceil(sorted.length / COLUMNS) * ROW_HEIGHT + 80;

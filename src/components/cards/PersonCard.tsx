@@ -20,7 +20,11 @@ export function PersonCard({ psychologist, layout = 'grid' }: PersonCardProps) {
     return (
       <Link to={`/psychologues/${psychologist.id}`} className={styles.list}>
         <div className={styles.listAvatar} style={{ background: gradientFor(psychologist.accentColor) }}>
-          {psychologist.portraitInitials}
+          {psychologist.portraitUrl ? (
+            <img src={psychologist.portraitUrl} alt="" loading="lazy" className={styles.listPhoto} />
+          ) : (
+            psychologist.portraitInitials
+          )}
         </div>
         <div className={styles.listInfo}>
           <p className="text-h4" style={{ marginBottom: 2 }}>
@@ -37,7 +41,11 @@ export function PersonCard({ psychologist, layout = 'grid' }: PersonCardProps) {
   return (
     <Link to={`/psychologues/${psychologist.id}`} className={`${styles.card} ${styles.grid}`}>
       <div className={styles.portrait} style={{ background: gradientFor(psychologist.accentColor) }}>
-        {psychologist.portraitInitials}
+        {psychologist.portraitUrl ? (
+          <img src={psychologist.portraitUrl} alt="" loading="lazy" className={styles.photo} />
+        ) : (
+          psychologist.portraitInitials
+        )}
       </div>
       <div className={styles.body}>
         <p className={`text-h4 ${styles.name}`}>{psychologist.name}</p>
