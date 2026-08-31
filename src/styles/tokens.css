@@ -1,0 +1,163 @@
+/*
+  Psychologor — design tokens.
+  Palette: indigo / violet profond, encyclopédie premium + magazine contemporain.
+*/
+
+:root {
+  color-scheme: light;
+
+  /* ---- Couleurs de marque ---- */
+  --color-primary-h: 252;
+  --color-primary: hsl(252 65% 45%);
+  --color-primary-light: hsl(252 70% 60%);
+  --color-primary-dark: hsl(252 55% 32%);
+  --color-primary-tint: hsl(252 70% 96%);
+  --color-accent: hsl(174 45% 42%); /* turquoise discret */
+  --color-accent-tint: hsl(174 45% 94%);
+
+  /* ---- Neutres / surfaces ---- */
+  --color-background: hsl(40 33% 98%);
+  --color-surface: hsl(0 0% 100%);
+  --color-surface-elevated: hsl(0 0% 100%);
+  --color-surface-sunken: hsl(40 25% 95%);
+  --color-border: hsl(252 15% 88%);
+  --color-border-strong: hsl(252 15% 78%);
+
+  /* ---- Texte ---- */
+  --color-text: hsl(255 30% 12%);
+  --color-text-secondary: hsl(255 12% 40%);
+  --color-text-tertiary: hsl(255 8% 55%);
+  --color-text-on-primary: hsl(0 0% 100%);
+  --color-text-link: var(--color-primary);
+
+  /* ---- États sémantiques ---- */
+  --color-danger: hsl(6 70% 50%);
+  --color-success: hsl(152 45% 38%);
+
+  /* ---- Ombres ---- */
+  --shadow-xs: 0 1px 2px hsl(255 30% 12% / 0.04);
+  --shadow-sm: 0 2px 8px hsl(255 30% 12% / 0.06);
+  --shadow-md: 0 8px 24px hsl(255 30% 12% / 0.08);
+  --shadow-lg: 0 16px 48px hsl(255 30% 12% / 0.12);
+  --shadow-ring: 0 0 0 3px hsl(252 65% 45% / 0.28);
+
+  /* ---- Rayons ---- */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  /* ---- Espacements ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 40px;
+  --space-9: 56px;
+  --space-10: 72px;
+  --space-11: 96px;
+
+  /* ---- Typographie ---- */
+  --font-display: 'Fraunces', 'Plus Jakarta Sans', Georgia, serif;
+  --font-heading: 'Plus Jakarta Sans', 'Manrope', system-ui, sans-serif;
+  --font-body: 'Source Sans 3', 'Inter', system-ui, sans-serif;
+
+  --text-display: 700 clamp(2.5rem, 4vw + 1rem, 4.25rem) / 1.05 var(--font-display);
+  --text-h1: 700 clamp(1.9rem, 2.4vw + 1rem, 2.75rem) / 1.12 var(--font-heading);
+  --text-h2: 700 clamp(1.5rem, 1.6vw + 1rem, 2rem) / 1.18 var(--font-heading);
+  --text-h3: 600 clamp(1.2rem, 1vw + 1rem, 1.5rem) / 1.25 var(--font-heading);
+  --text-h4: 600 1.125rem/1.35 var(--font-heading);
+  --text-body: 400 1.0625rem/1.65 var(--font-body);
+  --text-body-sm: 400 0.9375rem/1.55 var(--font-body);
+  --text-caption: 500 0.8125rem/1.4 var(--font-body);
+  --text-label: 600 0.75rem/1.2 var(--font-heading);
+
+  /* ---- Mouvement ---- */
+  --ease-standard: cubic-bezier(0.2, 0.65, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-base: 240ms;
+  --duration-slow: 400ms;
+
+  /* ---- Layout ---- */
+  --content-max-width: 720px;
+  --page-max-width: 1320px;
+  --bottom-nav-height: 64px;
+  --header-height: 68px;
+
+  /* ---- Z-index ---- */
+  --z-nav: 100;
+  --z-header: 90;
+  --z-overlay: 200;
+  --z-modal: 300;
+}
+
+/* ---- Mode sombre : véritable thème, pas une simple inversion ---- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+
+    --color-primary: hsl(252 85% 74%);
+    --color-primary-light: hsl(252 90% 82%);
+    --color-primary-dark: hsl(252 60% 58%);
+    --color-primary-tint: hsl(252 40% 18%);
+    --color-accent: hsl(174 55% 62%);
+    --color-accent-tint: hsl(174 35% 16%);
+
+    --color-background: hsl(250 32% 7%);
+    --color-surface: hsl(250 26% 10%);
+    --color-surface-elevated: hsl(250 24% 13%);
+    --color-surface-sunken: hsl(250 32% 6%);
+    --color-border: hsl(250 18% 20%);
+    --color-border-strong: hsl(250 18% 28%);
+
+    --color-text: hsl(45 25% 94%);
+    --color-text-secondary: hsl(255 12% 74%);
+    --color-text-tertiary: hsl(255 10% 58%);
+    --color-text-on-primary: hsl(250 40% 10%);
+
+    --color-danger: hsl(6 80% 68%);
+    --color-success: hsl(152 45% 58%);
+
+    --shadow-xs: 0 1px 2px hsl(0 0% 0% / 0.3);
+    --shadow-sm: 0 2px 10px hsl(0 0% 0% / 0.35);
+    --shadow-md: 0 10px 30px hsl(0 0% 0% / 0.4);
+    --shadow-lg: 0 20px 56px hsl(0 0% 0% / 0.5);
+    --shadow-ring: 0 0 0 3px hsl(252 85% 74% / 0.35);
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --color-primary: hsl(252 85% 74%);
+  --color-primary-light: hsl(252 90% 82%);
+  --color-primary-dark: hsl(252 60% 58%);
+  --color-primary-tint: hsl(252 40% 18%);
+  --color-accent: hsl(174 55% 62%);
+  --color-accent-tint: hsl(174 35% 16%);
+
+  --color-background: hsl(250 32% 7%);
+  --color-surface: hsl(250 26% 10%);
+  --color-surface-elevated: hsl(250 24% 13%);
+  --color-surface-sunken: hsl(250 32% 6%);
+  --color-border: hsl(250 18% 20%);
+  --color-border-strong: hsl(250 18% 28%);
+
+  --color-text: hsl(45 25% 94%);
+  --color-text-secondary: hsl(255 12% 74%);
+  --color-text-tertiary: hsl(255 10% 58%);
+  --color-text-on-primary: hsl(250 40% 10%);
+
+  --color-danger: hsl(6 80% 68%);
+  --color-success: hsl(152 45% 58%);
+
+  --shadow-xs: 0 1px 2px hsl(0 0% 0% / 0.3);
+  --shadow-sm: 0 2px 10px hsl(0 0% 0% / 0.35);
+  --shadow-md: 0 10px 30px hsl(0 0% 0% / 0.4);
+  --shadow-lg: 0 20px 56px hsl(0 0% 0% / 0.5);
+  --shadow-ring: 0 0 0 3px hsl(252 85% 74% / 0.35);
+}

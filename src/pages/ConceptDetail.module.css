@@ -1,0 +1,42 @@
+.header {
+  padding: var(--space-7) 0 var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-7);
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-secondary);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-bottom: var(--space-6);
+}
+
+.termRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.term {
+  margin-bottom: var(--space-3);
+}
+
+.shortDef {
+  max-width: 620px;
+}
+
+.section {
+  margin-bottom: var(--space-7);
+}
+
+.originBlock {
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-sunken);
+  margin-bottom: var(--space-7);
+}

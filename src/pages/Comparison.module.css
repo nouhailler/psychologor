@@ -1,0 +1,117 @@
+.header {
+  padding: var(--space-7) 0 var(--space-6);
+}
+
+.picker {
+  margin-bottom: var(--space-7);
+}
+
+.pickerLabel {
+  margin-bottom: var(--space-3);
+}
+
+.slots {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.slot {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 44px;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--color-primary);
+  background: var(--color-primary-tint);
+  color: var(--color-primary-dark);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.slot button {
+  display: flex;
+  color: inherit;
+  opacity: 0.7;
+}
+
+.addSlot {
+  position: relative;
+}
+
+.select {
+  height: 44px;
+  padding: 0 var(--space-5);
+  border-radius: var(--radius-pill);
+  border: 1px dashed var(--color-border-strong);
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+/* ---- Table desktop ---- */
+.tableWrap {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+}
+
+.table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  vertical-align: top;
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.875rem;
+}
+
+.table th {
+  background: var(--color-surface-sunken);
+  width: 160px;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+}
+
+.table thead th {
+  color: var(--color-text);
+  font-family: var(--font-heading);
+}
+
+/* ---- Stack mobile ---- */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.criterionBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.criterionLabel {
+  margin-bottom: var(--space-1);
+}
+
+.criterionCard {
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-elevated);
+}
+
+.criterionCard p:first-child {
+  color: var(--color-primary);
+  margin-bottom: 4px;
+}

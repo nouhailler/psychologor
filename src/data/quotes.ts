@@ -1,0 +1,73 @@
+import type { Quote } from '../models/types';
+
+export const quotes: Quote[] = [
+  {
+    id: 'freud-voie-royale',
+    text: "L'interprétation du rêve est la voie royale vers la connaissance de l'inconscient.",
+    source: "L'Interprétation du rêve",
+    year: '1900',
+    psychologistId: 'sigmund-freud',
+  },
+  {
+    id: 'jung-rencontre-de-deux-personnalites',
+    text: "La rencontre de deux personnalités est comparable au contact de deux substances chimiques : s'il y a une réaction, les deux en sont transformées.",
+    source: "L'Homme à la découverte de son âme",
+    psychologistId: 'carl-gustav-jung',
+  },
+  {
+    id: 'watson-dozen-healthy-infants',
+    text: "Donnez-moi une douzaine d'enfants en bonne santé, bien formés, et mon propre univers pour les élever, et je garantis de prendre n'importe lequel au hasard et d'en faire le spécialiste que je choisirai.",
+    source: 'Behaviorism',
+    year: '1930',
+    psychologistId: 'john-b-watson',
+  },
+  {
+    id: 'skinner-machines-thinking',
+    text: "Le vrai problème n'est pas de savoir si les machines pensent, mais si les hommes pensent.",
+    source: 'Contingencies of Reinforcement',
+    year: '1969',
+    psychologistId: 'b-f-skinner',
+  },
+  {
+    id: 'piaget-but-education',
+    text: "Le principal but de l'éducation est de former des hommes capables de faire des choses nouvelles, et non de simplement répéter ce que les générations précédentes ont fait.",
+    source: 'To Understand Is to Invent',
+    year: '1948',
+    psychologistId: 'jean-piaget',
+  },
+  {
+    id: 'rogers-paradoxe-curieux',
+    text: "Le curieux paradoxe est que lorsque je m'accepte tel que je suis, alors je peux changer.",
+    source: 'On Becoming a Person',
+    year: '1961',
+    psychologistId: 'carl-rogers',
+  },
+  {
+    id: 'maslow-what-a-man-can-be',
+    text: "Ce qu'un homme peut être, il doit l'être.",
+    source: 'Motivation and Personality',
+    year: '1954',
+    psychologistId: 'abraham-maslow',
+  },
+  {
+    id: 'bandura-belief-self-efficacy',
+    text: "Parmi les mécanismes d'influence sur soi-même, aucun n'est plus central ni plus déterminant que la croyance en sa propre efficacité.",
+    source: 'Self-Efficacy: The Exercise of Control',
+    year: '1997',
+    psychologistId: 'albert-bandura',
+  },
+  {
+    id: 'erikson-sentiment-d-etre-vivant',
+    text: "Dans la jungle sociale de l'existence humaine, il n'y a pas de sentiment d'être vivant sans un sentiment d'identité.",
+    source: 'Identity: Youth and Crisis',
+    year: '1968',
+    psychologistId: 'erik-erikson',
+  },
+  {
+    id: 'lewin-bonne-theorie',
+    text: "Il n'y a rien de plus pratique qu'une bonne théorie.",
+    source: 'Field Theory in Social Science',
+    year: '1951',
+    psychologistId: 'kurt-lewin',
+  },
+];
