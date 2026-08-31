@@ -5,7 +5,10 @@ export type EntityKind =
   | 'school'
   | 'work'
   | 'quote'
-  | 'event';
+  | 'event'
+  | 'path';
+
+export type StepEntityKind = 'psychologist' | 'theory' | 'concept';
 
 export interface DateRange {
   birth?: string;
@@ -117,4 +120,23 @@ export interface SearchResultGroup<T> {
   type: EntityKind;
   label: string;
   items: T[];
+}
+
+export interface PathStep {
+  id: string;
+  entityType: StepEntityKind;
+  entityId: string;
+  keyTakeaway: string;
+  reflectionQuestion?: string;
+  workId?: string;
+}
+
+export interface LearningPath {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  accentColor: string;
+  estimatedMinutes: number;
+  steps: PathStep[];
 }

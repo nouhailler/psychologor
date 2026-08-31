@@ -110,6 +110,41 @@
   border-radius: var(--radius-sm);
 }
 
+.pathCard {
+  position: relative;
+  display: block;
+  width: 300px;
+  flex-shrink: 0;
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  color: white;
+  overflow: hidden;
+}
+
+.pathCard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(140% 160% at -10% -20%, hsl(0 0% 100% / 0.2) 0%, transparent 55%);
+}
+
+.pathMeta {
+  position: relative;
+  color: hsl(0 0% 100% / 0.8) !important;
+  margin-bottom: var(--space-2);
+}
+
+.pathTitle {
+  position: relative;
+  color: white;
+  margin-bottom: var(--space-2);
+}
+
+.pathSubtitle {
+  position: relative;
+  color: hsl(0 0% 100% / 0.85);
+}
+
 .timelineRow {
   display: flex;
   gap: var(--space-5);

@@ -33,12 +33,22 @@ export interface PreferenceRecord {
   value: string;
 }
 
+export interface PathProgressRecord {
+  pathId: string;
+  currentStepIndex: number;
+  completedStepIds: string[];
+  startedAt: number;
+  updatedAt: number;
+  completedAt?: number;
+}
+
 class PsychologorDB extends Dexie {
   favorites!: Table<FavoriteRecord, number>;
   history!: Table<HistoryRecord, number>;
   recentSearches!: Table<RecentSearchRecord, number>;
   lists!: Table<CustomListRecord, number>;
   preferences!: Table<PreferenceRecord, string>;
+  pathProgress!: Table<PathProgressRecord, string>;
 
   constructor() {
     super('psychologor');
@@ -48,6 +58,14 @@ class PsychologorDB extends Dexie {
       recentSearches: '++id, query, searchedAt',
       lists: '++id, name, createdAt',
       preferences: '&key',
+    });
+    this.version(2).stores({
+      favorites: '++id, entityId, entityType, createdAt, [entityId+entityType]',
+      history: '++id, entityId, entityType, visitedAt, [entityId+entityType]',
+      recentSearches: '++id, query, searchedAt',
+      lists: '++id, name, createdAt',
+      preferences: '&key',
+      pathProgress: '&pathId, updatedAt',
     });
   }
 }
@@ -100,5 +118,39 @@ export async function clearAllLocalData() {
     db.history.clear(),
     db.recentSearches.clear(),
     db.lists.clear(),
+    db.pathProgress.clear(),
   ]);
+}
+
+export async function startOrResumePath(pathId: string) {
+  const existing = await db.pathProgress.get(pathId);
+  if (existing) return existing;
+  const record: PathProgressRecord = {
+    pathId,
+    currentStepIndex: 0,
+    completedStepIds: [],
+    startedAt: Date.now(),
+    updatedAt: Date.now(),
+  };
+  await db.pathProgress.put(record);
+  return record;
+}
+
+export async function setPathStep(pathId: string, stepIndex: number, totalSteps: number, justCompletedStepId?: string) {
+  const existing = await db.pathProgress.get(pathId);
+  const completedStepIds = new Set(existing?.completedStepIds ?? []);
+  if (justCompletedStepId) completedStepIds.add(justCompletedStepId);
+  const isFinished = stepIndex >= totalSteps;
+  await db.pathProgress.put({
+    pathId,
+    currentStepIndex: stepIndex,
+    completedStepIds: Array.from(completedStepIds),
+    startedAt: existing?.startedAt ?? Date.now(),
+    updatedAt: Date.now(),
+    completedAt: isFinished ? (existing?.completedAt ?? Date.now()) : existing?.completedAt,
+  });
+}
+
+export async function resetPathProgress(pathId: string) {
+  await db.pathProgress.delete(pathId);
 }

@@ -1,10 +1,11 @@
-import { Clock, Info, Laptop, Moon, Star, Sun, Trash2 } from 'lucide-react';
+import { Clock, Info, Laptop, Moon, Route as RouteIcon, Star, Sun, Trash2 } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/Button';
-import { getPsychologistSync, getTheorySync, getConceptSync } from '../services/repository';
+import { getPathSync, getPsychologistSync, getTheorySync, getConceptSync } from '../services/repository';
 import { useFavoritesList } from '../hooks/useFavorites';
 import { useHistoryList } from '../hooks/useHistory';
+import { useAllPathProgress } from '../hooks/usePathProgress';
 import { clearAllLocalData } from '../services/db';
 import { useTheme, type TextSize } from '../store/ThemeContext';
 import styles from './Profile.module.css';
@@ -29,6 +30,11 @@ const TEXT_SIZES: { id: TextSize; label: string }[] = [
 export default function Profile() {
   const favorites = useFavoritesList();
   const history = useHistoryList(6);
+  const pathProgress = useAllPathProgress();
+  const inProgressPaths = (pathProgress ?? [])
+    .filter((p) => !p.completedAt)
+    .map((p) => ({ progress: p, path: getPathSync(p.pathId) }))
+    .filter((p) => p.path);
   const { theme, setTheme, textSize, setTextSize } = useTheme();
   const [confirmClear, setConfirmClear] = useState(false);
 
@@ -63,6 +69,30 @@ export default function Profile() {
           </span>
         </Link>
       </section>
+
+      {inProgressPaths.length > 0 && (
+        <section className={styles.section}>
+          <h2 className={`text-h3 ${styles.sectionTitle}`}>Parcours en cours</h2>
+          {inProgressPaths.map(({ path, progress }) => {
+            if (!path) return null;
+            return (
+              <Link key={path.id} to={`/parcours/${path.id}`} className={styles.row}>
+                <span className={styles.rowLeft}>
+                  <span className={styles.rowIcon} style={{ background: `${path.accentColor}22`, color: path.accentColor }}>
+                    <RouteIcon size={18} />
+                  </span>
+                  <span>
+                    <p className="text-h4">{path.title}</p>
+                    <p className="text-caption">
+                      Étape {Math.min(progress.currentStepIndex + 1, path.steps.length)}/{path.steps.length}
+                    </p>
+                  </span>
+                </span>
+              </Link>
+            );
+          })}
+        </section>
+      )}
 
       <section className={styles.section}>
         <h2 className={`text-h3 ${styles.sectionTitle}`}>Historique récent</h2>

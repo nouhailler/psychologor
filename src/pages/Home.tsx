@@ -1,4 +1,4 @@
-import { Search } from 'lucide-react';
+import { Clock, ListChecks, Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Section } from '../components/ui/Section';
 import { FeaturedCard } from '../components/cards/FeaturedCard';
@@ -15,6 +15,10 @@ import { useSearchOverlay } from '../store/SearchOverlayContext';
 import { History as HistoryIcon } from 'lucide-react';
 import styles from './Home.module.css';
 
+function pathGradient(color: string) {
+  return `radial-gradient(140% 160% at 15% 0%, ${color} 0%, color-mix(in srgb, ${color} 40%, #120c26) 60%, #0d0920 100%)`;
+}
+
 const FEATURED_PSYCHOLOGIST_ID = 'sigmund-freud';
 const SPOTLIGHT_PSYCHOLOGIST_ID = 'carl-gustav-jung';
 const SPOTLIGHT_THEORY_ID = 'theorie-de-l-attachement';
@@ -28,6 +32,7 @@ export default function Home() {
   const { data: events } = useAsync(() => repository.getAllEvents(), []);
   const historyRecords = useHistoryList(8);
   const { data: allPsychologists } = useAsync(() => repository.getAllPsychologists(), []);
+  const { data: paths } = useAsync(() => repository.getAllPaths(), []);
 
   const recentEntities = (historyRecords ?? [])
     .filter((h) => h.entityType === 'psychologist')
@@ -54,6 +59,32 @@ export default function Home() {
       </section>
 
       <div className="container">
+        <Section eyebrow="Pédagogie" title="Parcours guidés" action={{ label: 'Voir tous les parcours', to: '/parcours' }}>
+          <p className="text-body-sm" style={{ marginBottom: 'var(--space-5)', maxWidth: 640 }}>
+            Plutôt que d'explorer seul, laissez-vous guider étape par étape à travers une question ou un courant de
+            pensée.
+          </p>
+          <div className="scroll-row">
+            {(paths ?? []).slice(0, 3).map((path) => (
+              <Link
+                key={path.id}
+                to={`/parcours/${path.id}`}
+                className={styles.pathCard}
+                style={{ background: pathGradient(path.accentColor) }}
+              >
+                <p className={`text-label ${styles.pathMeta}`}>
+                  <ListChecks size={13} style={{ verticalAlign: -2, marginRight: 4 }} />
+                  {path.steps.length} étapes
+                  <Clock size={13} style={{ verticalAlign: -2, margin: '0 4px 0 10px' }} />
+                  {path.estimatedMinutes} min
+                </p>
+                <h3 className={`text-h4 ${styles.pathTitle}`}>{path.title}</h3>
+                <p className={`text-caption ${styles.pathSubtitle}`}>{path.subtitle}</p>
+              </Link>
+            ))}
+          </div>
+        </Section>
+
         <Section eyebrow="À la une" title="À découvrir aujourd'hui">
           {featured ? (
             <FeaturedCard
