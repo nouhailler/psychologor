@@ -24,6 +24,22 @@
   }
 }
 
+.menuButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+}
+
+.menuButton:hover {
+  background: var(--color-surface-sunken);
+  color: var(--color-text);
+}
+
 .searchTrigger {
   flex: 1;
   max-width: 420px;

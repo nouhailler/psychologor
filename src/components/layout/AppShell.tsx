@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { BottomNav } from './BottomNav';
 import { SideNav } from './SideNav';
 import { Header } from './Header';
 import { SearchOverlay } from '../ui/SearchOverlay';
+import { NavMenu } from '../ui/NavMenu';
 import { useIsDesktop } from '../../hooks/useMediaQuery';
 import { useSearchOverlay } from '../../store/SearchOverlayContext';
 import styles from './AppShell.module.css';
@@ -10,6 +12,7 @@ import styles from './AppShell.module.css';
 export function AppShell() {
   const isDesktop = useIsDesktop();
   const { isOpen, close } = useSearchOverlay();
+  const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
   return (
@@ -19,13 +22,14 @@ export function AppShell() {
       </a>
       {isDesktop && <SideNav />}
       <div className={styles.main}>
-        <Header />
+        <Header onOpenMenu={() => setMenuOpen(true)} />
         <main id="main-content" className={styles.content} key={location.pathname} tabIndex={-1}>
           <Outlet />
         </main>
         {!isDesktop && <BottomNav />}
       </div>
       {isOpen && <SearchOverlay onClose={close} />}
+      {menuOpen && <NavMenu onClose={() => setMenuOpen(false)} />}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { Search, WifiOff } from 'lucide-react';
+import { Menu, Search, WifiOff } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Logo } from '../ui/Logo';
 import { useIsDesktop } from '../../hooks/useMediaQuery';
@@ -6,7 +6,11 @@ import { useOnlineStatus } from '../../hooks/useOnlineStatus';
 import { useSearchOverlay } from '../../store/SearchOverlayContext';
 import styles from './Header.module.css';
 
-export function Header() {
+interface HeaderProps {
+  onOpenMenu: () => void;
+}
+
+export function Header({ onOpenMenu }: HeaderProps) {
   const isDesktop = useIsDesktop();
   const online = useOnlineStatus();
   const { open } = useSearchOverlay();
@@ -21,6 +25,11 @@ export function Header() {
 
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
+      {!isDesktop && (
+        <button type="button" className={styles.menuButton} onClick={onOpenMenu} aria-label="Ouvrir le menu">
+          <Menu size={22} />
+        </button>
+      )}
       {!isDesktop && <Logo size={26} />}
       <button type="button" className={styles.searchTrigger} onClick={open}>
         <Search size={17} />
