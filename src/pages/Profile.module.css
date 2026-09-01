@@ -86,3 +86,13 @@
 .dangerRow {
   border-color: color-mix(in srgb, var(--color-danger) 30%, var(--color-border));
 }
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

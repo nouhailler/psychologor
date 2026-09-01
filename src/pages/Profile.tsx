@@ -1,4 +1,4 @@
-import { Clock, Info, Laptop, Moon, Route as RouteIcon, Star, Sun, Trash2 } from 'lucide-react';
+import { Clock, Info, Laptop, Moon, RefreshCw, Route as RouteIcon, Star, Sun, Trash2 } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/Button';
@@ -6,9 +6,16 @@ import { getPathSync, getPsychologistSync, getTheorySync, getConceptSync } from 
 import { useFavoritesList } from '../hooks/useFavorites';
 import { useHistoryList } from '../hooks/useHistory';
 import { useAllPathProgress } from '../hooks/usePathProgress';
+import { usePWAUpdate } from '../hooks/usePWAUpdate';
 import { clearAllLocalData } from '../services/db';
 import { useTheme, type TextSize } from '../store/ThemeContext';
 import styles from './Profile.module.css';
+
+const buildDateLabel = new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long' }).format(new Date(__BUILD_DATE__));
+
+function formatCheckedTime(date: Date) {
+  return new Intl.DateTimeFormat('fr-FR', { timeStyle: 'short' }).format(date);
+}
 
 function gradientFor(color: string) {
   return `linear-gradient(155deg, ${color}, color-mix(in srgb, ${color} 55%, #1a1230))`;
@@ -37,6 +44,7 @@ export default function Profile() {
     .filter((p) => p.path);
   const { theme, setTheme, textSize, setTextSize } = useTheme();
   const [confirmClear, setConfirmClear] = useState(false);
+  const { checking, lastChecked, result, checkForUpdate } = usePWAUpdate();
 
   const handleClear = async () => {
     if (!confirmClear) {
@@ -189,10 +197,35 @@ export default function Profile() {
               <Info size={18} />
             </span>
             <span>
-              <p className="text-h4">Psychologor</p>
-              <p className="text-caption">Version 1.0 · Encyclopédie interactive de la psychologie, disponible hors ligne</p>
+              <p className="text-h4">Psychologor — version {__APP_VERSION__}</p>
+              <p className="text-caption">Publiée le {buildDateLabel} · disponible hors ligne</p>
             </span>
           </span>
+        </div>
+
+        <div className={styles.row} style={{ flexWrap: 'wrap' }}>
+          <span className={styles.rowLeft}>
+            <span className={styles.rowIcon}>
+              <RefreshCw size={18} className={checking ? styles.spinning : ''} />
+            </span>
+            <span>
+              <p className="text-h4">Mises à jour</p>
+              <p className="text-caption">
+                {checking
+                  ? 'Vérification en cours…'
+                  : result === 'updating'
+                    ? 'Nouvelle version trouvée, installation puis rechargement automatique…'
+                    : result === 'up-to-date'
+                      ? `Vous avez déjà la dernière version${lastChecked ? ` · vérifié à ${formatCheckedTime(lastChecked)}` : ''}`
+                      : result === 'unsupported'
+                        ? 'Vérification indisponible sur cet appareil'
+                        : 'Installées automatiquement en arrière-plan'}
+              </p>
+            </span>
+          </span>
+          <Button variant="secondary" size="sm" onClick={checkForUpdate} disabled={checking}>
+            {checking ? 'Vérification…' : 'Forcer la mise à jour'}
+          </Button>
         </div>
       </section>
 
