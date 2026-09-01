@@ -82,6 +82,11 @@ export default function TheoryDetail() {
               </p>
             </section>
 
+            <section className={styles.section}>
+              <h2 className={`text-h2 ${styles.sectionTitle}`}>Contexte historique</h2>
+              <p className="text-body">{theory.historicalContext}</p>
+            </section>
+
             <KeyTakeaways
               items={theory.principles.slice(0, 3)}
               accentColor={accentColor}

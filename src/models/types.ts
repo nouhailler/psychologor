@@ -91,6 +91,8 @@ export interface Theory {
   schoolIds: string[];
   psychologistIds: string[];
   summary: string;
+  /** Le problème ou l'insuffisance des explications existantes auquel la théorie répond. */
+  historicalContext: string;
   principles: string[];
   conceptIds: string[];
   applications: string[];

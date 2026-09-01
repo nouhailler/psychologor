@@ -10,6 +10,8 @@ export const theories: Theory[] = [
     psychologistIds: ['wilhelm-wundt'],
     summary:
       "Approche fondatrice de la psychologie scientifique, qui cherche à identifier par l'introspection contrôlée les éléments de base de la conscience — sensations, images, sentiments — et les lois de leur combinaison.",
+    historicalContext:
+      "Avant Wundt, l'étude de l'esprit relève de l'introspection philosophique, sans méthode contrôlée ni procédure reproductible. Le structuralisme répond à ce manque en important dans la psychologie naissante les protocoles déjà validés par la physiologie — mesure des temps de réaction, des seuils sensoriels — pour donner à l'introspection une assise expérimentale.",
     principles: [
       "L'expérience consciente peut être analysée en éléments psychiques fondamentaux.",
       "L'introspection entraînée et contrôlée est l'outil principal de cette analyse.",
@@ -41,6 +43,8 @@ export const theories: Theory[] = [
     psychologistIds: ['william-james'],
     summary:
       "Courant américain qui étudie les processus mentaux non pour leur structure interne, mais pour leur fonction adaptative dans la vie concrète de l'individu, sous l'influence de la théorie de l'évolution.",
+    historicalContext:
+      "La méthode structuraliste, en cherchant à décomposer la conscience en éléments fixes, laisse de côté la question de ce à quoi servent ces processus. Le fonctionnalisme déplace la question en s'appuyant sur la pensée évolutionniste, alors en plein essor dans l'ensemble des sciences biologiques : plutôt que « de quoi est faite la conscience », il demande « à quoi sert-elle ».",
     principles: [
       "L'esprit doit être étudié à travers les fonctions qu'il remplit pour l'organisme.",
       "La conscience est continue, décrite par James comme un « flux » plutôt que comme une somme d'éléments discrets.",
@@ -72,6 +76,8 @@ export const theories: Theory[] = [
     psychologistIds: ['sigmund-freud'],
     summary:
       "Théorie et méthode thérapeutique fondées par Sigmund Freud, selon lesquelles une grande partie de la vie psychique échappe à la conscience et détermine pensées, émotions et comportements.",
+    historicalContext:
+      "Avant Freud, un trouble nerveux sans lésion anatomique identifiable, comme l'hystérie étudiée par Charcot, reste difficile à expliquer autrement que par la simulation ou une faiblesse de caractère. La psychanalyse répond à cette impasse en proposant qu'un conflit psychique inconscient, et non une atteinte organique, puisse à lui seul produire des symptômes bien réels.",
     principles: [
       "L'appareil psychique est structuré en instances en tension : le ça, le moi et le surmoi.",
       "Les désirs et souvenirs inacceptables pour la conscience sont refoulés dans l'inconscient, d'où ils continuent d'influencer le sujet.",
@@ -104,6 +110,8 @@ export const theories: Theory[] = [
     psychologistIds: ['carl-gustav-jung'],
     summary:
       "Approche développée par Carl Gustav Jung après sa rupture avec Freud, qui postule l'existence d'un inconscient collectif, commun à l'humanité, peuplé d'archétypes universels.",
+    historicalContext:
+      "La théorie freudienne de l'inconscient, à laquelle Jung adhère d'abord pleinement, le réduit à un contenu personnel refoulé, principalement de nature sexuelle. Les désaccords de Jung sur ce point conduisent à une théorie qui répond à une question que la psychanalyse freudienne ne posait pas : certains contenus psychiques pourraient-ils être hérités plutôt que seulement refoulés individuellement ?",
     principles: [
       "À l'inconscient personnel s'ajoute un inconscient collectif, hérité et partagé par tous les êtres humains.",
       "Les archétypes sont des schémas psychiques universels qui s'expriment à travers les mythes, les rêves et les symboles culturels.",
@@ -135,6 +143,8 @@ export const theories: Theory[] = [
     psychologistIds: ['alfred-adler'],
     summary:
       "Théorie développée par Alfred Adler après sa rupture avec Freud, qui considère la personnalité comme un tout indivisible (« individuel » au sens étymologique), structuré par la recherche de compensation d'un sentiment d'infériorité originel.",
+    historicalContext:
+      "Membre du premier cercle freudien, Adler s'y trouve confronté à une théorie qui explique la personnalité avant tout par la sexualité inconsciente. Sa propre pratique médicale, plus attentive aux facteurs sociaux et corporels, le conduit à répondre à cette même question — qu'est-ce qui structure la personnalité ? — par le sentiment d'infériorité et la recherche de buts sociaux plutôt que par la pulsion.",
     principles: [
       "Tout enfant traverse un sentiment d'infériorité, lié à sa petitesse et sa dépendance face aux adultes.",
       "La personne développe un « style de vie » unique pour compenser ce sentiment et atteindre ses buts.",
@@ -166,6 +176,8 @@ export const theories: Theory[] = [
     psychologistIds: ['ivan-pavlov'],
     summary:
       "Théorie de l'apprentissage selon laquelle un stimulus initialement neutre peut, par association répétée avec un stimulus déclenchant naturellement une réponse, finir par déclencher lui-même cette réponse.",
+    historicalContext:
+      "L'idée que les idées ou les sensations puissent s'associer entre elles est ancienne, déjà présente chez les philosophes associationnistes britanniques. Mais c'est en travaillant sur la digestion, à l'écart de toute question psychologique, que Pavlov donne pour la première fois à cette vieille intuition un mécanisme physiologique précis et démontrable expérimentalement.",
     principles: [
       "Un stimulus inconditionnel déclenche naturellement une réponse inconditionnelle.",
       "L'association répétée d'un stimulus neutre avec ce stimulus inconditionnel en fait un stimulus conditionnel.",
@@ -197,6 +209,8 @@ export const theories: Theory[] = [
     psychologistIds: ['john-b-watson'],
     summary:
       "Programme fondé par John B. Watson qui exclut l'introspection et les états mentaux internes du champ légitime de la psychologie scientifique, au profit de l'étude objective des relations entre stimuli et réponses observables.",
+    historicalContext:
+      "L'introspection, héritée de Wundt et de James, reste au début du XXe siècle la méthode dominante pour étudier l'esprit, mais sa fiabilité comme preuve scientifique est de plus en plus contestée, faute de pouvoir être vérifiée par un observateur extérieur. Watson répond à cette fragilité méthodologique en proposant de l'exclure entièrement, s'appuyant sur le conditionnement de Pavlov comme preuve qu'une psychologie purement objective est possible.",
     principles: [
       "Seul le comportement observable constitue un objet d'étude scientifique valide.",
       "Le comportement s'explique essentiellement par l'apprentissage et l'environnement, plus que par des facteurs innés.",
@@ -228,6 +242,8 @@ export const theories: Theory[] = [
     psychologistIds: ['b-f-skinner'],
     summary:
       "Théorie développée par B. F. Skinner selon laquelle la fréquence d'un comportement dépend des conséquences qu'il produit : un comportement renforcé tend à se répéter, un comportement puni tend à disparaître.",
+    historicalContext:
+      "Le conditionnement classique de Pavlov et Watson explique bien comment une réponse déjà existante peut être associée à un nouveau stimulus, mais il rend mal compte de l'apparition de comportements volontaires entièrement nouveaux. Skinner comble cette lacune en s'intéressant non plus à ce qui précède le comportement, mais à ce qui le suit : ses conséquences.",
     principles: [
       "Le renforcement positif augmente la fréquence d'un comportement en ajoutant une conséquence agréable.",
       "Le renforcement négatif augmente la fréquence d'un comportement en retirant une conséquence désagréable.",
@@ -260,6 +276,8 @@ export const theories: Theory[] = [
     psychologistIds: ['jean-piaget'],
     summary:
       "Théorie développée par Jean Piaget selon laquelle l'intelligence de l'enfant se construit progressivement à travers son action sur l'environnement, en traversant une série de stades qualitativement distincts.",
+    historicalContext:
+      "Au début du XXe siècle, l'intelligence enfantine se mesure surtout par des tests standardisés, comme ceux du laboratoire d'Alfred Binet où travaille Piaget, qui traitent l'enfant comme un adulte encore incomplet. En s'intéressant aux erreurs typiques et récurrentes des enfants plutôt qu'à leurs seuls scores, Piaget répond à une question que ces tests ne posaient pas : et si l'enfant raisonnait selon une logique qui lui est propre, différente de celle de l'adulte ?",
     principles: [
       "L'enfant construit activement sa connaissance du monde, il n'en est pas un simple récepteur passif.",
       "Le développement cognitif traverse quatre grands stades : sensori-moteur, préopératoire, opératoire concret et opératoire formel.",
@@ -291,6 +309,8 @@ export const theories: Theory[] = [
     psychologistIds: ['lev-vygotsky'],
     summary:
       "Théorie développée par Lev Vygotsky, selon laquelle le développement des fonctions mentales supérieures — mémoire, attention, raisonnement — trouve son origine dans les interactions sociales et les outils culturels, au premier rang desquels le langage.",
+    historicalContext:
+      "Au même moment où Piaget développe en Suisse une théorie centrée sur l'enfant agissant seul sur son environnement, l'Union soviétique des années 1920 appelle à une psychologie fondée sur le matérialisme dialectique, attentive à la formation sociale et historique de l'individu. Vygotsky répond à cette exigence en proposant que la pensée ne puisse se développer indépendamment du langage et des interactions sociales qui la précèdent.",
     principles: [
       "Les fonctions mentales supérieures apparaissent d'abord entre les personnes (niveau interpsychique) avant d'être intériorisées par l'individu (niveau intrapsychique).",
       "Le langage est l'outil culturel central qui structure la pensée.",
@@ -322,6 +342,8 @@ export const theories: Theory[] = [
     psychologistIds: ['carl-rogers'],
     summary:
       "Approche thérapeutique développée par Carl Rogers, fondée sur la conviction que chaque personne possède en elle-même les ressources nécessaires à sa croissance psychologique, à condition de bénéficier d'un climat relationnel favorable.",
+    historicalContext:
+      "La psychothérapie du milieu du XXe siècle repose largement sur des modèles directifs, où le thérapeute interprète l'inconscient du patient ou façonne son comportement de l'extérieur. L'expérience clinique de Rogers auprès de jeunes en difficulté le conduit à répondre autrement à la question du changement psychologique : non plus en plaçant l'expertise du côté du thérapeute, mais en la situant chez la personne elle-même.",
     principles: [
       "La congruence : l'authenticité du thérapeute dans la relation.",
       "La considération positive inconditionnelle : l'acceptation du client sans jugement.",
@@ -354,6 +376,8 @@ export const theories: Theory[] = [
     psychologistIds: ['abraham-maslow'],
     summary:
       "Modèle proposé par Abraham Maslow, souvent représenté sous forme de pyramide, selon lequel les besoins humains s'organisent en niveaux hiérarchiques, des besoins physiologiques fondamentaux jusqu'au besoin d'actualisation de soi.",
+    historicalContext:
+      "Les théories de la motivation héritées de la psychanalyse et du behaviorisme se concentrent surtout sur la réduction de tensions basiques — faim, sexualité, besoin de sécurité. En 1943, alors que presque aucun cadre théorique n'aborde la motivation au-delà de ces besoins élémentaires, Maslow répond à cette lacune en proposant une hiérarchie qui s'étend jusqu'à la croissance et l'accomplissement personnels.",
     principles: [
       "Les besoins physiologiques et de sécurité doivent être globalement satisfaits avant que les besoins supérieurs ne deviennent prioritaires.",
       "Les besoins d'appartenance et d'estime occupent une position intermédiaire dans la hiérarchie.",
@@ -385,6 +409,8 @@ export const theories: Theory[] = [
     psychologistIds: ['albert-bandura'],
     summary:
       "Théorie développée par Albert Bandura, selon laquelle le comportement humain résulte d'une interaction réciproque entre facteurs personnels (dont les cognitions), comportementaux et environnementaux, et selon laquelle une grande partie de l'apprentissage se fait par observation d'autrui.",
+    historicalContext:
+      "Le conditionnement opérant explique l'apprentissage par le renforcement direct des comportements déjà produits. L'expérience de la poupée Bobo, en montrant que des enfants peuvent apprendre un comportement par simple observation, sans renforcement ni expérience directe, oblige à répondre à une question que le behaviorisme skinnérien laissait sans réponse satisfaisante.",
     principles: [
       "L'apprentissage vicariant permet d'acquérir un comportement par simple observation d'un modèle, sans expérience directe ni renforcement.",
       "Le déterminisme réciproque décrit l'influence mutuelle constante entre l'individu, son comportement et son environnement.",
@@ -416,6 +442,8 @@ export const theories: Theory[] = [
     psychologistIds: ['erik-erikson'],
     summary:
       "Théorie développée par Erik Erikson qui étend la théorie freudienne des stades psychosexuels à l'ensemble du cycle de vie, en la centrant sur des crises psychosociales successives à résoudre.",
+    historicalContext:
+      "Les stades psychosexuels décrits par Freud s'arrêtent à l'adolescence et centrent chaque étape sur une zone corporelle. Formé à la psychanalyse puis exposé, après son émigration, à l'observation de communautés amérindiennes, Erikson répond à deux limites à la fois : il étend la théorie à l'ensemble de la vie et recentre chaque étape sur un enjeu psychosocial plutôt que purement pulsionnel.",
     principles: [
       "Le développement se poursuit tout au long de la vie, et non seulement durant l'enfance.",
       "Chaque stade de la vie est structuré autour d'une tension psychosociale spécifique, par exemple confiance contre méfiance chez le nourrisson.",
@@ -447,6 +475,8 @@ export const theories: Theory[] = [
     psychologistIds: ['kurt-lewin'],
     summary:
       "Théorie développée par Kurt Lewin selon laquelle le comportement d'un individu à un instant donné résulte de l'interaction entre sa personne et son environnement psychologique global, qu'il nomme « espace de vie ».",
+    historicalContext:
+      "La psychologie sociale naissante manque encore d'un cadre général reliant le comportement individuel aux forces du groupe et de la situation. Formé en Allemagne au contact de la Gestalt, qui pense la perception comme un tout organisé, Lewin transpose cette idée au comportement lui-même : celui-ci ne peut se comprendre indépendamment de la totalité du champ psychologique dans lequel il se produit.",
     principles: [
       "Le comportement est fonction de la personne et de son environnement perçu, formalisé par Lewin comme C = f(P, E).",
       "L'espace de vie regroupe l'ensemble des faits psychologiques qui influencent le comportement d'un individu à un moment donné.",
@@ -478,6 +508,8 @@ export const theories: Theory[] = [
     psychologistIds: ['john-bowlby', 'mary-ainsworth'],
     summary:
       "Théorie développée par John Bowlby et étayée empiriquement par Mary Ainsworth, qui décrit le lien affectif entre l'enfant et sa figure de soins comme un système comportemental inné ayant une fonction de survie.",
+    historicalContext:
+      "La psychiatrie infantile de l'après-guerre, très marquée par la psychanalyse, s'intéresse surtout à la vie fantasmatique interne de l'enfant plutôt qu'à son lien réel avec sa figure de soins. L'inquiétude publique sur les effets des séparations précoces — enfants évacués, orphelins, hospitalisés durant la guerre — pousse l'Organisation mondiale de la santé à commander à Bowlby une réponse à cette question laissée en suspens, qu'Ainsworth viendra ensuite vérifier empiriquement.",
     principles: [
       "La recherche de proximité avec une figure d'attachement est un besoin primaire, non réductible à la seule satisfaction des besoins physiologiques.",
       "La figure d'attachement peut fonctionner comme une base de sécurité à partir de laquelle l'enfant explore son environnement.",
@@ -509,6 +541,8 @@ export const theories: Theory[] = [
     psychologistIds: ['aaron-beck'],
     summary:
       "Approche thérapeutique développée par Aaron Beck, selon laquelle les troubles émotionnels comme la dépression sont entretenus par des schémas de pensée systématiquement biaisés, qu'un travail structuré peut aider à identifier et à modifier.",
+    historicalContext:
+      "Formé à la psychanalyse, Beck entreprend dans les années 1960 de vérifier empiriquement certaines hypothèses freudiennes sur la dépression, sans parvenir à les confirmer. Cet échec le laisse face à une question sans réponse psychanalytique satisfaisante — qu'est-ce qui entretient réellement la dépression ? — à laquelle il répond en se tournant vers les pensées elles-mêmes plutôt que vers un conflit inconscient supposé.",
     principles: [
       "Les pensées, plus que les événements eux-mêmes, déterminent en grande partie les émotions et les comportements.",
       "Les distorsions cognitives sont des erreurs systématiques de raisonnement qui entretiennent la souffrance psychologique.",
@@ -540,6 +574,8 @@ export const theories: Theory[] = [
     psychologistIds: ['max-wertheimer', 'wolfgang-kohler', 'kurt-koffka'],
     summary:
       "Théorie fondée par Wertheimer, Köhler et Koffka, selon laquelle la perception organise spontanément les stimuli en totalités structurées et signifiantes, plutôt que de les additionner élément par élément.",
+    historicalContext:
+      "Le structuralisme wundtien explique la conscience en la décomposant en éléments simples que l'esprit assemblerait ensuite. Le phénomène observé par Wertheimer en 1910 — une illusion de mouvement que rien dans cette décomposition atomiste ne permet de prévoir — révèle une faille dans ce modèle, à laquelle le gestaltisme répond en posant que la perception organise d'emblée le réel en totalités, sans passer par l'addition d'éléments isolés.",
     principles: [
       "L'esprit perçoit d'abord des formes globales (Gestalten), pas des sensations isolées qu'il faudrait ensuite assembler.",
       "Cette organisation perceptive obéit à des lois précises : proximité, similarité, clôture, continuité, figure-fond.",
@@ -571,6 +607,8 @@ export const theories: Theory[] = [
     psychologistIds: ['hermann-ebbinghaus'],
     summary:
       "Approche fondée par Hermann Ebbinghaus, qui démontre qu'une fonction aussi complexe que la mémoire peut être étudiée avec la rigueur expérimentale, à l'aide de matériel dénué de sens et de mesures précises de l'oubli.",
+    historicalContext:
+      "Au moment même où Wundt institutionnalise à Leipzig une psychologie expérimentale fondée sur l'introspection en laboratoire, la mémoire est encore jugée trop complexe et trop dépendante des connaissances déjà acquises pour être mesurée objectivement. Ebbinghaus répond à ce doute en travaillant seul, hors de tout laboratoire, prouvant qu'une fonction aussi insaisissable que la mémoire peut néanmoins être quantifiée avec précision.",
     principles: [
       "Des syllabes sans signification permettent d'étudier la mémoire indépendamment des connaissances déjà acquises par le sujet.",
       "L'oubli suit une courbe régulière et mesurable : rapide dans les premières heures, puis de plus en plus lent.",
@@ -602,6 +640,8 @@ export const theories: Theory[] = [
     psychologistIds: ['stanley-milgram'],
     summary:
       "Théorie proposée par Stanley Milgram pour expliquer les résultats de ses expériences sur l'obéissance : face à une autorité perçue comme légitime, un individu peut basculer dans un « état agentique » où il se vit comme le simple exécutant de la volonté d'autrui.",
+    historicalContext:
+      "Le procès d'Adolf Eichmann à Jérusalem, en 1961, relance la question de savoir comment des personnes ordinaires peuvent participer à des actes atroces sur ordre — une question à laquelle les explications centrées sur la pathologie individuelle ou la cruauté de caractère peinent à répondre. Milgram y répond autrement, en cherchant le mécanisme non dans la personnalité de l'individu mais dans la structure même de la situation d'obéissance.",
     principles: [
       "Dans l'état agentique, l'individu ne se sent plus responsable de ses actes, mais seulement de la qualité avec laquelle il exécute les instructions reçues.",
       "Ce basculement est facilité par la légitimité perçue de l'autorité, la proximité physique de la victime et la présence ou non d'autres personnes qui refusent d'obéir.",
@@ -633,6 +673,8 @@ export const theories: Theory[] = [
     psychologistIds: [],
     summary:
       "Plusieurs théories concurrentes ont cherché à expliquer la relation entre l'activation physiologique, la pensée et le ressenti émotionnel — sans qu'aucune ne fasse aujourd'hui consensus absolu.",
+    historicalContext:
+      "Avant 1884, le sens commun et l'essentiel de la pensée philosophique supposent que l'émotion est d'abord un état mental qui provoque ensuite une réaction corporelle : nous tremblons parce que nous avons peur. James renverse cette séquence en 1884, ouvrant un débat, prolongé par Cannon et Bard puis par Schachter et Singer, qui n'a depuis jamais été définitivement tranché.",
     principles: [
       "La théorie de James-Lange (1884) propose que l'émotion soit la perception consciente d'une réaction corporelle : nous avons peur parce que nous tremblons, et non l'inverse.",
       "La théorie de Cannon-Bard (années 1920) objecte que réaction corporelle et ressenti émotionnel surviennent simultanément, tous deux déclenchés par le cerveau, sans que l'un ne cause l'autre.",
@@ -664,6 +706,8 @@ export const theories: Theory[] = [
     psychologistIds: ['daniel-kahneman', 'amos-tversky'],
     summary:
       "Programme de recherche développé par Kahneman et Tversky, qui montre que le jugement humain repose souvent sur des raccourcis mentaux économiques mais systématiquement biaisés, plutôt que sur un calcul rationnel complet.",
+    historicalContext:
+      "La théorie économique classique de la décision suppose un agent capable de calculer l'option rationnellement optimale. Kahneman et Tversky, dans une psychologie cognitive en plein essor à la fin des années 1960, répondent à cette hypothèse en documentant systématiquement la façon dont le jugement humain réel s'en écarte, de manière prévisible plutôt qu'aléatoire.",
     principles: [
       "Une heuristique est un raccourci mental qui permet de juger ou décider rapidement, au prix d'erreurs prévisibles dans certaines situations.",
       "L'heuristique de représentativité conduit à juger la probabilité d'un événement selon sa ressemblance avec un cas typique, plutôt que selon sa fréquence réelle.",
@@ -695,6 +739,8 @@ export const theories: Theory[] = [
     psychologistIds: ['gordon-allport'],
     summary:
       "Approche fondée par Gordon Allport, qui décrit la personnalité à partir de traits — des dispositions relativement stables à penser, ressentir et agir d'une certaine façon — plutôt qu'à partir de pulsions inconscientes ou de renforcements appris.",
+    historicalContext:
+      "Dans les années 1920 et 1930, la description de la personnalité repose surtout sur des études de cas psychanalytiques ou des typologies sommaires, peu propices à une mesure rigoureuse. Marqué par sa rencontre déconcertante avec Freud, Allport répond à ce manque en proposant une approche empirique fondée sur le langage courant : répertorier les mots eux-mêmes que les gens utilisent pour décrire la personnalité.",
     principles: [
       "Un trait de personnalité est une disposition durable qui rend un comportement plus probable dans des situations variées.",
       "Allport distingue les traits cardinaux (rares, qui dominent toute une existence), les traits centraux (les grandes caractéristiques d'une personne) et les traits secondaires (plus spécifiques à certaines situations).",
@@ -726,6 +772,8 @@ export const theories: Theory[] = [
     psychologistIds: ['alan-baddeley'],
     summary:
       "Modèle proposé par Alan Baddeley et Graham Hitch, qui remplace la notion unique de mémoire à court terme par un système actif à plusieurs composantes, mobilisé pour maintenir et manipuler l'information le temps d'une tâche.",
+    historicalContext:
+      "Les modèles cognitifs de la mémoire des années 1960, qui distinguent des registres sensoriel, à court terme et à long terme, traitent la mémoire à court terme comme un simple espace de stockage passif. Face à des observations montrant que cette mémoire est en réalité mobilisée activement pendant l'exécution d'une tâche, Baddeley et Hitch y répondent par un modèle actif à plusieurs composantes plutôt que par un simple lieu de dépôt.",
     principles: [
       "L'administrateur central coordonne l'attention et supervise deux systèmes esclaves spécialisés.",
       "La boucle phonologique maintient temporairement l'information verbale et sonore.",
