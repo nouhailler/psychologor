@@ -116,6 +116,14 @@ export default function ConceptDetail() {
           </div>
         </section>
       )}
+
+      <Link
+        to={`/comparaison?type=concepts&id=${concept.id}`}
+        className="text-body-sm text-accent"
+        style={{ display: 'inline-block', marginTop: 'var(--space-2)', marginBottom: 'var(--space-8)', fontWeight: 600 }}
+      >
+        Comparer avec un autre concept →
+      </Link>
     </div>
   );
 }

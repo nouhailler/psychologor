@@ -52,7 +52,7 @@ Chaque fiche — psychologue, théorie, concept — est reliée aux autres. L'ap
 | 🧭 **Parcours guidés** | Bibliothèque de 32 parcours pas à pas (introduction, courants, biographies, concepts, débats, expériences, histoire, révision…), avec progression persistée hors ligne |
 | 🕰️ **Chronologie** | Timeline interactive — verticale sur mobile, horizontale sur desktop — filtrable par type et courant |
 | 🕸️ **Carte des idées** | Graphe de connaissances interactif (React Flow) sur desktop, chaîne d'influence adaptée sur mobile |
-| ⚖️ **Comparaison** | Comparez jusqu'à 3 théories côte à côte (tableau desktop / cartes empilées mobile) |
+| ⚖️ **Comparaison** | Comparez jusqu'à 3 éléments côte à côte — théories, concepts, psychologues ou courants — avec tableau croisé (✓ / —) sur les entités partagées |
 | ⭐ **Favoris & historique** | Sauvegarde locale persistante via IndexedDB (Dexie) |
 | 🌗 **Thème clair / sombre** | Véritable thème graphique, pas une simple inversion, avec transition douce |
 | 📶 **Hors ligne** | Service worker + cache des données : consultable sans connexion |

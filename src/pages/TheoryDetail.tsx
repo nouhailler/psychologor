@@ -190,7 +190,7 @@ export default function TheoryDetail() {
                 </tbody>
               </table>
               <Link
-                to={`/comparaison?theorie=${theory.id}`}
+                to={`/comparaison?type=theories&id=${theory.id}`}
                 className="text-body-sm text-accent"
                 style={{ display: 'inline-block', marginTop: 'var(--space-4)', fontWeight: 600 }}
               >

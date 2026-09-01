@@ -275,6 +275,15 @@ export default function PsychologistDetail() {
                 </div>
               </div>
             )}
+            <div className={styles.infoBlock}>
+              <Link
+                to={`/comparaison?type=psychologists&id=${psychologist.id}`}
+                className="text-body-sm text-accent"
+                style={{ fontWeight: 600 }}
+              >
+                Comparer avec un autre psychologue →
+              </Link>
+            </div>
           </aside>
         </div>
       </div>

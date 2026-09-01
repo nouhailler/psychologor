@@ -2,6 +2,46 @@
   padding: var(--space-7) 0 var(--space-6);
 }
 
+.typeTabs {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-sunken);
+  border: 1px solid var(--color-border);
+  margin-bottom: var(--space-6);
+}
+
+.typeTab {
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.typeTabActive {
+  background: var(--color-surface-elevated);
+  color: var(--color-primary);
+  box-shadow: var(--shadow-xs);
+}
+
+.tableTitle {
+  margin: var(--space-7) 0 var(--space-4);
+}
+
+.tableTitle:first-of-type {
+  margin-top: 0;
+}
+
+.headerLink:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
 .picker {
   margin-bottom: var(--space-7);
 }
@@ -114,4 +154,48 @@
 .criterionCard p:first-child {
   color: var(--color-primary);
   margin-bottom: 4px;
+}
+
+/* ---- Tableau croisé (✓ / —) ---- */
+.crossTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.crossTable th,
+.crossTable td {
+  text-align: left;
+  padding: var(--space-3) var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+.crossTable thead th {
+  background: var(--color-surface-sunken);
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+.crossTable tbody th {
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.crossRowLink:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.crossCell {
+  text-align: center !important;
+}
+
+.crossCheck {
+  color: var(--color-success);
+}
+
+.crossDash {
+  color: var(--color-text-tertiary);
 }
