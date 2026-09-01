@@ -18,6 +18,8 @@ export const psychologists: Psychologist[] = [
     schoolIds: ['experimentale'],
     summary:
       "Physiologiste et philosophe allemand, considéré comme le fondateur de la psychologie en tant que discipline scientifique autonome.",
+    historicalContext:
+      "Au milieu du XIXe siècle, la psychologie n'est encore qu'une branche de la philosophie. Mais la psychophysique de Fechner et les travaux de Helmholtz, son propre maître, viennent de montrer que des phénomènes mentaux — sensation, temps de réaction — peuvent être mesurés avec la rigueur des sciences naturelles, ouvrant la voie que Wundt va emprunter.",
     biography: [
       "Wilhelm Wundt fonde en 1879 à l'université de Leipzig le premier laboratoire consacré exclusivement à la psychologie expérimentale, un événement traditionnellement considéré comme l'acte de naissance de la psychologie scientifique.",
       "Formé à la physiologie auprès d'Hermann von Helmholtz, Wundt cherche à appliquer les méthodes des sciences naturelles à l'étude de l'expérience consciente, notamment par l'introspection contrôlée en laboratoire et la mesure des temps de réaction.",
@@ -56,6 +58,8 @@ export const psychologists: Psychologist[] = [
     schoolIds: ['experimentale'],
     summary:
       "Philosophe et psychologue américain, souvent considéré comme le père de la psychologie américaine et fondateur du fonctionnalisme.",
+    historicalContext:
+      "Au début des années 1870, la psychologie académique américaine n'existe pratiquement pas encore, tandis qu'en Allemagne Wundt s'apprête à fonder son laboratoire de Leipzig. Imprégné de la pensée évolutionniste de Darwin, James s'interroge moins sur la structure de l'esprit que sur sa fonction adaptative — une question que la psychologie naissante ne s'était pas encore posée en ces termes.",
     biography: [
       "William James enseigne la physiologie, puis la psychologie et la philosophie à l'université Harvard, où il crée l'un des premiers laboratoires de psychologie américains au début des années 1870.",
       "Son ouvrage majeur, The Principles of Psychology (1890), synthétise les connaissances de son temps et introduit des notions durables comme le « flux de conscience » (stream of consciousness).",
@@ -93,6 +97,8 @@ export const psychologists: Psychologist[] = [
     schoolIds: ['psychanalyse'],
     summary:
       "Neurologue autrichien, fondateur de la psychanalyse, dont les théories sur l'inconscient ont durablement transformé la compréhension de l'esprit humain.",
+    historicalContext:
+      "La neurologie de la fin du XIXe siècle explique encore les troubles nerveux par des causes anatomiques. Le séjour de Freud auprès de Charcot à la Salpêtrière, où l'hystérie est étudiée cliniquement sans lésion organique identifiable, ouvre la possibilité qu'une cause purement psychique puisse produire des symptômes réels — une idée sur laquelle Freud va bâtir toute son œuvre.",
     biography: [
       "Sigmund Freud commence sa carrière comme neurologue à Vienne. Son séjour à Paris auprès de Jean-Martin Charcot, qui étudie l'hystérie à la Salpêtrière, oriente durablement son intérêt vers les causes psychiques des troubles nerveux.",
       "Avec Josef Breuer, il développe la « méthode cathartique », prémices de la cure psychanalytique, avant de fonder une théorie complète de l'appareil psychique articulée autour de l'inconscient, de la sexualité infantile et des mécanismes de défense.",
@@ -134,6 +140,8 @@ export const psychologists: Psychologist[] = [
     schoolIds: ['analytique'],
     summary:
       "Psychiatre suisse, proche collaborateur puis dissident de Freud, fondateur de la psychologie analytique et du concept d'inconscient collectif.",
+    historicalContext:
+      "Au début du XXe siècle, la psychanalyse reste un mouvement jeune et contesté, en quête de reconnaissance scientifique au-delà du cercle viennois de Freud. Déjà reconnu en psychiatrie académique pour ses travaux sur les associations de mots, Jung devient l'héritier pressenti de Freud — une position centrale que les tensions internes au mouvement sur la nature de l'inconscient rendront bientôt intenable.",
     biography: [
       "Carl Gustav Jung travaille d'abord à la clinique psychiatrique du Burghölzli à Zurich, sous la direction d'Eugen Bleuler, où il étudie la schizophrénie et développe le test des associations de mots.",
       "Proche de Freud à partir de 1907, désigné comme son successeur pressenti à la tête du mouvement psychanalytique, Jung rompt avec lui en 1913 en raison de désaccords théoriques majeurs, notamment sur la nature sexuelle de la libido.",
@@ -173,6 +181,8 @@ export const psychologists: Psychologist[] = [
     schoolIds: ['individuelle'],
     summary:
       "Médecin autrichien, membre fondateur du cercle psychanalytique viennois avant de rompre avec Freud pour fonder la psychologie individuelle.",
+    historicalContext:
+      "Comme Jung, Adler appartient au premier cercle réuni autour de Freud à Vienne, à une époque où la psychanalyse cherche encore à unifier ses membres autour d'une théorie commune. Sa formation initiale de médecin généraliste, plus attentive aux facteurs sociaux et corporels qu'à la seule sexualité, le prédispose à s'écarter du modèle freudien centré sur la pulsion.",
     biography: [
       "Alfred Adler rejoint dès 1902 le cercle de discussion réuni autour de Freud à Vienne, mais des désaccords théoriques croissants, portant notamment sur le rôle central attribué à la sexualité, le conduisent à s'en séparer en 1911.",
       "Il fonde alors la psychologie individuelle, une approche holistique qui considère la personne comme un tout indivisible orienté vers des buts sociaux, et non comme le jouet de pulsions inconscientes.",
@@ -212,6 +222,8 @@ export const psychologists: Psychologist[] = [
     schoolIds: ['behaviorisme'],
     summary:
       "Physiologiste russe, prix Nobel de physiologie ou médecine, dont les travaux sur le conditionnement classique ont fondé une part essentielle du behaviorisme.",
+    historicalContext:
+      "La physiologie russe de la fin du XIXe siècle privilégie des explications mécanistes et réflexes du système nerveux, une tradition dans laquelle s'inscrivent pleinement les recherches de Pavlov sur la digestion. C'est en restant strictement fidèle à cette méthode physiologique, et non en se tournant vers la psychologie, qu'il découvre presque par accident le réflexe conditionné.",
     biography: [
       "Ivan Pavlov mène des recherches sur la physiologie de la digestion chez le chien, travaux pour lesquels il reçoit le prix Nobel de physiologie ou médecine en 1904.",
       "Au cours de ces expériences, il observe que les chiens se mettent à saliver à des stimuli initialement neutres associés à la nourriture : il formalise ce phénomène sous le nom de réflexe conditionné, posant les bases de la théorie du conditionnement classique.",
@@ -251,6 +263,8 @@ export const psychologists: Psychologist[] = [
     schoolIds: ['behaviorisme'],
     summary:
       "Psychologue américain, fondateur du behaviorisme, pour qui la psychologie scientifique doit se limiter à l'étude du comportement observable.",
+    historicalContext:
+      "La psychologie américaine du début du XXe siècle reste largement tributaire de l'introspection héritée de Wundt et de James. La psychologie animale comparée, dans laquelle Watson se forme, s'oriente déjà vers l'étude objective du comportement observable — un terrain méthodologique dont il tire le manifeste qui va fonder le behaviorisme.",
     biography: [
       "John B. Watson publie en 1913 le manifeste « Psychology as the Behaviorist Views It », dans lequel il rejette l'introspection comme méthode scientifique et propose de fonder la psychologie sur l'observation objective du comportement.",
       "S'appuyant sur les travaux de Pavlov sur le conditionnement, Watson soutient que l'essentiel du comportement humain s'explique par l'apprentissage associatif entre stimuli et réponses, minimisant le rôle des facteurs innés.",
@@ -290,6 +304,8 @@ export const psychologists: Psychologist[] = [
     schoolIds: ['behaviorisme'],
     summary:
       "Psychologue américain, figure majeure du behaviorisme radical, connu pour ses travaux sur le conditionnement opérant.",
+    historicalContext:
+      "Dans les années 1930, le behaviorisme fondé par Watson domine la psychologie académique américaine, mais on lui reproche encore de s'appuyer sur des liens stimulus-réponse difficiles à observer directement. Skinner entre dans une discipline en quête d'un behaviorisme plus strict, entièrement fondé sur des conséquences mesurables plutôt que sur des inférences internes.",
     biography: [
       "B. F. Skinner développe le behaviorisme radical, selon lequel l'ensemble du comportement, y compris les processus mentaux, peut être analysé en termes de contingences de renforcement, sans recours à des états mentaux internes inobservables.",
       "Il conçoit un dispositif expérimental, la « boîte de Skinner », permettant d'étudier précisément comment le comportement d'un animal se modifie en fonction des conséquences qu'il produit : renforcement positif, renforcement négatif ou punition.",
@@ -328,6 +344,8 @@ export const psychologists: Psychologist[] = [
     schoolIds: ['developpement', 'cognitivisme'],
     summary:
       "Psychologue et épistémologue suisse, fondateur de la théorie constructiviste du développement cognitif de l'enfant.",
+    historicalContext:
+      "Au début du XXe siècle, l'étude de l'intelligence enfantine se limite le plus souvent à sa mesure par des tests standardisés, comme ceux mis au point dans le laboratoire d'Alfred Binet où travaille Piaget. C'est en s'intéressant aux erreurs systématiques des enfants — plutôt qu'à leurs seuls scores — qu'il ouvre une voie nouvelle, à un moment où la psychologie du développement commence tout juste à se constituer comme domaine autonome.",
     biography: [
       "Jean Piaget commence sa carrière scientifique par la biologie et la malacologie avant de se tourner vers la psychologie, notamment lors d'un passage dans le laboratoire d'Alfred Binet à Paris, où il s'intéresse aux erreurs typiques des enfants dans les tests d'intelligence.",
       "Il développe une théorie selon laquelle l'intelligence se construit progressivement, par l'action de l'enfant sur son environnement, à travers une série de stades qualitativement distincts : sensori-moteur, préopératoire, opératoire concret et opératoire formel.",
@@ -366,6 +384,8 @@ export const psychologists: Psychologist[] = [
     schoolIds: ['developpement'],
     summary:
       "Psychologue soviétique, fondateur de la théorie socioculturelle du développement, qui souligne le rôle central du langage et des interactions sociales dans la pensée.",
+    historicalContext:
+      "Dans l'Union soviétique des années 1920, la psychologie est appelée à se reconstruire sur des bases marxistes, attentives à la formation sociale et historique de l'individu. Ce climat intellectuel pousse Vygotsky vers une explication radicalement sociale du développement de la pensée, en contraste avec l'approche plus centrée sur l'enfant seul que développe au même moment Piaget en Suisse.",
     biography: [
       "Lev Vygotsky développe, en quelques années d'une carrière fulgurante et interrompue prématurément, une théorie du développement psychologique qui met l'accent sur l'origine sociale et culturelle des fonctions mentales supérieures.",
       "Il soutient que le développement cognitif de l'enfant ne peut être compris indépendamment de son contexte social, historique et culturel, et que le langage joue un rôle constitutif dans la formation de la pensée.",
@@ -404,6 +424,8 @@ export const psychologists: Psychologist[] = [
     schoolIds: ['humanisme'],
     summary:
       "Psychologue américain, fondateur de l'approche centrée sur la personne, figure majeure de la psychologie humaniste.",
+    historicalContext:
+      "Au milieu du XXe siècle, la psychothérapie américaine oscille entre l'interprétation psychanalytique et des formes de conseil directif où le thérapeute se pose en expert du patient. L'expérience clinique de Rogers auprès d'enfants et de jeunes en difficulté le conduit à remettre en cause ce rôle d'expert, à un moment où psychanalyse et behaviorisme s'accordent, chacun à sa manière, à expliquer la personne par des forces extérieures ou inconscientes.",
     biography: [
       "Carl Rogers élabore une approche thérapeutique non directive, dans laquelle le thérapeute crée les conditions nécessaires — congruence, considération positive inconditionnelle et empathie — pour permettre au client de mobiliser ses propres ressources de changement.",
       "Il s'oppose à la fois à la vision psychanalytique de conflits inconscients déterminants et à la vision behavioriste d'un comportement façonné de l'extérieur, en insistant sur la tendance actualisante propre à chaque individu.",
@@ -442,6 +464,8 @@ export const psychologists: Psychologist[] = [
     schoolIds: ['humanisme'],
     summary:
       "Psychologue américain, connu pour sa théorie de la hiérarchie des besoins et pour avoir contribué à fonder la psychologie humaniste.",
+    historicalContext:
+      "Dans les années 1940, la psychologie américaine se partage pour l'essentiel entre une psychanalyse centrée sur la pathologie et un behaviorisme centré sur le conditionnement observable ; presque personne n'étudie alors ce qui fait qu'un individu s'épanouit pleinement. Maslow, formé à la psychologie expérimentale, choisit délibérément d'étudier des personnes qu'il juge psychologiquement accomplies plutôt que des patients.",
     biography: [
       "Abraham Maslow propose en 1943, dans son article « A Theory of Human Motivation », une hiérarchie des besoins humains représentée classiquement sous la forme d'une pyramide, des besoins physiologiques fondamentaux jusqu'au besoin d'actualisation de soi.",
       "Il s'intéresse particulièrement aux individus qu'il juge psychologiquement épanouis, qu'il étudie pour dégager les traits caractéristiques de l'actualisation de soi, plutôt qu'à la seule pathologie mentale.",
@@ -480,6 +504,8 @@ export const psychologists: Psychologist[] = [
     schoolIds: ['cognitivisme', 'sociale', 'behaviorisme'],
     summary:
       "Psychologue canado-américain, auteur de la théorie sociale cognitive, connu pour ses travaux sur l'apprentissage par observation et le sentiment d'auto-efficacité.",
+    historicalContext:
+      "À la fin des années 1950, le behaviorisme skinnérien domine encore la psychologie américaine et soutient que tout apprentissage exige un renforcement direct. L'expérience de la poupée Bobo survient alors que la révolution cognitive commence tout juste à réintroduire l'étude des processus mentaux, fournissant à Bandura le terrain empirique pour remettre en cause ce modèle behavioriste strict.",
     biography: [
       "Albert Bandura démontre, avec sa célèbre expérience de la poupée Bobo (1961), que les enfants peuvent apprendre des comportements, y compris agressifs, par simple observation d'un modèle, sans renforcement direct — un résultat qui bouscule les explications behavioristes classiques de l'apprentissage.",
       "Il développe ensuite la théorie sociale cognitive, selon laquelle le comportement humain résulte d'une interaction constante entre facteurs personnels, comportementaux et environnementaux, un modèle qu'il nomme « déterminisme réciproque ».",
@@ -519,6 +545,8 @@ export const psychologists: Psychologist[] = [
     schoolIds: ['developpement', 'psychanalyse'],
     summary:
       "Psychanalyste germano-américain, connu pour sa théorie du développement psychosocial couvrant l'ensemble de la vie humaine.",
+    historicalContext:
+      "Formé dans le cercle psychanalytique viennois d'Anna Freud juste avant que la montée du nazisme ne le disperse, Erikson émigre aux États-Unis où il mène aussi des observations de terrain auprès de communautés amérindiennes. Cette double expérience — psychanalyse clinique et anthropologie de terrain — l'amène à élargir le cadre freudien vers les dimensions sociales et culturelles du développement.",
     biography: [
       "Erik Erikson se forme à la psychanalyse à Vienne, notamment auprès d'Anna Freud, avant d'émigrer aux États-Unis dans les années 1930 face à la montée du nazisme.",
       "Il élargit la théorie freudienne des stades psychosexuels en une théorie des huit stades du développement psychosocial, couvrant toute la durée de la vie, de la naissance à la vieillesse, chacun structuré autour d'une crise psychologique spécifique à résoudre.",
@@ -556,6 +584,8 @@ export const psychologists: Psychologist[] = [
     schoolIds: ['sociale'],
     summary:
       "Psychologue germano-américain, considéré comme l'un des fondateurs de la psychologie sociale moderne et de l'étude de la dynamique de groupe.",
+    historicalContext:
+      "Formé dans l'Allemagne des années 1920, où la psychologie de la Gestalt renouvelle la façon de penser la perception comme organisation d'un tout, Lewin est contraint à l'exil par les persécutions nazies. Il transpose alors cette pensée du « champ » dans une psychologie sociale américaine encore en construction institutionnelle, marquée par les préoccupations d'après-guerre sur la propagande et la dynamique des groupes.",
     biography: [
       "Kurt Lewin émigre aux États-Unis en 1933 pour fuir le nazisme et y développe la théorie du champ, selon laquelle le comportement d'un individu résulte de l'interaction entre sa personne et son environnement psychologique global, qu'il nomme « espace de vie ».",
       "Il fonde le Research Center for Group Dynamics, d'abord au Massachusetts Institute of Technology, consacré à l'étude scientifique du fonctionnement des groupes, du leadership et du changement social.",
@@ -593,6 +623,8 @@ export const psychologists: Psychologist[] = [
     schoolIds: ['developpement', 'psychanalyse'],
     summary:
       "Psychiatre et psychanalyste britannique, fondateur de la théorie de l'attachement, qui décrit le lien affectif précoce entre l'enfant et sa figure de soins.",
+    historicalContext:
+      "Après la Seconde Guerre mondiale, l'expérience des enfants séparés de leurs parents — évacués, orphelins, hospitalisés — suscite une inquiétude publique sur les effets psychologiques de la privation de soins maternels, au point que l'Organisation mondiale de la santé commande à Bowlby un rapport sur la question. La psychiatrie infantile de l'époque, très marquée par la psychanalyse, s'intéresse alors surtout à la vie fantasmatique interne de l'enfant plutôt qu'au lien réel qu'il entretient avec sa figure de soins.",
     biography: [
       "John Bowlby, formé à la psychanalyse, s'écarte progressivement de l'accent mis par cette tradition sur la vie fantasmatique interne pour développer une théorie fondée sur l'observation directe de la relation réelle entre l'enfant et sa figure d'attachement.",
       "Il soutient que le besoin de proximité avec une figure d'attachement est un système comportemental inné, ayant une fonction de survie au sens de l'évolution, et que la qualité de ce lien précoce influence durablement le développement socio-affectif.",
@@ -630,6 +662,8 @@ export const psychologists: Psychologist[] = [
     schoolIds: ['developpement'],
     summary:
       "Psychologue américano-canadienne, collaboratrice de John Bowlby, qui donne à la théorie de l'attachement ses fondations empiriques.",
+    historicalContext:
+      "La théorie de l'attachement que Bowlby développe à la Tavistock Clinic reste, dans les années 1950, largement conceptuelle. Ainsworth y apporte une tradition d'observation naturaliste rigoureuse, qu'elle applique d'abord sur le terrain en Ouganda puis à Baltimore, à un moment où la psychologie du développement valorise de plus en plus l'observation directe du comportement de l'enfant en contexte réel plutôt que le seul récit clinique.",
     biography: [
       "Mary Ainsworth rejoint John Bowlby à la Tavistock Clinic de Londres, où elle contribue à donner une assise empirique à la théorie de l'attachement qu'il développe.",
       "Ses observations naturalistes des interactions mère-enfant en Ouganda, puis à Baltimore, la conduisent à concevoir un protocole expérimental désormais classique, la « situation étrange », permettant d'évaluer la qualité de l'attachement d'un jeune enfant à sa figure de soins.",
@@ -669,6 +703,8 @@ export const psychologists: Psychologist[] = [
     schoolIds: ['cognitivisme'],
     summary:
       "Psychiatre américain, fondateur de la thérapie cognitive, dont les travaux ont donné naissance aux thérapies cognitivo-comportementales modernes.",
+    historicalContext:
+      "Dans les années 1950, la psychiatrie américaine forme encore ses cliniciens presque exclusivement à la théorie psychanalytique. C'est en tentant, avec les outils de la recherche empirique alors en plein essor, de vérifier certaines hypothèses freudiennes sur la dépression — sans y parvenir — que Beck se tourne vers un modèle centré sur les pensées, à un moment où les approches comportementales gagnent aussi du terrain en clinique.",
     biography: [
       "Formé initialement à la psychanalyse, Aaron Beck entreprend dans les années 1960 de vérifier empiriquement certaines hypothèses psychanalytiques sur la dépression, sans parvenir à les confirmer.",
       "Il développe à la place un modèle selon lequel la dépression et d'autres troubles psychologiques sont entretenus par des schémas de pensée systématiquement biaisés — les distorsions cognitives — que la thérapie peut aider à identifier et à corriger.",
@@ -705,6 +741,8 @@ export const psychologists: Psychologist[] = [
     schoolIds: ['gestalt'],
     summary:
       "Psychologue austro-hongrois, fondateur de la psychologie de la forme (Gestalt), à partir de ses travaux sur la perception du mouvement apparent.",
+    historicalContext:
+      "La psychologie allemande du début du XXe siècle reste dominée par le structuralisme de Wundt, qui décompose la conscience en éléments simples. Le phénomène que Wertheimer observe par hasard lors d'un trajet en train — une illusion de mouvement que rien dans cette décomposition atomiste ne permet d'expliquer — devient l'anomalie fondatrice à partir de laquelle il construit toute une théorie alternative de la perception.",
     biography: [
       "Max Wertheimer observe en 1910, lors d'un trajet en train, ce qui deviendra le point de départ de la Gestalt : l'illusion de mouvement produite par deux stimuli fixes présentés successivement (le « phénomène phi »). Il conduit à Francfort des expériences sur ce phénomène avec deux jeunes assistants, Wolfgang Köhler et Kurt Koffka.",
       "Publié en 1912, ce travail fonde un courant qui s'oppose à la fois au structuralisme, jugé trop atomiste, et plus tard au behaviorisme : pour Wertheimer, la perception organise spontanément le réel en totalités structurées, irréductibles à la somme de leurs parties.",
@@ -743,6 +781,8 @@ export const psychologists: Psychologist[] = [
     schoolIds: ['gestalt'],
     summary:
       "Psychologue allemand, figure majeure de la Gestalt, connu pour ses études sur la résolution de problèmes par insight chez les chimpanzés.",
+    historicalContext:
+      "Assistant de Wertheimer dès les expériences fondatrices de 1910, Köhler travaille dans un contexte scientifique où l'étude comparée du comportement animal — chez Pavlov comme chez les premiers behavioristes américains — se développe en parallèle. Sa direction de la station de recherche sur les primates de Tenerife lui permet de tester les idées gestaltistes sur la perception hors du laboratoire humain, sur un terrain alors peu exploré par la psychologie européenne.",
     biography: [
       "Assistant de Wertheimer lors des expériences fondatrices de 1910 à Francfort, Wolfgang Köhler dirige de 1913 à 1920 la station de recherche sur les primates de l'Académie des sciences de Prusse, sur l'île de Tenerife.",
       "Il y observe que les chimpanzés peuvent résoudre des problèmes pratiques (atteindre une banane hors de portée) non par essais et erreurs progressifs, mais par une réorganisation soudaine de leur perception de la situation — un phénomène qu'il nomme insight, ou compréhension soudaine.",
@@ -780,6 +820,8 @@ export const psychologists: Psychologist[] = [
     accentColor: '#7A5A22',
     schoolIds: ['gestalt'],
     summary: "Psychologue allemand, troisième fondateur de la Gestalt aux côtés de Wertheimer et Köhler, auteur de sa grande synthèse théorique.",
+    historicalContext:
+      "Présent dès 1910 aux côtés de Wertheimer et Köhler à Francfort, Koffka appartient à la première génération de la Gestalt, à une époque où ce courant naissant doit encore convaincre une communauté scientifique largement acquise au structuralisme ou en voie de le devenir au behaviorisme. Sa tâche devient, dans les décennies suivantes, de systématiser et de diffuser internationalement des idées encore dispersées dans plusieurs articles fondateurs.",
     biography: [
       "Comme Köhler, Kurt Koffka participe en 1910 aux expériences de Wertheimer sur le mouvement apparent à Francfort, en tant que sujet puis collaborateur.",
       "Il consacre ensuite une part importante de sa carrière à diffuser et systématiser les idées gestaltistes, notamment dans le domaine de la psychologie du développement de l'enfant.",
@@ -816,6 +858,8 @@ export const psychologists: Psychologist[] = [
     accentColor: '#2E8FA6',
     schoolIds: ['experimentale'],
     summary: "Psychologue allemand, pionnier de l'étude expérimentale de la mémoire, découvreur de la courbe de l'oubli.",
+    historicalContext:
+      "À l'époque même où Wundt installe à Leipzig la première méthode institutionnalisée de la psychologie expérimentale, Ebbinghaus travaille en dehors de tout laboratoire ou école établie. Sa contribution montre qu'un processus aussi complexe que la mémoire peut être étudié avec la même rigueur, par une méthode entièrement personnelle — preuve indépendante que la nouvelle science psychologique n'a pas besoin d'un unique centre institutionnel pour progresser.",
     biography: [
       "Sans laboratoire ni maître en psychologie expérimentale de la mémoire, Hermann Ebbinghaus invente seul, à la fin des années 1870, une méthode pour étudier la mémoire de façon rigoureuse : il se sert lui-même de sujet, mémorisant de longues listes de syllabes sans signification (comme « ZUG » ou « BOK ») pour éliminer l'influence des connaissances déjà acquises.",
       "En mesurant le nombre de répétitions nécessaires pour réapprendre une liste partiellement oubliée, il met en évidence la « courbe de l'oubli » : la mémoire décline rapidement dans les premières heures suivant l'apprentissage, puis se stabilise.",
@@ -851,6 +895,8 @@ export const psychologists: Psychologist[] = [
     accentColor: '#A64A4A',
     schoolIds: ['sociale'],
     summary: "Psychologue social américain, connu pour ses expériences sur la soumission à l'autorité, parmi les plus célèbres et les plus controversées de la discipline.",
+    historicalContext:
+      "Le procès d'Adolf Eichmann à Jérusalem, qui s'ouvre en 1961, place au cœur du débat public la question de la participation de personnes ordinaires à des actes atroces sous couvert d'obéissance hiérarchique. Milgram, formé dans la tradition des études sur le conformisme d'Allport et d'Asch, conçoit son expérience directement en réponse à cette actualité, à un moment où la psychologie sociale se constitue comme discipline expérimentale à part entière.",
     biography: [
       "Formé à Harvard sous la direction de Gordon Allport, Stanley Milgram travaille aussi, comme assistant de recherche, auprès de Solomon Asch, dont les études sur le conformisme nourrissent son intérêt pour l'influence sociale.",
       "À partir de 1961, à l'université Yale, il conçoit une expérience destinée à mesurer jusqu'où des personnes ordinaires sont prêtes à obéir à une autorité légitime, même lorsque cela implique d'infliger une souffrance à autrui — une question qui le préoccupe alors que se tient le procès d'Adolf Eichmann.",
@@ -887,6 +933,8 @@ export const psychologists: Psychologist[] = [
     accentColor: '#3F9E6D',
     schoolIds: ['sociale'],
     summary: "Psychologue social polono-américain, connu pour ses expériences sur le conformisme face à la pression d'un groupe.",
+    historicalContext:
+      "Dans les années 1950, la psychologie sociale émerge comme domaine expérimental distinct, à un moment où l'influence de la Gestalt sur la façon de penser la perception comme organisation d'ensemble reste vive à Swarthmore College, où Asch côtoie Wolfgang Köhler. C'est cette sensibilité gestaltiste qui l'intéresse moins au conformisme comme simple soumission qu'à la manière dont la présence d'un groupe peut réellement restructurer la perception d'une situation par ailleurs sans ambiguïté.",
     biography: [
       "Émigré aux États-Unis à l'âge de treize ans, Solomon Asch développe une approche de la psychologie sociale marquée par l'influence de la Gestalt, dont il est proche à Swarthmore College, où il côtoie notamment Wolfgang Köhler.",
       "Il conçoit en 1951 une expérience restée célèbre : des participants doivent juger publiquement la longueur de lignes après avoir entendu plusieurs complices de l'expérimentateur donner, à voix haute, une réponse manifestement fausse.",
@@ -922,6 +970,8 @@ export const psychologists: Psychologist[] = [
     accentColor: '#2E8FA6',
     schoolIds: ['cognitivisme'],
     summary: "Psychologue cognitiviste américaine, spécialiste de la mémoire et de sa vulnérabilité à la reconstruction et à la suggestion.",
+    historicalContext:
+      "Dans les années 1970, la révolution cognitive amorcée par des chercheurs comme George Miller a déjà déplacé l'étude de la mémoire d'un simple modèle de stockage vers l'idée d'un processus actif de reconstruction. Loftus applique cette conception à des situations concrètes et à fort enjeu, comme le témoignage judiciaire, à une époque où la justice continue de traiter le souvenir d'un témoin comme un enregistrement fiable.",
     biography: [
       "Elizabeth Loftus étudie comment le souvenir d'un événement peut être modifié après coup par des informations reçues ultérieurement — le « effet de désinformation ». Avec John Palmer, elle montre en 1974 que la simple formulation d'une question (« à quelle vitesse roulaient les voitures quand elles se sont percutées » contre « quand elles se sont juste touchées ») modifie le souvenir que les témoins gardent d'un accident.",
       "Ses travaux ultérieurs montrent qu'il est possible d'implanter, chez une proportion significative de participants, le souvenir détaillé et vivace d'un événement de l'enfance qui ne s'est en réalité jamais produit.",
@@ -957,6 +1007,8 @@ export const psychologists: Psychologist[] = [
     accentColor: '#2E6B8A',
     schoolIds: ['cognitivisme'],
     summary: "Psychologue israélo-américain, prix « Nobel » d'économie, qui a montré combien le jugement humain s'écarte systématiquement de la rationalité idéale.",
+    historicalContext:
+      "À la fin des années 1960, la révolution cognitive a rendu à la psychologie l'étude des processus mentaux, tandis que l'économie continue de raisonner sur un individu idéalement rationnel. Kahneman et Tversky, à l'université hébraïque de Jérusalem, situent d'emblée leur programme de recherche à la croisée de ces deux mondes, en confrontant systématiquement le jugement humain réel à ce modèle de rationalité.",
     biography: [
       "Avec son collaborateur de longue date Amos Tversky, Daniel Kahneman étudie à partir de la fin des années 1960 les raccourcis mentaux, ou heuristiques, que nous utilisons pour juger et décider rapidement — et les biais systématiques qu'ils entraînent.",
       "Leurs travaux culminent en 1979 avec la publication de la théorie des perspectives (prospect theory), qui décrit comment les individus évaluent réellement le risque, de façon souvent très différente de ce que prédit la théorie économique classique de l'utilité.",
@@ -993,6 +1045,8 @@ export const psychologists: Psychologist[] = [
     accentColor: '#2E6B8A',
     schoolIds: ['cognitivisme'],
     summary: "Psychologue cognitiviste israélien, cofondateur avec Daniel Kahneman du programme de recherche sur les heuristiques et biais du jugement.",
+    historicalContext:
+      "Même climat intellectuel que celui de son collaborateur Daniel Kahneman : une psychologie cognitive en plein essor cherchant à décrire comment l'esprit traite réellement l'information, face à une théorie économique de la décision encore fondée sur l'hypothèse d'un agent parfaitement rationnel.",
     biography: [
       "Amos Tversky rencontre Daniel Kahneman à la fin des années 1960 à l'université hébraïque de Jérusalem ; leur collaboration, exceptionnellement fertile, va durer près de trente ans.",
       "Ensemble, ils identifient plusieurs heuristiques de jugement récurrentes — représentativité, disponibilité, ancrage — qui permettent de décider rapidement mais produisent des erreurs systématiques et prévisibles.",
@@ -1028,6 +1082,8 @@ export const psychologists: Psychologist[] = [
     accentColor: '#9E6B4A',
     schoolIds: ['humanisme'],
     summary: "Psychologue américain, pionnier de l'étude scientifique de la personnalité à travers la notion de trait, et précurseur de plusieurs idées humanistes.",
+    historicalContext:
+      "Dans les années 1920 et 1930, l'étude de la personnalité en psychologie américaine repose surtout sur des études de cas psychanalytiques ou des typologies sommaires. Marqué par sa rencontre déconcertante avec Freud, Allport pousse pour une approche plus empirique et ancrée dans le langage courant, à un moment où la description scientifique rigoureuse de la personnalité individuelle reste largement à inventer.",
     biography: [
       "Une rencontre restée célèbre marque le parcours intellectuel de Gordon Allport : en 1920, jeune diplômé en visite à Vienne, il rend visite à Freud et lui décrit, pour engager la conversation, un jeune garçon obsédé par la saleté croisé dans le train. Freud lui demande alors : « Et ce petit garçon, était-ce vous ? » Allport, déconcerté par cette interprétation qu'il juge hâtive, en tire la conviction que la psychologie sous-estime souvent les motivations conscientes et directes des individus, au profit d'explications inconscientes qu'il juge parfois excessives.",
       "Avec Henry Odbert, il répertorie en 1936 près de 4 000 termes de la langue anglaise décrivant des traits de personnalité — un travail fondateur pour l'« approche lexicale », qui inspirera des décennies plus tard le modèle des cinq grands traits de personnalité (Big Five).",
@@ -1064,6 +1120,8 @@ export const psychologists: Psychologist[] = [
     accentColor: '#2E8FA6',
     schoolIds: ['cognitivisme'],
     summary: "Psychologue cognitiviste britannique, coauteur avec Graham Hitch du modèle de la mémoire de travail, aujourd'hui une référence en psychologie cognitive.",
+    historicalContext:
+      "Au tournant des années 1970, les modèles cognitifs de la mémoire en plusieurs registres — sensoriel, à court terme, à long terme — proposés dans la décennie précédente peinent à rendre compte de la façon dont l'information est activement maintenue et manipulée pendant l'exécution d'une tâche. Baddeley et Hitch répondent directement à cette limite en proposant un système actif plutôt qu'un simple lieu de stockage.",
     biography: [
       "En 1974, Alan Baddeley propose avec Graham Hitch un modèle qui remplace la notion unique de « mémoire à court terme » par celle, plus riche, de mémoire de travail : un système actif à plusieurs composantes, mobilisé pour maintenir et manipuler l'information le temps d'une tâche cognitive.",
       "Le modèle distingue un administrateur central, chargé de contrôler l'attention, et deux systèmes esclaves spécialisés — la boucle phonologique pour l'information verbale, le calepin visuo-spatial pour l'information visuelle et spatiale. Baddeley y ajoutera en 2000 une quatrième composante, le tampon épisodique.",
@@ -1098,6 +1156,8 @@ export const psychologists: Psychologist[] = [
     accentColor: '#2E8FA6',
     schoolIds: ['cognitivisme'],
     summary: "Psychologue américain, l'une des figures centrales de la révolution cognitive, connu pour ses travaux sur les limites de la mémoire immédiate.",
+    historicalContext:
+      "Dans les années 1950, la psychologie américaine reste institutionnellement dominée par le behaviorisme, alors même que la théorie de l'information, la linguistique naissante et les débuts de l'informatique offrent de nouvelles manières de penser l'esprit comme un système de traitement de l'information. L'article de Miller paraît précisément à cette convergence, devenant l'un des textes fondateurs de la révolution cognitive.",
     biography: [
       "En 1956, George Miller publie un article resté célèbre, « The Magical Number Seven, Plus or Minus Two », dans lequel il montre que la mémoire immédiate humaine ne peut retenir simultanément qu'un nombre limité d'éléments — environ sept — mais que ce nombre peut être artificiellement augmenté en regroupant l'information en unités plus grandes, ou « chunks ».",
       "Cette découverte, ainsi que ses travaux sur le langage, en font l'un des artisans majeurs de ce qu'on appellera la révolution cognitive : un mouvement qui, à partir des années 1950, réintroduit l'étude scientifique des représentations mentales là où le behaviorisme s'y refusait.",

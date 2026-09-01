@@ -115,6 +115,8 @@ export interface Psychologist {
   accentColor: string;
   schoolIds: string[];
   summary: string;
+  /** Le climat scientifique et intellectuel dans lequel s'inscrit sa contribution. */
+  historicalContext: string;
   biography: string[];
   /** Les 3 idées essentielles à retenir, pour la section « À retenir ». */
   keyTakeaways: [string, string, string];

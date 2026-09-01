@@ -126,6 +126,11 @@ export default function PsychologistDetail() {
             </section>
 
             <section className={styles.section}>
+              <h2 className={`text-h2 ${styles.sectionTitle}`}>Contexte historique</h2>
+              <p className="text-body">{psychologist.historicalContext}</p>
+            </section>
+
+            <section className={styles.section}>
               <h2 className={`text-h2 ${styles.sectionTitle}`}>Formation et carrière</h2>
               <div className={styles.infoGrid}>
                 <div className={styles.infoBlock}>
