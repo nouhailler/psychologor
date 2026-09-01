@@ -1,0 +1,93 @@
+.section {
+  margin-bottom: var(--space-8);
+}
+
+.chain {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.connector {
+  color: var(--color-text-tertiary);
+  margin: 2px 0 2px 19px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-4) var(--space-2) var(--space-2);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-elevated);
+  color: var(--color-text);
+  max-width: 100%;
+}
+
+.item:hover {
+  border-color: var(--color-border-strong);
+  background: var(--color-surface-sunken);
+}
+
+.itemTarget {
+  border-color: var(--color-primary);
+  background: var(--color-primary-tint);
+  box-shadow: var(--shadow-xs);
+  padding-right: var(--space-3);
+}
+
+.itemIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: white;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.6875rem;
+  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.itemPhoto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.itemLabel {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.itemBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  padding: 3px var(--space-2);
+  border-radius: var(--radius-pill);
+  background: var(--color-primary);
+  color: var(--color-text-on-primary);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.6875rem;
+  white-space: nowrap;
+}

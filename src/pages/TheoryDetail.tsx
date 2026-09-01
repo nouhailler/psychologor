@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { ConceptChip } from '../components/cards/ConceptChip';
 import { RelationshipCard } from '../components/cards/RelationshipCard';
 import { FavoriteButton } from '../components/ui/FavoriteButton';
+import { GenesisChain } from '../components/ui/GenesisChain';
 import { KeyTakeaways } from '../components/ui/KeyTakeaways';
 import { PageLoader } from '../components/ui/PageLoader';
 import { useAsync } from '../hooks/useAsync';
@@ -130,6 +131,8 @@ export default function TheoryDetail() {
                 ))}
               </ul>
             </section>
+
+            <GenesisChain target={{ type: 'theory', id: theory.id }} />
 
             <section className={styles.section}>
               <h2 className={`text-h2 ${styles.sectionTitle}`}>Évolution</h2>

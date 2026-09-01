@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { ConceptChip } from '../components/cards/ConceptChip';
 import { RelationshipCard } from '../components/cards/RelationshipCard';
 import { FavoriteButton } from '../components/ui/FavoriteButton';
+import { GenesisChain } from '../components/ui/GenesisChain';
 import { KeyTakeaways } from '../components/ui/KeyTakeaways';
 import { PageLoader } from '../components/ui/PageLoader';
 import { useAsync } from '../hooks/useAsync';
@@ -77,6 +78,8 @@ export default function ConceptDetail() {
           <p className="text-body-sm">{concept.origin}</p>
         </div>
       )}
+
+      <GenesisChain target={{ type: 'concept', id: concept.id }} />
 
       {psychologists && psychologists.length > 0 && (
         <section className={styles.section}>
