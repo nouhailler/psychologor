@@ -2,7 +2,7 @@ import { Clock, Info, Laptop, Moon, RefreshCw, Route as RouteIcon, Star, Sun, Tr
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/Button';
-import { getPathSync, getPsychologistSync, getTheorySync, getConceptSync } from '../services/repository';
+import { getPathSync, getPsychologistSync, getSchoolSync, getTheorySync, getConceptSync } from '../services/repository';
 import { useFavoritesList } from '../hooks/useFavorites';
 import { useHistoryList } from '../hooks/useHistory';
 import { useAllPathProgress } from '../hooks/usePathProgress';
@@ -25,6 +25,7 @@ function resolveEntity(entityId: string, entityType: string) {
   if (entityType === 'psychologist') return getPsychologistSync(entityId);
   if (entityType === 'theory') return getTheorySync(entityId);
   if (entityType === 'concept') return getConceptSync(entityId);
+  if (entityType === 'school') return getSchoolSync(entityId);
   return undefined;
 }
 
@@ -114,9 +115,11 @@ export default function Profile() {
                   ? `/psychologues/${h.entityId}`
                   : h.entityType === 'theory'
                     ? `/theories/${h.entityId}`
-                    : `/concepts/${h.entityId}`;
+                    : h.entityType === 'school'
+                      ? `/courants/${h.entityId}`
+                      : `/concepts/${h.entityId}`;
               const name = 'name' in entity ? entity.name : 'term' in entity ? entity.term : '';
-              const accent = 'accentColor' in entity ? entity.accentColor : 'var(--color-primary)';
+              const accent = 'accentColor' in entity ? entity.accentColor : 'color' in entity ? entity.color : 'var(--color-primary)';
               const initials = 'portraitInitials' in entity ? entity.portraitInitials : name.slice(0, 2).toUpperCase();
               return (
                 <Link key={`${h.entityType}-${h.entityId}`} to={to} className={styles.historyItem}>

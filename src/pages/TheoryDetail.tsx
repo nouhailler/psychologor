@@ -47,7 +47,13 @@ export default function TheoryDetail() {
             <ArrowLeft size={16} />
             Explorer
           </Link>
-          <p className={`text-label ${styles.eyebrow}`}>{school?.name ?? 'Théorie'}</p>
+          {school ? (
+            <Link to={`/courants/${school.id}`} className={`text-label ${styles.eyebrow}`} style={{ display: 'inline-block' }}>
+              {school.name}
+            </Link>
+          ) : (
+            <p className={`text-label ${styles.eyebrow}`}>Théorie</p>
+          )}
           <h1 className={`text-display ${styles.title}`}>{theory.name}</h1>
           <p className={`text-h4 ${styles.tagline}`} style={{ fontWeight: 400 }}>
             {theory.tagline}

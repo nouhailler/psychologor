@@ -30,6 +30,7 @@ function getEntityHref(type: ComparisonEntityType, id: string): string | undefin
   if (type === 'theories') return `/theories/${id}`;
   if (type === 'concepts') return `/concepts/${id}`;
   if (type === 'psychologists') return `/psychologues/${id}`;
+  if (type === 'schools') return `/courants/${id}`;
   return undefined;
 }
 

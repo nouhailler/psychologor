@@ -1,11 +1,12 @@
-import { Star } from 'lucide-react';
+import { Landmark, Star } from 'lucide-react';
 import { PersonCard } from '../components/cards/PersonCard';
 import { TheoryCard } from '../components/cards/TheoryCard';
 import { ConceptChip } from '../components/cards/ConceptChip';
+import { RelationshipCard } from '../components/cards/RelationshipCard';
 import { EmptyState } from '../components/ui/EmptyState';
 import { Section } from '../components/ui/Section';
 import { useFavoritesList } from '../hooks/useFavorites';
-import { getConceptSync, getPsychologistSync, getTheorySync } from '../services/repository';
+import { getConceptSync, getPsychologistSync, getSchoolSync, getTheorySync } from '../services/repository';
 import styles from './Favorites.module.css';
 
 export default function Favorites() {
@@ -26,7 +27,12 @@ export default function Favorites() {
     .map((f) => getConceptSync(f.entityId))
     .filter(Boolean);
 
-  const isEmpty = psychologists.length === 0 && theories.length === 0 && concepts.length === 0;
+  const schools = (favorites ?? [])
+    .filter((f) => f.entityType === 'school')
+    .map((f) => getSchoolSync(f.entityId))
+    .filter(Boolean);
+
+  const isEmpty = psychologists.length === 0 && theories.length === 0 && concepts.length === 0 && schools.length === 0;
 
   return (
     <div className="container">
@@ -34,14 +40,14 @@ export default function Favorites() {
         <h1 className="text-h1" style={{ marginBottom: 'var(--space-2)' }}>
           Favoris
         </h1>
-        <p className="text-body-sm">Les personnes, théories et concepts que vous avez sauvegardés.</p>
+        <p className="text-body-sm">Les personnes, théories, concepts et courants que vous avez sauvegardés.</p>
       </div>
 
       {isEmpty && (
         <EmptyState
           icon={<Star size={24} />}
           title="Aucun favori pour le moment"
-          description="Ajoutez des psychologues, théories ou concepts à vos favoris en appuyant sur l'étoile de leur fiche."
+          description="Ajoutez des psychologues, théories, concepts ou courants à vos favoris en appuyant sur l'étoile de leur fiche."
         />
       )}
 
@@ -65,6 +71,19 @@ export default function Favorites() {
         <Section title="Concepts" className={styles.section}>
           <div className="chip-row">
             {concepts.map((c) => c && <ConceptChip key={c.id} concept={c} />)}
+          </div>
+        </Section>
+      )}
+
+      {schools.length > 0 && (
+        <Section title="Courants" className={styles.section}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+            {schools.map(
+              (s) =>
+                s && (
+                  <RelationshipCard key={s.id} to={`/courants/${s.id}`} icon={<Landmark size={18} />} title={s.name} subtitle={s.period} />
+                ),
+            )}
           </div>
         </Section>
       )}

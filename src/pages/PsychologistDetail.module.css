@@ -94,6 +94,11 @@
   font-weight: 600;
   font-size: 0.8125rem;
   border: 1px solid hsl(0 0% 100% / 0.25);
+  transition: background-color var(--duration-fast) var(--ease-standard);
+}
+
+.schoolChip:hover {
+  background: hsl(0 0% 100% / 0.24);
 }
 
 .favoriteWrap {

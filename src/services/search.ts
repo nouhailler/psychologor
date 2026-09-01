@@ -1,17 +1,19 @@
 import { psychologists } from '../data/psychologists';
 import { theories } from '../data/theories';
 import { concepts } from '../data/concepts';
-import type { Concept, Psychologist, Theory } from '../models/types';
+import { schools } from '../data/schools';
+import type { Concept, Psychologist, School, Theory } from '../models/types';
 import { normalizeForSearch } from '../utils/slug';
 
 export interface SearchResults {
   psychologists: Psychologist[];
   theories: Theory[];
   concepts: Concept[];
+  schools: School[];
   total: number;
 }
 
-const EMPTY: SearchResults = { psychologists: [], theories: [], concepts: [], total: 0 };
+const EMPTY: SearchResults = { psychologists: [], theories: [], concepts: [], schools: [], total: 0 };
 
 /**
  * Recherche tolérante et multi-entités : compare le terme normalisé (sans
@@ -34,10 +36,15 @@ export function search(rawQuery: string, limitPerGroup = 6): SearchResults {
     .filter((c) => normalizeForSearch(`${c.term} ${c.shortDefinition} ${c.definition}`).includes(query))
     .slice(0, limitPerGroup);
 
+  const matchedSchools = schools
+    .filter((s) => normalizeForSearch(`${s.name} ${s.summary}`).includes(query))
+    .slice(0, limitPerGroup);
+
   return {
     psychologists: matchedPsychologists,
     theories: matchedTheories,
     concepts: matchedConcepts,
-    total: matchedPsychologists.length + matchedTheories.length + matchedConcepts.length,
+    schools: matchedSchools,
+    total: matchedPsychologists.length + matchedTheories.length + matchedConcepts.length + matchedSchools.length,
   };
 }

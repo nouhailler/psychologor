@@ -64,6 +64,48 @@ export const repository = {
   // ---- Courants ----
   getAllSchools: () => delay(schools),
   getSchool: (id: string) => delay(schoolById.get(id) ?? null),
+  getSchoolsByIds: (ids: string[]) => delay(ids.map((id) => schoolById.get(id)).filter(Boolean) as School[]),
+  getConceptsBySchool: (schoolId: string) => {
+    const theoryIds = new Set(theories.filter((t) => t.schoolIds.includes(schoolId)).map((t) => t.id));
+    const conceptIds = new Set<string>();
+    for (const t of theories) {
+      if (theoryIds.has(t.id)) t.conceptIds.forEach((id) => conceptIds.add(id));
+    }
+    return delay(Array.from(conceptIds).map((id) => conceptById.get(id)).filter(Boolean) as Concept[]);
+  },
+  getWorksBySchool: (schoolId: string) => {
+    const workIds = new Set<string>();
+    for (const p of psychologists) {
+      if (p.schoolIds.includes(schoolId)) p.workIds.forEach((id) => workIds.add(id));
+    }
+    return delay(Array.from(workIds).map((id) => workById.get(id)).filter(Boolean) as Work[]);
+  },
+  getSchoolCritiques: (schoolId: string) => {
+    const critiques: string[] = [];
+    for (const t of theories) {
+      if (!t.schoolIds.includes(schoolId)) continue;
+      for (const c of t.critiques) {
+        if (!critiques.includes(c)) critiques.push(c);
+      }
+    }
+    return delay(critiques);
+  },
+  getSchoolLineage: (schoolId: string) => {
+    const reps = psychologists.filter((p) => p.schoolIds.includes(schoolId));
+    return delay([...reps].sort((a, b) => parseInt(a.birth, 10) - parseInt(b.birth, 10)));
+  },
+  getDescendantSchools: (schoolId: string) => {
+    const representativeIds = new Set(psychologists.filter((p) => p.schoolIds.includes(schoolId)).map((p) => p.id));
+    const descendantIds = new Set<string>();
+    for (const q of psychologists) {
+      if (q.influencedByIds.some((id) => representativeIds.has(id))) {
+        for (const sid of q.schoolIds) {
+          if (sid !== schoolId) descendantIds.add(sid);
+        }
+      }
+    }
+    return delay(Array.from(descendantIds).map((id) => schoolById.get(id)).filter(Boolean) as School[]);
+  },
 
   // ---- Œuvres ----
   getWorksByIds: (ids: string[]) => delay(ids.map((id) => workById.get(id)).filter(Boolean) as Work[]),

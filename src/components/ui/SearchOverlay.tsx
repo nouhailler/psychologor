@@ -7,6 +7,7 @@ import { recordSearch } from '../../services/db';
 import { useRecentSearches } from '../../hooks/useHistory';
 import { PersonCard } from '../cards/PersonCard';
 import { TheoryCard } from '../cards/TheoryCard';
+import { SchoolCard } from '../cards/SchoolCard';
 import { ConceptChip } from '../cards/ConceptChip';
 import { EmptyState } from './EmptyState';
 import styles from './SearchOverlay.module.css';
@@ -149,6 +150,18 @@ export function SearchOverlay({ onClose }: SearchOverlayProps) {
                           {results.concepts.map((c) => (
                             <div key={c.id} onClick={() => goToConcept(c.id)}>
                               <ConceptChip concept={c} />
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {results.schools.length > 0 && (
+                      <div className={styles.group}>
+                        <p className={`text-label ${styles.groupTitle}`}>Courants</p>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                          {results.schools.map((s) => (
+                            <div key={s.id} onClick={onClose}>
+                              <SchoolCard school={s} layout="list" />
                             </div>
                           ))}
                         </div>

@@ -7,6 +7,7 @@ const Home = lazy(() => import('./pages/Home'));
 const Explorer = lazy(() => import('./pages/Explorer'));
 const PsychologistDetail = lazy(() => import('./pages/PsychologistDetail'));
 const TheoryDetail = lazy(() => import('./pages/TheoryDetail'));
+const SchoolDetail = lazy(() => import('./pages/SchoolDetail'));
 const Glossary = lazy(() => import('./pages/Glossary'));
 const ConceptDetail = lazy(() => import('./pages/ConceptDetail'));
 const Timeline = lazy(() => import('./pages/Timeline'));
@@ -30,6 +31,8 @@ function App() {
           <Route path="/psychologues/:id" element={<PsychologistDetail />} />
           <Route path="/theories" element={<Explorer initialTab="theories" />} />
           <Route path="/theories/:id" element={<TheoryDetail />} />
+          <Route path="/courants" element={<Explorer initialTab="courants" />} />
+          <Route path="/courants/:id" element={<SchoolDetail />} />
           <Route path="/concepts" element={<Glossary />} />
           <Route path="/concepts/:id" element={<ConceptDetail />} />
           <Route path="/chronologie" element={<Timeline />} />

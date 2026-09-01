@@ -65,7 +65,11 @@ export default function PsychologistDetail() {
             {psychologist.birth}–{psychologist.death ?? ''} · {psychologist.nationality}
           </p>
           <div className={styles.schoolChips}>
-            {schools.map((s) => s && <span key={s.id} className={styles.schoolChip}>{s.shortName}</span>)}
+            {schools.map((s) => s && (
+              <Link key={s.id} to={`/courants/${s.id}`} className={styles.schoolChip}>
+                {s.shortName}
+              </Link>
+            ))}
           </div>
           {portraitCredit && (
             <a

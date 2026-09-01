@@ -59,6 +59,14 @@ export interface School {
   period: string;
   summary: string;
   description: string;
+  /** Le climat scientifique et intellectuel dans lequel le courant émerge. */
+  historicalContext: string;
+  /** Son influence durable sur la psychologie contemporaine et au-delà. */
+  legacy: string;
+  /** Figure(s) fondatrice(s), distinctes des représentants qui l'ont ensuite développé. */
+  founderIds: string[];
+  /** Courants contemporains ou ultérieurs avec lesquels une opposition doctrinale est bien documentée. */
+  rivalSchoolIds: string[];
   color: string;
 }
 
