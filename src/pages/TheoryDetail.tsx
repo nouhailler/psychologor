@@ -196,6 +196,13 @@ export default function TheoryDetail() {
               >
                 Comparer avec une autre théorie →
               </Link>
+              <Link
+                to={`/carte?mode=ego&type=theory&id=${theory.id}`}
+                className="text-body-sm text-accent"
+                style={{ display: 'block', marginTop: 'var(--space-2)', fontWeight: 600 }}
+              >
+                Explorer autour de {theory.name} →
+              </Link>
             </div>
           </aside>
         </div>

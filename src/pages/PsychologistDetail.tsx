@@ -275,13 +275,20 @@ export default function PsychologistDetail() {
                 </div>
               </div>
             )}
-            <div className={styles.infoBlock}>
+            <div className={styles.infoBlock} style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
               <Link
                 to={`/comparaison?type=psychologists&id=${psychologist.id}`}
                 className="text-body-sm text-accent"
                 style={{ fontWeight: 600 }}
               >
                 Comparer avec un autre psychologue →
+              </Link>
+              <Link
+                to={`/carte?mode=ego&type=psychologist&id=${psychologist.id}`}
+                className="text-body-sm text-accent"
+                style={{ fontWeight: 600 }}
+              >
+                Explorer autour de {psychologist.name} →
               </Link>
             </div>
           </aside>

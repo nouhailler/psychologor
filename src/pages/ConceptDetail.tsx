@@ -120,9 +120,16 @@ export default function ConceptDetail() {
       <Link
         to={`/comparaison?type=concepts&id=${concept.id}`}
         className="text-body-sm text-accent"
-        style={{ display: 'inline-block', marginTop: 'var(--space-2)', marginBottom: 'var(--space-8)', fontWeight: 600 }}
+        style={{ display: 'inline-block', marginTop: 'var(--space-2)', fontWeight: 600 }}
       >
         Comparer avec un autre concept →
+      </Link>
+      <Link
+        to={`/carte?mode=ego&type=concept&id=${concept.id}`}
+        className="text-body-sm text-accent"
+        style={{ display: 'block', marginTop: 'var(--space-2)', marginBottom: 'var(--space-8)', fontWeight: 600 }}
+      >
+        Explorer autour de {concept.term} →
       </Link>
     </div>
   );

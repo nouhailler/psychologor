@@ -108,6 +108,10 @@ export function getExperimentSync(id: string): Experiment | undefined {
   return experimentById.get(id);
 }
 
+export function getWorkSync(id: string): Work | undefined {
+  return workById.get(id);
+}
+
 export function getPortraitCredit(psychologistId: string) {
   return portraitCredits[psychologistId];
 }
