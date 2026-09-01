@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { ConceptChip } from '../components/cards/ConceptChip';
 import { RelationshipCard } from '../components/cards/RelationshipCard';
 import { FavoriteButton } from '../components/ui/FavoriteButton';
+import { KeyTakeaways } from '../components/ui/KeyTakeaways';
 import { PageLoader } from '../components/ui/PageLoader';
 import { useAsync } from '../hooks/useAsync';
 import { useRecordVisit } from '../hooks/useHistory';
@@ -73,6 +74,25 @@ export default function TheoryDetail() {
                 {theory.summary}
               </p>
             </section>
+
+            <KeyTakeaways
+              items={theory.principles.slice(0, 3)}
+              accentColor={accentColor}
+              keywords={[
+                ...(concepts ?? []).map((c) => c.term),
+                ...(relatedTheories ?? []).map((t) => t.name),
+              ].slice(0, 6)}
+              associations={[
+                {
+                  label: 'Personnes associées',
+                  items: (psychologists ?? []).map((p) => ({ id: p.id, name: p.name, href: `/psychologues/${p.id}` })),
+                },
+                {
+                  label: 'Théories associées',
+                  items: (relatedTheories ?? []).map((t) => ({ id: t.id, name: t.name, href: `/theories/${t.id}` })),
+                },
+              ]}
+            />
 
             <section className={styles.section}>
               <h2 className={`text-h2 ${styles.sectionTitle}`}>Principes fondamentaux</h2>

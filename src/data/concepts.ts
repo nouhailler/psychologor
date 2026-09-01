@@ -3,6 +3,11 @@ import type { Concept } from '../models/types';
 export const concepts: Concept[] = [
   {
     id: 'inconscient',
+    keyTakeaways: [
+      'Une partie de la vie psychique échappe à la conscience, sans cesser d\'agir.',
+      'Se manifeste indirectement : rêves, actes manqués, symptômes.',
+      'Concept fondateur de la psychanalyse freudienne.',
+    ] as [string, string, string],
     term: 'Inconscient',
     shortDefinition: "La partie de la vie psychique inaccessible directement à la conscience.",
     definition:
@@ -14,6 +19,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'ca',
+    keyTakeaways: [
+      'Réservoir des pulsions inconscientes, présent dès la naissance.',
+      'Obéit au seul principe de plaisir, sans considération de la réalité.',
+      'Première instance de la seconde topique freudienne.',
+    ] as [string, string, string],
     term: 'Ça',
     shortDefinition: "L'instance psychique des pulsions, régie par le principe de plaisir.",
     definition:
@@ -25,6 +35,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'moi',
+    keyTakeaways: [
+      'Instance qui arbitre entre le ça, le surmoi et la réalité extérieure.',
+      'Met en œuvre les mécanismes de défense face aux tensions psychiques.',
+      'Occupe une position centrale dans l\'appareil psychique freudien.',
+    ] as [string, string, string],
     term: 'Moi',
     shortDefinition: "L'instance psychique qui arbitre entre pulsions, réalité et exigences morales.",
     definition:
@@ -36,6 +51,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'surmoi',
+    keyTakeaways: [
+      'Résulte de l\'intériorisation des règles parentales et sociales.',
+      'Exerce une fonction morale, source de culpabilité en cas d\'écart.',
+      'Se met en place notamment à l\'issue du complexe d\'Œdipe.',
+    ] as [string, string, string],
     term: 'Surmoi',
     shortDefinition: "L'instance psychique qui intériorise les interdits et les idéaux moraux.",
     definition:
@@ -47,6 +67,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'libido',
+    keyTakeaways: [
+      'Énergie psychique liée à la pulsion sexuelle, selon Freud.',
+      'Se déploie selon des stades successifs du développement infantile.',
+      'Jung en propose une définition plus large, comme énergie psychique générale.',
+    ] as [string, string, string],
     term: 'Libido',
     shortDefinition: "L'énergie psychique associée aux pulsions, notamment sexuelles, selon Freud.",
     definition:
@@ -58,6 +83,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'refoulement',
+    keyTakeaways: [
+      'Repousse hors de la conscience un contenu jugé inacceptable.',
+      'Le contenu refoulé continue d\'influencer indirectement le psychisme.',
+      'Mécanisme de défense fondamental de la théorie freudienne.',
+    ] as [string, string, string],
     term: 'Refoulement',
     shortDefinition: "Le mécanisme par lequel un contenu psychique inacceptable est repoussé hors de la conscience.",
     definition:
@@ -69,6 +99,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'mecanisme-de-defense',
+    keyTakeaways: [
+      'Processus inconscient qui protège le moi d\'une angoisse ou d\'un conflit.',
+      'Le refoulement, la projection ou la sublimation en sont des exemples.',
+      'Développé par Freud, puis systématisé par Anna Freud.',
+    ] as [string, string, string],
     term: 'Mécanisme de défense',
     shortDefinition: "Un processus psychique inconscient qui protège le moi d'une tension ou d'une angoisse.",
     definition:
@@ -80,6 +115,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'inconscient-collectif',
+    keyTakeaways: [
+      'Couche de l\'inconscient partagée par toute l\'humanité, selon Jung.',
+      'Distincte de l\'inconscient personnel, propre à chaque individu.',
+      'Structurée par des archétypes universels.',
+    ] as [string, string, string],
     term: 'Inconscient collectif',
     shortDefinition: "Une couche de l'inconscient partagée par toute l'humanité, selon Jung.",
     definition:
@@ -91,6 +131,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'archetype',
+    keyTakeaways: [
+      'Schéma psychique universel, hérité et partagé par l\'humanité.',
+      'S\'exprime à travers les mythes, les rêves et les symboles culturels.',
+      'La mère, le héros, l\'ombre en sont des exemples classiques.',
+    ] as [string, string, string],
     term: 'Archétype',
     shortDefinition: "Un schéma psychique universel hérité, présent dans l'inconscient collectif.",
     definition:
@@ -102,6 +147,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'individuation',
+    keyTakeaways: [
+      'Processus d\'intégration des différentes parties de la psyché.',
+      'Permet à une personne de devenir pleinement elle-même.',
+      'Concept central de la psychologie analytique de Jung.',
+    ] as [string, string, string],
     term: 'Individuation',
     shortDefinition: "Le processus par lequel une personne intègre les différentes parties de sa psyché.",
     definition:
@@ -113,6 +163,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'sentiment-d-inferiorite',
+    keyTakeaways: [
+      'Sentiment universel ressenti par l\'enfant face aux adultes.',
+      'Ne devient pathologique que s\'il n\'est pas correctement compensé.',
+      'Concept fondateur de la psychologie individuelle d\'Adler.',
+    ] as [string, string, string],
     term: "Sentiment d'infériorité",
     shortDefinition: "Le sentiment universel de faiblesse ressenti par l'enfant face aux adultes.",
     definition:
@@ -124,6 +179,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'style-de-vie',
+    keyTakeaways: [
+      'Manière singulière dont chacun organise pensées, émotions et actions.',
+      'Vise à compenser le sentiment d\'infériorité et à atteindre ses buts.',
+      'Reste relativement stable tout au long de l\'existence.',
+    ] as [string, string, string],
     term: 'Style de vie',
     shortDefinition: "La manière unique dont chaque personne organise sa vie pour atteindre ses buts.",
     definition:
@@ -135,6 +195,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'reflexe-conditionne',
+    keyTakeaways: [
+      'Réponse apprise, déclenchée par un stimulus initialement neutre.',
+      'Découvert par Pavlov lors de ses recherches sur la digestion.',
+      'Fonde le principe du conditionnement classique.',
+    ] as [string, string, string],
     term: 'Réflexe conditionné',
     shortDefinition: "Une réponse apprise déclenchée par un stimulus initialement neutre.",
     definition:
@@ -146,6 +211,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'renforcement',
+    keyTakeaways: [
+      'Toute conséquence qui augmente la probabilité qu\'un comportement se reproduise.',
+      'Peut être positif (ajout) ou négatif (retrait d\'un élément désagréable).',
+      'Concept central du conditionnement opérant de Skinner.',
+    ] as [string, string, string],
     term: 'Renforcement',
     shortDefinition: "Toute conséquence qui augmente la probabilité qu'un comportement se reproduise.",
     definition:
@@ -157,6 +227,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'stimulus-reponse',
+    keyTakeaways: [
+      'Schéma explicatif de base du behaviorisme.',
+      'Le comportement s\'analyse comme une réponse à un stimulus identifiable.',
+      'Ne recourt à aucun processus mental interne.',
+    ] as [string, string, string],
     term: 'Stimulus-réponse',
     shortDefinition: "Le schéma explicatif de base du behaviorisme, reliant un stimulus à une réponse comportementale.",
     definition:
@@ -168,6 +243,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'schema-piagetien',
+    keyTakeaways: [
+      'Structure mentale organisée qui permet d\'agir sur une catégorie d\'expériences.',
+      'Évolue par assimilation et accommodation.',
+      'Concept central de la théorie constructiviste de Piaget.',
+    ] as [string, string, string],
     term: 'Schème',
     shortDefinition: "Une structure mentale organisée qui permet d'interpréter et d'agir sur le monde.",
     definition:
@@ -179,6 +259,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'assimilation',
+    keyTakeaways: [
+      'Intègre une nouvelle information à un schème mental déjà existant.',
+      'Ne modifie pas fondamentalement la structure mentale en place.',
+      'Fonctionne en tandem avec l\'accommodation.',
+    ] as [string, string, string],
     term: 'Assimilation',
     shortDefinition: "L'intégration d'une nouvelle information à un schème mental existant.",
     definition:
@@ -190,6 +275,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'accommodation',
+    keyTakeaways: [
+      'Modifie un schème existant, ou en crée un nouveau, face à une expérience inédite.',
+      'Processus complémentaire de l\'assimilation.',
+      'Moteur du développement cognitif chez Piaget.',
+    ] as [string, string, string],
     term: 'Accommodation',
     shortDefinition: "La modification d'un schème mental existant pour intégrer une expérience nouvelle.",
     definition:
@@ -201,6 +291,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'stades-de-developpement-cognitif',
+    keyTakeaways: [
+      'Quatre grandes étapes qualitativement distinctes de l\'intelligence enfantine.',
+      'Sensori-moteur, préopératoire, opératoire concret, opératoire formel.',
+      'Les âges d\'acquisition proposés sont aujourd\'hui débattus.',
+    ] as [string, string, string],
     term: 'Stades du développement cognitif',
     shortDefinition: "Les quatre grandes étapes qualitativement distinctes du développement de l'intelligence selon Piaget.",
     definition:
@@ -212,6 +307,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'zone-proximale-de-developpement',
+    keyTakeaways: [
+      'Écart entre ce qu\'un enfant réussit seul et avec de l\'aide.',
+      'Mesure le potentiel de développement, pas seulement l\'acquis.',
+      'Concept central de la théorie socioculturelle de Vygotsky.',
+    ] as [string, string, string],
     term: 'Zone proximale de développement',
     shortDefinition: "L'écart entre ce qu'un enfant peut faire seul et ce qu'il peut faire avec de l'aide.",
     definition:
@@ -223,6 +323,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'congruence',
+    keyTakeaways: [
+      'Cohérence entre ce que ressent, perçoit et exprime le thérapeute.',
+      'L\'une des trois conditions clés de l\'approche rogérienne.',
+      'Favorise une relation thérapeutique authentique.',
+    ] as [string, string, string],
     term: 'Congruence',
     shortDefinition: "L'authenticité et la cohérence intérieure du thérapeute dans la relation.",
     definition:
@@ -234,6 +339,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'consideration-positive-inconditionnelle',
+    keyTakeaways: [
+      'Acceptation du client par le thérapeute, sans jugement ni condition.',
+      'Ne dépend ni du comportement ni des propos exprimés par le client.',
+      'Concept central de l\'approche centrée sur la personne de Rogers.',
+    ] as [string, string, string],
     term: 'Considération positive inconditionnelle',
     shortDefinition: "L'acceptation du client par le thérapeute, sans condition ni jugement.",
     definition:
@@ -245,6 +355,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'actualisation-de-soi',
+    keyTakeaways: [
+      'Tendance à réaliser pleinement son potentiel personnel.',
+      'Sommet de la hiérarchie des besoins chez Maslow.',
+      'Moteur de la croissance psychologique chez Rogers.',
+    ] as [string, string, string],
     term: 'Actualisation de soi',
     shortDefinition: "La réalisation du plein potentiel personnel, au sommet des besoins humains.",
     definition:
@@ -256,6 +371,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'auto-efficacite',
+    keyTakeaways: [
+      'Croyance en sa propre capacité à réussir une tâche donnée.',
+      'Influence fortement la motivation et la persévérance.',
+      'Concept central de la théorie sociale cognitive de Bandura.',
+    ] as [string, string, string],
     term: 'Auto-efficacité',
     shortDefinition: "La croyance d'une personne en sa propre capacité à réussir une tâche donnée.",
     definition:
@@ -267,6 +387,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'apprentissage-vicariant',
+    keyTakeaways: [
+      'Apprendre un comportement en observant un modèle, sans expérience directe.',
+      'Ne nécessite ni renforcement ni imitation immédiate.',
+      'Mis en évidence par l\'expérience de la poupée Bobo.',
+    ] as [string, string, string],
     term: 'Apprentissage vicariant',
     shortDefinition: "Apprendre un comportement en observant autrui, sans expérience directe.",
     definition:
@@ -278,6 +403,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'crise-d-identite',
+    keyTakeaways: [
+      'Conflit psychosocial caractéristique de l\'adolescence, selon Erikson.',
+      'Oppose identité affirmée et confusion des rôles.',
+      'Popularisée par la théorie du développement psychosocial.',
+    ] as [string, string, string],
     term: "Crise d'identité",
     shortDefinition: "Le conflit psychosocial central de l'adolescence, entre identité et confusion des rôles.",
     definition:
@@ -289,6 +419,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'attachement',
+    keyTakeaways: [
+      'Lien affectif durable entre un enfant et sa figure de soins.',
+      'Système comportemental inné, ayant une fonction de survie.',
+      'Concept fondateur de la théorie de Bowlby et Ainsworth.',
+    ] as [string, string, string],
     term: 'Attachement',
     shortDefinition: "Le lien affectif durable entre un enfant et sa figure de soins.",
     definition:
@@ -300,6 +435,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'base-de-securite',
+    keyTakeaways: [
+      'Fonction remplie par une figure d\'attachement fiable.',
+      'Permet à l\'enfant d\'explorer sereinement son environnement.',
+      'L\'enfant s\'y réfugie en cas de détresse.',
+    ] as [string, string, string],
     term: 'Base de sécurité',
     shortDefinition: "La figure d'attachement à partir de laquelle l'enfant explore son environnement.",
     definition:
@@ -311,6 +451,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'distorsion-cognitive',
+    keyTakeaways: [
+      'Erreur systématique de raisonnement qui entretient la souffrance psychologique.',
+      'Généralisation excessive, pensée en tout ou rien en sont des exemples.',
+      'Concept central de la thérapie cognitive de Beck.',
+    ] as [string, string, string],
     term: 'Distorsion cognitive',
     shortDefinition: "Une erreur systématique de raisonnement qui entretient la souffrance psychologique.",
     definition:
@@ -322,6 +467,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'dynamique-de-groupe',
+    keyTakeaways: [
+      'Forces psychologiques et sociales qui structurent le fonctionnement d\'un groupe.',
+      'Le groupe n\'est pas réductible à la somme de ses membres.',
+      'Concept fondateur de la psychologie sociale de Lewin.',
+    ] as [string, string, string],
     term: 'Dynamique de groupe',
     shortDefinition: "L'ensemble des forces psychologiques et sociales qui structurent le fonctionnement d'un groupe.",
     definition:
@@ -333,6 +483,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'espace-de-vie',
+    keyTakeaways: [
+      'Totalité de l\'environnement psychologique perçu par un individu.',
+      'Inclut ses besoins, ses buts et les tensions qui l\'animent.',
+      'Détermine le comportement à un instant donné, selon Lewin.',
+    ] as [string, string, string],
     term: 'Espace de vie',
     shortDefinition: "L'ensemble des faits psychologiques qui déterminent le comportement d'un individu à un instant donné.",
     definition:
@@ -344,6 +499,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'lois-de-la-gestalt',
+    keyTakeaways: [
+      'Règles selon lesquelles la perception organise des éléments épars.',
+      'Proximité, similarité, clôture, continuité en sont des exemples.',
+      'Formulées par Wertheimer, systématisées par Koffka.',
+    ] as [string, string, string],
     term: 'Lois de la Gestalt',
     shortDefinition: "Les règles selon lesquelles la perception organise spontanément des éléments épars en formes structurées.",
     definition:
@@ -355,6 +515,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'insight',
+    keyTakeaways: [
+      'Résolution soudaine d\'un problème par réorganisation de sa perception.',
+      'S\'oppose à l\'apprentissage progressif par essais et erreurs.',
+      'Mis en évidence par Köhler chez les chimpanzés.',
+    ] as [string, string, string],
     term: 'Insight',
     shortDefinition: "La résolution soudaine d'un problème par une réorganisation de sa perception, plutôt que par essais et erreurs.",
     definition:
@@ -366,6 +531,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'courbe-de-l-oubli',
+    keyTakeaways: [
+      'Décline rapidement dans les heures suivant l\'apprentissage.',
+      'Se stabilise ensuite, l\'oubli ralentissant fortement.',
+      'Découverte par Ebbinghaus à partir d\'une auto-expérimentation.',
+    ] as [string, string, string],
     term: "Courbe de l'oubli",
     shortDefinition: "La façon dont la mémoire d'un contenu appris décline avec le temps — rapidement d'abord, puis de plus en plus lentement.",
     definition:
@@ -377,6 +547,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'memoire-a-court-terme',
+    keyTakeaways: [
+      'Maintient activement une petite quantité d\'information, brièvement.',
+      'Capacité limitée à environ sept éléments.',
+      'Peut être étendue en regroupant l\'information en unités plus grandes.',
+    ] as [string, string, string],
     term: 'Mémoire à court terme',
     shortDefinition: "La capacité à maintenir une petite quantité d'information active pendant une brève durée.",
     definition:
@@ -388,6 +563,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'memoire-a-long-terme',
+    keyTakeaways: [
+      'Conserve connaissances, souvenirs et savoir-faire sur de longues durées.',
+      'Distincte de la mémoire à court terme dans les modèles classiques.',
+      'S\'articule à la mémoire de travail via le tampon épisodique.',
+    ] as [string, string, string],
     term: 'Mémoire à long terme',
     shortDefinition: "Le système de mémoire capable de conserver l'information sur de longues durées, potentiellement toute une vie.",
     definition:
@@ -399,6 +579,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'empan-mnesique',
+    keyTakeaways: [
+      'Nombre maximal d\'éléments retenus après une seule présentation.',
+      'Environ sept éléments, plus ou moins deux, selon Miller.',
+      'Peut être augmenté par le regroupement en unités signifiantes.',
+    ] as [string, string, string],
     term: 'Empan mnésique',
     shortDefinition: "Le nombre maximal d'éléments qu'une personne peut retenir et restituer immédiatement après une seule présentation.",
     definition:
@@ -410,6 +595,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'trait-de-personnalite',
+    keyTakeaways: [
+      'Disposition stable à penser, ressentir ou agir d\'une certaine manière.',
+      'Reste relativement constante à travers des situations variées.',
+      'Concept central de la théorie d\'Allport.',
+    ] as [string, string, string],
     term: 'Trait de personnalité',
     shortDefinition: "Une disposition relativement stable à penser, ressentir ou agir d'une certaine manière, à travers des situations variées.",
     definition:
@@ -421,6 +611,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'big-five',
+    keyTakeaways: [
+      'Modèle qui décrit la personnalité selon cinq grandes dimensions.',
+      'Ouverture, conscienciosité, extraversion, agréabilité, névrosisme.',
+      'Résulte du travail de plusieurs générations de chercheurs.',
+    ] as [string, string, string],
     term: 'Big Five',
     shortDefinition: "Un modèle qui décrit la personnalité selon cinq grandes dimensions, aujourd'hui la référence la plus largement partagée.",
     definition:
@@ -432,6 +627,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'heuristique',
+    keyTakeaways: [
+      'Raccourci mental qui permet de juger ou décider rapidement.',
+      'Utile dans la plupart des cas, mais source d\'erreurs prévisibles.',
+      'Concept central des travaux de Kahneman et Tversky.',
+    ] as [string, string, string],
     term: 'Heuristique',
     shortDefinition: "Un raccourci mental qui permet de juger ou de décider rapidement, au prix d'erreurs prévisibles dans certains cas.",
     definition:
@@ -443,6 +643,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'biais-cognitif',
+    keyTakeaways: [
+      'Écart systématique et prévisible par rapport à la rationalité.',
+      'Résulte de l\'utilisation d\'une heuristique dans une situation trompeuse.',
+      'Des dizaines de biais ont été documentés depuis les années 1970.',
+    ] as [string, string, string],
     term: 'Biais cognitif',
     shortDefinition: "Une erreur systématique et prévisible de jugement, résultant de l'utilisation d'une heuristique.",
     definition:
@@ -454,6 +659,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'obeissance-a-l-autorite',
+    keyTakeaways: [
+      'Tendance à suivre les ordres d\'une figure d\'autorité légitime.',
+      'Peut entrer en conflit avec la conscience personnelle.',
+      'Expliquée par Milgram via le concept d\'état agentique.',
+    ] as [string, string, string],
     term: "Obéissance à l'autorité",
     shortDefinition: "La tendance à se conformer aux ordres d'une figure d'autorité perçue comme légitime, même lorsqu'ils sont moralement discutables.",
     definition:
@@ -465,6 +675,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'conformite',
+    keyTakeaways: [
+      'Tendance à aligner son jugement sur celui d\'un groupe.',
+      'Peut l\'emporter même face à une évidence perceptive simple.',
+      'Mise en évidence par les expériences d\'Asch.',
+    ] as [string, string, string],
     term: 'Conformité',
     shortDefinition: "La tendance à aligner son propre jugement ou comportement sur celui d'un groupe, même face à l'évidence contraire.",
     definition:
@@ -476,6 +691,11 @@ export const concepts: Concept[] = [
   },
   {
     id: 'faux-souvenir',
+    keyTakeaways: [
+      'Souvenir vécu comme réel, alors qu\'il est déformé ou inventé.',
+      'Peut être implanté expérimentalement, y compris pour l\'enfance.',
+      'Central dans les travaux d\'Elizabeth Loftus sur la mémoire.',
+    ] as [string, string, string],
     term: 'Faux souvenir',
     shortDefinition: "Un souvenir vécu comme authentique par la personne qui le rapporte, alors qu'il ne correspond pas — en tout ou en partie — à un événement réel.",
     definition:

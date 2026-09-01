@@ -3,6 +3,11 @@ import type { Psychologist } from '../models/types';
 export const psychologists: Psychologist[] = [
   {
     id: 'wilhelm-wundt',
+    keyTakeaways: [
+      'Fonde en 1879 à Leipzig le premier laboratoire de psychologie expérimentale.',
+      'Cherche à étudier la conscience avec les méthodes des sciences naturelles.',
+      'Considéré comme le fondateur de la psychologie scientifique moderne.',
+    ] as [string, string, string],
     portraitUrl: '/portraits/wilhelm-wundt.jpg',
     name: 'Wilhelm Wundt',
     birth: '1832',
@@ -36,6 +41,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'william-james',
+    keyTakeaways: [
+      'Introduit l\'image du « flux de conscience », continu plutôt que fragmenté.',
+      'Fonde le fonctionnalisme, attentif au rôle adaptatif des processus mentaux.',
+      'Surnommé le père de la psychologie américaine.',
+    ] as [string, string, string],
     portraitUrl: '/portraits/william-james.jpg',
     name: 'William James',
     birth: '1842',
@@ -68,6 +78,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'sigmund-freud',
+    keyTakeaways: [
+      'Postule qu\'une grande partie de la vie psychique échappe à la conscience.',
+      'Fonde la psychanalyse, théorie et méthode thérapeutique par la parole.',
+      'Son œuvre influence durablement la culture du XXe siècle.',
+    ] as [string, string, string],
     portraitUrl: '/portraits/sigmund-freud.jpg',
     name: 'Sigmund Freud',
     birth: '1856',
@@ -104,6 +119,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'carl-gustav-jung',
+    keyTakeaways: [
+      'Proche collaborateur de Freud avant une rupture décisive en 1913.',
+      'Développe la psychologie analytique, centrée sur l\'inconscient collectif.',
+      'Introduit les notions d\'archétype et d\'individuation.',
+    ] as [string, string, string],
     portraitUrl: '/portraits/carl-gustav-jung.jpg',
     name: 'Carl Gustav Jung',
     birth: '1875',
@@ -138,6 +158,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'alfred-adler',
+    keyTakeaways: [
+      'Rompt avec Freud en 1911 pour fonder la psychologie individuelle.',
+      'Place le sentiment d\'infériorité au cœur du développement de la personnalité.',
+      'Insiste sur les buts sociaux plutôt que sur les pulsions inconscientes.',
+    ] as [string, string, string],
     portraitUrl: '/portraits/alfred-adler.jpg',
     name: 'Alfred Adler',
     birth: '1870',
@@ -172,6 +197,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'ivan-pavlov',
+    keyTakeaways: [
+      'Découvre le réflexe conditionné en étudiant la digestion chez le chien.',
+      'Fonde le principe du conditionnement classique.',
+      'Reçoit le prix Nobel de physiologie ou médecine en 1904.',
+    ] as [string, string, string],
     portraitUrl: '/portraits/ivan-pavlov.jpg',
     name: 'Ivan Pavlov',
     birth: '1849',
@@ -205,6 +235,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'john-b-watson',
+    keyTakeaways: [
+      'Fonde le behaviorisme en 1913, limité au comportement observable.',
+      'S\'appuie sur les travaux de Pavlov pour expliquer l\'apprentissage humain.',
+      'Sa carrière académique s\'achève brutalement en 1920.',
+    ] as [string, string, string],
     portraitUrl: '/portraits/john-b-watson.jpg',
     name: 'John B. Watson',
     fullName: 'John Broadus Watson',
@@ -239,6 +274,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'b-f-skinner',
+    keyTakeaways: [
+      'Développe le conditionnement opérant : le comportement se façonne par ses conséquences.',
+      'Invente la « boîte de Skinner » pour étudier précisément l\'apprentissage.',
+      'Figure du behaviorisme radical, qui exclut les états mentaux internes.',
+    ] as [string, string, string],
     portraitUrl: '/portraits/b-f-skinner.jpg',
     name: 'B. F. Skinner',
     fullName: 'Burrhus Frederic Skinner',
@@ -273,6 +313,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'jean-piaget',
+    keyTakeaways: [
+      'Montre que l\'intelligence de l\'enfant se construit par stades successifs.',
+      'L\'enfant construit activement sa connaissance en agissant sur le monde.',
+      'Fonde le courant constructiviste du développement cognitif.',
+    ] as [string, string, string],
     portraitUrl: '/portraits/jean-piaget.jpg',
     name: 'Jean Piaget',
     birth: '1896',
@@ -306,6 +351,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'lev-vygotsky',
+    keyTakeaways: [
+      'Montre que le langage et les interactions sociales structurent la pensée.',
+      'Introduit la notion de zone proximale de développement.',
+      'Mort à 37 ans, son œuvre reste en partie inachevée.',
+    ] as [string, string, string],
     name: 'Lev Vygotsky',
     fullName: 'Lev Semenovitch Vygotsky',
     birth: '1896',
@@ -339,6 +389,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'carl-rogers',
+    keyTakeaways: [
+      'Fonde l\'approche centrée sur la personne, non directive.',
+      'Fait le pari que chacun possède en soi les ressources de son changement.',
+      'Identifie trois conditions clés : congruence, empathie, considération positive.',
+    ] as [string, string, string],
     portraitUrl: '/portraits/carl-rogers.jpg',
     name: 'Carl Rogers',
     birth: '1902',
@@ -372,6 +427,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'abraham-maslow',
+    keyTakeaways: [
+      'Propose la hiérarchie des besoins, des besoins physiologiques à l\'accomplissement de soi.',
+      'Étudie des personnes épanouies plutôt que la seule pathologie.',
+      'Cofonde la psychologie humaniste, « troisième force » du XXe siècle.',
+    ] as [string, string, string],
     portraitUrl: '/portraits/abraham-maslow.jpg',
     name: 'Abraham Maslow',
     birth: '1908',
@@ -405,6 +465,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'albert-bandura',
+    keyTakeaways: [
+      'Montre que l\'apprentissage peut se faire par simple observation d\'un modèle.',
+      'Développe la théorie sociale cognitive et le concept d\'auto-efficacité.',
+      'Son expérience de la poupée Bobo reste un classique de la discipline.',
+    ] as [string, string, string],
     portraitUrl: '/portraits/albert-bandura.jpg',
     name: 'Albert Bandura',
     birth: '1925',
@@ -439,6 +504,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'erik-erikson',
+    keyTakeaways: [
+      'Étend la théorie freudienne en huit stades de développement psychosocial.',
+      'Couvre l\'ensemble du cycle de vie, de la naissance à la vieillesse.',
+      'Popularise la notion de crise d\'identité à l\'adolescence.',
+    ] as [string, string, string],
     portraitUrl: '/portraits/erik-erikson.jpg',
     name: 'Erik Erikson',
     birth: '1902',
@@ -472,6 +542,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'kurt-lewin',
+    keyTakeaways: [
+      'Développe la théorie du champ : le comportement dépend de la personne et de la situation.',
+      'Fonde l\'étude scientifique de la dynamique de groupe.',
+      'Est à l\'origine de la recherche-action.',
+    ] as [string, string, string],
     name: 'Kurt Lewin',
     birth: '1890',
     death: '1947',
@@ -504,6 +579,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'john-bowlby',
+    keyTakeaways: [
+      'Fonde la théorie de l\'attachement, à partir de l\'observation directe de l\'enfant.',
+      'Décrit l\'attachement comme un système comportemental inné, non un sous-produit.',
+      'Sa théorie s\'appuie aussi sur l\'éthologie animale.',
+    ] as [string, string, string],
     name: 'John Bowlby',
     birth: '1907',
     death: '1990',
@@ -535,6 +615,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'mary-ainsworth',
+    keyTakeaways: [
+      'Donne à la théorie de Bowlby une assise empirique solide.',
+      'Conçoit le protocole de la « situation étrange ».',
+      'Distingue plusieurs styles d\'attachement chez le jeune enfant.',
+    ] as [string, string, string],
     name: 'Mary Ainsworth',
     fullName: 'Mary Dinsmore Salter Ainsworth',
     birth: '1913',
@@ -568,6 +653,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'aaron-beck',
+    keyTakeaways: [
+      'Développe la thérapie cognitive après avoir tenté de vérifier des hypothèses freudiennes.',
+      'Montre que des pensées biaisées entretiennent la souffrance psychologique.',
+      'Fonde les thérapies cognitivo-comportementales modernes.',
+    ] as [string, string, string],
     portraitUrl: '/portraits/aaron-beck.jpg',
     name: 'Aaron Beck',
     fullName: 'Aaron Temkin Beck',
@@ -601,6 +691,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'max-wertheimer',
+    keyTakeaways: [
+      'Observe le phénomène phi et fonde la psychologie de la Gestalt.',
+      'Montre que la perception organise le réel en totalités structurées.',
+      'Émigre aux États-Unis en 1933, fuyant l\'Allemagne nazie.',
+    ] as [string, string, string],
     name: 'Max Wertheimer',
     birth: '1880',
     death: '1943',
@@ -634,6 +729,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'wolfgang-kohler',
+    keyTakeaways: [
+      'Étudie la résolution de problèmes par insight chez les chimpanzés.',
+      'Montre qu\'un problème peut se résoudre par réorganisation soudaine de la perception.',
+      'S\'oppose publiquement au régime nazi en 1933.',
+    ] as [string, string, string],
     name: 'Wolfgang Köhler',
     birth: '1887',
     death: '1967',
@@ -667,6 +767,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'kurt-koffka',
+    keyTakeaways: [
+      'Systématise les idées gestaltistes dans une grande synthèse théorique.',
+      'Participe dès 1910 aux expériences fondatrices de Wertheimer.',
+      'Étend la Gestalt à la psychologie du développement de l\'enfant.',
+    ] as [string, string, string],
     name: 'Kurt Koffka',
     birth: '1886',
     death: '1941',
@@ -698,6 +803,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'hermann-ebbinghaus',
+    keyTakeaways: [
+      'Invente seul une méthode rigoureuse pour étudier la mémoire.',
+      'Découvre la courbe de l\'oubli à partir d\'une auto-expérimentation.',
+      'Fonde l\'étude expérimentale de la mémoire, indépendamment de Wundt.',
+    ] as [string, string, string],
     name: 'Hermann Ebbinghaus',
     birth: '1850',
     death: '1909',
@@ -728,6 +838,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'stanley-milgram',
+    keyTakeaways: [
+      'Étudie jusqu\'où des personnes ordinaires obéissent à une autorité légitime.',
+      'Ses résultats montrent qu\'une majorité obéit jusqu\'au bout.',
+      'Propose la théorie de l\'« état agentique » pour expliquer ce basculement.',
+    ] as [string, string, string],
     name: 'Stanley Milgram',
     birth: '1933',
     death: '1984',
@@ -759,6 +874,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'solomon-asch',
+    keyTakeaways: [
+      'Montre qu\'un tiers des participants se conforment à un jugement de groupe erroné.',
+      'Ses travaux inspirent directement les recherches de Milgram.',
+      'Marqué par l\'influence de la Gestalt sur la perception sociale.',
+    ] as [string, string, string],
     name: 'Solomon Asch',
     birth: '1907',
     death: '1996',
@@ -790,6 +910,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'elizabeth-loftus',
+    keyTakeaways: [
+      'Montre qu\'un souvenir peut être modifié par des informations reçues après coup.',
+      'Parvient à implanter de faux souvenirs d\'enfance chez certains participants.',
+      'Ses travaux transforment les pratiques judiciaires sur le témoignage oculaire.',
+    ] as [string, string, string],
     name: 'Elizabeth Loftus',
     birth: '1944',
     nationality: 'Américaine',
@@ -819,6 +944,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'daniel-kahneman',
+    keyTakeaways: [
+      'Montre que le jugement humain suit deux modes : rapide et intuitif, lent et délibératif.',
+      'Développe avec Tversky la théorie des perspectives sur la décision.',
+      'Reçoit en 2002 le prix de la Banque de Suède en sciences économiques.',
+    ] as [string, string, string],
     name: 'Daniel Kahneman',
     birth: '1934',
     death: '2024',
@@ -850,6 +980,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'amos-tversky',
+    keyTakeaways: [
+      'Collabore près de trente ans avec Daniel Kahneman.',
+      'Identifie plusieurs heuristiques de jugement, comme la représentativité et l\'ancrage.',
+      'Mort en 1996, il n\'a pas pu partager le prix Nobel obtenu par Kahneman.',
+    ] as [string, string, string],
     name: 'Amos Tversky',
     birth: '1937',
     death: '1996',
@@ -880,6 +1015,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'gordon-allport',
+    keyTakeaways: [
+      'Fonde l\'étude de la personnalité à partir de la notion de trait.',
+      'Catalogue, avec Odbert, près de 4 000 termes de personnalité en anglais.',
+      'Son approche lexicale inspirera plus tard le modèle du Big Five.',
+    ] as [string, string, string],
     name: 'Gordon Allport',
     birth: '1897',
     death: '1967',
@@ -912,6 +1052,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'alan-baddeley',
+    keyTakeaways: [
+      'Propose, avec Graham Hitch, le modèle de la mémoire de travail.',
+      'Remplace l\'idée d\'un simple stockage par un système actif à composantes multiples.',
+      'Dirige pendant des années un centre de recherche sur la mémoire à Cambridge.',
+    ] as [string, string, string],
     name: 'Alan Baddeley',
     birth: '1934',
     nationality: 'Britannique',
@@ -940,6 +1085,11 @@ export const psychologists: Psychologist[] = [
   },
   {
     id: 'george-miller',
+    keyTakeaways: [
+      'Montre que la mémoire immédiate ne retient qu\'environ sept éléments à la fois.',
+      'Cofonde le Center for Cognitive Studies, moment clé de la révolution cognitive.',
+      'Contribue aussi à fonder la psycholinguistique moderne.',
+    ] as [string, string, string],
     name: 'George Miller',
     birth: '1920',
     death: '2012',

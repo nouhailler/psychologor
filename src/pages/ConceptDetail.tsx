@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { ConceptChip } from '../components/cards/ConceptChip';
 import { RelationshipCard } from '../components/cards/RelationshipCard';
 import { FavoriteButton } from '../components/ui/FavoriteButton';
+import { KeyTakeaways } from '../components/ui/KeyTakeaways';
 import { PageLoader } from '../components/ui/PageLoader';
 import { useAsync } from '../hooks/useAsync';
 import { useRecordVisit } from '../hooks/useHistory';
@@ -46,6 +47,25 @@ export default function ConceptDetail() {
           <FavoriteButton entityId={concept.id} entityType="concept" label={concept.term} />
         </div>
       </div>
+
+      <KeyTakeaways
+        items={concept.keyTakeaways}
+        accentColor="#6B4EDB"
+        keywords={[
+          ...(theories ?? []).map((t) => t.name),
+          ...(relatedConcepts ?? []).map((c) => c.term),
+        ].slice(0, 6)}
+        associations={[
+          {
+            label: 'Personnes associées',
+            items: (psychologists ?? []).map((p) => ({ id: p.id, name: p.name, href: `/psychologues/${p.id}` })),
+          },
+          {
+            label: 'Théories associées',
+            items: (theories ?? []).map((t) => ({ id: t.id, name: t.name, href: `/theories/${t.id}` })),
+          },
+        ]}
+      />
 
       <section className={styles.section}>
         <p className="text-body" style={{ maxWidth: 640 }}>{concept.definition}</p>

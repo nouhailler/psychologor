@@ -4,6 +4,7 @@ import { ConceptChip } from '../components/cards/ConceptChip';
 import { RelationshipCard } from '../components/cards/RelationshipCard';
 import { TheoryCard } from '../components/cards/TheoryCard';
 import { FavoriteButton } from '../components/ui/FavoriteButton';
+import { KeyTakeaways } from '../components/ui/KeyTakeaways';
 import { PageLoader } from '../components/ui/PageLoader';
 import { useAsync } from '../hooks/useAsync';
 import { useRecordVisit } from '../hooks/useHistory';
@@ -91,6 +92,25 @@ export default function PsychologistDetail() {
                 {psychologist.summary}
               </p>
             </section>
+
+            <KeyTakeaways
+              items={psychologist.keyTakeaways}
+              accentColor={psychologist.accentColor}
+              keywords={[
+                ...(theories ?? []).map((t) => t.name),
+                ...(concepts ?? []).map((c) => c.term),
+              ].slice(0, 6)}
+              associations={[
+                {
+                  label: 'Théories associées',
+                  items: (theories ?? []).map((t) => ({ id: t.id, name: t.name, href: `/theories/${t.id}` })),
+                },
+                {
+                  label: 'Concepts associés',
+                  items: (concepts ?? []).map((c) => ({ id: c.id, name: c.term, href: `/concepts/${c.id}` })),
+                },
+              ]}
+            />
 
             <section className={styles.section}>
               <h2 className={`text-h2 ${styles.sectionTitle}`}>Biographie</h2>

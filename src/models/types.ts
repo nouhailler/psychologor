@@ -68,6 +68,8 @@ export interface Concept {
   shortDefinition: string;
   definition: string;
   origin?: string;
+  /** Les 3 idées essentielles à retenir, pour la section « À retenir ». */
+  keyTakeaways: [string, string, string];
   psychologistIds: string[];
   theoryIds: string[];
   relatedConceptIds: string[];
@@ -106,6 +108,8 @@ export interface Psychologist {
   schoolIds: string[];
   summary: string;
   biography: string[];
+  /** Les 3 idées essentielles à retenir, pour la section « À retenir ». */
+  keyTakeaways: [string, string, string];
   education: string;
   career: string;
   influencedByIds: string[];
@@ -129,6 +133,8 @@ export interface Experiment {
   year: string;
   accentColor: string;
   summary: string;
+  /** Les 3 idées essentielles à retenir, pour la section « À retenir ». */
+  keyTakeaways: [string, string, string];
   protocol: string;
   results: string;
   interpretation: string;

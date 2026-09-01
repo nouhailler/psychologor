@@ -2,6 +2,7 @@ import { AlertTriangle, ArrowLeft, ClipboardList, FlaskConical, Lightbulb } from
 import { Link, useParams } from 'react-router-dom';
 import { ConceptChip } from '../components/cards/ConceptChip';
 import { RelationshipCard } from '../components/cards/RelationshipCard';
+import { KeyTakeaways } from '../components/ui/KeyTakeaways';
 import { PageLoader } from '../components/ui/PageLoader';
 import { useAsync } from '../hooks/useAsync';
 import { repository } from '../services/repository';
@@ -51,6 +52,25 @@ export default function ExperimentDetail() {
 
       <div className="container">
         <div className={styles.body}>
+          <KeyTakeaways
+            items={experiment.keyTakeaways}
+            accentColor={experiment.accentColor}
+            keywords={[
+              ...(theories ?? []).map((t) => t.name),
+              ...(concepts ?? []).map((c) => c.term),
+            ].slice(0, 6)}
+            associations={[
+              {
+                label: 'Personnes associées',
+                items: (psychologists ?? []).map((p) => ({ id: p.id, name: p.name, href: `/psychologues/${p.id}` })),
+              },
+              {
+                label: 'Théories associées',
+                items: (theories ?? []).map((t) => ({ id: t.id, name: t.name, href: `/theories/${t.id}` })),
+              },
+            ]}
+          />
+
           <section className={styles.section}>
             <p className={`text-label ${styles.sectionTitle}`}>
               <ClipboardList size={14} />

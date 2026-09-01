@@ -3,6 +3,11 @@ import type { Experiment } from '../models/types';
 export const experiments: Experiment[] = [
   {
     id: 'pavlov-salivation',
+    keyTakeaways: [
+      'Un stimulus neutre associé à la nourriture finit par déclencher, seul, la salivation.',
+      'Ce résultat fonde le principe du conditionnement classique.',
+      'Une réponse physiologique automatique peut donc s\'apprendre par association.',
+    ] as [string, string, string],
     title: 'La salivation conditionnée du chien',
     researchers: 'Ivan Pavlov',
     year: '1897 – 1903',
@@ -23,6 +28,11 @@ export const experiments: Experiment[] = [
   },
   {
     id: 'little-albert',
+    keyTakeaways: [
+      'Une peur peut être conditionnée chez un nourrisson, comme un simple réflexe.',
+      'La peur se généralise à d\'autres objets proches du stimulus initial.',
+      'L\'expérience est aujourd\'hui jugée contraire à l\'éthique de la recherche.',
+    ] as [string, string, string],
     title: 'Little Albert',
     researchers: 'John B. Watson et Rosalie Rayner',
     year: '1920',
@@ -43,6 +53,11 @@ export const experiments: Experiment[] = [
   },
   {
     id: 'asch-conformite',
+    keyTakeaways: [
+      'Face à un groupe unanime, un tiers des participants abandonnent leur propre jugement.',
+      'Pourtant, la tâche perceptive est simple et sans ambiguïté réelle.',
+      'La pression sociale peut l\'emporter sur l\'évidence des sens.',
+    ] as [string, string, string],
     title: 'Le jugement de lignes en groupe',
     researchers: 'Solomon Asch',
     year: '1951',
@@ -62,6 +77,11 @@ export const experiments: Experiment[] = [
   },
   {
     id: 'milgram-obeissance',
+    keyTakeaways: [
+      'Une majorité de participants obéit jusqu\'au niveau de choc maximal.',
+      'L\'autorité perçue comme légitime suffit à faire taire la réticence morale.',
+      'Milgram explique ce basculement par la notion d\'« état agentique ».',
+    ] as [string, string, string],
     title: "L'expérience sur l'obéissance",
     researchers: 'Stanley Milgram',
     year: '1961 – 1963',
@@ -81,6 +101,11 @@ export const experiments: Experiment[] = [
   },
   {
     id: 'bobo-doll',
+    keyTakeaways: [
+      'Des enfants imitent un comportement agressif après l\'avoir simplement observé.',
+      'Aucun renforcement direct n\'est nécessaire pour que l\'apprentissage ait lieu.',
+      'Ce résultat fonde la théorie sociale cognitive de Bandura.',
+    ] as [string, string, string],
     title: 'La poupée Bobo',
     researchers: 'Albert Bandura, avec Dorothea et Sheila Ross',
     year: '1961',
@@ -100,6 +125,11 @@ export const experiments: Experiment[] = [
   },
   {
     id: 'situation-etrange',
+    keyTakeaways: [
+      'Le comportement de l\'enfant au retour de sa figure d\'attachement révèle la qualité du lien.',
+      'Plusieurs styles d\'attachement sont identifiés : sécure, évitant, ambivalent.',
+      'Une base de sécurité permet à l\'enfant d\'explorer sereinement le monde.',
+    ] as [string, string, string],
     title: 'La situation étrange',
     researchers: 'Mary Ainsworth',
     year: '1969 – 1978',
@@ -119,6 +149,11 @@ export const experiments: Experiment[] = [
   },
   {
     id: 'ebbinghaus-syllabes',
+    keyTakeaways: [
+      'Ebbinghaus se sert lui-même de sujet, avec des syllabes sans aucun sens.',
+      'L\'oubli est rapide dans les premières heures, puis se ralentit fortement.',
+      'Une trace mnésique peut subsister même après la disparition du souvenir conscient.',
+    ] as [string, string, string],
     title: 'La mémorisation de syllabes sans sens',
     researchers: 'Hermann Ebbinghaus',
     year: '1879 – 1880',
@@ -138,6 +173,11 @@ export const experiments: Experiment[] = [
   },
   {
     id: 'effet-stroop',
+    keyTakeaways: [
+      'Nommer la couleur d\'un mot est plus lent quand le mot désigne une autre couleur.',
+      'La lecture est un processus si automatique qu\'il devient difficile à inhiber.',
+      'Ce résultat révèle une interférence entre deux processus cognitifs concurrents.',
+    ] as [string, string, string],
     title: "L'effet Stroop",
     researchers: 'John Ridley Stroop',
     year: '1935',
