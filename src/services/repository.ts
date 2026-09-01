@@ -5,10 +5,12 @@ import { schools } from '../data/schools';
 import { works } from '../data/works';
 import { quotes } from '../data/quotes';
 import { events } from '../data/events';
+import { experiments } from '../data/experiments';
 import { portraitCredits } from '../data/portraitCredits';
 import { paths } from '../data/paths';
 import type {
   Concept,
+  Experiment,
   HistoricalEvent,
   LearningPath,
   PathStep,
@@ -34,6 +36,7 @@ const schoolById = new Map(schools.map((s) => [s.id, s]));
 const workById = new Map(works.map((w) => [w.id, w]));
 const quoteById = new Map(quotes.map((q) => [q.id, q]));
 const eventById = new Map(events.map((e) => [e.id, e]));
+const experimentById = new Map(experiments.map((e) => [e.id, e]));
 const pathById = new Map(paths.map((p) => [p.id, p]));
 
 function delay<T>(value: T): Promise<T> {
@@ -72,6 +75,10 @@ export const repository = {
   getAllEvents: () => delay([...events].sort((a, b) => a.year - b.year)),
   getEvent: (id: string) => delay(eventById.get(id) ?? null),
 
+  // ---- Expériences ----
+  getAllExperiments: () => delay(experiments),
+  getExperiment: (id: string) => delay(experimentById.get(id) ?? null),
+
   // ---- Parcours guidés ----
   getAllPaths: () => delay(paths),
   getPath: (id: string) => delay(pathById.get(id) ?? null),
@@ -97,6 +104,10 @@ export function getEventSync(id: string): HistoricalEvent | undefined {
   return eventById.get(id);
 }
 
+export function getExperimentSync(id: string): Experiment | undefined {
+  return experimentById.get(id);
+}
+
 export function getPortraitCredit(psychologistId: string) {
   return portraitCredits[psychologistId];
 }
@@ -108,7 +119,7 @@ export function getPathSync(id: string): LearningPath | undefined {
 export interface ResolvedStepEntity {
   name: string;
   description: string;
-  href: string;
+  href?: string;
   accentColor: string;
   portraitUrl?: string;
   portraitInitials?: string;
@@ -119,6 +130,8 @@ const STEP_TYPE_LABELS: Record<StepEntityKind, string> = {
   psychologist: 'Psychologue',
   theory: 'Théorie',
   concept: 'Concept',
+  experiment: 'Expérience',
+  custom: 'Repère',
 };
 
 /**
@@ -127,6 +140,18 @@ const STEP_TYPE_LABELS: Record<StepEntityKind, string> = {
  * d'entité référencé.
  */
 export function resolveStepEntity(step: PathStep): ResolvedStepEntity | undefined {
+  if (step.entityType === 'custom') {
+    if (!step.customTitle) return undefined;
+    return {
+      name: step.customTitle,
+      description: step.customDescription ?? '',
+      accentColor: '#6B4EDB',
+      typeLabel: STEP_TYPE_LABELS.custom,
+    };
+  }
+
+  if (!step.entityId) return undefined;
+
   if (step.entityType === 'psychologist') {
     const p = psychologistById.get(step.entityId);
     if (!p) return undefined;
@@ -140,6 +165,7 @@ export function resolveStepEntity(step: PathStep): ResolvedStepEntity | undefine
       typeLabel: STEP_TYPE_LABELS.psychologist,
     };
   }
+
   if (step.entityType === 'theory') {
     const t = theoryById.get(step.entityId);
     if (!t) return undefined;
@@ -152,6 +178,19 @@ export function resolveStepEntity(step: PathStep): ResolvedStepEntity | undefine
       typeLabel: STEP_TYPE_LABELS.theory,
     };
   }
+
+  if (step.entityType === 'experiment') {
+    const e = experimentById.get(step.entityId);
+    if (!e) return undefined;
+    return {
+      name: e.title,
+      description: e.summary,
+      href: `/experiences/${e.id}`,
+      accentColor: e.accentColor,
+      typeLabel: STEP_TYPE_LABELS.experiment,
+    };
+  }
+
   const c = conceptById.get(step.entityId);
   if (!c) return undefined;
   return {

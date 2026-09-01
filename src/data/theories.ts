@@ -531,4 +531,221 @@ export const theories: Theory[] = [
       keyMethod: 'Entretien structuré et restructuration cognitive',
     },
   },
+  {
+    id: 'gestaltisme',
+    name: 'Gestaltisme',
+    tagline: "Le tout est différent de la somme de ses parties",
+    period: '1912 – 1940',
+    schoolIds: ['gestalt'],
+    psychologistIds: ['max-wertheimer', 'wolfgang-kohler', 'kurt-koffka'],
+    summary:
+      "Théorie fondée par Wertheimer, Köhler et Koffka, selon laquelle la perception organise spontanément les stimuli en totalités structurées et signifiantes, plutôt que de les additionner élément par élément.",
+    principles: [
+      "L'esprit perçoit d'abord des formes globales (Gestalten), pas des sensations isolées qu'il faudrait ensuite assembler.",
+      "Cette organisation perceptive obéit à des lois précises : proximité, similarité, clôture, continuité, figure-fond.",
+      "Certains problèmes se résolvent par une réorganisation soudaine de la perception de la situation — l'insight — plutôt que par un apprentissage progressif par essais et erreurs.",
+    ],
+    conceptIds: ['lois-de-la-gestalt', 'insight'],
+    applications: [
+      "Influence durable sur la psychologie de la perception et le design (interfaces, typographie, cartographie).",
+      "Contribution aux débuts de la psychologie de la résolution de problèmes.",
+    ],
+    evolution:
+      "Fragilisé par l'exil forcé de ses trois fondateurs après l'arrivée du nazisme, le gestaltisme n'a jamais constitué une école aussi structurée que la psychanalyse ou le behaviorisme, mais ses lois de l'organisation perceptive restent aujourd'hui enseignées et vérifiées empiriquement.",
+    critiques: [
+      "Les lois de la Gestalt sont surtout descriptives : elles décrivent des régularités perceptives sans toujours en expliquer les mécanismes sous-jacents.",
+      "Le courant a produit peu de méthodes de mesure aussi rigoureuses que celles du behaviorisme ou du cognitivisme naissant.",
+    ],
+    relatedTheoryIds: ['structuralisme'],
+    comparison: {
+      objectOfStudy: "L'organisation perceptive globale",
+      keyMethod: 'Expérimentation sur la perception et la résolution de problèmes',
+    },
+  },
+  {
+    id: 'etude-experimentale-de-la-memoire',
+    name: "Étude expérimentale de la mémoire",
+    tagline: 'Mesurer scientifiquement ce qui se retient — et ce qui se perd',
+    period: '1879 – 1885',
+    schoolIds: ['experimentale'],
+    psychologistIds: ['hermann-ebbinghaus'],
+    summary:
+      "Approche fondée par Hermann Ebbinghaus, qui démontre qu'une fonction aussi complexe que la mémoire peut être étudiée avec la rigueur expérimentale, à l'aide de matériel dénué de sens et de mesures précises de l'oubli.",
+    principles: [
+      "Des syllabes sans signification permettent d'étudier la mémoire indépendamment des connaissances déjà acquises par le sujet.",
+      "L'oubli suit une courbe régulière et mesurable : rapide dans les premières heures, puis de plus en plus lent.",
+      "La « méthode des économies » (le nombre d'essais économisés pour réapprendre une liste) permet de quantifier ce qu'il reste d'un apprentissage, même quand le rappel conscient échoue.",
+    ],
+    conceptIds: ['courbe-de-l-oubli', 'memoire-a-court-terme'],
+    applications: [
+      "Base méthodologique reprise par l'ensemble de la recherche ultérieure sur la mémoire et l'apprentissage.",
+      "Influence sur les techniques d'apprentissage espacé, aujourd'hui utilisées dans l'éducation.",
+    ],
+    evolution:
+      "Les travaux d'Ebbinghaus ouvrent la voie à un siècle et demi de recherche expérimentale sur la mémoire, prolongée notamment par les modèles de George Miller et d'Alan Baddeley au XXe siècle.",
+    critiques: [
+      "L'usage de syllabes sans signification est parfois jugé peu représentatif de la mémoire pour des contenus réels et significatifs.",
+      "L'étude portant sur un sujet unique — Ebbinghaus lui-même — pose la question de la généralisation des résultats.",
+    ],
+    relatedTheoryIds: ['memoire-de-travail'],
+    comparison: {
+      objectOfStudy: "La mémorisation et l'oubli",
+      keyMethod: 'Auto-expérimentation avec du matériel dénué de sens',
+    },
+  },
+  {
+    id: 'etat-agentique',
+    name: 'Théorie de l’état agentique',
+    tagline: "Pourquoi des personnes ordinaires obéissent à des ordres destructeurs",
+    period: '1974',
+    schoolIds: ['sociale'],
+    psychologistIds: ['stanley-milgram'],
+    summary:
+      "Théorie proposée par Stanley Milgram pour expliquer les résultats de ses expériences sur l'obéissance : face à une autorité perçue comme légitime, un individu peut basculer dans un « état agentique » où il se vit comme le simple exécutant de la volonté d'autrui.",
+    principles: [
+      "Dans l'état agentique, l'individu ne se sent plus responsable de ses actes, mais seulement de la qualité avec laquelle il exécute les instructions reçues.",
+      "Ce basculement est facilité par la légitimité perçue de l'autorité, la proximité physique de la victime et la présence ou non d'autres personnes qui refusent d'obéir.",
+      "L'obéissance destructrice n'exige donc pas de cruauté personnelle : elle peut émerger de la structure même de la situation.",
+    ],
+    conceptIds: ['obeissance-a-l-autorite'],
+    applications: [
+      "Cadre de référence pour comprendre des phénomènes historiques de violence organisée et bureaucratique.",
+      "Influence sur la réflexion contemporaine en éthique des organisations et en gestion des institutions hiérarchiques.",
+    ],
+    evolution:
+      "La théorie de Milgram reste débattue mais continue d'alimenter la recherche en psychologie sociale sur l'obéissance, la désobéissance et la responsabilité morale au sein des groupes et des institutions.",
+    critiques: [
+      "Les protocoles expérimentaux de Milgram seraient aujourd'hui jugés contraires aux règles éthiques de la recherche.",
+      "Des relectures historiques des enregistrements originaux suggèrent que certains participants ont pu percevoir, au moins en partie, le caractère simulé de l'expérience.",
+    ],
+    relatedTheoryIds: [],
+    comparison: {
+      objectOfStudy: "L'obéissance à l'autorité",
+      keyMethod: 'Expérimentation contrôlée en laboratoire',
+    },
+  },
+  {
+    id: 'theories-de-l-emotion',
+    name: "Théories de l'émotion",
+    tagline: "L'émotion précède-t-elle la pensée, ou en découle-t-elle ?",
+    period: '1884 – aujourd\'hui',
+    schoolIds: ['cognitivisme'],
+    psychologistIds: [],
+    summary:
+      "Plusieurs théories concurrentes ont cherché à expliquer la relation entre l'activation physiologique, la pensée et le ressenti émotionnel — sans qu'aucune ne fasse aujourd'hui consensus absolu.",
+    principles: [
+      "La théorie de James-Lange (1884) propose que l'émotion soit la perception consciente d'une réaction corporelle : nous avons peur parce que nous tremblons, et non l'inverse.",
+      "La théorie de Cannon-Bard (années 1920) objecte que réaction corporelle et ressenti émotionnel surviennent simultanément, tous deux déclenchés par le cerveau, sans que l'un ne cause l'autre.",
+      "La théorie à deux facteurs de Schachter et Singer (1962) ajoute qu'une même activation physiologique peut être interprétée comme des émotions très différentes selon le contexte cognitif dans lequel elle survient.",
+    ],
+    conceptIds: [],
+    applications: [
+      "Cadre de référence pour la recherche contemporaine en neurosciences affectives.",
+      "Influence sur les approches thérapeutiques qui travaillent sur l'interprétation cognitive des sensations corporelles.",
+    ],
+    evolution:
+      "Aucune de ces théories n'explique à elle seule l'ensemble des phénomènes émotionnels ; la recherche contemporaine tend à les considérer comme complémentaires plutôt que strictement concurrentes.",
+    critiques: [
+      "La théorie de James-Lange peine à expliquer les émotions ressenties en l'absence de changements physiologiques nettement différenciés.",
+      "La théorie à deux facteurs a été critiquée pour la difficulté à répliquer certains de ses résultats expérimentaux originaux.",
+    ],
+    relatedTheoryIds: [],
+    comparison: {
+      objectOfStudy: "La relation entre corps, cognition et émotion",
+      keyMethod: 'Expérimentation en laboratoire et étude de cas cliniques',
+    },
+  },
+  {
+    id: 'heuristiques-et-biais-cognitifs',
+    name: 'Heuristiques et biais cognitifs',
+    tagline: "Pourquoi nos jugements rapides s'écartent-ils si souvent de la logique ?",
+    period: '1974 – 1979',
+    schoolIds: ['cognitivisme'],
+    psychologistIds: ['daniel-kahneman', 'amos-tversky'],
+    summary:
+      "Programme de recherche développé par Kahneman et Tversky, qui montre que le jugement humain repose souvent sur des raccourcis mentaux économiques mais systématiquement biaisés, plutôt que sur un calcul rationnel complet.",
+    principles: [
+      "Une heuristique est un raccourci mental qui permet de juger ou décider rapidement, au prix d'erreurs prévisibles dans certaines situations.",
+      "L'heuristique de représentativité conduit à juger la probabilité d'un événement selon sa ressemblance avec un cas typique, plutôt que selon sa fréquence réelle.",
+      "La théorie des perspectives (1979) montre que nous évaluons les gains et les pertes de façon asymétrique : une perte est ressentie plus intensément qu'un gain équivalent.",
+    ],
+    conceptIds: ['heuristique', 'biais-cognitif'],
+    applications: [
+      "Fondation de l'économie comportementale, aujourd'hui utilisée en politiques publiques (« nudge ») et en finance.",
+      "Applications en ergonomie des interfaces et en communication des risques (santé publique, sécurité routière).",
+    ],
+    evolution:
+      "Le programme heuristiques-et-biais s'est imposé comme l'un des cadres dominants de la psychologie du jugement et de la décision, et a directement inspiré la naissance de l'économie comportementale.",
+    critiques: [
+      "Certains chercheurs estiment que l'accent mis sur les erreurs de jugement sous-estime l'efficacité de ces heuristiques dans la plupart des situations réelles.",
+      "Plusieurs résultats classiques du champ ont connu des difficultés de réplication lors de nouvelles études, dans le contexte plus large de la « crise de la réplication » en psychologie.",
+    ],
+    relatedTheoryIds: [],
+    comparison: {
+      objectOfStudy: 'Le jugement et la prise de décision en situation d’incertitude',
+      keyMethod: 'Expérimentation par scénarios de choix',
+    },
+  },
+  {
+    id: 'theorie-des-traits',
+    name: 'Théorie des traits de personnalité',
+    tagline: 'Décrire la personnalité à partir de dispositions stables',
+    period: '1936 – aujourd\'hui',
+    schoolIds: ['humanisme'],
+    psychologistIds: ['gordon-allport'],
+    summary:
+      "Approche fondée par Gordon Allport, qui décrit la personnalité à partir de traits — des dispositions relativement stables à penser, ressentir et agir d'une certaine façon — plutôt qu'à partir de pulsions inconscientes ou de renforcements appris.",
+    principles: [
+      "Un trait de personnalité est une disposition durable qui rend un comportement plus probable dans des situations variées.",
+      "Allport distingue les traits cardinaux (rares, qui dominent toute une existence), les traits centraux (les grandes caractéristiques d'une personne) et les traits secondaires (plus spécifiques à certaines situations).",
+      "Certains motifs, bien qu'ayant une origine développementale ancienne, peuvent devenir fonctionnellement autonomes : ils continuent d'agir pour eux-mêmes à l'âge adulte, indépendamment de leur cause initiale.",
+    ],
+    conceptIds: ['trait-de-personnalite', 'big-five'],
+    applications: [
+      "Fondation de l'approche par traits en psychologie de la personnalité, encore dominante aujourd'hui.",
+      "Base du modèle des cinq grands traits (Big Five), largement utilisé en recherche comme en contexte professionnel.",
+    ],
+    evolution:
+      "L'approche lexicale initiée par Allport et Odbert est reprise et affinée par plusieurs générations de chercheurs jusqu'aux années 1980-1990, aboutissant au modèle des cinq grands traits de personnalité aujourd'hui le plus consensuel.",
+    critiques: [
+      "L'approche par traits décrit des régularités de comportement sans toujours expliquer leurs causes profondes.",
+      "Certains lui reprochent de sous-estimer le poids de la situation dans la détermination du comportement, par rapport aux dispositions individuelles.",
+    ],
+    relatedTheoryIds: [],
+    comparison: {
+      objectOfStudy: 'Les dispositions stables de la personnalité',
+      keyMethod: 'Analyse lexicale et questionnaires de personnalité',
+    },
+  },
+  {
+    id: 'memoire-de-travail',
+    name: 'Modèle de la mémoire de travail',
+    tagline: "Retenir, ce n'est pas seulement stocker : c'est aussi manipuler l'information",
+    period: '1974 – 2000',
+    schoolIds: ['cognitivisme'],
+    psychologistIds: ['alan-baddeley'],
+    summary:
+      "Modèle proposé par Alan Baddeley et Graham Hitch, qui remplace la notion unique de mémoire à court terme par un système actif à plusieurs composantes, mobilisé pour maintenir et manipuler l'information le temps d'une tâche.",
+    principles: [
+      "L'administrateur central coordonne l'attention et supervise deux systèmes esclaves spécialisés.",
+      "La boucle phonologique maintient temporairement l'information verbale et sonore.",
+      "Le calepin visuo-spatial maintient temporairement l'information visuelle et spatiale ; un tampon épisodique, ajouté en 2000, permet d'intégrer ces informations avec la mémoire à long terme.",
+    ],
+    conceptIds: ['memoire-a-court-terme', 'memoire-a-long-terme'],
+    applications: [
+      "Cadre de référence pour comprendre les difficultés d'apprentissage liées à la mémoire (calcul mental, lecture, compréhension de consignes complexes).",
+      "Applications cliniques dans l'évaluation des troubles de la mémoire liés à l'âge ou à des lésions cérébrales.",
+    ],
+    evolution:
+      "Le modèle de la mémoire de travail reste aujourd'hui le cadre de référence dominant en psychologie cognitive pour l'étude de la rétention à court terme, complété par les apports des neurosciences cognitives.",
+    critiques: [
+      "La nature exacte de l'administrateur central reste débattue : certains y voient moins une structure unifiée qu'un ensemble de fonctions attentionnelles distinctes.",
+      "Le modèle a été construit essentiellement à partir de tâches de laboratoire, dont la représentativité pour la mémoire de travail en contexte réel est parfois questionnée.",
+    ],
+    relatedTheoryIds: ['etude-experimentale-de-la-memoire'],
+    comparison: {
+      objectOfStudy: "Le maintien actif et la manipulation de l'information à court terme",
+      keyMethod: 'Tâches doubles et expérimentation cognitive de laboratoire',
+    },
+  },
 ];

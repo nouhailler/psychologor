@@ -52,6 +52,16 @@ export const schools: School[] = [
     color: '#3B5FE0',
   },
   {
+    id: 'gestalt',
+    name: 'Psychologie de la forme (Gestalt)',
+    shortName: 'Gestalt',
+    period: '1912 – 1940',
+    summary: "Un courant fondé en Allemagne qui étudie la perception comme une organisation globale, irréductible à la somme de ses éléments.",
+    description:
+      "Née des travaux de Max Wertheimer sur le mouvement apparent, la psychologie de la forme soutient que l'esprit organise spontanément les perceptions en totalités structurées (« Gestalten »), selon des lois précises — proximité, similarité, clôture, continuité. Elle s'oppose à la fois à l'atomisme du structuralisme wundtien et au behaviorisme, en insistant sur le caractère actif et global de la perception.",
+    color: '#8A6A2F',
+  },
+  {
     id: 'cognitivisme',
     name: 'Cognitivisme',
     shortName: 'Cognitivisme',

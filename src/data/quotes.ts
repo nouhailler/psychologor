@@ -70,4 +70,25 @@ export const quotes: Quote[] = [
     year: '1951',
     psychologistId: 'kurt-lewin',
   },
+  {
+    id: 'ebbinghaus-long-passe-histoire-courte',
+    text: "La psychologie a un long passé, mais seulement une courte histoire.",
+    source: 'Abriss der Psychologie',
+    year: '1908',
+    psychologistId: 'hermann-ebbinghaus',
+  },
+  {
+    id: 'milgram-agents-processus-destructeur',
+    text: "Des gens ordinaires, faisant simplement leur travail, sans hostilité particulière de leur part, peuvent devenir les agents d'un terrible processus destructeur.",
+    source: 'Obedience to Authority: An Experimental View',
+    year: '1974',
+    psychologistId: 'stanley-milgram',
+  },
+  {
+    id: 'kahneman-blind-to-our-blindness',
+    text: "Nous pouvons être aveugles à l'évident, et nous sommes aussi aveugles à notre propre aveuglement.",
+    source: 'Thinking, Fast and Slow',
+    year: '2011',
+    psychologistId: 'daniel-kahneman',
+  },
 ];

@@ -6,9 +6,10 @@ export type EntityKind =
   | 'work'
   | 'quote'
   | 'event'
+  | 'experiment'
   | 'path';
 
-export type StepEntityKind = 'psychologist' | 'theory' | 'concept';
+export type StepEntityKind = 'psychologist' | 'theory' | 'concept' | 'experiment' | 'custom';
 
 export interface DateRange {
   birth?: string;
@@ -116,6 +117,27 @@ export interface Psychologist {
   timeline: { year: number; label: string }[];
 }
 
+/**
+ * Une expérience historique majeure — distincte d'une théorie : on y décrit
+ * un protocole concret, des résultats précis et leurs limites, plutôt qu'un
+ * cadre conceptuel général.
+ */
+export interface Experiment {
+  id: string;
+  title: string;
+  researchers: string;
+  year: string;
+  accentColor: string;
+  summary: string;
+  protocol: string;
+  results: string;
+  interpretation: string;
+  limitations: string;
+  psychologistIds: string[];
+  conceptIds: string[];
+  theoryIds: string[];
+}
+
 export interface SearchResultGroup<T> {
   type: EntityKind;
   label: string;
@@ -125,14 +147,31 @@ export interface SearchResultGroup<T> {
 export interface PathStep {
   id: string;
   entityType: StepEntityKind;
-  entityId: string;
+  /** Requis sauf lorsque entityType === 'custom'. */
+  entityId?: string;
+  /** Titre et description propres à une étape 'custom' (synthèse, comparaison, transition). */
+  customTitle?: string;
+  customDescription?: string;
   keyTakeaway: string;
   reflectionQuestion?: string;
   workId?: string;
 }
 
+export type PathCategory =
+  | 'introduction'
+  | 'courant'
+  | 'psychologue'
+  | 'concept'
+  | 'debat'
+  | 'experience'
+  | 'histoire'
+  | 'reseau'
+  | 'transversal'
+  | 'etudiant';
+
 export interface LearningPath {
   id: string;
+  category: PathCategory;
   title: string;
   subtitle: string;
   description: string;

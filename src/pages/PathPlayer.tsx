@@ -3,8 +3,10 @@ import {
   ArrowRight,
   BookOpen,
   Check,
+  FlaskConical,
   HelpCircle,
   Lightbulb,
+  Milestone,
   PartyPopper,
 } from 'lucide-react';
 import { useEffect, useMemo } from 'react';
@@ -16,6 +18,7 @@ import { useAsync } from '../hooks/useAsync';
 import { usePathProgress } from '../hooks/usePathProgress';
 import {
   getConceptSync,
+  getExperimentSync,
   getPsychologistSync,
   getTheorySync,
   repository,
@@ -53,6 +56,8 @@ function getStepConnections(step: PathStep): Connection[] {
     if (p) items.push({ id: p.id, name: p.name, subtitle: 'Psychologue', href: `/psychologues/${p.id}` });
   };
 
+  if (!step.entityId) return [];
+
   if (step.entityType === 'psychologist') {
     const p = getPsychologistSync(step.entityId);
     p?.theoryIds.forEach(pushTheory);
@@ -62,11 +67,16 @@ function getStepConnections(step: PathStep): Connection[] {
     t?.psychologistIds.forEach(pushPsychologist);
     t?.conceptIds.forEach(pushConcept);
     t?.relatedTheoryIds.forEach(pushTheory);
-  } else {
+  } else if (step.entityType === 'concept') {
     const c = getConceptSync(step.entityId);
     c?.psychologistIds.forEach(pushPsychologist);
     c?.theoryIds.forEach(pushTheory);
     c?.relatedConceptIds.forEach(pushConcept);
+  } else if (step.entityType === 'experiment') {
+    const e = getExperimentSync(step.entityId);
+    e?.psychologistIds.forEach(pushPsychologist);
+    e?.theoryIds.forEach(pushTheory);
+    e?.conceptIds.forEach(pushConcept);
   }
 
   return items.slice(0, 5);
@@ -200,6 +210,10 @@ export default function PathPlayer() {
                         alt=""
                         className={styles.entityPhoto}
                       />
+                    ) : currentStep.entityType === 'experiment' ? (
+                      <FlaskConical size={30} />
+                    ) : currentStep.entityType === 'custom' ? (
+                      <Milestone size={30} />
                     ) : (
                       resolvedEntity.portraitInitials ?? resolvedEntity.name[0]
                     )}
@@ -207,15 +221,19 @@ export default function PathPlayer() {
                   <div>
                     <p className="text-label">{resolvedEntity.typeLabel}</p>
                     <h2 className={`text-h1 ${styles.entityName}`}>{resolvedEntity.name}</h2>
-                    <Link to={resolvedEntity.href} className={`text-body-sm ${styles.entityLink}`}>
-                      Voir la fiche complète →
-                    </Link>
+                    {resolvedEntity.href && (
+                      <Link to={resolvedEntity.href} className={`text-body-sm ${styles.entityLink}`}>
+                        Voir la fiche complète →
+                      </Link>
+                    )}
                   </div>
                 </div>
 
-                <div className={styles.section}>
-                  <p className="text-body">{resolvedEntity.description}</p>
-                </div>
+                {resolvedEntity.description && (
+                  <div className={styles.section}>
+                    <p className="text-body">{resolvedEntity.description}</p>
+                  </div>
+                )}
 
                 <div className={styles.section}>
                   <p className={`text-label ${styles.sectionLabel}`}>

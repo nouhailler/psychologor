@@ -14,6 +14,7 @@ const KnowledgeMap = lazy(() => import('./pages/KnowledgeMap'));
 const Comparison = lazy(() => import('./pages/Comparison'));
 const Paths = lazy(() => import('./pages/Paths'));
 const PathPlayer = lazy(() => import('./pages/PathPlayer'));
+const ExperimentDetail = lazy(() => import('./pages/ExperimentDetail'));
 const Favorites = lazy(() => import('./pages/Favorites'));
 const Profile = lazy(() => import('./pages/Profile'));
 const NotFound = lazy(() => import('./pages/NotFound'));
@@ -36,6 +37,7 @@ function App() {
           <Route path="/comparaison" element={<Comparison />} />
           <Route path="/parcours" element={<Paths />} />
           <Route path="/parcours/:id" element={<PathPlayer />} />
+          <Route path="/experiences/:id" element={<ExperimentDetail />} />
           <Route path="/favoris" element={<Favorites />} />
           <Route path="/profil" element={<Profile />} />
           <Route path="/accueil" element={<Navigate to="/" replace />} />

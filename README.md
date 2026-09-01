@@ -35,6 +35,7 @@ Chaque fiche — psychologue, théorie, concept — est reliée aux autres. L'ap
 
 - [Fonctionnalités](#-fonctionnalités)
 - [Contenu](#-contenu)
+- [Parcours guidés](#-parcours-guidés)
 - [Design](#-design)
 - [Stack technique](#️-stack-technique)
 - [Démarrage](#-démarrage)
@@ -47,7 +48,8 @@ Chaque fiche — psychologue, théorie, concept — est reliée aux autres. L'ap
 | | |
 |---|---|
 | 🔍 **Recherche** | Recherche plein texte tolérante, en temps réel, groupée par type (personnes / théories / concepts) |
-| 🧑‍🔬 **Fiches croisées** | Psychologues, théories et concepts intégralement navigables entre eux |
+| 🧑‍🔬 **Fiches croisées** | Psychologues, théories, concepts et expériences intégralement navigables entre eux |
+| 🧭 **Parcours guidés** | Bibliothèque de 32 parcours pas à pas (introduction, courants, biographies, concepts, débats, expériences, histoire, révision…), avec progression persistée hors ligne |
 | 🕰️ **Chronologie** | Timeline interactive — verticale sur mobile, horizontale sur desktop — filtrable par type et courant |
 | 🕸️ **Carte des idées** | Graphe de connaissances interactif (React Flow) sur desktop, chaîne d'influence adaptée sur mobile |
 | ⚖️ **Comparaison** | Comparez jusqu'à 3 théories côte à côte (tableau desktop / cartes empilées mobile) |
@@ -62,13 +64,32 @@ Base de connaissances initiale, entièrement factuelle et sourcée (aucune citat
 
 | Entité | Nombre |
 |---|---|
-| 🧑‍🔬 Psychologues | 18 (Wundt → Beck) |
-| 💡 Théories | 17 |
-| 🔤 Concepts (glossaire) | 31 |
-| 🏛️ Courants de pensée | 9 |
-| 📖 Œuvres majeures | 20 |
-| 💬 Citations attribuées | 10 |
-| 🗓️ Événements chronologiques | 20 |
+| 🧑‍🔬 Psychologues | 30 (Wundt → Kahneman) |
+| 💡 Théories | 24 |
+| 🔤 Concepts (glossaire) | 44 |
+| 🏛️ Courants de pensée | 10 |
+| 🧪 Expériences historiques | 8 (protocole · résultats · limites) |
+| 📖 Œuvres majeures | 32 |
+| 💬 Citations attribuées | 13 |
+| 🗓️ Événements chronologiques | 29 |
+| 🧭 Parcours guidés | 32, en 10 familles thématiques |
+
+## 🧭 Parcours guidés
+
+Plutôt que de laisser l'utilisateur seul face à la base de connaissances, Psychologor propose une bibliothèque de **32 parcours** organisés en 10 familles :
+
+- 🧠 **Introduction** — vue d'ensemble pour une première visite
+- 🧭 **Courants** — psychanalyse, behaviorisme, Gestalt, humanisme, révolution cognitive…
+- 👤 **Biographies intellectuelles** — Freud, Jung, James, Skinner
+- 💡 **Autour d'un concept** — l'inconscient, la mémoire, l'attachement, les biais cognitifs…
+- ⚔️ **Débats** — Freud contre Jung, behaviorisme contre cognitivisme, nature contre culture…
+- 🔬 **Grandes expériences** — Pavlov, Milgram, Asch, Bandura, Stroop, Ebbinghaus…
+- 🕰️ **Histoire** — décennie par décennie, de 1879 à aujourd'hui
+- 👥 **Une idée, plusieurs psychologues** — le développement de l'enfant, le comportement, la motivation
+- 🧩 **Regards transversaux** — méthodes, épistémologie, désaccords entre écoles
+- 🎓 **Révision** — synthèse des grandes théories
+
+Chaque étape propose une fiche courte, une notion à retenir, parfois une œuvre associée, une question de réflexion et des connexions à explorer — calculées automatiquement à partir des relations déjà présentes entre entités. La progression est persistée localement (reprise automatique, écran de fin de parcours).
 
 ## 🎨 Design
 
