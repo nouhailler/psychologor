@@ -8,6 +8,8 @@ export const events: HistoricalEvent[] = [
     year: 1879,
     description:
       "Wilhelm Wundt fonde à l'université de Leipzig le premier laboratoire consacré exclusivement à la psychologie expérimentale, marquant conventionnellement la naissance de la psychologie comme science autonome.",
+    historicalContext:
+      "Wundt obtient de l'université une pièce auparavant utilisée pour des expériences de physique, à un moment où l'institution reconnaît des chaires de philosophie mais aucune discipline psychologique indépendante.",
     type: 'institution',
     relatedPsychologistIds: ['wilhelm-wundt'],
     relatedTheoryIds: ['structuralisme'],
@@ -19,10 +21,13 @@ export const events: HistoricalEvent[] = [
     date: '1890',
     year: 1890,
     description: "William James publie sa somme sur la psychologie, qui introduit le concept de flux de conscience et pose les bases du fonctionnalisme.",
+    historicalContext:
+      "Cette parution met fin à près de vingt ans de dépendance de la psychologie américaine vis-à-vis des ouvrages allemands importés ou traduits, en lui donnant son propre grand traité de référence.",
     type: 'publication',
     relatedPsychologistIds: ['william-james'],
     relatedTheoryIds: ['fonctionnalisme'],
     relatedSchoolIds: ['experimentale'],
+    workId: 'james-principles-of-psychology',
   },
   {
     id: 'evt-1900-interpretation-du-reve',
@@ -30,10 +35,13 @@ export const events: HistoricalEvent[] = [
     date: '1900',
     year: 1900,
     description: "Sigmund Freud publie l'ouvrage fondateur de la psychanalyse, où il expose sa théorie du rêve comme voie d'accès à l'inconscient.",
+    historicalContext:
+      "La publication passe d'abord relativement inaperçue : le tirage initial met plusieurs années à s'écouler, bien avant que l'ouvrage ne soit reconnu comme fondateur.",
     type: 'publication',
     relatedPsychologistIds: ['sigmund-freud'],
     relatedTheoryIds: ['psychanalyse'],
     relatedSchoolIds: ['psychanalyse'],
+    workId: 'freud-interpretation-du-reve',
   },
   {
     id: 'evt-1904-pavlov-nobel',
@@ -41,6 +49,8 @@ export const events: HistoricalEvent[] = [
     date: '1904',
     year: 1904,
     description: "Pavlov est distingué pour ses travaux sur la physiologie de la digestion, avant de formaliser sa théorie du réflexe conditionné.",
+    historicalContext:
+      "Le prix récompense des recherches menées depuis les années 1890 ; ses observations sur le réflexe conditionné, déjà en cours, ne seront formalisées en théorie qu'après cette distinction.",
     type: 'event',
     relatedPsychologistIds: ['ivan-pavlov'],
     relatedTheoryIds: ['conditionnement-classique'],
@@ -52,6 +62,8 @@ export const events: HistoricalEvent[] = [
     date: '1911',
     year: 1911,
     description: "Adler quitte la Société psychanalytique de Vienne et fonde la psychologie individuelle.",
+    historicalContext:
+      "La rupture survient après des mois de désaccords croissants au sein du cercle freudien sur le rôle central attribué à la sexualité dans l'explication de la personnalité.",
     type: 'event',
     relatedPsychologistIds: ['alfred-adler', 'sigmund-freud'],
     relatedTheoryIds: ['psychologie-individuelle'],
@@ -63,6 +75,8 @@ export const events: HistoricalEvent[] = [
     date: '1913',
     year: 1913,
     description: "Watson publie « Psychology as the Behaviorist Views It », acte fondateur du behaviorisme en psychologie.",
+    historicalContext:
+      "Watson publie ce texte alors qu'il dirige déjà le laboratoire de psychologie de l'université Johns Hopkins, où il expérimente depuis plusieurs années une approche strictement centrée sur le comportement observable.",
     type: 'publication',
     relatedPsychologistIds: ['john-b-watson'],
     relatedTheoryIds: ['behaviorisme-methodologique'],
@@ -74,6 +88,8 @@ export const events: HistoricalEvent[] = [
     date: '1913',
     year: 1913,
     description: "Jung se sépare du mouvement psychanalytique freudien et développe sa propre approche, la psychologie analytique.",
+    historicalContext:
+      "La rupture intervient après plusieurs années de tensions croissantes sur la nature de la libido, dans le prolongement d'un désaccord théorique déjà ancien entre les deux hommes.",
     type: 'event',
     relatedPsychologistIds: ['carl-gustav-jung', 'sigmund-freud'],
     relatedTheoryIds: ['psychologie-analytique'],
@@ -85,10 +101,13 @@ export const events: HistoricalEvent[] = [
     date: '1921',
     year: 1921,
     description: "Carl Gustav Jung publie l'ouvrage qui introduit notamment la distinction entre introversion et extraversion.",
+    historicalContext:
+      "Publié huit ans après sa rupture avec Freud, cet ouvrage marque une étape dans la consolidation de la psychologie analytique comme cadre théorique autonome.",
     type: 'publication',
     relatedPsychologistIds: ['carl-gustav-jung'],
     relatedTheoryIds: ['psychologie-analytique'],
     relatedSchoolIds: ['analytique'],
+    workId: 'jung-types-psychologiques',
   },
   {
     id: 'evt-1923-moi-et-ca',
@@ -96,10 +115,13 @@ export const events: HistoricalEvent[] = [
     date: '1923',
     year: 1923,
     description: "Freud formalise la seconde topique de l'appareil psychique : ça, moi et surmoi.",
+    historicalContext:
+      "Cette publication survient alors que Freud est déjà un théoricien reconnu internationalement, mais que son modèle initial de l'appareil psychique peine à rendre compte de certaines observations cliniques récentes, comme la résistance inconsciente.",
     type: 'publication',
     relatedPsychologistIds: ['sigmund-freud'],
     relatedTheoryIds: ['psychanalyse'],
     relatedSchoolIds: ['psychanalyse'],
+    workId: 'freud-moi-et-ca',
   },
   {
     id: 'evt-1934-pensee-et-langage',
@@ -107,10 +129,13 @@ export const events: HistoricalEvent[] = [
     date: '1934',
     year: 1934,
     description: "L'ouvrage majeur de Lev Vygotsky, mort la même année, paraît en Union soviétique.",
+    historicalContext:
+      "L'ouvrage paraît la même année que la mort de Vygotsky, des suites de la tuberculose, sans qu'il ait pu superviser lui-même son édition finale.",
     type: 'publication',
     relatedPsychologistIds: ['lev-vygotsky'],
     relatedTheoryIds: ['theorie-socioculturelle'],
     relatedSchoolIds: ['developpement'],
+    workId: 'vygotsky-pensee-et-langage',
   },
   {
     id: 'evt-1936-naissance-intelligence',
@@ -118,10 +143,13 @@ export const events: HistoricalEvent[] = [
     date: '1936',
     year: 1936,
     description: "Jean Piaget publie l'une de ses études fondatrices sur le développement cognitif du jeune enfant.",
+    historicalContext:
+      "Cette publication s'appuie sur l'observation minutieuse que Piaget mène depuis plusieurs années sur le développement de ses propres enfants.",
     type: 'publication',
     relatedPsychologistIds: ['jean-piaget'],
     relatedTheoryIds: ['constructivisme-developpemental'],
     relatedSchoolIds: ['developpement'],
+    workId: 'piaget-naissance-intelligence',
   },
   {
     id: 'evt-1938-behavior-of-organisms',
@@ -129,10 +157,13 @@ export const events: HistoricalEvent[] = [
     date: '1938',
     year: 1938,
     description: "B. F. Skinner expose les fondements expérimentaux du conditionnement opérant.",
+    historicalContext:
+      "L'ouvrage paraît après plusieurs années de travail expérimental de Skinner sur le dispositif qui deviendra connu sous le nom de « boîte de Skinner ».",
     type: 'publication',
     relatedPsychologistIds: ['b-f-skinner'],
     relatedTheoryIds: ['conditionnement-operant'],
     relatedSchoolIds: ['behaviorisme'],
+    workId: 'skinner-behavior-of-organisms',
   },
   {
     id: 'evt-1943-hierarchie-des-besoins',
@@ -140,6 +171,8 @@ export const events: HistoricalEvent[] = [
     date: '1943',
     year: 1943,
     description: "Abraham Maslow présente pour la première fois sa théorie de la hiérarchie des besoins.",
+    historicalContext:
+      "Cet article paraît alors que la psychologie américaine se partage encore essentiellement entre psychanalyse et behaviorisme, sans qu'aucun cadre ne s'intéresse explicitement à la motivation vers la croissance personnelle.",
     type: 'publication',
     relatedPsychologistIds: ['abraham-maslow'],
     relatedTheoryIds: ['hierarchie-des-besoins'],
@@ -151,6 +184,8 @@ export const events: HistoricalEvent[] = [
     date: '1944',
     year: 1944,
     description: "Kurt Lewin fonde au MIT un centre de recherche consacré à l'étude scientifique des groupes.",
+    historicalContext:
+      "Lewin fonde ce centre onze ans après avoir fui l'Allemagne nazie, à un moment où la psychologie sociale américaine ne dispose encore d'aucune institution de recherche qui lui soit propre.",
     type: 'institution',
     relatedPsychologistIds: ['kurt-lewin'],
     relatedTheoryIds: ['theorie-du-champ'],
@@ -162,6 +197,8 @@ export const events: HistoricalEvent[] = [
     date: '1950',
     year: 1950,
     description: "Erik Erikson expose une première version de sa théorie des stades du développement psychosocial.",
+    historicalContext:
+      "Cet ouvrage paraît alors qu'Erikson a émigré aux États-Unis depuis près de vingt ans et développé sa pratique clinique auprès d'enfants dans plusieurs contextes culturels différents.",
     type: 'publication',
     relatedPsychologistIds: ['erik-erikson'],
     relatedTheoryIds: ['developpement-psychosocial'],
@@ -173,6 +210,8 @@ export const events: HistoricalEvent[] = [
     date: '1951',
     year: 1951,
     description: "Carl Rogers formalise les principes de l'approche thérapeutique centrée sur la personne.",
+    historicalContext:
+      "Cette publication survient après plusieurs années de pratique clinique de Rogers, où il observe que l'attitude du thérapeute semble compter davantage que sa technique d'interprétation.",
     type: 'publication',
     relatedPsychologistIds: ['carl-rogers'],
     relatedTheoryIds: ['approche-centree-sur-la-personne'],
@@ -184,6 +223,8 @@ export const events: HistoricalEvent[] = [
     date: '1961',
     year: 1961,
     description: "Albert Bandura démontre l'apprentissage par observation chez l'enfant, remettant en cause les explications behavioristes classiques de l'apprentissage.",
+    historicalContext:
+      "Bandura conçoit cette expérience à l'université Stanford alors que le behaviorisme skinnérien domine encore largement la psychologie américaine de l'apprentissage.",
     type: 'event',
     relatedPsychologistIds: ['albert-bandura'],
     relatedTheoryIds: ['theorie-sociale-cognitive'],
@@ -195,10 +236,13 @@ export const events: HistoricalEvent[] = [
     date: '1969',
     year: 1969,
     description: "John Bowlby publie le premier tome de sa trilogie fondatrice de la théorie de l'attachement.",
+    historicalContext:
+      "Ce premier volume paraît près de vingt ans après le rapport que Bowlby rédige pour l'Organisation mondiale de la santé sur les effets de la carence de soins maternels.",
     type: 'publication',
     relatedPsychologistIds: ['john-bowlby'],
     relatedTheoryIds: ['theorie-de-l-attachement'],
     relatedSchoolIds: ['developpement'],
+    workId: 'bowlby-attachment-and-loss',
   },
   {
     id: 'evt-1976-cognitive-therapy',
@@ -206,10 +250,13 @@ export const events: HistoricalEvent[] = [
     date: '1976',
     year: 1976,
     description: "Aaron Beck expose les principes fondateurs de la thérapie cognitive.",
+    historicalContext:
+      "Cet ouvrage paraît après que Beck a renoncé, dans les années 1960, à vérifier empiriquement certaines hypothèses freudiennes sur la dépression.",
     type: 'publication',
     relatedPsychologistIds: ['aaron-beck'],
     relatedTheoryIds: ['therapie-cognitive'],
     relatedSchoolIds: ['cognitivisme'],
+    workId: 'beck-cognitive-therapy-emotional-disorders',
   },
   {
     id: 'evt-1978-patterns-of-attachment',
@@ -217,10 +264,13 @@ export const events: HistoricalEvent[] = [
     date: '1978',
     year: 1978,
     description: "Mary Ainsworth publie les résultats de ses recherches fondées sur le protocole de la « situation étrange ».",
+    historicalContext:
+      "Cette publication survient après des années d'observations naturalistes menées par Ainsworth, d'abord en Ouganda puis à Baltimore.",
     type: 'publication',
     relatedPsychologistIds: ['mary-ainsworth'],
     relatedTheoryIds: ['theorie-de-l-attachement'],
     relatedSchoolIds: ['developpement'],
+    workId: 'ainsworth-patterns-of-attachment',
   },
   {
     id: 'evt-1885-ebbinghaus-memoire',
@@ -228,10 +278,13 @@ export const events: HistoricalEvent[] = [
     date: '1885',
     year: 1885,
     description: "Hermann Ebbinghaus publie ses expériences sur la mémorisation de syllabes sans sens, fondant l'étude expérimentale de la mémoire.",
+    historicalContext:
+      "Ebbinghaus publie ces résultats après plusieurs années d'auto-expérimentation solitaire, menée entièrement en dehors de toute structure de laboratoire.",
     type: 'publication',
     relatedPsychologistIds: ['hermann-ebbinghaus'],
     relatedTheoryIds: ['etude-experimentale-de-la-memoire'],
     relatedSchoolIds: ['experimentale'],
+    workId: 'ebbinghaus-uber-das-gedachtnis',
   },
   {
     id: 'evt-1912-phenomene-phi',
@@ -239,10 +292,13 @@ export const events: HistoricalEvent[] = [
     date: '1912',
     year: 1912,
     description: "Max Wertheimer publie ses études expérimentales sur le mouvement apparent, fondant le courant gestaltiste avec ses assistants Wolfgang Köhler et Kurt Koffka.",
+    historicalContext:
+      "Wertheimer observe ce phénomène par hasard lors d'un trajet en train, puis le fait vérifier expérimentalement à Francfort avec l'aide de deux jeunes assistants, Köhler et Koffka.",
     type: 'publication',
     relatedPsychologistIds: ['max-wertheimer', 'wolfgang-kohler', 'kurt-koffka'],
     relatedTheoryIds: ['gestaltisme'],
     relatedSchoolIds: ['gestalt'],
+    workId: 'wertheimer-etudes-sur-le-mouvement',
   },
   {
     id: 'evt-1920-little-albert',
@@ -250,6 +306,8 @@ export const events: HistoricalEvent[] = [
     date: '1920',
     year: 1920,
     description: "John B. Watson et Rosalie Rayner démontrent qu'une peur peut être conditionnée chez un nourrisson, dans une expérience aujourd'hui jugée contraire à l'éthique de la recherche.",
+    historicalContext:
+      "Watson et Rayner mènent cette expérience à l'université Johns Hopkins, quelques années après la publication de son manifeste behavioriste, pour démontrer concrètement que des réponses émotionnelles peuvent être conditionnées chez l'humain.",
     type: 'event',
     relatedPsychologistIds: ['john-b-watson'],
     relatedTheoryIds: ['conditionnement-classique'],
@@ -261,6 +319,8 @@ export const events: HistoricalEvent[] = [
     date: '1951',
     year: 1951,
     description: "Solomon Asch publie ses expériences sur le jugement de longueurs de lignes sous pression de groupe.",
+    historicalContext:
+      "Asch conçoit ce protocole à Swarthmore College, où il côtoie Wolfgang Köhler, dans une volonté explicite de tester si même un jugement perceptif simple et non ambigu peut être influencé par la pression d'un groupe.",
     type: 'publication',
     relatedPsychologistIds: ['solomon-asch'],
     relatedTheoryIds: [],
@@ -272,10 +332,13 @@ export const events: HistoricalEvent[] = [
     date: '1956',
     year: 1956,
     description: "George Miller publie son article sur les limites de la mémoire immédiate, l'un des textes fondateurs de la révolution cognitive.",
+    historicalContext:
+      "Cet article paraît alors que la théorie de l'information et les débuts de l'informatique offrent de nouvelles métaphores pour penser le fonctionnement de l'esprit.",
     type: 'publication',
     relatedPsychologistIds: ['george-miller'],
     relatedTheoryIds: [],
     relatedSchoolIds: ['cognitivisme'],
+    workId: 'miller-magical-number-seven',
   },
   {
     id: 'evt-1961-milgram-obeissance',
@@ -283,6 +346,8 @@ export const events: HistoricalEvent[] = [
     date: '1961',
     year: 1961,
     description: "Stanley Milgram entame à l'université Yale ses expériences sur la soumission à l'autorité.",
+    historicalContext:
+      "Milgram débute ces expériences la même année que s'ouvre à Jérusalem le procès d'Adolf Eichmann, qui relance la question de la participation de personnes ordinaires à des ordres destructeurs.",
     type: 'event',
     relatedPsychologistIds: ['stanley-milgram'],
     relatedTheoryIds: ['etat-agentique'],
@@ -294,10 +359,13 @@ export const events: HistoricalEvent[] = [
     date: '1974',
     year: 1974,
     description: "Alan Baddeley et Graham Hitch proposent un modèle de la mémoire de travail à composantes multiples, qui remplace la notion unique de mémoire à court terme.",
+    historicalContext:
+      "Cet article paraît alors que les modèles de mémoire en plusieurs registres, proposés dans la décennie précédente, peinent à expliquer comment l'information à court terme est activement manipulée pendant une tâche.",
     type: 'publication',
     relatedPsychologistIds: ['alan-baddeley'],
     relatedTheoryIds: ['memoire-de-travail'],
     relatedSchoolIds: ['cognitivisme'],
+    workId: 'baddeley-working-memory',
   },
   {
     id: 'evt-1979-prospect-theory',
@@ -305,10 +373,13 @@ export const events: HistoricalEvent[] = [
     date: '1979',
     year: 1979,
     description: "Daniel Kahneman et Amos Tversky publient la théorie des perspectives, qui décrit comment les individus évaluent réellement le risque.",
+    historicalContext:
+      "Cet article paraît une décennie après le début de la collaboration entre Kahneman et Tversky à l'université hébraïque de Jérusalem.",
     type: 'publication',
     relatedPsychologistIds: ['daniel-kahneman', 'amos-tversky'],
     relatedTheoryIds: ['heuristiques-et-biais-cognitifs'],
     relatedSchoolIds: ['cognitivisme'],
+    workId: 'kahneman-tversky-prospect-theory',
   },
   {
     id: 'evt-2002-kahneman-nobel',
@@ -316,6 +387,8 @@ export const events: HistoricalEvent[] = [
     date: '2002',
     year: 2002,
     description: "Daniel Kahneman reçoit le prix de la Banque de Suède en sciences économiques pour avoir intégré des acquis de la recherche psychologique à la science économique.",
+    historicalContext:
+      "Le prix récompense des travaux menés conjointement avec Amos Tversky, mort en 1996 et donc inéligible à titre posthume à cette récompense.",
     type: 'event',
     relatedPsychologistIds: ['daniel-kahneman'],
     relatedTheoryIds: ['heuristiques-et-biais-cognitifs'],

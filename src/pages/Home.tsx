@@ -147,7 +147,7 @@ export default function Home() {
               <div key={event.id} style={{ minWidth: 280 }}>
                 <TimelineItem
                   event={event}
-                  to={event.relatedPsychologistIds[0] ? `/psychologues/${event.relatedPsychologistIds[0]}` : '/chronologie'}
+                  to={`/evenements/${event.id}`}
                   orientation="horizontal"
                   isLast={i === arr.length - 1}
                 />

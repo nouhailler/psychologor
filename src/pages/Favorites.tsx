@@ -1,4 +1,4 @@
-import { Landmark, ScrollText, Star } from 'lucide-react';
+import { Calendar, Landmark, ScrollText, Star } from 'lucide-react';
 import { PersonCard } from '../components/cards/PersonCard';
 import { TheoryCard } from '../components/cards/TheoryCard';
 import { ConceptChip } from '../components/cards/ConceptChip';
@@ -6,7 +6,7 @@ import { RelationshipCard } from '../components/cards/RelationshipCard';
 import { EmptyState } from '../components/ui/EmptyState';
 import { Section } from '../components/ui/Section';
 import { useFavoritesList } from '../hooks/useFavorites';
-import { getConceptSync, getPsychologistSync, getSchoolSync, getTheorySync, getWorkSync } from '../services/repository';
+import { getConceptSync, getEventSync, getPsychologistSync, getSchoolSync, getTheorySync, getWorkSync } from '../services/repository';
 import styles from './Favorites.module.css';
 
 export default function Favorites() {
@@ -37,8 +37,18 @@ export default function Favorites() {
     .map((f) => getWorkSync(f.entityId))
     .filter(Boolean);
 
+  const historicalEvents = (favorites ?? [])
+    .filter((f) => f.entityType === 'event')
+    .map((f) => getEventSync(f.entityId))
+    .filter(Boolean);
+
   const isEmpty =
-    psychologists.length === 0 && theories.length === 0 && concepts.length === 0 && schools.length === 0 && works.length === 0;
+    psychologists.length === 0 &&
+    theories.length === 0 &&
+    concepts.length === 0 &&
+    schools.length === 0 &&
+    works.length === 0 &&
+    historicalEvents.length === 0;
 
   return (
     <div className="container">
@@ -46,14 +56,14 @@ export default function Favorites() {
         <h1 className="text-h1" style={{ marginBottom: 'var(--space-2)' }}>
           Favoris
         </h1>
-        <p className="text-body-sm">Les personnes, théories, concepts, courants et œuvres que vous avez sauvegardés.</p>
+        <p className="text-body-sm">Les personnes, théories, concepts, courants, œuvres et événements que vous avez sauvegardés.</p>
       </div>
 
       {isEmpty && (
         <EmptyState
           icon={<Star size={24} />}
           title="Aucun favori pour le moment"
-          description="Ajoutez des psychologues, théories, concepts, courants ou œuvres à vos favoris en appuyant sur l'étoile de leur fiche."
+          description="Ajoutez des psychologues, théories, concepts, courants, œuvres ou événements à vos favoris en appuyant sur l'étoile de leur fiche."
         />
       )}
 
@@ -101,6 +111,25 @@ export default function Favorites() {
               (w) =>
                 w && (
                   <RelationshipCard key={w.id} to={`/oeuvres/${w.id}`} icon={<ScrollText size={18} />} title={w.title} subtitle={w.year} />
+                ),
+            )}
+          </div>
+        </Section>
+      )}
+
+      {historicalEvents.length > 0 && (
+        <Section title="Événements" className={styles.section}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+            {historicalEvents.map(
+              (e) =>
+                e && (
+                  <RelationshipCard
+                    key={e.id}
+                    to={`/evenements/${e.id}`}
+                    icon={<Calendar size={18} />}
+                    title={e.title}
+                    subtitle={String(e.year)}
+                  />
                 ),
             )}
           </div>

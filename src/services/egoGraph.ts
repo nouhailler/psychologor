@@ -157,8 +157,6 @@ function toNode(ref: EgoRef, depth: number, parentKey?: string): EgoNode | undef
   // event
   const e = getEventSync(ref.id);
   if (!e) return undefined;
-  const linkedPsychologist = e.relatedPsychologistIds[0] ? getPsychologistSync(e.relatedPsychologistIds[0]) : undefined;
-  const linkedTheory = e.relatedTheoryIds[0] ? getTheorySync(e.relatedTheoryIds[0]) : undefined;
   return {
     key: key(ref),
     type: ref.type,
@@ -166,7 +164,7 @@ function toNode(ref: EgoRef, depth: number, parentKey?: string): EgoNode | undef
     depth,
     parentKey,
     name: `${e.title} (${e.year})`,
-    href: linkedPsychologist ? `/psychologues/${linkedPsychologist.id}` : linkedTheory ? `/theories/${linkedTheory.id}` : undefined,
+    href: `/evenements/${e.id}`,
     accentColor: FALLBACK_COLOR,
   };
 }

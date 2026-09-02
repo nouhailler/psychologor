@@ -28,12 +28,6 @@ export default function Timeline() {
     return list;
   }, [events, typeFilter, schoolFilter]);
 
-  const eventLink = (event: (typeof filtered)[number]) => {
-    if (event.relatedPsychologistIds[0]) return `/psychologues/${event.relatedPsychologistIds[0]}`;
-    if (event.relatedTheoryIds[0]) return `/theories/${event.relatedTheoryIds[0]}`;
-    return '/chronologie';
-  };
-
   return (
     <div className="container">
       <div className={styles.header}>
@@ -74,7 +68,7 @@ export default function Timeline() {
       {filtered.length > 0 && isDesktop && (
         <div className={styles.horizontalScroll}>
           {filtered.map((event, i) => (
-            <TimelineItem key={event.id} event={event} to={eventLink(event)} orientation="horizontal" isLast={i === filtered.length - 1} />
+            <TimelineItem key={event.id} event={event} to={`/evenements/${event.id}`} orientation="horizontal" isLast={i === filtered.length - 1} />
           ))}
         </div>
       )}
@@ -82,7 +76,7 @@ export default function Timeline() {
       {filtered.length > 0 && !isDesktop && (
         <div className={styles.verticalList}>
           {filtered.map((event, i) => (
-            <TimelineItem key={event.id} event={event} to={eventLink(event)} isLast={i === filtered.length - 1} />
+            <TimelineItem key={event.id} event={event} to={`/evenements/${event.id}`} isLast={i === filtered.length - 1} />
           ))}
         </div>
       )}

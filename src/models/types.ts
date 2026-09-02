@@ -50,10 +50,14 @@ export interface HistoricalEvent {
   date: string;
   year: number;
   description: string;
+  /** Les circonstances immédiates qui amènent cet événement précis à ce moment-là. */
+  historicalContext: string;
   type: 'birth' | 'death' | 'publication' | 'event' | 'institution';
   relatedPsychologistIds: string[];
   relatedTheoryIds: string[];
   relatedSchoolIds: string[];
+  /** L'œuvre correspondante, quand cet événement est la publication d'un ouvrage déjà fiché. */
+  workId?: string;
 }
 
 export interface School {

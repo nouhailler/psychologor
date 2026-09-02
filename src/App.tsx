@@ -9,6 +9,7 @@ const PsychologistDetail = lazy(() => import('./pages/PsychologistDetail'));
 const TheoryDetail = lazy(() => import('./pages/TheoryDetail'));
 const SchoolDetail = lazy(() => import('./pages/SchoolDetail'));
 const WorkDetail = lazy(() => import('./pages/WorkDetail'));
+const EventDetail = lazy(() => import('./pages/EventDetail'));
 const Glossary = lazy(() => import('./pages/Glossary'));
 const ConceptDetail = lazy(() => import('./pages/ConceptDetail'));
 const Timeline = lazy(() => import('./pages/Timeline'));
@@ -37,6 +38,7 @@ function App() {
           <Route path="/concepts" element={<Glossary />} />
           <Route path="/concepts/:id" element={<ConceptDetail />} />
           <Route path="/oeuvres/:id" element={<WorkDetail />} />
+          <Route path="/evenements/:id" element={<EventDetail />} />
           <Route path="/chronologie" element={<Timeline />} />
           <Route path="/carte" element={<KnowledgeMap />} />
           <Route path="/comparaison" element={<Comparison />} />
