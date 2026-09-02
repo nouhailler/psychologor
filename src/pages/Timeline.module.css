@@ -2,6 +2,128 @@
   padding: var(--space-7) 0 var(--space-5);
 }
 
+.modeToggle {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-sunken);
+  border: 1px solid var(--color-border);
+  margin-bottom: var(--space-7);
+}
+
+.modeButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 36px;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-pill);
+  color: var(--color-text-secondary);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+
+.modeButton.active {
+  background: var(--color-primary);
+  color: var(--color-text-on-primary);
+}
+
+.eraSection {
+  padding-bottom: var(--space-9);
+}
+
+.eraChain {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  max-width: 640px;
+}
+
+.eraStep {
+  display: flex;
+  flex-direction: column;
+}
+
+.eraConnector {
+  color: var(--color-text-tertiary);
+  margin: var(--space-2) 0 var(--space-2) 27px;
+}
+
+.eraCard {
+  display: flex;
+  align-items: stretch;
+  text-align: left;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-elevated);
+  overflow: hidden;
+  transition: border-color var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.eraCard:hover {
+  border-color: var(--era-accent, var(--color-primary));
+  transform: translateY(-1px);
+}
+
+.eraBar {
+  flex-shrink: 0;
+  width: 6px;
+  background: var(--era-accent, var(--color-primary));
+}
+
+.eraBody {
+  padding: var(--space-5) var(--space-6);
+}
+
+.eraRange {
+  color: var(--era-accent, var(--color-primary)) !important;
+}
+
+.eraDetail {
+  padding-bottom: var(--space-9);
+}
+
+.eraDetailBar {
+  display: block;
+  width: 56px;
+  height: 6px;
+  border-radius: var(--radius-pill);
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-secondary);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-bottom: var(--space-6);
+}
+
+.eraSchoolChip {
+  display: inline-flex;
+  align-items: center;
+  height: 34px;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-sunken);
+  color: var(--color-text-secondary);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  border: 1px solid var(--color-border);
+}
+
+.eraSchoolChip:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
 .filterRow {
   display: flex;
   gap: var(--space-2);
