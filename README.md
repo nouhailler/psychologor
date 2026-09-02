@@ -47,20 +47,24 @@ Chaque fiche — psychologue, théorie, concept — est reliée aux autres. L'ap
 
 | | |
 |---|---|
-| 🔍 **Recherche** | Recherche plein texte tolérante, en temps réel, groupée par type (personnes / théories / concepts) |
-| 🧑‍🔬 **Fiches croisées** | Psychologues, théories, concepts et expériences intégralement navigables entre eux |
+| 🔍 **Recherche** | Recherche plein texte tolérante, en temps réel, groupée par type (personnes / théories / concepts / courants / œuvres / événements) |
+| 🧑‍🔬 **Fiches croisées** | Psychologues, théories, concepts, courants, œuvres, événements et expériences intégralement navigables entre eux |
+| 📜 **Contexte historique** | Chaque type de fiche situe sa contribution dans son climat scientifique propre — jamais un doublon d'une autre fiche : le débat qu'une théorie résout, le manque qu'un concept comble, le procès qui motive une expérience… |
+| 🌳 **Genèse de l'idée** | Généalogie intellectuelle calculée automatiquement à partir des influences réelles entre psychologues, sur les fiches théorie et concept — « Comment est-on arrivé à cette idée ? » |
 | 🧭 **Parcours guidés** | Bibliothèque de 32 parcours pas à pas (introduction, courants, biographies, concepts, débats, expériences, histoire, révision…), avec progression persistée hors ligne |
-| 🕰️ **Chronologie** | Timeline interactive — verticale sur mobile, horizontale sur desktop — filtrable par type et courant |
-| 🕸️ **Carte des idées** | Graphe de connaissances interactif (React Flow) sur desktop, chaîne d'influence adaptée sur mobile |
+| 🕰️ **Chronologie** | Timeline interactive — verticale sur mobile, horizontale sur desktop — filtrable par type et courant, chaque événement ayant sa propre fiche |
+| 🕸️ **Carte des idées** | Graphe de connaissances interactif (React Flow) sur desktop, chaîne d'influence adaptée sur mobile — vue d'ensemble ou mode « Explorer autour de… », centré sur une entité au choix, avec profondeur (1 à 3 niveaux) et filtres par type |
+| 📖 **Bibliothèque des œuvres** | Fiche par œuvre — thèmes, concepts effectivement introduits, réception, influence durable, œuvres liées, et « Pourquoi cette œuvre est importante ? » |
 | ⚖️ **Comparaison** | Comparez jusqu'à 3 éléments côte à côte — théories, concepts, psychologues ou courants — avec tableau croisé (✓ / —) sur les entités partagées |
-| ⭐ **Favoris & historique** | Sauvegarde locale persistante via IndexedDB (Dexie) |
+| ⭐ **Favoris & historique** | Sauvegarde locale persistante via IndexedDB (Dexie), sur les sept types d'entités |
+| 🍔 **Menu & mise à jour** | Menu hamburger catégorisé sur mobile ; mise à jour automatique de l'application, avec vérification manuelle et suivi de version depuis le Profil |
 | 🌗 **Thème clair / sombre** | Véritable thème graphique, pas une simple inversion, avec transition douce |
 | 📶 **Hors ligne** | Service worker + cache des données : consultable sans connexion |
 | ♿ **Accessible** | WCAG 2.2 AA visé — clavier, focus visible, `prefers-reduced-motion`, tailles de texte configurables |
 
 ## 📚 Contenu
 
-Base de connaissances initiale, entièrement factuelle et sourcée (aucune citation ni date inventée) :
+Base de connaissances entièrement factuelle et sourcée (aucune citation, date ou filiation inventée) :
 
 | Entité | Nombre |
 |---|---|
@@ -73,6 +77,8 @@ Base de connaissances initiale, entièrement factuelle et sourcée (aucune citat
 | 💬 Citations attribuées | 13 |
 | 🗓️ Événements chronologiques | 29 |
 | 🧭 Parcours guidés | 32, en 10 familles thématiques |
+
+Chaque psychologue, théorie, concept, courant, œuvre, événement et expérience porte désormais son propre **contexte historique**, écrit pour répondre à une question distincte selon sa nature plutôt que répéter les fiches voisines. Les courants ont fondateurs, représentants, lignée intellectuelle et courants concurrents/descendants ; les œuvres ont thèmes, concepts précisément introduits, réception, influence et œuvres liées — un vrai graphe bidirectionnel vérifié, pas une liste ad hoc. Aucun de ces contenus n'a été inventé : tout est dérivé ou recoupé avec des faits déjà établis ailleurs dans la base, et les associations incertaines ont été omises plutôt que forcées.
 
 ## 🧭 Parcours guidés
 
@@ -135,13 +141,18 @@ npm run lint       # lint du code avec Oxlint
 ```text
 src/
   components/       # UI, cartes, layout (design system)
-  pages/             # écrans routés (Home, Explorer, fiches…)
-  visualizations/    # graphe de connaissances, chaîne d'influence
-  data/              # contenu — psychologues, théories, concepts…
+  pages/             # écrans routés — fiches (psychologue, théorie, concept,
+                     #   courant, œuvre, événement, expérience), Explorer,
+                     #   Carte des idées, Comparaison, Profil…
+  visualizations/    # graphe de connaissances, graphe « autour de moi »
+                     #   (desktop React Flow / drill-down mobile), chaîne d'influence
+  data/              # contenu — psychologues, théories, concepts, courants,
+                     #   œuvres, événements, expériences, parcours…
   models/            # types TypeScript des entités
-  services/          # repository, recherche, IndexedDB (Dexie)
+  services/          # repository, recherche, généalogie (genesis), graphe
+                     #   d'influence (egoGraph), IndexedDB (Dexie)
   store/             # contextes React (thème, recherche)
-  hooks/             # hooks partagés
+  hooks/             # hooks partagés (favoris, historique, mise à jour PWA…)
   styles/            # tokens, base, typographie, layout
 ```
 
@@ -153,6 +164,7 @@ Psychologor est une véritable PWA, installable sur Android, iOS et desktop :
 
 - `manifest.webmanifest` + icônes (192, 512, maskable)
 - Service worker généré (`vite-plugin-pwa`), cache des assets et des polices
+- **Mise à jour automatique** : vérification périodique en arrière-plan, installation et rechargement sans action de l'utilisateur ; numéro de version, date de publication et vérification manuelle disponibles depuis le Profil
 - Données persistées localement via IndexedDB — favoris, historique, recherches récentes
 - Indicateur discret **En ligne** / **Hors connexion**
 
@@ -160,21 +172,29 @@ Psychologor est une véritable PWA, installable sur Android, iOS et desktop :
 
 ```text
 Psychologist ──┬── schools
-               ├── theories
-               ├── concepts
-               ├── works · quotes · events
-               ├── influencedBy
-               └── influenced
+               ├── theories · concepts · works · quotes
+               ├── influencedBy · influenced   (chaîne d'influence réelle)
+               └── historicalContext
 
-Theory ──┬── schools · psychologists
-         ├── concepts
-         └── relatedTheories
+Theory ──┬── schools · psychologists · concepts
+         ├── relatedTheories
+         └── historicalContext   (le débat qu'elle résout)
 
-Concept ──┬── theories · psychologists
-          └── relatedConcepts
+Concept ──┬── theories · psychologists · relatedConcepts
+          └── historicalContext   (le manque qu'il comble)
+
+School ──┬── founders · rivalSchoolIds
+         ├── descendants  (dérivé du graphe d'influence des psychologistes)
+         └── historicalContext · legacy
+
+Work ──┬── psychologistIds · conceptIds (introduits) · relatedWorkIds
+       ├── themes
+       └── historicalContext · reception · influence · whyItMatters
+
+HistoricalEvent ── workId (renvoi vers l'œuvre correspondante, si publication)
 ```
 
-Chaque entité possède un identifiant stable, pensé pour accueillir plusieurs centaines de fiches supplémentaires sans réécriture majeure.
+Aucune entité ne référence les autres par du texte libre : toutes les relations — y compris la généalogie intellectuelle (« Genèse de l'idée »), le graphe « autour de moi » et les courants descendants — sont calculées à partir de ces identifiants stables, ce qui permet d'accueillir de nouvelles fiches sans réécriture majeure.
 
 ---
 
