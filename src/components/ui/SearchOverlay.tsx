@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
-import { Clock, Search, X } from 'lucide-react';
+import { Clock, ScrollText, Search, X } from 'lucide-react';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { search as runSearch } from '../../services/search';
 import { recordSearch } from '../../services/db';
 import { useRecentSearches } from '../../hooks/useHistory';
@@ -163,6 +163,22 @@ export function SearchOverlay({ onClose }: SearchOverlayProps) {
                             <div key={s.id} onClick={onClose}>
                               <SchoolCard school={s} layout="list" />
                             </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {results.works.length > 0 && (
+                      <div className={styles.group}>
+                        <p className={`text-label ${styles.groupTitle}`}>Œuvres</p>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                          {results.works.map((w) => (
+                            <Link key={w.id} to={`/oeuvres/${w.id}`} onClick={onClose} className={styles.workRow}>
+                              <ScrollText size={16} color="var(--color-text-tertiary)" />
+                              <span>
+                                <span className="text-body-sm" style={{ fontWeight: 600 }}>{w.title}</span>
+                                <span className="text-caption"> — {w.year}</span>
+                              </span>
+                            </Link>
                           ))}
                         </div>
                       </div>

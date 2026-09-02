@@ -187,12 +187,12 @@ export default function PsychologistDetail() {
               <section className={styles.section}>
                 <h2 className={`text-h2 ${styles.sectionTitle}`}>Œuvres majeures</h2>
                 {works.map((w) => (
-                  <div key={w.id} className={styles.workItem}>
+                  <Link key={w.id} to={`/oeuvres/${w.id}`} className={styles.workItem}>
                     <p className="text-h4" style={{ marginBottom: 4 }}>
                       {w.title} <span className="text-caption">— {w.year}</span>
                     </p>
                     {w.description && <p className="text-body-sm">{w.description}</p>}
-                  </div>
+                  </Link>
                 ))}
               </section>
             )}

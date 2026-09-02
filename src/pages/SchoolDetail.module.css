@@ -80,6 +80,12 @@
   border-radius: var(--radius-md);
   background: var(--color-surface-elevated);
   border: 1px solid var(--color-border);
+  transition: border-color var(--duration-fast) var(--ease-standard), background-color var(--duration-fast) var(--ease-standard);
+}
+
+.workItem:hover {
+  border-color: var(--color-border-strong);
+  background: var(--color-surface-sunken);
 }
 
 .workItem svg {

@@ -108,6 +108,7 @@ export const repository = {
   },
 
   // ---- Œuvres ----
+  getWork: (id: string) => delay(workById.get(id) ?? null),
   getWorksByIds: (ids: string[]) => delay(ids.map((id) => workById.get(id)).filter(Boolean) as Work[]),
 
   // ---- Citations ----

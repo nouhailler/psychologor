@@ -166,7 +166,7 @@ export default function SchoolDetail() {
                   {works.map((w) => {
                     const author = w.psychologistIds[0] ? getPsychologistSync(w.psychologistIds[0]) : undefined;
                     return (
-                      <div key={w.id} className={styles.workItem}>
+                      <Link key={w.id} to={`/oeuvres/${w.id}`} className={styles.workItem}>
                         <ScrollText size={16} color="var(--color-text-tertiary)" />
                         <span>
                           <span className="text-body-sm" style={{ fontWeight: 600 }}>{w.title}</span>
@@ -176,7 +176,7 @@ export default function SchoolDetail() {
                             {w.year ? `, ${w.year}` : ''}
                           </span>
                         </span>
-                      </div>
+                      </Link>
                     );
                   })}
                 </div>

@@ -38,6 +38,10 @@ export interface Work {
   year: string;
   psychologistIds: string[];
   description?: string;
+  /** Le débat ou l'état des connaissances dans lequel cette publication s'inscrit. */
+  historicalContext: string;
+  /** Sa réception et son influence durable. */
+  legacy: string;
 }
 
 export interface HistoricalEvent {

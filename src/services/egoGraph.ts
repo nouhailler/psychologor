@@ -143,7 +143,6 @@ function toNode(ref: EgoRef, depth: number, parentKey?: string): EgoNode | undef
   if (ref.type === 'work') {
     const w = getWorkSync(ref.id);
     if (!w) return undefined;
-    const author = w.psychologistIds[0] ? getPsychologistSync(w.psychologistIds[0]) : undefined;
     return {
       key: key(ref),
       type: ref.type,
@@ -151,7 +150,7 @@ function toNode(ref: EgoRef, depth: number, parentKey?: string): EgoNode | undef
       depth,
       parentKey,
       name: w.title,
-      href: author ? `/psychologues/${author.id}` : undefined,
+      href: `/oeuvres/${w.id}`,
       accentColor: FALLBACK_COLOR,
     };
   }

@@ -164,10 +164,17 @@
 }
 
 .workItem {
+  display: block;
   padding: var(--space-4) var(--space-5);
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
   margin-bottom: var(--space-3);
+  transition: border-color var(--duration-fast) var(--ease-standard), background-color var(--duration-fast) var(--ease-standard);
+}
+
+.workItem:hover {
+  border-color: var(--color-border-strong);
+  background: var(--color-surface-sunken);
 }
 
 .quoteBlock {
