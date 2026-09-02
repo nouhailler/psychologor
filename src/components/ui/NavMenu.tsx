@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import {
   BookOpen,
   Compass,
+  FlaskConical,
   GitCompare,
   History,
   Home,
@@ -44,6 +45,7 @@ const CATEGORIES: { title: string; items: MenuItem[] }[] = [
       { to: '/courants', label: 'Courants', description: 'Écoles et mouvements de pensée', icon: Landmark },
       { to: '/concepts', label: 'Glossaire des concepts', description: 'Définitions clés', icon: Lightbulb },
       { to: '/oeuvres', label: 'Bibliothèque des œuvres', description: 'Les grands textes de la discipline', icon: ScrollText },
+      { to: '/experiences', label: 'Expériences & études', description: 'Protocoles, résultats et controverses', icon: FlaskConical },
     ],
   },
   {

@@ -45,6 +45,7 @@ function App() {
           <Route path="/comparaison" element={<Comparison />} />
           <Route path="/parcours" element={<Paths />} />
           <Route path="/parcours/:id" element={<PathPlayer />} />
+          <Route path="/experiences" element={<Explorer initialTab="experiences" />} />
           <Route path="/experiences/:id" element={<ExperimentDetail />} />
           <Route path="/favoris" element={<Favorites />} />
           <Route path="/profil" element={<Profile />} />

@@ -5,6 +5,7 @@ import { PersonCard } from '../components/cards/PersonCard';
 import { TheoryCard } from '../components/cards/TheoryCard';
 import { SchoolCard } from '../components/cards/SchoolCard';
 import { WorkCard } from '../components/cards/WorkCard';
+import { ExperimentCard } from '../components/cards/ExperimentCard';
 import { EmptyState } from '../components/ui/EmptyState';
 import { ListRowSkeleton } from '../components/ui/Skeleton';
 import { useAsync } from '../hooks/useAsync';
@@ -14,14 +15,14 @@ import { normalizeForSearch } from '../utils/slug';
 import styles from './Explorer.module.css';
 
 interface ExplorerProps {
-  initialTab?: 'psychologues' | 'theories' | 'courants' | 'oeuvres';
+  initialTab?: 'psychologues' | 'theories' | 'courants' | 'oeuvres' | 'experiences';
 }
 
 type SortOrder = 'name' | 'date';
 
 export default function Explorer({ initialTab }: ExplorerProps) {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [tab, setTab] = useState<'psychologues' | 'theories' | 'courants' | 'oeuvres'>(initialTab ?? 'psychologues');
+  const [tab, setTab] = useState<'psychologues' | 'theories' | 'courants' | 'oeuvres' | 'experiences'>(initialTab ?? 'psychologues');
   const [query, setQuery] = useState('');
   const [view, setView] = useState<'grid' | 'list'>('grid');
   const [sort, setSort] = useState<SortOrder>('name');
@@ -31,6 +32,7 @@ export default function Explorer({ initialTab }: ExplorerProps) {
   const { data: theories, loading: loadingTheories } = useAsync(() => repository.getAllTheories(), []);
   const { data: schools, loading: loadingSchools } = useAsync(() => repository.getAllSchools(), []);
   const { data: works, loading: loadingWorks } = useAsync(() => repository.getAllWorks(), []);
+  const { data: experimentsData, loading: loadingExperiments } = useAsync(() => repository.getAllExperiments(), []);
 
   const filteredPsychologists = useMemo(() => {
     let list = psychologists ?? [];
@@ -75,6 +77,18 @@ export default function Explorer({ initialTab }: ExplorerProps) {
     return [...list].sort((a, b) => (sort === 'name' ? a.title.localeCompare(b.title) : a.year.localeCompare(b.year)));
   }, [works, activeSchool, query, sort]);
 
+  const filteredExperiments = useMemo(() => {
+    let list = experimentsData ?? [];
+    if (activeSchool) {
+      list = list.filter((e) => e.psychologistIds.some((pid) => getPsychologistSync(pid)?.schoolIds.includes(activeSchool)));
+    }
+    if (query.trim()) {
+      const q = normalizeForSearch(query);
+      list = list.filter((e) => normalizeForSearch(`${e.title} ${e.researchers} ${e.summary}`).includes(q));
+    }
+    return [...list].sort((a, b) => (sort === 'name' ? a.title.localeCompare(b.title) : a.year.localeCompare(b.year)));
+  }, [experimentsData, activeSchool, query, sort]);
+
   const toggleSchool = (id: string) => {
     const next = new URLSearchParams(searchParams);
     if (activeSchool === id) next.delete('courant');
@@ -89,7 +103,9 @@ export default function Explorer({ initialTab }: ExplorerProps) {
         ? loadingTheories
         : tab === 'courants'
           ? loadingSchools
-          : loadingWorks;
+          : tab === 'oeuvres'
+            ? loadingWorks
+            : loadingExperiments;
   const isEmpty =
     tab === 'psychologues'
       ? filteredPsychologists.length === 0
@@ -97,7 +113,9 @@ export default function Explorer({ initialTab }: ExplorerProps) {
         ? filteredTheories.length === 0
         : tab === 'courants'
           ? filteredSchools.length === 0
-          : filteredWorks.length === 0;
+          : tab === 'oeuvres'
+            ? filteredWorks.length === 0
+            : filteredExperiments.length === 0;
 
   return (
     <div className="container">
@@ -105,7 +123,7 @@ export default function Explorer({ initialTab }: ExplorerProps) {
         <h1 className="text-h1" style={{ marginBottom: 'var(--space-2)' }}>
           Explorer
         </h1>
-        <p className="text-body-sm">Parcourez l'ensemble des psychologues, des théories, des courants et des œuvres de la base.</p>
+        <p className="text-body-sm">Parcourez l'ensemble des psychologues, des théories, des courants, des œuvres et des expériences de la base.</p>
       </div>
 
       <div className={styles.tabs} role="tablist">
@@ -145,6 +163,15 @@ export default function Explorer({ initialTab }: ExplorerProps) {
         >
           Œuvres
         </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={tab === 'experiences'}
+          className={`${styles.tab} ${tab === 'experiences' ? styles.active : ''}`}
+          onClick={() => setTab('experiences')}
+        >
+          Expériences
+        </button>
       </div>
 
       <div className={styles.toolbar}>
@@ -159,7 +186,9 @@ export default function Explorer({ initialTab }: ExplorerProps) {
                   ? 'Rechercher une théorie…'
                   : tab === 'courants'
                     ? 'Rechercher un courant…'
-                    : 'Rechercher une œuvre…'
+                    : tab === 'oeuvres'
+                      ? 'Rechercher une œuvre…'
+                      : 'Rechercher une expérience…'
             }
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -212,7 +241,9 @@ export default function Explorer({ initialTab }: ExplorerProps) {
               }}
             >
               <option value="name">Nom (A–Z)</option>
-              <option value="date">{tab === 'psychologues' ? 'Date de naissance' : tab === 'oeuvres' ? 'Année' : 'Période'}</option>
+              <option value="date">
+                {tab === 'psychologues' ? 'Date de naissance' : tab === 'oeuvres' || tab === 'experiences' ? 'Année' : 'Période'}
+              </option>
             </select>
             <div className={styles.viewToggle}>
               <button
@@ -284,6 +315,14 @@ export default function Explorer({ initialTab }: ExplorerProps) {
         <div className={view === 'grid' ? styles.resultsGridTheories : styles.resultsList}>
           {filteredWorks.map((w) => (
             <WorkCard key={w.id} work={w} layout={view === 'grid' ? 'grid' : 'list'} />
+          ))}
+        </div>
+      )}
+
+      {!loading && !isEmpty && tab === 'experiences' && (
+        <div className={view === 'grid' ? styles.resultsGridTheories : styles.resultsList}>
+          {filteredExperiments.map((e) => (
+            <ExperimentCard key={e.id} experiment={e} layout={view === 'grid' ? 'grid' : 'list'} />
           ))}
         </div>
       )}

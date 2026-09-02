@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Calendar, Clock, ScrollText, Search, X } from 'lucide-react';
+import { Calendar, Clock, FlaskConical, ScrollText, Search, X } from 'lucide-react';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { search as runSearch } from '../../services/search';
@@ -190,6 +190,22 @@ export function SearchOverlay({ onClose }: SearchOverlayProps) {
                           {results.events.map((e) => (
                             <Link key={e.id} to={`/evenements/${e.id}`} onClick={onClose} className={styles.workRow}>
                               <Calendar size={16} color="var(--color-text-tertiary)" />
+                              <span>
+                                <span className="text-body-sm" style={{ fontWeight: 600 }}>{e.title}</span>
+                                <span className="text-caption"> — {e.year}</span>
+                              </span>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {results.experiments.length > 0 && (
+                      <div className={styles.group}>
+                        <p className={`text-label ${styles.groupTitle}`}>Expériences</p>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                          {results.experiments.map((e) => (
+                            <Link key={e.id} to={`/experiences/${e.id}`} onClick={onClose} className={styles.workRow}>
+                              <FlaskConical size={16} color="var(--color-text-tertiary)" />
                               <span>
                                 <span className="text-body-sm" style={{ fontWeight: 600 }}>{e.title}</span>
                                 <span className="text-caption"> — {e.year}</span>

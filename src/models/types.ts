@@ -169,10 +169,18 @@ export interface Experiment {
   historicalContext: string;
   /** Les 3 idées essentielles à retenir, pour la section « À retenir ». */
   keyTakeaways: [string, string, string];
+  /** Ce que l'expérience cherche précisément à établir ou trancher. */
+  objective: string;
+  /** Méthode. */
   protocol: string;
+  /** Résultat. */
   results: string;
+  /** Interprétation. */
   interpretation: string;
-  limitations: string;
+  /** Limites méthodologiques et controverses (éthiques, réplication, biais) — jamais une vérité scientifique intouchable. */
+  critiques: string[];
+  /** Héritage : son influence durable sur la recherche, la discipline ou les pratiques. */
+  legacy: string;
   psychologistIds: string[];
   conceptIds: string[];
   theoryIds: string[];

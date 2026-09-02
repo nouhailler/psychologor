@@ -1,10 +1,12 @@
-import { AlertTriangle, ArrowLeft, ClipboardList, FlaskConical, Lightbulb } from 'lucide-react';
+import { AlertTriangle, ArrowLeft, ClipboardList, FlaskConical, Lightbulb, Sparkles, Target } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import { ConceptChip } from '../components/cards/ConceptChip';
 import { RelationshipCard } from '../components/cards/RelationshipCard';
+import { FavoriteButton } from '../components/ui/FavoriteButton';
 import { KeyTakeaways } from '../components/ui/KeyTakeaways';
 import { PageLoader } from '../components/ui/PageLoader';
 import { useAsync } from '../hooks/useAsync';
+import { useRecordVisit } from '../hooks/useHistory';
 import { repository } from '../services/repository';
 import NotFound from './NotFound';
 import styles from './ExperimentDetail.module.css';
@@ -12,6 +14,7 @@ import styles from './ExperimentDetail.module.css';
 export default function ExperimentDetail() {
   const { id = '' } = useParams();
   const { data: experiment, loading } = useAsync(() => repository.getExperiment(id), [id]);
+  useRecordVisit(experiment?.id, 'experiment');
 
   const { data: psychologists } = useAsync(
     () => repository.getPsychologistsByIds(experiment?.psychologistIds ?? []),
@@ -48,6 +51,9 @@ export default function ExperimentDetail() {
             <span className={styles.metaItem}>{experiment.year}</span>
           </div>
         </div>
+        <div className={styles.favoriteWrap}>
+          <FavoriteButton entityId={experiment.id} entityType="experiment" label={experiment.title} />
+        </div>
       </div>
 
       <div className="container">
@@ -78,8 +84,16 @@ export default function ExperimentDetail() {
 
           <section className={styles.section}>
             <p className={`text-label ${styles.sectionTitle}`}>
+              <Target size={14} />
+              Objectif
+            </p>
+            <p className="text-body-sm">{experiment.objective}</p>
+          </section>
+
+          <section className={styles.section}>
+            <p className={`text-label ${styles.sectionTitle}`}>
               <ClipboardList size={14} />
-              Protocole
+              Méthode
             </p>
             <div className={styles.protocolBlock}>
               <p className="text-body-sm">{experiment.protocol}</p>
@@ -87,7 +101,7 @@ export default function ExperimentDetail() {
           </section>
 
           <section className={styles.section}>
-            <p className={`text-label ${styles.sectionTitle}`}>Résultats</p>
+            <p className={`text-label ${styles.sectionTitle}`}>Résultat</p>
             <p className="text-body">{experiment.results}</p>
           </section>
 
@@ -101,14 +115,21 @@ export default function ExperimentDetail() {
             </div>
           </section>
 
-          <section className={styles.section}>
-            <p className={`text-label ${styles.sectionTitle}`}>
+          <section className={styles.critiquesBlock}>
+            <p className={`text-label ${styles.critiquesLabel}`}>
               <AlertTriangle size={14} />
-              Limites
+              Limites et controverses
             </p>
-            <div className={styles.limitationsBlock}>
-              <p className="text-body-sm">{experiment.limitations}</p>
-            </div>
+            <ul className={styles.critiquesList}>
+              {experiment.critiques.map((c, i) => (
+                <li key={i} className="text-body-sm">{c}</li>
+              ))}
+            </ul>
+          </section>
+
+          <section className={styles.section}>
+            <p className={`text-label ${styles.sectionTitle}`}>Héritage</p>
+            <p className="text-body-sm">{experiment.legacy}</p>
           </section>
 
           {concepts && concepts.length > 0 && (
@@ -145,6 +166,15 @@ export default function ExperimentDetail() {
               </div>
             </section>
           ) : null}
+
+          <Link
+            to={`/carte?mode=ego&type=experiment&id=${experiment.id}`}
+            className="text-body-sm text-accent"
+            style={{ display: 'block', marginTop: 'var(--space-2)', marginBottom: 'var(--space-8)', fontWeight: 600 }}
+          >
+            <Sparkles size={14} style={{ verticalAlign: -2, marginRight: 4 }} />
+            Explorer autour de cette expérience →
+          </Link>
         </div>
       </div>
     </article>

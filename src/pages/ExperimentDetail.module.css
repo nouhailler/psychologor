@@ -21,6 +21,12 @@
   margin-bottom: var(--space-3);
 }
 
+.favoriteWrap {
+  position: absolute;
+  top: var(--space-6);
+  right: var(--space-5);
+}
+
 .title {
   color: white;
   margin-bottom: var(--space-3);
@@ -75,10 +81,33 @@
   border-left: 3px solid var(--color-primary);
 }
 
-.limitationsBlock {
-  padding: var(--space-5);
-  border-radius: var(--radius-md);
-  border: 1.5px dashed var(--color-border-strong);
+.critiquesBlock {
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--color-danger) 10%, var(--color-surface));
+  border: 1px solid color-mix(in srgb, var(--color-danger) 35%, var(--color-border));
+  margin-bottom: var(--space-7);
+  max-width: 720px;
+}
+
+.critiquesLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-danger) !important;
+  margin-bottom: var(--space-3);
+}
+
+.critiquesList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-left: var(--space-5);
+  margin: 0;
+}
+
+.critiquesList li {
+  color: var(--color-text-secondary);
 }
 
 .connectionsGrid {

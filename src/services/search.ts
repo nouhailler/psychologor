@@ -4,7 +4,8 @@ import { concepts } from '../data/concepts';
 import { schools } from '../data/schools';
 import { works } from '../data/works';
 import { events } from '../data/events';
-import type { Concept, HistoricalEvent, Psychologist, School, Theory, Work } from '../models/types';
+import { experiments } from '../data/experiments';
+import type { Concept, Experiment, HistoricalEvent, Psychologist, School, Theory, Work } from '../models/types';
 import { normalizeForSearch } from '../utils/slug';
 
 export interface SearchResults {
@@ -14,6 +15,7 @@ export interface SearchResults {
   schools: School[];
   works: Work[];
   events: HistoricalEvent[];
+  experiments: Experiment[];
   total: number;
 }
 
@@ -24,6 +26,7 @@ const EMPTY: SearchResults = {
   schools: [],
   works: [],
   events: [],
+  experiments: [],
   total: 0,
 };
 
@@ -60,6 +63,10 @@ export function search(rawQuery: string, limitPerGroup = 6): SearchResults {
     .filter((e) => normalizeForSearch(`${e.title} ${e.description}`).includes(query))
     .slice(0, limitPerGroup);
 
+  const matchedExperiments = experiments
+    .filter((e) => normalizeForSearch(`${e.title} ${e.researchers} ${e.summary}`).includes(query))
+    .slice(0, limitPerGroup);
+
   return {
     psychologists: matchedPsychologists,
     theories: matchedTheories,
@@ -67,12 +74,14 @@ export function search(rawQuery: string, limitPerGroup = 6): SearchResults {
     schools: matchedSchools,
     works: matchedWorks,
     events: matchedEvents,
+    experiments: matchedExperiments,
     total:
       matchedPsychologists.length +
       matchedTheories.length +
       matchedConcepts.length +
       matchedSchools.length +
       matchedWorks.length +
-      matchedEvents.length,
+      matchedEvents.length +
+      matchedExperiments.length,
   };
 }

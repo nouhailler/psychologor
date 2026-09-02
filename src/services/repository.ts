@@ -122,6 +122,7 @@ export const repository = {
   // ---- Expériences ----
   getAllExperiments: () => delay(experiments),
   getExperiment: (id: string) => delay(experimentById.get(id) ?? null),
+  getExperimentsByIds: (ids: string[]) => delay(ids.map((id) => experimentById.get(id)).filter(Boolean) as Experiment[]),
 
   // ---- Parcours guidés ----
   getAllPaths: () => delay(paths),
