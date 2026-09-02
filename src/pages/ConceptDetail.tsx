@@ -72,6 +72,11 @@ export default function ConceptDetail() {
         <p className="text-body" style={{ maxWidth: 640 }}>{concept.definition}</p>
       </section>
 
+      <section className={styles.section}>
+        <h2 className="text-h3" style={{ marginBottom: 'var(--space-4)' }}>Contexte historique</h2>
+        <p className="text-body-sm" style={{ maxWidth: 640 }}>{concept.historicalContext}</p>
+      </section>
+
       {concept.origin && (
         <div className={styles.originBlock}>
           <p className="text-label" style={{ marginBottom: 6 }}>Origine</p>

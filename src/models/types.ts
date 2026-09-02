@@ -75,6 +75,8 @@ export interface Concept {
   term: string;
   shortDefinition: string;
   definition: string;
+  /** Le manque conceptuel ou l'observation clinique/expérimentale qui rend ce concept nécessaire. */
+  historicalContext: string;
   origin?: string;
   /** Les 3 idées essentielles à retenir, pour la section « À retenir ». */
   keyTakeaways: [string, string, string];
