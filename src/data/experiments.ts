@@ -14,6 +14,8 @@ export const experiments: Experiment[] = [
     accentColor: '#3B5FE0',
     summary:
       "L'expérience fondatrice du conditionnement classique, menée dans le cadre de recherches sur la physiologie de la digestion.",
+    historicalContext:
+      "Le laboratoire de Pavlov mesure depuis des années la sécrétion salivaire de chiens grâce à des fistules chirurgicales implantées, une méthode déjà éprouvée pour ses recherches sur la digestion. C'est cette précision de mesure, pensée pour un tout autre objet, qui lui permet de remarquer et de quantifier la salivation anticipée, avant même la présentation de la nourriture.",
     protocol:
       "Pavlov mesure la salivation d'un chien en présence de nourriture (stimulus inconditionnel, déclenchant naturellement une réponse). Il fait précéder systématiquement la présentation de nourriture d'un stimulus initialement neutre, comme le son d'un métronome.",
     results:
@@ -39,6 +41,8 @@ export const experiments: Experiment[] = [
     accentColor: '#3459D6',
     summary:
       "Une expérience visant à démontrer que des réactions émotionnelles, comme la peur, peuvent elles aussi s'acquérir par conditionnement classique chez un être humain.",
+    historicalContext:
+      "Sept ans après son manifeste behavioriste, Watson a besoin d'une démonstration concrète et spectaculaire que le conditionnement, déjà établi chez l'animal par Pavlov, s'applique aussi aux émotions humaines. Dans un contexte où la recherche sur des nourrissons ne fait l'objet d'aucun encadrement éthique formel, il choisit de le prouver directement sur un enfant.",
     protocol:
       "Un nourrisson de neuf mois, désigné « Albert B. », ne manifeste initialement aucune peur face à un rat blanc. Watson et Rayner font alors correspondre l'apparition du rat avec un bruit fort et effrayant (un marteau frappé contre une barre de métal derrière l'enfant).",
     results:
@@ -63,6 +67,8 @@ export const experiments: Experiment[] = [
     year: '1951',
     accentColor: '#3F9E6D',
     summary: "Une expérience simple mais frappante, montrant à quel point la pression d'un groupe peut infléchir un jugement perceptif pourtant évident.",
+    historicalContext:
+      "Asch conçoit ce protocole pour isoler un cas extrême : une tâche perceptive si simple qu'aucune ambiguïté réelle ne devrait permettre à un groupe d'influencer le jugement. Ce choix méthodologique répond à un contexte d'après-guerre où les sciences sociales cherchent à comprendre, au-delà des explications historiques, les mécanismes concrets de la conformité de masse.",
     protocol:
       "Un participant doit indiquer, à voix haute, laquelle de trois lignes correspond en longueur à une ligne de référence — une tâche perceptive triviale. Il répond après plusieurs complices de l'expérimentateur, qui donnent tous, à certains essais, une réponse manifestement erronée.",
     results:
@@ -87,6 +93,8 @@ export const experiments: Experiment[] = [
     year: '1961 – 1963',
     accentColor: '#A64A4A',
     summary: "L'une des expériences les plus célèbres et les plus controversées de la psychologie, sur la soumission à une autorité légitime.",
+    historicalContext:
+      "Milgram conçoit ce protocole alors que s'ouvre à Jérusalem le procès d'Adolf Eichmann, qui relance la question de savoir comment des personnes ordinaires peuvent participer à des actes atroces sur ordre. Formé aux méthodes expérimentales d'Asch et d'Allport, il cherche à tester cette question en laboratoire plutôt que de s'en remettre à la seule analyse historique.",
     protocol:
       "Un participant, dans le rôle de « professeur », doit infliger des chocs électriques (simulés, mais présentés comme réels) d'intensité croissante à un « élève » (un complice, dans une autre pièce) à chaque erreur commise, sous les instructions d'un expérimentateur en blouse blanche qui insiste pour continuer en cas d'hésitation.",
     results:
@@ -111,6 +119,8 @@ export const experiments: Experiment[] = [
     year: '1961',
     accentColor: '#2E8FA6',
     summary: "Une expérience qui démontre que les enfants peuvent apprendre un comportement, y compris agressif, par la seule observation d'un modèle.",
+    historicalContext:
+      "Le behaviorisme skinnérien, alors dominant, explique l'apprentissage par le renforcement direct des comportements que l'on produit soi-même. Bandura conçoit ce protocole précisément pour tester une hypothèse que ce cadre n'envisage pas : qu'un enfant puisse apprendre un comportement sans jamais l'avoir lui-même exécuté ni été récompensé, par la seule observation.",
     protocol:
       "Des enfants d'âge préscolaire observent un adulte se comporter de façon agressive envers une poupée gonflable (« Bobo »), en la frappant et en criant des phrases hostiles ; un autre groupe d'enfants observe un adulte au comportement neutre, ou aucun modèle.",
     results:
@@ -135,6 +145,8 @@ export const experiments: Experiment[] = [
     year: '1969 – 1978',
     accentColor: '#C4632F',
     summary: "Un protocole devenu la référence pour évaluer la qualité de l'attachement entre un jeune enfant et sa figure de soins.",
+    historicalContext:
+      "La théorie de l'attachement que Bowlby développe reste, à la fin des années 1960, essentiellement conceptuelle. Après des années d'observation naturaliste du lien mère-enfant en Ouganda puis à Baltimore, Ainsworth conçoit ce protocole en laboratoire pour la rendre mesurable et reproductible par d'autres chercheurs.",
     protocol:
       "Un enfant et sa figure d'attachement sont introduits dans une pièce inconnue avec des jouets. Au fil d'épisodes successifs, la figure d'attachement quitte puis revient dans la pièce, parfois en présence d'un étranger, pendant que les chercheurs observent le comportement de l'enfant.",
     results:
@@ -159,6 +171,8 @@ export const experiments: Experiment[] = [
     year: '1879 – 1880',
     accentColor: '#2E8FA6',
     summary: "Une auto-expérimentation minutieuse qui fonde l'étude scientifique de la mémoire et met en évidence la courbe de l'oubli.",
+    historicalContext:
+      "Étudier la mémorisation de mots ou de textes réels pose un problème méthodologique majeur : les connaissances déjà acquises par le sujet influencent fortement ce qu'il retient. Pour l'éliminer, Ebbinghaus invente le matériel dénué de sens — la syllabe sans signification —, un choix qui rend possible, pour la première fois, une mesure véritablement contrôlée de l'apprentissage.",
     protocol:
       "Ebbinghaus, seul sujet de son étude, mémorise de longues listes de syllabes sans signification (par exemple « ZUG », « BOK »), choisies pour éviter toute aide provenant de connaissances déjà acquises. Il mesure ensuite, à différents intervalles, le nombre de répétitions nécessaires pour réapprendre chaque liste.",
     results:
@@ -183,6 +197,8 @@ export const experiments: Experiment[] = [
     year: '1935',
     accentColor: '#2E8FA6',
     summary: "Une tâche simple qui révèle à quel point la lecture est devenue un processus automatique, difficile à inhiber volontairement.",
+    historicalContext:
+      "Des recherches antérieures avaient déjà observé, de façon plus éparse, que lire un mot et nommer une couleur ne demandent pas le même temps ni le même effort. Stroop conçoit un protocole qui isole précisément cette différence en une seule tâche comparative, simple à reproduire, ce qui en fait rapidement une mesure de référence de l'automatisme de la lecture.",
     protocol:
       "Des participants doivent nommer le plus rapidement possible la couleur de l'encre dans laquelle un mot est écrit — par exemple, dire « bleu » face au mot « ROUGE » imprimé en bleu — plutôt que de lire le mot lui-même.",
     results:

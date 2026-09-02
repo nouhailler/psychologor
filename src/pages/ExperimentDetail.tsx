@@ -72,6 +72,11 @@ export default function ExperimentDetail() {
           />
 
           <section className={styles.section}>
+            <p className={`text-label ${styles.sectionTitle}`}>Contexte historique</p>
+            <p className="text-body-sm">{experiment.historicalContext}</p>
+          </section>
+
+          <section className={styles.section}>
             <p className={`text-label ${styles.sectionTitle}`}>
               <ClipboardList size={14} />
               Protocole

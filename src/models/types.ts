@@ -165,6 +165,8 @@ export interface Experiment {
   year: string;
   accentColor: string;
   summary: string;
+  /** Le climat scientifique qui rend ce protocole précis nécessaire ou possible. */
+  historicalContext: string;
   /** Les 3 idées essentielles à retenir, pour la section « À retenir ». */
   keyTakeaways: [string, string, string];
   protocol: string;
