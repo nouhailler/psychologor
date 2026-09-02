@@ -1,0 +1,26 @@
+.whyItMatters {
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  background: var(--color-primary-tint);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 30%, var(--color-border));
+  margin-bottom: var(--space-7);
+}
+
+.whyItMattersLabel {
+  color: var(--color-primary-dark) !important;
+  margin-bottom: var(--space-3);
+}
+
+.themeChip {
+  display: inline-flex;
+  align-items: center;
+  height: 34px;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-sunken);
+  color: var(--color-text-secondary);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  border: 1px solid var(--color-border);
+}

@@ -40,8 +40,18 @@ export interface Work {
   description?: string;
   /** Le débat ou l'état des connaissances dans lequel cette publication s'inscrit. */
   historicalContext: string;
-  /** Sa réception et son influence durable. */
-  legacy: string;
+  /** Son accueil au moment de la publication. */
+  reception: string;
+  /** Son influence durable sur la discipline. */
+  influence: string;
+  /** Thèmes larges abordés, distincts des concepts précis qu'elle introduit. */
+  themes: string[];
+  /** Concepts du glossaire effectivement introduits ou établis par cette œuvre précise. */
+  conceptIds: string[];
+  /** Autres œuvres avec lesquelles elle dialogue ou forme une lignée. */
+  relatedWorkIds: string[];
+  /** Pourquoi cette œuvre compte : une explication synthétique de 3 à 5 lignes. */
+  whyItMatters: string;
 }
 
 export interface HistoricalEvent {

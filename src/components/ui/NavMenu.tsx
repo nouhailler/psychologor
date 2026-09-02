@@ -9,6 +9,7 @@ import {
   Lightbulb,
   Network,
   Route as RouteIcon,
+  ScrollText,
   Star,
   User,
   Users,
@@ -42,6 +43,7 @@ const CATEGORIES: { title: string; items: MenuItem[] }[] = [
       { to: '/theories', label: 'Théories', description: 'Grandes théories psychologiques', icon: BookOpen },
       { to: '/courants', label: 'Courants', description: 'Écoles et mouvements de pensée', icon: Landmark },
       { to: '/concepts', label: 'Glossaire des concepts', description: 'Définitions clés', icon: Lightbulb },
+      { to: '/oeuvres', label: 'Bibliothèque des œuvres', description: 'Les grands textes de la discipline', icon: ScrollText },
     ],
   },
   {

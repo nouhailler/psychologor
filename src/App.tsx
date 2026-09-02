@@ -37,6 +37,7 @@ function App() {
           <Route path="/courants/:id" element={<SchoolDetail />} />
           <Route path="/concepts" element={<Glossary />} />
           <Route path="/concepts/:id" element={<ConceptDetail />} />
+          <Route path="/oeuvres" element={<Explorer initialTab="oeuvres" />} />
           <Route path="/oeuvres/:id" element={<WorkDetail />} />
           <Route path="/evenements/:id" element={<EventDetail />} />
           <Route path="/chronologie" element={<Timeline />} />

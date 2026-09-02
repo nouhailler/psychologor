@@ -4,22 +4,24 @@ import { useSearchParams } from 'react-router-dom';
 import { PersonCard } from '../components/cards/PersonCard';
 import { TheoryCard } from '../components/cards/TheoryCard';
 import { SchoolCard } from '../components/cards/SchoolCard';
+import { WorkCard } from '../components/cards/WorkCard';
 import { EmptyState } from '../components/ui/EmptyState';
 import { ListRowSkeleton } from '../components/ui/Skeleton';
 import { useAsync } from '../hooks/useAsync';
+import { getPsychologistSync } from '../services/repository';
 import { repository } from '../services/repository';
 import { normalizeForSearch } from '../utils/slug';
 import styles from './Explorer.module.css';
 
 interface ExplorerProps {
-  initialTab?: 'psychologues' | 'theories' | 'courants';
+  initialTab?: 'psychologues' | 'theories' | 'courants' | 'oeuvres';
 }
 
 type SortOrder = 'name' | 'date';
 
 export default function Explorer({ initialTab }: ExplorerProps) {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [tab, setTab] = useState<'psychologues' | 'theories' | 'courants'>(initialTab ?? 'psychologues');
+  const [tab, setTab] = useState<'psychologues' | 'theories' | 'courants' | 'oeuvres'>(initialTab ?? 'psychologues');
   const [query, setQuery] = useState('');
   const [view, setView] = useState<'grid' | 'list'>('grid');
   const [sort, setSort] = useState<SortOrder>('name');
@@ -28,6 +30,7 @@ export default function Explorer({ initialTab }: ExplorerProps) {
   const { data: psychologists, loading: loadingPeople } = useAsync(() => repository.getAllPsychologists(), []);
   const { data: theories, loading: loadingTheories } = useAsync(() => repository.getAllTheories(), []);
   const { data: schools, loading: loadingSchools } = useAsync(() => repository.getAllSchools(), []);
+  const { data: works, loading: loadingWorks } = useAsync(() => repository.getAllWorks(), []);
 
   const filteredPsychologists = useMemo(() => {
     let list = psychologists ?? [];
@@ -60,6 +63,18 @@ export default function Explorer({ initialTab }: ExplorerProps) {
     return [...list].sort((a, b) => (sort === 'name' ? a.name.localeCompare(b.name) : a.period.localeCompare(b.period)));
   }, [schools, query, sort]);
 
+  const filteredWorks = useMemo(() => {
+    let list = works ?? [];
+    if (activeSchool) {
+      list = list.filter((w) => w.psychologistIds.some((pid) => getPsychologistSync(pid)?.schoolIds.includes(activeSchool)));
+    }
+    if (query.trim()) {
+      const q = normalizeForSearch(query);
+      list = list.filter((w) => normalizeForSearch(`${w.title} ${w.originalTitle ?? ''} ${w.description ?? ''}`).includes(q));
+    }
+    return [...list].sort((a, b) => (sort === 'name' ? a.title.localeCompare(b.title) : a.year.localeCompare(b.year)));
+  }, [works, activeSchool, query, sort]);
+
   const toggleSchool = (id: string) => {
     const next = new URLSearchParams(searchParams);
     if (activeSchool === id) next.delete('courant');
@@ -67,13 +82,22 @@ export default function Explorer({ initialTab }: ExplorerProps) {
     setSearchParams(next, { replace: true });
   };
 
-  const loading = tab === 'psychologues' ? loadingPeople : tab === 'theories' ? loadingTheories : loadingSchools;
+  const loading =
+    tab === 'psychologues'
+      ? loadingPeople
+      : tab === 'theories'
+        ? loadingTheories
+        : tab === 'courants'
+          ? loadingSchools
+          : loadingWorks;
   const isEmpty =
     tab === 'psychologues'
       ? filteredPsychologists.length === 0
       : tab === 'theories'
         ? filteredTheories.length === 0
-        : filteredSchools.length === 0;
+        : tab === 'courants'
+          ? filteredSchools.length === 0
+          : filteredWorks.length === 0;
 
   return (
     <div className="container">
@@ -81,7 +105,7 @@ export default function Explorer({ initialTab }: ExplorerProps) {
         <h1 className="text-h1" style={{ marginBottom: 'var(--space-2)' }}>
           Explorer
         </h1>
-        <p className="text-body-sm">Parcourez l'ensemble des psychologues, des théories et des courants de la base.</p>
+        <p className="text-body-sm">Parcourez l'ensemble des psychologues, des théories, des courants et des œuvres de la base.</p>
       </div>
 
       <div className={styles.tabs} role="tablist">
@@ -112,6 +136,15 @@ export default function Explorer({ initialTab }: ExplorerProps) {
         >
           Courants
         </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={tab === 'oeuvres'}
+          className={`${styles.tab} ${tab === 'oeuvres' ? styles.active : ''}`}
+          onClick={() => setTab('oeuvres')}
+        >
+          Œuvres
+        </button>
       </div>
 
       <div className={styles.toolbar}>
@@ -120,7 +153,13 @@ export default function Explorer({ initialTab }: ExplorerProps) {
           <input
             type="search"
             placeholder={
-              tab === 'psychologues' ? 'Rechercher un psychologue…' : tab === 'theories' ? 'Rechercher une théorie…' : 'Rechercher un courant…'
+              tab === 'psychologues'
+                ? 'Rechercher un psychologue…'
+                : tab === 'theories'
+                  ? 'Rechercher une théorie…'
+                  : tab === 'courants'
+                    ? 'Rechercher un courant…'
+                    : 'Rechercher une œuvre…'
             }
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -173,7 +212,7 @@ export default function Explorer({ initialTab }: ExplorerProps) {
               }}
             >
               <option value="name">Nom (A–Z)</option>
-              <option value="date">{tab === 'psychologues' ? 'Date de naissance' : 'Période'}</option>
+              <option value="date">{tab === 'psychologues' ? 'Date de naissance' : tab === 'oeuvres' ? 'Année' : 'Période'}</option>
             </select>
             <div className={styles.viewToggle}>
               <button
@@ -211,7 +250,9 @@ export default function Explorer({ initialTab }: ExplorerProps) {
         <EmptyState
           icon={<Search size={24} />}
           title="Aucun résultat"
-          description={tab === 'courants' ? 'Essayez de modifier votre recherche.' : 'Essayez de modifier votre recherche ou vos filtres de courant.'}
+          description={
+            tab === 'courants' ? 'Essayez de modifier votre recherche.' : 'Essayez de modifier votre recherche ou vos filtres de courant.'
+          }
         />
       )}
 
@@ -235,6 +276,14 @@ export default function Explorer({ initialTab }: ExplorerProps) {
         <div className={view === 'grid' ? styles.resultsGridTheories : styles.resultsList}>
           {filteredSchools.map((s) => (
             <SchoolCard key={s.id} school={s} layout={view === 'grid' ? 'grid' : 'list'} />
+          ))}
+        </div>
+      )}
+
+      {!loading && !isEmpty && tab === 'oeuvres' && (
+        <div className={view === 'grid' ? styles.resultsGridTheories : styles.resultsList}>
+          {filteredWorks.map((w) => (
+            <WorkCard key={w.id} work={w} layout={view === 'grid' ? 'grid' : 'list'} />
           ))}
         </div>
       )}
