@@ -6,6 +6,7 @@ import {
   FlaskConical,
   HelpCircle,
   Lightbulb,
+  Microscope,
   Milestone,
   PartyPopper,
 } from 'lucide-react';
@@ -19,6 +20,7 @@ import { usePathProgress } from '../hooks/usePathProgress';
 import {
   getConceptSync,
   getExperimentSync,
+  getMethodSync,
   getPsychologistSync,
   getTheorySync,
   repository,
@@ -77,6 +79,11 @@ function getStepConnections(step: PathStep): Connection[] {
     e?.psychologistIds.forEach(pushPsychologist);
     e?.theoryIds.forEach(pushTheory);
     e?.conceptIds.forEach(pushConcept);
+  } else if (step.entityType === 'method') {
+    const m = getMethodSync(step.entityId);
+    m?.psychologistIds.forEach(pushPsychologist);
+    m?.relatedTheoryIds.forEach(pushTheory);
+    m?.relatedConceptIds.forEach(pushConcept);
   }
 
   return items.slice(0, 5);
@@ -212,6 +219,8 @@ export default function PathPlayer() {
                       />
                     ) : currentStep.entityType === 'experiment' ? (
                       <FlaskConical size={30} />
+                    ) : currentStep.entityType === 'method' ? (
+                      <Microscope size={30} />
                     ) : currentStep.entityType === 'custom' ? (
                       <Milestone size={30} />
                     ) : (

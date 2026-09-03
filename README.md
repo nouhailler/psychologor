@@ -51,7 +51,7 @@ Chaque fiche — psychologue, théorie, concept — est reliée aux autres. L'ap
 | 🧑‍🔬 **Fiches croisées** | Psychologues, théories, concepts, courants, œuvres, événements, expériences et méthodes intégralement navigables entre eux |
 | 📜 **Contexte historique** | Chaque type de fiche situe sa contribution dans son climat scientifique propre — jamais un doublon d'une autre fiche : le débat qu'une théorie résout, le manque qu'un concept comble, le procès qui motive une expérience… |
 | 🌳 **Genèse de l'idée** | Généalogie intellectuelle calculée automatiquement à partir des influences réelles entre psychologues, sur les fiches théorie et concept — « Comment est-on arrivé à cette idée ? » |
-| 🧭 **Parcours guidés** | Bibliothèque de 32 parcours pas à pas (introduction, courants, biographies, concepts, débats, expériences, histoire, révision…), avec progression persistée hors ligne |
+| 🧭 **Parcours guidés** | Bibliothèque de 33 parcours pas à pas (introduction, courants, biographies, concepts, débats, expériences, histoire, révision…), avec progression persistée hors ligne — dont « Comprendre une étude psychologique », qui suit l'anatomie complète d'une étude, de la question de recherche à sa réplication |
 | 🕰️ **Chronologie** | Deux modes : « De Freud à aujourd'hui », éditorial, en 6 grandes périodes zoomables avec synthèse et courants associés ; et la chronologie complète, filtrable par type et courant, chaque événement ayant sa propre fiche |
 | 🕸️ **Carte des idées** | Graphe de connaissances interactif (React Flow) sur desktop, chaîne d'influence adaptée sur mobile — vue d'ensemble ou mode « Explorer autour de… », centré sur une entité au choix, avec profondeur (1 à 3 niveaux) et filtres par type |
 | 📖 **Bibliothèque des œuvres** | Fiche par œuvre — thèmes, concepts effectivement introduits, réception, influence durable, œuvres liées, et « Pourquoi cette œuvre est importante ? » |
@@ -72,20 +72,20 @@ Base de connaissances entièrement factuelle et sourcée (aucune citation, date 
 |---|---|
 | 🧑‍🔬 Psychologues | 30 (Wundt → Kahneman) |
 | 💡 Théories | 24 |
-| 🔤 Concepts (glossaire) | 44 |
+| 🔤 Concepts (glossaire) | 55 (dont 11 sur la lecture critique des études : causalité, variables, significativité, taille d'effet, biais de publication…) |
 | 🏛️ Courants de pensée | 10 |
 | 🧪 Expériences & études | 11 (objectif · méthode · résultat · interprétation · limites/controverses · héritage) |
 | 🔬 Méthodes de recherche | 14 (définition · objectif · protocole · forces · limites) |
 | 📖 Œuvres majeures | 32 |
 | 💬 Citations attribuées | 13 |
 | 🗓️ Événements chronologiques | 29 |
-| 🧭 Parcours guidés | 32, en 10 familles thématiques |
+| 🧭 Parcours guidés | 33, en 10 familles thématiques |
 
-Chaque psychologue, théorie, concept, courant, œuvre, événement, expérience et méthode porte désormais son propre **contexte historique**, écrit pour répondre à une question distincte selon sa nature plutôt que répéter les fiches voisines. Les courants ont fondateurs, représentants, lignée intellectuelle et courants concurrents/descendants ; les œuvres ont thèmes, concepts précisément introduits, réception, influence et œuvres liées — un vrai graphe bidirectionnel vérifié, pas une liste ad hoc. Les méthodes sont reliées aux concepts, théories et expériences qui les illustrent, et réciproquement : la fiche Milgram affiche ainsi les méthodes qu'elle met en œuvre (expérimentation, randomisation, réplication), sans qu'aucune de ces relations ne soit saisie deux fois. Aucun de ces contenus n'a été inventé : tout est dérivé ou recoupé avec des faits déjà établis ailleurs dans la base, et les associations incertaines ont été omises plutôt que forcées.
+Chaque psychologue, théorie, concept, courant, œuvre, événement, expérience et méthode porte désormais son propre **contexte historique**, écrit pour répondre à une question distincte selon sa nature plutôt que répéter les fiches voisines. Les courants ont fondateurs, représentants, lignée intellectuelle et courants concurrents/descendants ; les œuvres ont thèmes, concepts précisément introduits, réception, influence et œuvres liées — un vrai graphe bidirectionnel vérifié, pas une liste ad hoc. Les méthodes sont reliées aux concepts, théories et expériences qui les illustrent, et réciproquement : la fiche Milgram affiche ainsi les méthodes qu'elle met en œuvre (expérimentation, randomisation, réplication), sans qu'aucune de ces relations ne soit saisie deux fois. Le glossaire couvre aussi la lecture critique des résultats — corrélation vs causalité, variables indépendante/dépendante, significativité, intervalle de confiance, taille et puissance statistiques, biais d'échantillonnage et de publication, effets placebo et Hawthorne — pour donner les outils de lire une étude plutôt que de la prendre pour argent comptant. Aucun de ces contenus n'a été inventé : tout est dérivé ou recoupé avec des faits déjà établis ailleurs dans la base, et les associations incertaines ont été omises plutôt que forcées.
 
 ## 🧭 Parcours guidés
 
-Plutôt que de laisser l'utilisateur seul face à la base de connaissances, Psychologor propose une bibliothèque de **32 parcours** organisés en 10 familles :
+Plutôt que de laisser l'utilisateur seul face à la base de connaissances, Psychologor propose une bibliothèque de **33 parcours** organisés en 10 familles :
 
 - 🧠 **Introduction** — vue d'ensemble pour une première visite
 - 🧭 **Courants** — psychanalyse, behaviorisme, Gestalt, humanisme, révolution cognitive…

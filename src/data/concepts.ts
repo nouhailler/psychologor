@@ -793,4 +793,202 @@ export const concepts: Concept[] = [
     theoryIds: [],
     relatedConceptIds: [],
   },
+  {
+    id: 'causalite',
+    keyTakeaways: [
+      "Une corrélation entre deux variables n'implique jamais, à elle seule, qu'une cause l'autre.",
+      'Établir une causalité exige de manipuler expérimentalement la cause potentielle, pas seulement de la mesurer.',
+      'Un lien observé peut toujours s\'expliquer par une troisième variable commune aux deux.',
+    ] as [string, string, string],
+    term: 'Causalité',
+    shortDefinition: "Le fait qu'une variable produise réellement un effet sur une autre — à ne jamais confondre avec une simple corrélation.",
+    definition:
+      "La causalité désigne le fait qu'une variable produise réellement, et pas seulement statistiquement, un changement dans une autre. L'établir exige de manipuler la cause potentielle tout en contrôlant les autres facteurs — ce qu'une simple mesure conjointe de deux variables ne permet jamais de garantir.",
+    historicalContext:
+      "Une corrélation entre deux variables se laisse toujours interpréter d'au moins trois façons — A cause B, B cause A, ou une troisième variable cause les deux — sans qu'aucune des trois ne se distingue par la seule mesure statistique. Cette ambiguïté explique pourquoi l'expérimentation, seule à isoler une variable en la manipulant, reste nécessaire pour trancher entre ces explications.",
+    origin: "Distinction méthodologique fondamentale plutôt qu'un concept attribuable à un auteur précis ; centrale dans l'enseignement de la méthodologie de la recherche en psychologie.",
+    psychologistIds: [],
+    theoryIds: [],
+    relatedConceptIds: ['variable-independante', 'variable-dependante'],
+  },
+  {
+    id: 'variable-independante',
+    keyTakeaways: [
+      'C\'est la variable que le chercheur manipule délibérément dans une expérimentation.',
+      'Elle représente la cause potentielle testée par le protocole.',
+      "Sans manipulation d'une variable indépendante, on ne peut parler que de corrélation, jamais de causalité.",
+    ] as [string, string, string],
+    term: 'Variable indépendante',
+    shortDefinition: "La variable que le chercheur manipule délibérément, pour en observer l'effet.",
+    definition:
+      "La variable indépendante est la variable que le chercheur manipule délibérément dans une expérimentation, afin d'en observer l'effet sur une autre variable. C'est la cause potentielle testée par le protocole.",
+    historicalContext:
+      "Distinguer précisément ce que l'on manipule de ce que l'on mesure devient nécessaire dès lors que la psychologie adopte la méthode expérimentale : sans ce vocabulaire partagé, deux chercheurs décrivant la même expérience risquent de désigner des choses différentes par le mot « variable ».",
+    origin: "Vocabulaire standard de la méthode expérimentale, hérité des sciences expérimentales.",
+    psychologistIds: [],
+    theoryIds: [],
+    relatedConceptIds: ['variable-dependante', 'causalite'],
+  },
+  {
+    id: 'variable-dependante',
+    keyTakeaways: [
+      'C\'est la variable que le chercheur mesure, pour voir si elle est affectée par la manipulation.',
+      "Elle représente l'effet potentiellement produit par la variable indépendante.",
+      'Sa variation, comparée entre les groupes, permet de conclure — ou non — à un effet.',
+    ] as [string, string, string],
+    term: 'Variable dépendante',
+    shortDefinition: 'La variable mesurée par le chercheur, pour observer si elle est affectée par la manipulation.',
+    definition:
+      "La variable dépendante est la variable que le chercheur mesure au cours d'une expérimentation, pour vérifier si elle varie en fonction de la manipulation de la variable indépendante. C'est l'effet potentiellement observé.",
+    historicalContext:
+      "Comme pour la variable indépendante, ce vocabulaire se stabilise avec l'adoption de la méthode expérimentale en psychologie, pour permettre de décrire sans ambiguïté ce qui est manipulé et ce qui est mesuré dans un même protocole.",
+    origin: "Vocabulaire standard de la méthode expérimentale, hérité des sciences expérimentales.",
+    psychologistIds: [],
+    theoryIds: [],
+    relatedConceptIds: ['variable-independante', 'causalite'],
+  },
+  {
+    id: 'biais-d-echantillonnage',
+    keyTakeaways: [
+      "Un échantillon peut ne pas représenter fidèlement la population que l'on veut étudier.",
+      "De nombreux résultats classiques reposent sur des échantillons d'étudiants occidentaux, peu représentatifs à l'échelle mondiale.",
+      "Limite directement la possibilité de généraliser un résultat au-delà de l'échantillon étudié.",
+    ] as [string, string, string],
+    term: "Biais d'échantillonnage",
+    shortDefinition: "Un échantillon qui ne représente pas fidèlement la population que l'on veut étudier.",
+    definition:
+      "Un biais d'échantillonnage se produit lorsque l'échantillon étudié ne représente pas fidèlement la population à laquelle on souhaite généraliser les résultats — par exemple parce que certains types de personnes sont plus susceptibles d'y participer que d'autres.",
+    historicalContext:
+      "Une grande partie des résultats classiques de psychologie provient d'échantillons d'étudiants en psychologie occidentaux, plus disponibles et moins coûteux à recruter pour les chercheurs universitaires — un choix pratique qui pose directement la question de la généralisation de ces résultats à l'ensemble de l'espèce humaine.",
+    origin: "Concept méthodologique général, central dans les débats contemporains sur la représentativité des échantillons en psychologie (voir les critiques des échantillons dits WEIRD).",
+    psychologistIds: [],
+    theoryIds: [],
+    relatedConceptIds: ['biais-de-publication'],
+  },
+  {
+    id: 'significativite-statistique',
+    keyTakeaways: [
+      "Évalue la probabilité qu'un résultat observé soit dû au seul hasard de l'échantillonnage.",
+      "Un résultat « significatif » n'est pas la preuve d'un effet important — seulement d'un effet probablement réel.",
+      'Un seuil conventionnel (souvent 5 %) est fixé à l\'avance pour juger si ce résultat est jugé significatif.',
+    ] as [string, string, string],
+    term: 'Significativité statistique',
+    shortDefinition: "La probabilité qu'un résultat observé soit dû au hasard plutôt qu'à un effet réel.",
+    definition:
+      "La significativité statistique évalue la probabilité d'observer un résultat au moins aussi marqué que celui obtenu, si l'effet testé n'existait en réalité pas du tout. Un résultat est dit « statistiquement significatif » lorsque cette probabilité est jugée suffisamment faible (par convention, généralement inférieure à 5 %).",
+    historicalContext:
+      "Comparer deux groupes produit presque toujours une différence, même minime, par le seul jeu du hasard de l'échantillonnage ; la statistique inférentielle, formalisée au début du XXe siècle, répond à ce problème en donnant un critère explicite pour juger si une différence observée est probablement réelle ou probablement due au hasard.",
+    origin: "Formalisée par les statisticiens Ronald Fisher, Jerzy Neyman et Egon Pearson dans la première moitié du XXe siècle ; devenue un standard quasi universel de la recherche en psychologie.",
+    psychologistIds: [],
+    theoryIds: [],
+    relatedConceptIds: ['intervalle-de-confiance', 'taille-d-effet', 'puissance-statistique'],
+  },
+  {
+    id: 'intervalle-de-confiance',
+    keyTakeaways: [
+      'Donne une fourchette de valeurs plausibles, plutôt qu\'un chiffre unique présenté comme exact.',
+      "Rend visible l'incertitude statistique inhérente à tout résultat obtenu sur un échantillon.",
+      'Un intervalle plus étroit signale généralement une estimation plus précise.',
+    ] as [string, string, string],
+    term: 'Intervalle de confiance',
+    shortDefinition: "Une fourchette de valeurs plausibles autour d'un résultat, plutôt qu'un chiffre unique et absolu.",
+    definition:
+      "Un intervalle de confiance est une fourchette de valeurs, calculée à partir des données d'un échantillon, dans laquelle la valeur réelle recherchée a de bonnes chances de se situer. Il rend explicite l'incertitude qui entoure toute estimation statistique, plutôt que de présenter un résultat comme un chiffre unique et absolu.",
+    historicalContext:
+      "Présenter un résultat comme une seule valeur précise — une moyenne, un pourcentage — masque le fait que cette valeur aurait pu être légèrement différente avec un autre échantillon ; l'intervalle de confiance, formalisé par le statisticien Jerzy Neyman dans les années 1930, rend cette incertitude visible plutôt que de la laisser implicite.",
+    origin: 'Formalisé par le statisticien Jerzy Neyman en 1937.',
+    psychologistIds: [],
+    theoryIds: [],
+    relatedConceptIds: ['significativite-statistique', 'taille-d-effet'],
+  },
+  {
+    id: 'taille-d-effet',
+    keyTakeaways: [
+      "Mesure à quel point un effet est important, indépendamment de la taille de l'échantillon.",
+      'Un résultat statistiquement significatif peut correspondre à un effet minuscule et sans intérêt pratique.',
+      "Complète nécessairement la significativité statistique pour juger de la portée réelle d'un résultat.",
+    ] as [string, string, string],
+    term: "Taille d'effet",
+    shortDefinition: "L'ampleur réelle d'un effet, indépendamment du fait qu'il soit statistiquement significatif.",
+    definition:
+      "La taille d'effet mesure l'ampleur réelle d'un phénomène — à quel point deux groupes diffèrent, ou à quel point deux variables sont liées — indépendamment de la taille de l'échantillon. Elle complète la significativité statistique, qui indique seulement si un effet est probablement réel, mais pas s'il est important.",
+    historicalContext:
+      "Avec un échantillon suffisamment grand, un effet minuscule et sans intérêt pratique peut devenir statistiquement significatif ; ce constat, popularisé notamment par le psychologue Jacob Cohen à partir des années 1960, pousse la discipline à exiger, en plus de la significativité, une mesure de l'ampleur réelle de l'effet observé.",
+    origin: 'Popularisée par le psychologue Jacob Cohen à partir des années 1960.',
+    psychologistIds: [],
+    theoryIds: [],
+    relatedConceptIds: ['significativite-statistique', 'puissance-statistique', 'intervalle-de-confiance'],
+  },
+  {
+    id: 'puissance-statistique',
+    keyTakeaways: [
+      "Désigne la capacité d'une étude à détecter un effet réel, s'il existe.",
+      'Un échantillon trop petit peut faire manquer un effet réel, plutôt que prouver son absence.',
+      'Une puissance insuffisante est aujourd\'hui reconnue comme l\'une des causes de la crise de la réplication.',
+    ] as [string, string, string],
+    term: 'Puissance statistique',
+    shortDefinition: "La capacité d'une étude à détecter un effet réel, s'il existe.",
+    definition:
+      "La puissance statistique désigne la probabilité qu'une étude détecte un effet réel, s'il existe effectivement. Une étude à faible puissance — souvent parce que l'échantillon est trop petit — risque de conclure à tort à l'absence d'effet, alors que l'effet existe mais n'a simplement pas pu être détecté.",
+    historicalContext:
+      "De nombreuses études de psychologie, menées historiquement sur de petits échantillons pour des raisons de coût et de temps, se révèlent rétrospectivement sous-puissantes — incapables de détecter de manière fiable les effets, souvent modestes, qu'elles cherchaient à mettre en évidence ; un constat central dans les discussions sur la crise de la réplication.",
+    origin: 'Concept formalisé par le psychologue Jacob Cohen, dans le prolongement de ses travaux sur la taille d\'effet.',
+    psychologistIds: [],
+    theoryIds: [],
+    relatedConceptIds: ['taille-d-effet', 'significativite-statistique'],
+  },
+  {
+    id: 'biais-de-publication',
+    keyTakeaways: [
+      'Les revues publient plus volontiers des résultats positifs que des résultats négatifs ou nuls.',
+      "Déforme l'image d'ensemble donnée par la littérature scientifique sur une question.",
+      'Une des causes structurelles régulièrement citées de la crise de la réplication.',
+    ] as [string, string, string],
+    term: 'Biais de publication',
+    shortDefinition: 'La tendance des revues à publier davantage les résultats positifs que les résultats négatifs.',
+    definition:
+      "Le biais de publication désigne la tendance des revues scientifiques à publier plus volontiers des études aux résultats positifs et spectaculaires que des études aux résultats négatifs ou nuls — bien que ces derniers soient tout aussi informatifs sur le plan scientifique.",
+    historicalContext:
+      "Une étude concluant à l'absence d'effet est perçue, à tort, comme moins intéressante à publier qu'une étude concluant à un effet — un biais du processus éditorial, documenté depuis les années 1970, qui déforme progressivement l'image d'ensemble donnée par la littérature scientifique sur une question, y compris lorsque chaque étude individuelle est menée correctement.",
+    origin: "Documenté dès les années 1970 dans les revues scientifiques, et régulièrement cité comme l'une des causes structurelles de la crise de la réplication.",
+    psychologistIds: [],
+    theoryIds: [],
+    relatedConceptIds: ['biais-d-echantillonnage'],
+  },
+  {
+    id: 'effet-placebo',
+    keyTakeaways: [
+      'Une simple croyance de recevoir un traitement peut produire une amélioration réelle et mesurable.',
+      "Impose de comparer tout traitement testé à un groupe recevant un placebo, pas seulement à l'absence de traitement.",
+      'Justifie directement le recours au protocole en double aveugle.',
+    ] as [string, string, string],
+    term: 'Effet placebo',
+    shortDefinition: 'Une amélioration réelle produite par la seule croyance de recevoir un traitement, sans principe actif.',
+    definition:
+      "L'effet placebo désigne une amélioration réelle et mesurable produite par la seule croyance de recevoir un traitement efficace, indépendamment de tout principe actif. Il révèle à quel point l'attente d'un participant peut, à elle seule, influencer un résultat.",
+    historicalContext:
+      "Des essais cliniques constatent, dès le début du XXe siècle, qu'un traitement sans aucun principe actif produit malgré tout une amélioration mesurable chez une partie des patients qui croient le recevoir — un résultat qui impose, pour tester l'efficacité réelle d'un traitement, de le comparer systématiquement à un groupe recevant un placebo plutôt qu'à l'absence totale de traitement.",
+    origin: 'Documenté en médecine dès le début du XXe siècle ; central en psychologie expérimentale pour justifier le recours au protocole en double aveugle.',
+    psychologistIds: [],
+    theoryIds: [],
+    relatedConceptIds: ['effet-hawthorne'],
+  },
+  {
+    id: 'effet-hawthorne',
+    keyTakeaways: [
+      'Le simple fait de se savoir observé peut suffire à modifier un comportement.',
+      "Menace la validité de toute étude reposant sur l'observation directe d'un comportement.",
+      "Nommé d'après une usine où la productivité augmentait quelles que soient les conditions testées.",
+    ] as [string, string, string],
+    term: 'Effet Hawthorne',
+    shortDefinition: "Le simple fait de se savoir observé peut modifier le comportement d'une personne.",
+    definition:
+      "L'effet Hawthorne désigne la tendance d'une personne à modifier son comportement du seul fait de se savoir observée, indépendamment de toute autre variable manipulée par le chercheur. Il constitue une menace méthodologique pour toute étude qui repose sur l'observation directe d'un comportement.",
+    historicalContext:
+      "Des chercheurs qui étudient, à partir du milieu des années 1920, l'effet de conditions de travail (éclairage, pauses) sur la productivité d'ouvriers de l'usine Hawthorne de la Western Electric Company constatent que la productivité augmente quelles que soient les conditions modifiées — y compris lorsqu'elles reviennent à leur état initial — suggérant que c'est la présence même des observateurs, plus que les conditions testées, qui modifie le comportement des ouvriers.",
+    origin: "Nommé d'après les études menées à l'usine Hawthorne de la Western Electric Company, à partir du milieu des années 1920.",
+    psychologistIds: [],
+    theoryIds: [],
+    relatedConceptIds: ['effet-placebo'],
+  },
 ];

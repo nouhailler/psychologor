@@ -2,6 +2,13 @@
 
 Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/). Les numéros de version correspondent à `package.json` et au numéro affiché dans Profil → Mises à jour.
 
+## [1.4.0] - 2026-09-03
+
+### Ajouté
+- 11 nouveaux concepts sur la lecture critique des résultats d'étude : causalité, variable indépendante, variable dépendante, biais d'échantillonnage, significativité statistique, intervalle de confiance, taille d'effet, puissance statistique, biais de publication, effet placebo, effet Hawthorne — réutilisent l'entité Concept existante plutôt qu'un nouveau type, et sont cross-référencés dans les fiches Méthode qu'ils éclairent (l'effet Hawthorne apparaît par exemple sur la fiche Observation).
+- Nouveau parcours **« Comprendre une étude psychologique »** (famille Regards transversaux) : dix étapes qui suivent l'anatomie d'une étude — question, hypothèse, échantillon, protocole, variables, résultats, statistiques, interprétation, limites, réplication — chacune pointant vers une vraie fiche plutôt qu'un texte isolé.
+- `PathStep` peut désormais référencer une fiche Méthode (`StepEntityKind` étendu), pour que les parcours guidés puissent illustrer une étape avec un devis de recherche ou un contrôle méthodologique.
+
 ## [1.3.0] - 2026-09-03
 
 ### Ajouté

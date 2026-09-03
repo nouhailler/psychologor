@@ -1759,4 +1759,83 @@ export const paths: LearningPath[] = [
       },
     ],
   },
+  {
+    id: 'comprendre-une-etude-psychologique',
+    category: 'transversal',
+    title: 'Comprendre une étude psychologique',
+    subtitle: 'Lire un résultat de recherche sans se laisser abuser',
+    description:
+      "Un parcours en dix étapes qui suit l'anatomie d'une étude psychologique, de la question de recherche à sa réplication, pour apprendre à lire un résultat — et ses limites — comme un chercheur plutôt que comme un lecteur pressé.",
+    accentColor: '#5B4FC7',
+    estimatedMinutes: 15,
+    steps: [
+      {
+        id: 'question-de-recherche',
+        entityType: 'custom',
+        customTitle: 'La question de recherche',
+        customDescription:
+          "Toute étude part d'une question suffisamment précise pour être testée — et surtout falsifiable : une question à laquelle une observation pourrait, en principe, répondre « non ». Une question trop vague ne peut mener à aucun protocole.",
+        keyTakeaway: "Une bonne question de recherche doit pouvoir, en principe, être contredite par les données — sinon elle n'est pas scientifiquement testable.",
+      },
+      {
+        id: 'hypothese',
+        entityType: 'custom',
+        customTitle: "L'hypothèse",
+        customDescription:
+          "À partir de la question, le chercheur formule une hypothèse précise — une prédiction testable sur la relation entre deux variables — avant de recueillir la moindre donnée. La formuler après coup, une fois les résultats connus, invalide la logique du test statistique qui suit.",
+        keyTakeaway: "L'hypothèse doit être formulée avant la collecte des données, jamais reconstruite après coup pour coller aux résultats obtenus.",
+      },
+      {
+        id: 'echantillon',
+        entityType: 'concept',
+        entityId: 'biais-d-echantillonnage',
+        keyTakeaway: "Avant de lire le moindre résultat, il faut se demander qui a été étudié — et si cet échantillon permet réellement de généraliser la conclusion.",
+        reflectionQuestion: "L'échantillon de cette étude vous semble-t-il représentatif de la population à laquelle ses résultats sont censés s'appliquer ?",
+      },
+      {
+        id: 'protocole',
+        entityType: 'method',
+        entityId: 'experimentation',
+        keyTakeaway: "Le protocole précise ce qui a été concrètement manipulé et mesuré — c'est lui qui détermine si une conclusion causale est même possible.",
+      },
+      {
+        id: 'variables',
+        entityType: 'concept',
+        entityId: 'variable-independante',
+        keyTakeaway: "Identifier clairement ce qui a été manipulé (variable indépendante) et ce qui a été mesuré (variable dépendante) permet de savoir ce que l'étude peut réellement démontrer.",
+      },
+      {
+        id: 'resultats',
+        entityType: 'experiment',
+        entityId: 'milgram-obeissance',
+        keyTakeaway: "Un résultat brut — ici, le taux de participants allant jusqu'au choc maximal — ne prend son sens que rapporté à un protocole et à un échantillon précis.",
+        reflectionQuestion: "Que change, dans l'interprétation de ce résultat, le fait de savoir précisément comment il a été obtenu ?",
+      },
+      {
+        id: 'statistiques',
+        entityType: 'concept',
+        entityId: 'significativite-statistique',
+        keyTakeaway: "Un résultat « statistiquement significatif » signifie seulement qu'il est probablement réel — pas qu'il est important ou pertinent en pratique.",
+      },
+      {
+        id: 'interpretation',
+        entityType: 'concept',
+        entityId: 'causalite',
+        keyTakeaway: "La question la plus fréquemment mal posée en lisant une étude : ce résultat démontre-t-il vraiment une cause, ou seulement une association ?",
+      },
+      {
+        id: 'limites',
+        entityType: 'concept',
+        entityId: 'effet-hawthorne',
+        keyTakeaway: "Toute étude a des limites qu'elle doit énoncer elle-même — le simple fait d'observer un comportement peut suffire à le modifier.",
+        reflectionQuestion: "Quelles limites l'étude que vous venez de lire reconnaît-elle elle-même, et lesquelles semble-t-elle passer sous silence ?",
+      },
+      {
+        id: 'replication-finale',
+        entityType: 'method',
+        entityId: 'replication',
+        keyTakeaway: "Un résultat isolé, même rigoureux, ne devient une connaissance solide qu'après avoir résisté à la tentative de le reproduire.",
+      },
+    ],
+  },
 ];

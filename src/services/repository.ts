@@ -195,6 +195,7 @@ const STEP_TYPE_LABELS: Record<StepEntityKind, string> = {
   theory: 'Théorie',
   concept: 'Concept',
   experiment: 'Expérience',
+  method: 'Méthode',
   custom: 'Repère',
 };
 
@@ -252,6 +253,18 @@ export function resolveStepEntity(step: PathStep): ResolvedStepEntity | undefine
       href: `/experiences/${e.id}`,
       accentColor: e.accentColor,
       typeLabel: STEP_TYPE_LABELS.experiment,
+    };
+  }
+
+  if (step.entityType === 'method') {
+    const m = methodById.get(step.entityId);
+    if (!m) return undefined;
+    return {
+      name: m.name,
+      description: m.definition,
+      href: `/methodes/${m.id}`,
+      accentColor: m.accentColor,
+      typeLabel: STEP_TYPE_LABELS.method,
     };
   }
 

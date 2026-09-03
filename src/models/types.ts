@@ -10,7 +10,7 @@ export type EntityKind =
   | 'method'
   | 'path';
 
-export type StepEntityKind = 'psychologist' | 'theory' | 'concept' | 'experiment' | 'custom';
+export type StepEntityKind = 'psychologist' | 'theory' | 'concept' | 'experiment' | 'method' | 'custom';
 
 export interface DateRange {
   birth?: string;
