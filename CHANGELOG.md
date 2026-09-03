@@ -2,6 +2,14 @@
 
 Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/). Les numéros de version correspondent à `package.json` et au numéro affiché dans Profil → Mises à jour.
 
+## [1.3.0] - 2026-09-03
+
+### Ajouté
+- Nouvelle entité **Méthode** : comment la connaissance psychologique est produite, jusqu'ici absente du modèle malgré la place centrale des expériences et des théories. Chaque fiche détaille définition, contexte historique, objectif, protocole, forces et limites.
+- 14 méthodes classiques couvrant quatre familles : devis de recherche (expérimentation, observation, étude de cas, étude longitudinale, étude transversale, étude de cohorte), outils de collecte (entretien clinique, questionnaire, test psychologique), contrôles méthodologiques (randomisation, double aveugle, réplication) et analyse (corrélation, méta-analyse).
+- Chaque méthode est reliée aux concepts, théories et expériences qui l'illustrent ; ces dernières affichent désormais, en retour et sans duplication de données, la ou les méthodes qu'elles mettent en œuvre.
+- Intégration complète dès la conception : onglet Explorer, entrée de menu, route `/methodes`, recherche, favoris, historique et nœuds dans la Carte des idées.
+
 ## [1.2.0] - 2026-09-02
 
 ### Ajouté

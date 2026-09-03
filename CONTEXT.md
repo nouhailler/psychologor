@@ -20,6 +20,8 @@ Direction éditoriale : encyclopédie scientifique premium + magazine contempora
 
 Chaque type d'entité vit dans `src/models/types.ts`. Point de discipline important, appliqué systématiquement depuis le début du projet : **aucune relation n'est jamais écrite deux fois à la main**. Tout ce qui ressemble à une relation dérivée (lignée d'un courant, généalogie d'une idée, œuvres liées, comparaison, ego-graph) est calculé au runtime à partir de tableaux d'identifiants stables (`schoolIds`, `influencedByIds`, `relatedWorkIds`, `conceptIds`…) déjà présents sur les entités — jamais hand-authored en plus. Voir `src/services/genesis.ts` (généalogie intellectuelle) et `src/services/egoGraph.ts` (graphe d'influence) comme exemples de ce pattern.
 
+Exemple de lookup inversé (le sens le plus courant du pattern) : `Method` porte `relatedConceptIds`/`relatedExperimentIds`/`relatedTheoryIds`, mais `Concept`, `Theory` et `Experiment` ne portent pas de `methodIds` en retour — `repository.getMethodsByConcept/ByExperiment/ByTheory` filtrent `methods` à la volée pour reconstruire la relation dans l'autre sens (voir `ConceptDetail.tsx`, `TheoryDetail.tsx`, `ExperimentDetail.tsx`, section « Méthodes associées/illustrées »). C'est le patron à reproduire chaque fois qu'une entité doit apparaître sur la fiche d'une autre sans dupliquer le tableau d'identifiants.
+
 Chaque entité qui porte un champ `historicalContext` répond à une question **différente selon sa nature**, pour ne jamais dupliquer une fiche voisine :
 
 | Entité | Ce que `historicalContext` explique |
@@ -31,6 +33,7 @@ Chaque entité qui porte un champ `historicalContext` répond à une question **
 | Work | L'état du débat/des connaissances au moment de la publication |
 | HistoricalEvent | Les circonstances immédiates qui amènent l'événement à ce moment précis |
 | Experiment | Le climat scientifique qui rend ce protocole précis nécessaire ou possible |
+| Method | Le problème méthodologique auquel répond l'émergence de cette méthode |
 
 Les doc-comments exacts sont dans `src/models/types.ts`, juste au-dessus de chaque champ — c'est la source de vérité, pas ce tableau.
 
@@ -39,7 +42,7 @@ Les doc-comments exacts sont dans `src/models/types.ts`, juste au-dessus de chaq
 - **Tout le contenu est en français**, y compris le code produit visible (labels, messages) ; le code lui-même (variables, types) reste en anglais.
 - **Politique anti-fabrication stricte** : on n'invente jamais une citation, une date, une filiation ou une attribution incertaine. Quand une association entre deux entités n'est pas clairement établie par une source déjà présente dans la base (ex. un concept attribué à une œuvre précise), on l'omet plutôt que de la forcer. Toute nouvelle relation ajoutée à un tableau comme `relatedWorkIds` doit être **réciproque** (vérifiée dans les deux sens) avant d'être committée.
 - Avant de lier une nouvelle entité à une entité existante (concept → œuvre, expérience → théorie…), vérifier le champ `origin`/`historicalContext` déjà écrit sur la cible plutôt que de supposer le lien.
-- Une nouvelle fiche d'entité doit rester pleinement « branchée » à l'application, pas seulement accessible par URL directe : onglet dans Explorer si c'est une collection parcourable, entrée de recherche (`src/services/search.ts` + `SearchOverlay.tsx`), favoris/historique (`EntityKind` dans `types.ts`), et entrée de menu si pertinent (`NavMenu.tsx`). C'est ce qui a été rattrapé a posteriori pour les expériences (voir CHANGELOG 1.2.0) — à ne pas reproduire pour un futur type d'entité.
+- Une nouvelle fiche d'entité doit rester pleinement « branchée » à l'application, pas seulement accessible par URL directe : onglet dans Explorer si c'est une collection parcourable, entrée de recherche (`src/services/search.ts` + `SearchOverlay.tsx`), favoris/historique (`EntityKind` dans `types.ts`), entrée de menu si pertinent (`NavMenu.tsx`), et nœud dans l'ego-graph (`src/services/egoGraph.ts` + `KnowledgeMap.tsx`). C'est ce qui a été rattrapé a posteriori pour les expériences (voir CHANGELOG 1.2.0), puis appliqué dès la conception pour les méthodes (CHANGELOG 1.3.0) — à faire dès le départ pour tout futur type d'entité, pas après coup.
 
 ## Limitations connues de l'environnement de développement
 

@@ -6,6 +6,7 @@ import { works } from '../data/works';
 import { quotes } from '../data/quotes';
 import { events } from '../data/events';
 import { experiments } from '../data/experiments';
+import { methods } from '../data/methods';
 import { portraitCredits } from '../data/portraitCredits';
 import { paths } from '../data/paths';
 import type {
@@ -13,6 +14,7 @@ import type {
   Experiment,
   HistoricalEvent,
   LearningPath,
+  Method,
   PathStep,
   Psychologist,
   Quote,
@@ -37,6 +39,7 @@ const workById = new Map(works.map((w) => [w.id, w]));
 const quoteById = new Map(quotes.map((q) => [q.id, q]));
 const eventById = new Map(events.map((e) => [e.id, e]));
 const experimentById = new Map(experiments.map((e) => [e.id, e]));
+const methodById = new Map(methods.map((m) => [m.id, m]));
 const pathById = new Map(paths.map((p) => [p.id, p]));
 
 function delay<T>(value: T): Promise<T> {
@@ -124,6 +127,14 @@ export const repository = {
   getExperiment: (id: string) => delay(experimentById.get(id) ?? null),
   getExperimentsByIds: (ids: string[]) => delay(ids.map((id) => experimentById.get(id)).filter(Boolean) as Experiment[]),
 
+  // ---- Méthodes ----
+  getAllMethods: () => delay(methods),
+  getMethod: (id: string) => delay(methodById.get(id) ?? null),
+  getMethodsByIds: (ids: string[]) => delay(ids.map((id) => methodById.get(id)).filter(Boolean) as Method[]),
+  getMethodsByConcept: (conceptId: string) => delay(methods.filter((m) => m.relatedConceptIds.includes(conceptId))),
+  getMethodsByExperiment: (experimentId: string) => delay(methods.filter((m) => m.relatedExperimentIds.includes(experimentId))),
+  getMethodsByTheory: (theoryId: string) => delay(methods.filter((m) => m.relatedTheoryIds.includes(theoryId))),
+
   // ---- Parcours guidés ----
   getAllPaths: () => delay(paths),
   getPath: (id: string) => delay(pathById.get(id) ?? null),
@@ -155,6 +166,10 @@ export function getExperimentSync(id: string): Experiment | undefined {
 
 export function getWorkSync(id: string): Work | undefined {
   return workById.get(id);
+}
+
+export function getMethodSync(id: string): Method | undefined {
+  return methodById.get(id);
 }
 
 export function getPortraitCredit(psychologistId: string) {

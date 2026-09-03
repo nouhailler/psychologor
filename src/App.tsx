@@ -18,6 +18,7 @@ const Comparison = lazy(() => import('./pages/Comparison'));
 const Paths = lazy(() => import('./pages/Paths'));
 const PathPlayer = lazy(() => import('./pages/PathPlayer'));
 const ExperimentDetail = lazy(() => import('./pages/ExperimentDetail'));
+const MethodDetail = lazy(() => import('./pages/MethodDetail'));
 const Favorites = lazy(() => import('./pages/Favorites'));
 const Profile = lazy(() => import('./pages/Profile'));
 const NotFound = lazy(() => import('./pages/NotFound'));
@@ -47,6 +48,8 @@ function App() {
           <Route path="/parcours/:id" element={<PathPlayer />} />
           <Route path="/experiences" element={<Explorer initialTab="experiences" />} />
           <Route path="/experiences/:id" element={<ExperimentDetail />} />
+          <Route path="/methodes" element={<Explorer initialTab="methodes" />} />
+          <Route path="/methodes/:id" element={<MethodDetail />} />
           <Route path="/favoris" element={<Favorites />} />
           <Route path="/profil" element={<Profile />} />
           <Route path="/accueil" element={<Navigate to="/" replace />} />

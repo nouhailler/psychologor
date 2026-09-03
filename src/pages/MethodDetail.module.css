@@ -1,0 +1,111 @@
+.hero {
+  position: relative;
+  padding: var(--space-9) 0 var(--space-8);
+  color: white;
+  overflow: hidden;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: hsl(0 0% 100% / 0.85);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-bottom: var(--space-6);
+}
+
+.eyebrow {
+  color: hsl(0 0% 100% / 0.72) !important;
+  margin-bottom: var(--space-3);
+}
+
+.title {
+  color: white;
+  margin-bottom: var(--space-3);
+  max-width: 720px;
+}
+
+.summary {
+  color: hsl(0 0% 100% / 0.88);
+  max-width: 560px;
+}
+
+.favoriteWrap {
+  position: absolute;
+  top: var(--space-6);
+  right: var(--space-5);
+}
+
+.body {
+  padding: var(--space-8) 0 var(--space-10);
+}
+
+.section {
+  margin-bottom: var(--space-7);
+  max-width: 720px;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.protocolBlock {
+  padding: var(--space-5);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-border);
+}
+
+.prosConsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-5);
+  max-width: 720px;
+  margin-bottom: var(--space-7);
+}
+
+.strengthsBlock {
+  padding: var(--space-5) var(--space-6);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--color-success) 10%, var(--color-surface));
+  border: 1px solid color-mix(in srgb, var(--color-success) 30%, var(--color-border));
+}
+
+.strengthsLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-success) !important;
+  margin-bottom: var(--space-3);
+}
+
+.limitationsBlock {
+  padding: var(--space-5) var(--space-6);
+  border-radius: var(--radius-lg);
+  border: 1.5px dashed var(--color-border-strong);
+}
+
+.limitationsLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-secondary) !important;
+  margin-bottom: var(--space-3);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-left: var(--space-5);
+  margin: 0;
+}
+
+.list li {
+  color: var(--color-text-secondary);
+}

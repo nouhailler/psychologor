@@ -8,6 +8,7 @@ import {
   Home,
   Landmark,
   Lightbulb,
+  Microscope,
   Network,
   Route as RouteIcon,
   ScrollText,
@@ -46,6 +47,7 @@ const CATEGORIES: { title: string; items: MenuItem[] }[] = [
       { to: '/concepts', label: 'Glossaire des concepts', description: 'Définitions clés', icon: Lightbulb },
       { to: '/oeuvres', label: 'Bibliothèque des œuvres', description: 'Les grands textes de la discipline', icon: ScrollText },
       { to: '/experiences', label: 'Expériences & études', description: 'Protocoles, résultats et controverses', icon: FlaskConical },
+      { to: '/methodes', label: 'Méthodes', description: 'Comment on produit la connaissance', icon: Microscope },
     ],
   },
   {

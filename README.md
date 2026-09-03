@@ -48,7 +48,7 @@ Chaque fiche — psychologue, théorie, concept — est reliée aux autres. L'ap
 | | |
 |---|---|
 | 🔍 **Recherche** | Recherche plein texte tolérante, en temps réel, groupée par type (personnes / théories / concepts / courants / œuvres / événements) |
-| 🧑‍🔬 **Fiches croisées** | Psychologues, théories, concepts, courants, œuvres, événements et expériences intégralement navigables entre eux |
+| 🧑‍🔬 **Fiches croisées** | Psychologues, théories, concepts, courants, œuvres, événements, expériences et méthodes intégralement navigables entre eux |
 | 📜 **Contexte historique** | Chaque type de fiche situe sa contribution dans son climat scientifique propre — jamais un doublon d'une autre fiche : le débat qu'une théorie résout, le manque qu'un concept comble, le procès qui motive une expérience… |
 | 🌳 **Genèse de l'idée** | Généalogie intellectuelle calculée automatiquement à partir des influences réelles entre psychologues, sur les fiches théorie et concept — « Comment est-on arrivé à cette idée ? » |
 | 🧭 **Parcours guidés** | Bibliothèque de 32 parcours pas à pas (introduction, courants, biographies, concepts, débats, expériences, histoire, révision…), avec progression persistée hors ligne |
@@ -56,6 +56,7 @@ Chaque fiche — psychologue, théorie, concept — est reliée aux autres. L'ap
 | 🕸️ **Carte des idées** | Graphe de connaissances interactif (React Flow) sur desktop, chaîne d'influence adaptée sur mobile — vue d'ensemble ou mode « Explorer autour de… », centré sur une entité au choix, avec profondeur (1 à 3 niveaux) et filtres par type |
 | 📖 **Bibliothèque des œuvres** | Fiche par œuvre — thèmes, concepts effectivement introduits, réception, influence durable, œuvres liées, et « Pourquoi cette œuvre est importante ? » |
 | 🧪 **Expériences & études** | Fiche par expérience historique — objectif, méthode, résultat, interprétation, ⚠️ limites et controverses, héritage — pour ne jamais présenter une expérience comme une vérité scientifique intouchable |
+| 🔬 **Méthodes de recherche** | Comment la connaissance psychologique est produite — 14 méthodes (expérimentation, observation, étude de cas, entretien clinique, questionnaire, test, longitudinale/transversale/de cohorte, corrélation, méta-analyse, réplication, randomisation, double aveugle), chacune avec ses forces et ses limites, reliée aux concepts, théories et expériences qui l'illustrent |
 | ⚖️ **Comparaison** | Comparez jusqu'à 3 éléments côte à côte — théories, concepts, psychologues ou courants — avec tableau croisé (✓ / —) sur les entités partagées |
 | ⭐ **Favoris & historique** | Sauvegarde locale persistante via IndexedDB (Dexie), sur les huit types d'entités |
 | 🍔 **Menu & mise à jour** | Menu hamburger catégorisé sur mobile ; mise à jour automatique de l'application, avec vérification manuelle et suivi de version depuis le Profil |
@@ -74,12 +75,13 @@ Base de connaissances entièrement factuelle et sourcée (aucune citation, date 
 | 🔤 Concepts (glossaire) | 44 |
 | 🏛️ Courants de pensée | 10 |
 | 🧪 Expériences & études | 11 (objectif · méthode · résultat · interprétation · limites/controverses · héritage) |
+| 🔬 Méthodes de recherche | 14 (définition · objectif · protocole · forces · limites) |
 | 📖 Œuvres majeures | 32 |
 | 💬 Citations attribuées | 13 |
 | 🗓️ Événements chronologiques | 29 |
 | 🧭 Parcours guidés | 32, en 10 familles thématiques |
 
-Chaque psychologue, théorie, concept, courant, œuvre, événement et expérience porte désormais son propre **contexte historique**, écrit pour répondre à une question distincte selon sa nature plutôt que répéter les fiches voisines. Les courants ont fondateurs, représentants, lignée intellectuelle et courants concurrents/descendants ; les œuvres ont thèmes, concepts précisément introduits, réception, influence et œuvres liées — un vrai graphe bidirectionnel vérifié, pas une liste ad hoc. Aucun de ces contenus n'a été inventé : tout est dérivé ou recoupé avec des faits déjà établis ailleurs dans la base, et les associations incertaines ont été omises plutôt que forcées.
+Chaque psychologue, théorie, concept, courant, œuvre, événement, expérience et méthode porte désormais son propre **contexte historique**, écrit pour répondre à une question distincte selon sa nature plutôt que répéter les fiches voisines. Les courants ont fondateurs, représentants, lignée intellectuelle et courants concurrents/descendants ; les œuvres ont thèmes, concepts précisément introduits, réception, influence et œuvres liées — un vrai graphe bidirectionnel vérifié, pas une liste ad hoc. Les méthodes sont reliées aux concepts, théories et expériences qui les illustrent, et réciproquement : la fiche Milgram affiche ainsi les méthodes qu'elle met en œuvre (expérimentation, randomisation, réplication), sans qu'aucune de ces relations ne soit saisie deux fois. Aucun de ces contenus n'a été inventé : tout est dérivé ou recoupé avec des faits déjà établis ailleurs dans la base, et les associations incertaines ont été omises plutôt que forcées.
 
 ## 🧭 Parcours guidés
 
@@ -143,12 +145,12 @@ npm run lint       # lint du code avec Oxlint
 src/
   components/       # UI, cartes, layout (design system)
   pages/             # écrans routés — fiches (psychologue, théorie, concept,
-                     #   courant, œuvre, événement, expérience), Explorer,
+                     #   courant, œuvre, événement, expérience, méthode), Explorer,
                      #   Carte des idées, Comparaison, Profil…
   visualizations/    # graphe de connaissances, graphe « autour de moi »
                      #   (desktop React Flow / drill-down mobile), chaîne d'influence
   data/              # contenu — psychologues, théories, concepts, courants,
-                     #   œuvres, événements, expériences, parcours…
+                     #   œuvres, événements, expériences, méthodes, parcours…
   models/            # types TypeScript des entités
   services/          # repository, recherche, généalogie (genesis), graphe
                      #   d'influence (egoGraph), IndexedDB (Dexie)
@@ -196,6 +198,9 @@ HistoricalEvent ── workId (renvoi vers l'œuvre correspondante, si publicati
 
 Experiment ──┬── psychologistIds · conceptIds · theoryIds
              └── historicalContext · objective · critiques[] · legacy
+
+Method ──┬── relatedConceptIds · relatedExperimentIds · relatedTheoryIds · relatedMethodIds
+         └── historicalContext · objective · protocol · strengths[] · limitations[]
 ```
 
 Aucune entité ne référence les autres par du texte libre : toutes les relations — y compris la généalogie intellectuelle (« Genèse de l'idée »), le graphe « autour de moi » et les courants descendants — sont calculées à partir de ces identifiants stables, ce qui permet d'accueillir de nouvelles fiches sans réécriture majeure.

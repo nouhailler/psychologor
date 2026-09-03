@@ -1,4 +1,4 @@
-import { AlertTriangle, ArrowLeft, ClipboardList, FlaskConical, Lightbulb, Sparkles, Target } from 'lucide-react';
+import { AlertTriangle, ArrowLeft, ClipboardList, FlaskConical, Lightbulb, Microscope, Sparkles, Target } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import { ConceptChip } from '../components/cards/ConceptChip';
 import { RelationshipCard } from '../components/cards/RelationshipCard';
@@ -22,6 +22,7 @@ export default function ExperimentDetail() {
   );
   const { data: concepts } = useAsync(() => repository.getConceptsByIds(experiment?.conceptIds ?? []), [experiment?.id]);
   const { data: theories } = useAsync(() => repository.getTheoriesByIds(experiment?.theoryIds ?? []), [experiment?.id]);
+  const { data: methods } = useAsync(() => repository.getMethodsByExperiment(experiment?.id ?? ''), [experiment?.id]);
 
   if (loading) return <PageLoader />;
   if (!experiment) return <NotFound />;
@@ -140,6 +141,19 @@ export default function ExperimentDetail() {
               <div className="chip-row">
                 {concepts.map((c) => (
                   <ConceptChip key={c.id} concept={c} />
+                ))}
+              </div>
+            </section>
+          )}
+
+          {methods && methods.length > 0 && (
+            <section className={styles.section}>
+              <h2 className="text-h3" style={{ marginBottom: 'var(--space-4)' }}>
+                Méthodes illustrées
+              </h2>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+                {methods.map((m) => (
+                  <RelationshipCard key={m.id} to={`/methodes/${m.id}`} icon={<Microscope size={18} />} title={m.name} subtitle={m.shortDefinition} />
                 ))}
               </div>
             </section>

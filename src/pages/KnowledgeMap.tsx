@@ -20,6 +20,7 @@ const FILTER_TYPES: { id: GraphNodeType; label: string; color: string }[] = [
   { id: 'work', label: 'Œuvres', color: '#3F9E6D' },
   { id: 'event', label: 'Événements', color: '#A64A4A' },
   { id: 'experiment', label: 'Expériences', color: '#2E6B8A' },
+  { id: 'method', label: 'Méthodes', color: '#C4632F' },
 ];
 
 const DEPTH_OPTIONS = [1, 2, 3];
@@ -28,7 +29,7 @@ function readCenterFromParams(searchParams: URLSearchParams): EgoRef | null {
   const type = searchParams.get('type') as GraphNodeType | null;
   const id = searchParams.get('id');
   if (!type || !id) return null;
-  if (!['psychologist', 'theory', 'concept', 'work', 'event', 'experiment'].includes(type)) return null;
+  if (!['psychologist', 'theory', 'concept', 'work', 'event', 'experiment', 'method'].includes(type)) return null;
   return { type, id };
 }
 
@@ -41,7 +42,7 @@ export default function KnowledgeMap() {
   const [center, setCenter] = useState<EgoRef | null>(initialCenter);
   const [depth, setDepth] = useState(2);
   const [enabledTypes, setEnabledTypes] = useState<Set<GraphNodeType>>(
-    new Set(['psychologist', 'theory', 'concept', 'work', 'event', 'experiment']),
+    new Set(['psychologist', 'theory', 'concept', 'work', 'event', 'experiment', 'method']),
   );
 
   const changeMode = (next: Mode) => {

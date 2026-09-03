@@ -1,4 +1,4 @@
-import { ArrowLeft, Layers } from 'lucide-react';
+import { ArrowLeft, Layers, Microscope } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import { ConceptChip } from '../components/cards/ConceptChip';
 import { RelationshipCard } from '../components/cards/RelationshipCard';
@@ -27,6 +27,7 @@ export default function TheoryDetail() {
     () => repository.getTheoriesByIds(theory?.relatedTheoryIds ?? []),
     [theory?.id],
   );
+  const { data: methods } = useAsync(() => repository.getMethodsByTheory(theory?.id ?? ''), [theory?.id]);
 
   if (loading) return <PageLoader />;
   if (!theory) return <NotFound />;
@@ -182,6 +183,17 @@ export default function TheoryDetail() {
                 <div style={{ display: 'grid', gap: 'var(--space-3)', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))' }}>
                   {relatedTheories.map((t) => (
                     <RelationshipCard key={t.id} to={`/theories/${t.id}`} icon={<Layers size={18} />} title={t.name} subtitle={t.tagline} />
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {methods && methods.length > 0 && (
+              <section className={styles.section}>
+                <h2 className={`text-h2 ${styles.sectionTitle}`}>Méthodes associées</h2>
+                <div style={{ display: 'grid', gap: 'var(--space-3)', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))' }}>
+                  {methods.map((m) => (
+                    <RelationshipCard key={m.id} to={`/methodes/${m.id}`} icon={<Microscope size={18} />} title={m.name} subtitle={m.shortDefinition} />
                   ))}
                 </div>
               </section>

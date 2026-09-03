@@ -7,6 +7,7 @@ export type EntityKind =
   | 'quote'
   | 'event'
   | 'experiment'
+  | 'method'
   | 'path';
 
 export type StepEntityKind = 'psychologist' | 'theory' | 'concept' | 'experiment' | 'custom';
@@ -184,6 +185,34 @@ export interface Experiment {
   psychologistIds: string[];
   conceptIds: string[];
   theoryIds: string[];
+}
+
+export type MethodCategory = 'devis' | 'collecte' | 'controle' | 'analyse';
+
+/**
+ * Une méthode de recherche en psychologie — comment la connaissance est
+ * produite, distincte d'une expérience précise : un devis, un outil de
+ * collecte ou un contrôle méthodologique réutilisable d'une étude à l'autre.
+ */
+export interface Method {
+  id: string;
+  name: string;
+  category: MethodCategory;
+  shortDefinition: string;
+  definition: string;
+  /** Le problème méthodologique auquel répond l'émergence de cette méthode. */
+  historicalContext: string;
+  /** Ce que cette méthode permet d'établir, que d'autres méthodes ne permettent pas. */
+  objective: string;
+  protocol: string;
+  strengths: string[];
+  limitations: string[];
+  accentColor: string;
+  psychologistIds: string[];
+  relatedConceptIds: string[];
+  relatedExperimentIds: string[];
+  relatedTheoryIds: string[];
+  relatedMethodIds: string[];
 }
 
 export interface SearchResultGroup<T> {

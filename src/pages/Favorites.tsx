@@ -1,4 +1,4 @@
-import { Calendar, FlaskConical, Landmark, ScrollText, Star } from 'lucide-react';
+import { Calendar, FlaskConical, Landmark, Microscope, ScrollText, Star } from 'lucide-react';
 import { PersonCard } from '../components/cards/PersonCard';
 import { TheoryCard } from '../components/cards/TheoryCard';
 import { ConceptChip } from '../components/cards/ConceptChip';
@@ -10,6 +10,7 @@ import {
   getConceptSync,
   getEventSync,
   getExperimentSync,
+  getMethodSync,
   getPsychologistSync,
   getSchoolSync,
   getTheorySync,
@@ -55,6 +56,11 @@ export default function Favorites() {
     .map((f) => getExperimentSync(f.entityId))
     .filter(Boolean);
 
+  const methods = (favorites ?? [])
+    .filter((f) => f.entityType === 'method')
+    .map((f) => getMethodSync(f.entityId))
+    .filter(Boolean);
+
   const isEmpty =
     psychologists.length === 0 &&
     theories.length === 0 &&
@@ -62,7 +68,8 @@ export default function Favorites() {
     schools.length === 0 &&
     works.length === 0 &&
     historicalEvents.length === 0 &&
-    experiments.length === 0;
+    experiments.length === 0 &&
+    methods.length === 0;
 
   return (
     <div className="container">
@@ -70,14 +77,14 @@ export default function Favorites() {
         <h1 className="text-h1" style={{ marginBottom: 'var(--space-2)' }}>
           Favoris
         </h1>
-        <p className="text-body-sm">Les personnes, théories, concepts, courants, œuvres, événements et expériences que vous avez sauvegardés.</p>
+        <p className="text-body-sm">Les personnes, théories, concepts, courants, œuvres, événements, expériences et méthodes que vous avez sauvegardés.</p>
       </div>
 
       {isEmpty && (
         <EmptyState
           icon={<Star size={24} />}
           title="Aucun favori pour le moment"
-          description="Ajoutez des psychologues, théories, concepts, courants, œuvres, événements ou expériences à vos favoris en appuyant sur l'étoile de leur fiche."
+          description="Ajoutez des psychologues, théories, concepts, courants, œuvres, événements, expériences ou méthodes à vos favoris en appuyant sur l'étoile de leur fiche."
         />
       )}
 
@@ -163,6 +170,19 @@ export default function Favorites() {
                     title={e.title}
                     subtitle={e.year}
                   />
+                ),
+            )}
+          </div>
+        </Section>
+      )}
+
+      {methods.length > 0 && (
+        <Section title="Méthodes" className={styles.section}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+            {methods.map(
+              (m) =>
+                m && (
+                  <RelationshipCard key={m.id} to={`/methodes/${m.id}`} icon={<Microscope size={18} />} title={m.name} subtitle={m.shortDefinition} />
                 ),
             )}
           </div>
