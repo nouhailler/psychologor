@@ -52,11 +52,12 @@ Chaque fiche — psychologue, théorie, concept — est reliée aux autres. L'ap
 | 📜 **Contexte historique** | Chaque type de fiche situe sa contribution dans son climat scientifique propre — jamais un doublon d'une autre fiche : le débat qu'une théorie résout, le manque qu'un concept comble, le procès qui motive une expérience… |
 | 🌳 **Genèse de l'idée** | Généalogie intellectuelle calculée automatiquement à partir des influences réelles entre psychologues, sur les fiches théorie et concept — « Comment est-on arrivé à cette idée ? » |
 | 🧭 **Parcours guidés** | Bibliothèque de 32 parcours pas à pas (introduction, courants, biographies, concepts, débats, expériences, histoire, révision…), avec progression persistée hors ligne |
-| 🕰️ **Chronologie** | Timeline interactive — verticale sur mobile, horizontale sur desktop — filtrable par type et courant, chaque événement ayant sa propre fiche |
+| 🕰️ **Chronologie** | Deux modes : « De Freud à aujourd'hui », éditorial, en 6 grandes périodes zoomables avec synthèse et courants associés ; et la chronologie complète, filtrable par type et courant, chaque événement ayant sa propre fiche |
 | 🕸️ **Carte des idées** | Graphe de connaissances interactif (React Flow) sur desktop, chaîne d'influence adaptée sur mobile — vue d'ensemble ou mode « Explorer autour de… », centré sur une entité au choix, avec profondeur (1 à 3 niveaux) et filtres par type |
 | 📖 **Bibliothèque des œuvres** | Fiche par œuvre — thèmes, concepts effectivement introduits, réception, influence durable, œuvres liées, et « Pourquoi cette œuvre est importante ? » |
+| 🧪 **Expériences & études** | Fiche par expérience historique — objectif, méthode, résultat, interprétation, ⚠️ limites et controverses, héritage — pour ne jamais présenter une expérience comme une vérité scientifique intouchable |
 | ⚖️ **Comparaison** | Comparez jusqu'à 3 éléments côte à côte — théories, concepts, psychologues ou courants — avec tableau croisé (✓ / —) sur les entités partagées |
-| ⭐ **Favoris & historique** | Sauvegarde locale persistante via IndexedDB (Dexie), sur les sept types d'entités |
+| ⭐ **Favoris & historique** | Sauvegarde locale persistante via IndexedDB (Dexie), sur les huit types d'entités |
 | 🍔 **Menu & mise à jour** | Menu hamburger catégorisé sur mobile ; mise à jour automatique de l'application, avec vérification manuelle et suivi de version depuis le Profil |
 | 🌗 **Thème clair / sombre** | Véritable thème graphique, pas une simple inversion, avec transition douce |
 | 📶 **Hors ligne** | Service worker + cache des données : consultable sans connexion |
@@ -72,7 +73,7 @@ Base de connaissances entièrement factuelle et sourcée (aucune citation, date 
 | 💡 Théories | 24 |
 | 🔤 Concepts (glossaire) | 44 |
 | 🏛️ Courants de pensée | 10 |
-| 🧪 Expériences historiques | 8 (protocole · résultats · limites) |
+| 🧪 Expériences & études | 11 (objectif · méthode · résultat · interprétation · limites/controverses · héritage) |
 | 📖 Œuvres majeures | 32 |
 | 💬 Citations attribuées | 13 |
 | 🗓️ Événements chronologiques | 29 |
@@ -192,6 +193,9 @@ Work ──┬── psychologistIds · conceptIds (introduits) · relatedWorkId
        └── historicalContext · reception · influence · whyItMatters
 
 HistoricalEvent ── workId (renvoi vers l'œuvre correspondante, si publication)
+
+Experiment ──┬── psychologistIds · conceptIds · theoryIds
+             └── historicalContext · objective · critiques[] · legacy
 ```
 
 Aucune entité ne référence les autres par du texte libre : toutes les relations — y compris la généalogie intellectuelle (« Genèse de l'idée »), le graphe « autour de moi » et les courants descendants — sont calculées à partir de ces identifiants stables, ce qui permet d'accueillir de nouvelles fiches sans réécriture majeure.
@@ -201,5 +205,6 @@ Aucune entité ne référence les autres par du texte libre : toutes les relatio
 <div align="center">
 
 *Basé sur le cahier des charges [`PROJET-PSYCHOLOGOR.md`](PROJET-PSYCHOLOGOR.md).*
+*Contexte technique et conventions : [`CONTEXT.md`](CONTEXT.md). Historique des versions : [`CHANGELOG.md`](CHANGELOG.md).*
 
 </div>
