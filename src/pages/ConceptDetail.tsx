@@ -1,4 +1,4 @@
-import { ArrowLeft, Microscope, Sparkles, Users } from 'lucide-react';
+import { ArrowLeft, Microscope, Sparkles, Telescope, Users } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import { ConceptChip } from '../components/cards/ConceptChip';
 import { RelationshipCard } from '../components/cards/RelationshipCard';
@@ -27,6 +27,7 @@ export default function ConceptDetail() {
     [concept?.id],
   );
   const { data: methods } = useAsync(() => repository.getMethodsByConcept(concept?.id ?? ''), [concept?.id]);
+  const { data: approaches } = useAsync(() => repository.getApproachesByConcept(concept?.id ?? ''), [concept?.id]);
 
   if (loading) return <PageLoader />;
   if (!concept) return <NotFound />;
@@ -132,6 +133,17 @@ export default function ConceptDetail() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
             {methods.map((m) => (
               <RelationshipCard key={m.id} to={`/methodes/${m.id}`} icon={<Microscope size={18} />} title={m.name} subtitle={m.shortDefinition} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {approaches && approaches.length > 0 && (
+        <section className={styles.section}>
+          <h2 className="text-h3" style={{ marginBottom: 'var(--space-4)' }}>Approches associées</h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+            {approaches.map((a) => (
+              <RelationshipCard key={a.id} to={`/approches/${a.id}`} icon={<Telescope size={18} />} title={a.name} subtitle={a.shortDefinition} />
             ))}
           </div>
         </section>

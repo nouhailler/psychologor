@@ -13,6 +13,7 @@ import {
   Route as RouteIcon,
   ScrollText,
   Star,
+  Telescope,
   User,
   Users,
   X,
@@ -48,6 +49,7 @@ const CATEGORIES: { title: string; items: MenuItem[] }[] = [
       { to: '/oeuvres', label: 'Bibliothèque des œuvres', description: 'Les grands textes de la discipline', icon: ScrollText },
       { to: '/experiences', label: 'Expériences & études', description: 'Protocoles, résultats et controverses', icon: FlaskConical },
       { to: '/methodes', label: 'Méthodes', description: 'Comment on produit la connaissance', icon: Microscope },
+      { to: '/approches', label: 'Approches', description: 'Les grands angles de la psychologie contemporaine', icon: Telescope },
     ],
   },
   {

@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight, Layers, Lightbulb, ScrollText, Swords, Users } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Layers, Lightbulb, ScrollText, Swords, Telescope, Users } from 'lucide-react';
 import { Fragment } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ConceptChip } from '../components/cards/ConceptChip';
@@ -30,6 +30,7 @@ export default function SchoolDetail() {
   const { data: lineage } = useAsync(() => repository.getSchoolLineage(school?.id ?? ''), [school?.id]);
   const { data: descendants } = useAsync(() => repository.getDescendantSchools(school?.id ?? ''), [school?.id]);
   const { data: rivals } = useAsync(() => repository.getSchoolsByIds(school?.rivalSchoolIds ?? []), [school?.id]);
+  const { data: approaches } = useAsync(() => repository.getApproachesBySchool(school?.id ?? ''), [school?.id]);
 
   if (loading) return <PageLoader />;
   if (!school) return <NotFound />;
@@ -216,6 +217,20 @@ export default function SchoolDetail() {
                 <div style={{ display: 'grid', gap: 'var(--space-3)', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))' }}>
                   {descendants.map((s) => (
                     <RelationshipCard key={s.id} to={`/courants/${s.id}`} icon={<Lightbulb size={18} />} title={s.name} subtitle={s.period} />
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {approaches && approaches.length > 0 && (
+              <section className={theoryStyles.section}>
+                <h2 className={`text-h2 ${theoryStyles.sectionTitle}`}>Approches contemporaines</h2>
+                <p className="text-body-sm" style={{ color: 'var(--color-text-secondary)', marginBottom: 'var(--space-4)' }}>
+                  Ce courant historique, plutôt qu'un simple souvenir, continue d'alimenter ces angles d'analyse mobilisés aujourd'hui.
+                </p>
+                <div style={{ display: 'grid', gap: 'var(--space-3)', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))' }}>
+                  {approaches.map((a) => (
+                    <RelationshipCard key={a.id} to={`/approches/${a.id}`} icon={<Telescope size={18} />} title={a.name} subtitle={a.shortDefinition} />
                   ))}
                 </div>
               </section>

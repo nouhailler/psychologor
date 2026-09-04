@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Calendar, Clock, FlaskConical, Microscope, ScrollText, Search, X } from 'lucide-react';
+import { Calendar, Clock, FlaskConical, Microscope, ScrollText, Search, Telescope, X } from 'lucide-react';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { search as runSearch } from '../../services/search';
@@ -224,6 +224,21 @@ export function SearchOverlay({ onClose }: SearchOverlayProps) {
                               <Microscope size={16} color="var(--color-text-tertiary)" />
                               <span>
                                 <span className="text-body-sm" style={{ fontWeight: 600 }}>{m.name}</span>
+                              </span>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    {results.approaches.length > 0 && (
+                      <div className={styles.group}>
+                        <p className={`text-label ${styles.groupTitle}`}>Approches</p>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                          {results.approaches.map((a) => (
+                            <Link key={a.id} to={`/approches/${a.id}`} onClick={onClose} className={styles.workRow}>
+                              <Telescope size={16} color="var(--color-text-tertiary)" />
+                              <span>
+                                <span className="text-body-sm" style={{ fontWeight: 600 }}>{a.name}</span>
                               </span>
                             </Link>
                           ))}

@@ -7,6 +7,7 @@ import { SchoolCard } from '../components/cards/SchoolCard';
 import { WorkCard } from '../components/cards/WorkCard';
 import { ExperimentCard } from '../components/cards/ExperimentCard';
 import { MethodCard } from '../components/cards/MethodCard';
+import { ApproachCard } from '../components/cards/ApproachCard';
 import { EmptyState } from '../components/ui/EmptyState';
 import { ListRowSkeleton } from '../components/ui/Skeleton';
 import { METHOD_CATEGORY_LABELS } from '../data/methods';
@@ -17,16 +18,16 @@ import { normalizeForSearch } from '../utils/slug';
 import styles from './Explorer.module.css';
 
 interface ExplorerProps {
-  initialTab?: 'psychologues' | 'theories' | 'courants' | 'oeuvres' | 'experiences' | 'methodes';
+  initialTab?: 'psychologues' | 'theories' | 'courants' | 'oeuvres' | 'experiences' | 'methodes' | 'approches';
 }
 
 type SortOrder = 'name' | 'date';
 
 export default function Explorer({ initialTab }: ExplorerProps) {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [tab, setTab] = useState<'psychologues' | 'theories' | 'courants' | 'oeuvres' | 'experiences' | 'methodes'>(
-    initialTab ?? 'psychologues',
-  );
+  const [tab, setTab] = useState<
+    'psychologues' | 'theories' | 'courants' | 'oeuvres' | 'experiences' | 'methodes' | 'approches'
+  >(initialTab ?? 'psychologues');
   const [query, setQuery] = useState('');
   const [view, setView] = useState<'grid' | 'list'>('grid');
   const [sort, setSort] = useState<SortOrder>('name');
@@ -38,6 +39,7 @@ export default function Explorer({ initialTab }: ExplorerProps) {
   const { data: works, loading: loadingWorks } = useAsync(() => repository.getAllWorks(), []);
   const { data: experimentsData, loading: loadingExperiments } = useAsync(() => repository.getAllExperiments(), []);
   const { data: methodsData, loading: loadingMethods } = useAsync(() => repository.getAllMethods(), []);
+  const { data: approachesData, loading: loadingApproaches } = useAsync(() => repository.getAllApproaches(), []);
 
   const filteredPsychologists = useMemo(() => {
     let list = psychologists ?? [];
@@ -107,6 +109,15 @@ export default function Explorer({ initialTab }: ExplorerProps) {
     );
   }, [methodsData, query, sort]);
 
+  const filteredApproaches = useMemo(() => {
+    let list = approachesData ?? [];
+    if (query.trim()) {
+      const q = normalizeForSearch(query);
+      list = list.filter((a) => normalizeForSearch(`${a.name} ${a.shortDefinition}`).includes(q));
+    }
+    return [...list].sort((a, b) => a.name.localeCompare(b.name));
+  }, [approachesData, query]);
+
   const toggleSchool = (id: string) => {
     const next = new URLSearchParams(searchParams);
     if (activeSchool === id) next.delete('courant');
@@ -125,7 +136,9 @@ export default function Explorer({ initialTab }: ExplorerProps) {
             ? loadingWorks
             : tab === 'experiences'
               ? loadingExperiments
-              : loadingMethods;
+              : tab === 'methodes'
+                ? loadingMethods
+                : loadingApproaches;
   const isEmpty =
     tab === 'psychologues'
       ? filteredPsychologists.length === 0
@@ -137,7 +150,9 @@ export default function Explorer({ initialTab }: ExplorerProps) {
             ? filteredWorks.length === 0
             : tab === 'experiences'
               ? filteredExperiments.length === 0
-              : filteredMethods.length === 0;
+              : tab === 'methodes'
+                ? filteredMethods.length === 0
+                : filteredApproaches.length === 0;
 
   return (
     <div className="container">
@@ -145,7 +160,7 @@ export default function Explorer({ initialTab }: ExplorerProps) {
         <h1 className="text-h1" style={{ marginBottom: 'var(--space-2)' }}>
           Explorer
         </h1>
-        <p className="text-body-sm">Parcourez l'ensemble des psychologues, des théories, des courants, des œuvres, des expériences et des méthodes de la base.</p>
+        <p className="text-body-sm">Parcourez l'ensemble des psychologues, des théories, des courants, des œuvres, des expériences, des méthodes et des approches de la base.</p>
       </div>
 
       <div className={styles.tabs} role="tablist">
@@ -203,6 +218,15 @@ export default function Explorer({ initialTab }: ExplorerProps) {
         >
           Méthodes
         </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={tab === 'approches'}
+          className={`${styles.tab} ${tab === 'approches' ? styles.active : ''}`}
+          onClick={() => setTab('approches')}
+        >
+          Approches
+        </button>
       </div>
 
       <div className={styles.toolbar}>
@@ -221,7 +245,9 @@ export default function Explorer({ initialTab }: ExplorerProps) {
                       ? 'Rechercher une œuvre…'
                       : tab === 'experiences'
                         ? 'Rechercher une expérience…'
-                        : 'Rechercher une méthode…'
+                        : tab === 'methodes'
+                          ? 'Rechercher une méthode…'
+                          : 'Rechercher une approche…'
             }
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -230,7 +256,7 @@ export default function Explorer({ initialTab }: ExplorerProps) {
         </div>
 
         <div className={styles.filterRow}>
-          {tab !== 'courants' && tab !== 'methodes' && (
+          {tab !== 'courants' && tab !== 'methodes' && tab !== 'approches' && (
             <div className={styles.chips}>
               {(schools ?? []).map((school) => (
                 <button
@@ -259,31 +285,33 @@ export default function Explorer({ initialTab }: ExplorerProps) {
           )}
 
           <div style={{ display: 'flex', gap: 'var(--space-3)', alignItems: 'center', flexShrink: 0 }}>
-            <select
-              value={sort}
-              onChange={(e) => setSort(e.target.value as SortOrder)}
-              aria-label="Trier"
-              style={{
-                height: 34,
-                borderRadius: 999,
-                border: '1px solid var(--color-border)',
-                background: 'var(--color-surface-elevated)',
-                color: 'var(--color-text-secondary)',
-                padding: '0 var(--space-3)',
-                fontSize: '0.8125rem',
-              }}
-            >
-              <option value="name">Nom (A–Z)</option>
-              <option value="date">
-                {tab === 'psychologues'
-                  ? 'Date de naissance'
-                  : tab === 'oeuvres' || tab === 'experiences'
-                    ? 'Année'
-                    : tab === 'methodes'
-                      ? 'Catégorie'
-                      : 'Période'}
-              </option>
-            </select>
+            {tab !== 'approches' && (
+              <select
+                value={sort}
+                onChange={(e) => setSort(e.target.value as SortOrder)}
+                aria-label="Trier"
+                style={{
+                  height: 34,
+                  borderRadius: 999,
+                  border: '1px solid var(--color-border)',
+                  background: 'var(--color-surface-elevated)',
+                  color: 'var(--color-text-secondary)',
+                  padding: '0 var(--space-3)',
+                  fontSize: '0.8125rem',
+                }}
+              >
+                <option value="name">Nom (A–Z)</option>
+                <option value="date">
+                  {tab === 'psychologues'
+                    ? 'Date de naissance'
+                    : tab === 'oeuvres' || tab === 'experiences'
+                      ? 'Année'
+                      : tab === 'methodes'
+                        ? 'Catégorie'
+                        : 'Période'}
+                </option>
+              </select>
+            )}
             <div className={styles.viewToggle}>
               <button
                 type="button"
@@ -321,7 +349,7 @@ export default function Explorer({ initialTab }: ExplorerProps) {
           icon={<Search size={24} />}
           title="Aucun résultat"
           description={
-            tab === 'courants' || tab === 'methodes'
+            tab === 'courants' || tab === 'methodes' || tab === 'approches'
               ? 'Essayez de modifier votre recherche.'
               : 'Essayez de modifier votre recherche ou vos filtres de courant.'
           }
@@ -372,6 +400,14 @@ export default function Explorer({ initialTab }: ExplorerProps) {
         <div className={view === 'grid' ? styles.resultsGridTheories : styles.resultsList}>
           {filteredMethods.map((m) => (
             <MethodCard key={m.id} method={m} layout={view === 'grid' ? 'grid' : 'list'} />
+          ))}
+        </div>
+      )}
+
+      {!loading && !isEmpty && tab === 'approches' && (
+        <div className={view === 'grid' ? styles.resultsGridTheories : styles.resultsList}>
+          {filteredApproaches.map((a) => (
+            <ApproachCard key={a.id} approach={a} layout={view === 'grid' ? 'grid' : 'list'} />
           ))}
         </div>
       )}

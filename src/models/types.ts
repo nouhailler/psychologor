@@ -8,6 +8,7 @@ export type EntityKind =
   | 'event'
   | 'experiment'
   | 'method'
+  | 'approach'
   | 'path';
 
 export type StepEntityKind = 'psychologist' | 'theory' | 'concept' | 'experiment' | 'method' | 'custom';
@@ -230,6 +231,37 @@ export interface Method {
   relatedExperimentIds: string[];
   relatedTheoryIds: string[];
   relatedMethodIds: string[];
+}
+
+/**
+ * Une approche contemporaine — un angle d'analyse (biologique, cognitif,
+ * social…) qu'on peut appliquer à n'importe quel phénomène psychologique,
+ * par opposition à un courant : les approches ne sont pas des mouvements
+ * historiques rivaux, elles sont complémentaires et se combinent librement
+ * pour éclairer un même phénomène sous plusieurs angles à la fois.
+ */
+export interface Approach {
+  id: string;
+  name: string;
+  shortDefinition: string;
+  definition: string;
+  /** Comment cette approche a émergé comme perspective distincte, et de quel constat elle part. */
+  historicalContext: string;
+  /** La question centrale qu'elle pose face à un phénomène psychologique donné. */
+  centralQuestion: string;
+  /** Ce qu'elle examine en priorité, par contraste avec les autres approches. */
+  focus: string;
+  strengths: string[];
+  limitations: string[];
+  accentColor: string;
+  psychologistIds: string[];
+  relatedTheoryIds: string[];
+  relatedConceptIds: string[];
+  /** Courants historiques dont cette approche hérite ou qu'elle prolonge — jamais des rivaux, une approche ne "concurrence" pas un courant. */
+  relatedSchoolIds: string[];
+  relatedMethodIds: string[];
+  /** Approches complémentaires, souvent combinées pour éclairer un même phénomène. */
+  relatedApproachIds: string[];
 }
 
 export interface SearchResultGroup<T> {

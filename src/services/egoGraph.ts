@@ -1,7 +1,9 @@
 import { events } from '../data/events';
 import { experiments } from '../data/experiments';
 import { methods } from '../data/methods';
+import { approaches } from '../data/approaches';
 import {
+  getApproachSync,
   getConceptSync,
   getEventSync,
   getExperimentSync,
@@ -12,7 +14,7 @@ import {
   getWorkSync,
 } from './repository';
 
-export type GraphNodeType = 'psychologist' | 'theory' | 'concept' | 'work' | 'event' | 'experiment' | 'method';
+export type GraphNodeType = 'psychologist' | 'theory' | 'concept' | 'work' | 'event' | 'experiment' | 'method' | 'approach';
 
 export interface EgoRef {
   type: GraphNodeType;
@@ -98,6 +100,29 @@ for (const m of methods) {
   for (const tid of m.relatedTheoryIds) {
     if (!methodsByTheory.has(tid)) methodsByTheory.set(tid, []);
     methodsByTheory.get(tid)!.push(m.id);
+  }
+}
+
+const approachesByPsychologist = new Map<string, string[]>();
+const approachesByConcept = new Map<string, string[]>();
+const approachesByTheory = new Map<string, string[]>();
+const approachesByMethod = new Map<string, string[]>();
+for (const a of approaches) {
+  for (const pid of a.psychologistIds) {
+    if (!approachesByPsychologist.has(pid)) approachesByPsychologist.set(pid, []);
+    approachesByPsychologist.get(pid)!.push(a.id);
+  }
+  for (const cid of a.relatedConceptIds) {
+    if (!approachesByConcept.has(cid)) approachesByConcept.set(cid, []);
+    approachesByConcept.get(cid)!.push(a.id);
+  }
+  for (const tid of a.relatedTheoryIds) {
+    if (!approachesByTheory.has(tid)) approachesByTheory.set(tid, []);
+    approachesByTheory.get(tid)!.push(a.id);
+  }
+  for (const mid of a.relatedMethodIds) {
+    if (!approachesByMethod.has(mid)) approachesByMethod.set(mid, []);
+    approachesByMethod.get(mid)!.push(a.id);
   }
 }
 
@@ -193,6 +218,20 @@ function toNode(ref: EgoRef, depth: number, parentKey?: string): EgoNode | undef
       accentColor: m.accentColor,
     };
   }
+  if (ref.type === 'approach') {
+    const a = getApproachSync(ref.id);
+    if (!a) return undefined;
+    return {
+      key: key(ref),
+      type: ref.type,
+      id: ref.id,
+      depth,
+      parentKey,
+      name: a.name,
+      href: `/approches/${a.id}`,
+      accentColor: a.accentColor,
+    };
+  }
   // event
   const e = getEventSync(ref.id);
   if (!e) return undefined;
@@ -223,6 +262,7 @@ function getConnections(ref: EgoRef): EgoRef[] {
     push('event', eventsByPsychologist.get(ref.id) ?? []);
     push('experiment', experimentsByPsychologist.get(ref.id) ?? []);
     push('method', methodsByPsychologist.get(ref.id) ?? []);
+    push('approach', approachesByPsychologist.get(ref.id) ?? []);
   } else if (ref.type === 'theory') {
     const t = getTheorySync(ref.id);
     if (!t) return out;
@@ -232,6 +272,7 @@ function getConnections(ref: EgoRef): EgoRef[] {
     push('event', eventsByTheory.get(ref.id) ?? []);
     push('experiment', experimentsByTheory.get(ref.id) ?? []);
     push('method', methodsByTheory.get(ref.id) ?? []);
+    push('approach', approachesByTheory.get(ref.id) ?? []);
   } else if (ref.type === 'concept') {
     const c = getConceptSync(ref.id);
     if (!c) return out;
@@ -240,6 +281,7 @@ function getConnections(ref: EgoRef): EgoRef[] {
     push('concept', c.relatedConceptIds);
     push('experiment', experimentsByConcept.get(ref.id) ?? []);
     push('method', methodsByConcept.get(ref.id) ?? []);
+    push('approach', approachesByConcept.get(ref.id) ?? []);
   } else if (ref.type === 'work') {
     const w = getWorkSync(ref.id);
     if (!w) return out;
@@ -264,6 +306,15 @@ function getConnections(ref: EgoRef): EgoRef[] {
     push('theory', m.relatedTheoryIds);
     push('experiment', m.relatedExperimentIds);
     push('method', m.relatedMethodIds);
+    push('approach', approachesByMethod.get(ref.id) ?? []);
+  } else if (ref.type === 'approach') {
+    const a = getApproachSync(ref.id);
+    if (!a) return out;
+    push('psychologist', a.psychologistIds);
+    push('concept', a.relatedConceptIds);
+    push('theory', a.relatedTheoryIds);
+    push('method', a.relatedMethodIds);
+    push('approach', a.relatedApproachIds);
   }
   return out;
 }

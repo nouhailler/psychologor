@@ -2,6 +2,14 @@
 
 Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/). Les numéros de version correspondent à `package.json` et au numéro affiché dans Profil → Mises à jour.
 
+## [1.6.0] - 2026-09-04
+
+### Ajouté
+- Nouvelle entité **Approche**, distincte des courants : 10 approches contemporaines (biologique, cognitive, comportementale, psychodynamique, humaniste, évolutionniste, sociale, culturelle, neuropsychologique, développementale). Contrairement à un courant, une approche n'est jamais rivale d'une autre — elle se combine librement avec d'autres pour éclairer un même phénomène — et reste active aujourd'hui plutôt que datée dans le temps.
+- Chaque fiche détaille définition, contexte historique, question centrale, ce qu'elle examine en priorité, forces et limites ; reliée aux psychologues, théories, concepts, méthodes et courants dont elle hérite, quand ce lien est réellement documenté.
+- La fiche d'un courant affiche désormais les approches contemporaines qui en héritent (« Approches contemporaines »), et les fiches psychologue, théorie et concept affichent les approches associées — tout calculé par lookup inversé, sans duplication.
+- Intégration complète dès la conception : onglet Explorer, entrée de menu, recherche, favoris, historique, nœuds et arêtes réciproques dans la Carte des idées.
+
 ## [1.5.0] - 2026-09-04
 
 ### Ajouté

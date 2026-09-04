@@ -34,6 +34,7 @@ Chaque entité qui porte un champ `historicalContext` répond à une question **
 | HistoricalEvent | Les circonstances immédiates qui amènent l'événement à ce moment précis |
 | Experiment | Le climat scientifique qui rend ce protocole précis nécessaire ou possible |
 | Method | Le problème méthodologique auquel répond l'émergence de cette méthode |
+| Approach | Comment cette approche a émergé comme perspective distincte, et de quel constat elle part |
 
 Les doc-comments exacts sont dans `src/models/types.ts`, juste au-dessus de chaque champ — c'est la source de vérité, pas ce tableau.
 
@@ -46,6 +47,7 @@ Les doc-comments exacts sont dans `src/models/types.ts`, juste au-dessus de chaq
 - Ne pas créer une nouvelle entité pour un besoin de contenu qui rentre déjà dans le modèle existant. Les notions de lecture critique des études (causalité, significativité, biais de publication…) sont des entrées `Concept` comme les autres, pas un type dédié — `Concept` avait déjà toute la plomberie nécessaire (CHANGELOG 1.4.0). N'introduire un nouveau `EntityKind` que si la fiche a vraiment une forme différente (champs propres, relations propres), pas seulement un thème différent.
 - `PathStep.entityType` (`StepEntityKind` dans `types.ts`) doit couvrir tout type d'entité qu'un parcours pourrait vouloir illustrer ; `'method'` y a été ajouté au moment où les parcours ont eu besoin de pointer vers une fiche Méthode (voir `PathPlayer.tsx` et `resolveStepEntity` dans `repository.ts`).
 - Un champ optionnel (`field?:`) est le bon outil quand une information n'existe que pour une minorité justifiée d'entités — ne jamais le remplir par défaut ou pour compléter artificiellement la liste. `Experiment.robustness` (CHANGELOG 1.5.0) n'est renseigné que sur les 5 expériences dont l'histoire de réplication est réellement documentée (Milgram, Zimbardo, Asch, Bandura, Stroop), pas sur les 11 : le silence sur les autres est intentionnel, pas un oubli à corriger.
+- À l'inverse du cas Concept (ci-dessus), `Approach` (CHANGELOG 1.6.0) est un exemple où une nouvelle entité était justifiée malgré la ressemblance de surface avec `School` : les deux classent des psychologues/théories/concepts, mais leur sémantique diffère structurellement — un courant est un mouvement historique daté, parfois rival d'un autre (`rivalSchoolIds`) ; une approche est un angle d'analyse toujours actif, jamais rival, combinable librement avec d'autres (`relatedApproachIds`, toujours complémentaires). Forcer les approches dans le modèle `School` (avec `founderIds`/`period`/rivalité vides ou artificiels) aurait été pire que dupliquer la forme.
 
 ## Limitations connues de l'environnement de développement
 

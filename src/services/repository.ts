@@ -7,9 +7,11 @@ import { quotes } from '../data/quotes';
 import { events } from '../data/events';
 import { experiments } from '../data/experiments';
 import { methods } from '../data/methods';
+import { approaches } from '../data/approaches';
 import { portraitCredits } from '../data/portraitCredits';
 import { paths } from '../data/paths';
 import type {
+  Approach,
   Concept,
   Experiment,
   HistoricalEvent,
@@ -40,6 +42,7 @@ const quoteById = new Map(quotes.map((q) => [q.id, q]));
 const eventById = new Map(events.map((e) => [e.id, e]));
 const experimentById = new Map(experiments.map((e) => [e.id, e]));
 const methodById = new Map(methods.map((m) => [m.id, m]));
+const approachById = new Map(approaches.map((a) => [a.id, a]));
 const pathById = new Map(paths.map((p) => [p.id, p]));
 
 function delay<T>(value: T): Promise<T> {
@@ -135,6 +138,15 @@ export const repository = {
   getMethodsByExperiment: (experimentId: string) => delay(methods.filter((m) => m.relatedExperimentIds.includes(experimentId))),
   getMethodsByTheory: (theoryId: string) => delay(methods.filter((m) => m.relatedTheoryIds.includes(theoryId))),
 
+  // ---- Approches ----
+  getAllApproaches: () => delay(approaches),
+  getApproach: (id: string) => delay(approachById.get(id) ?? null),
+  getApproachesByIds: (ids: string[]) => delay(ids.map((id) => approachById.get(id)).filter(Boolean) as Approach[]),
+  getApproachesByConcept: (conceptId: string) => delay(approaches.filter((a) => a.relatedConceptIds.includes(conceptId))),
+  getApproachesByTheory: (theoryId: string) => delay(approaches.filter((a) => a.relatedTheoryIds.includes(theoryId))),
+  getApproachesBySchool: (schoolId: string) => delay(approaches.filter((a) => a.relatedSchoolIds.includes(schoolId))),
+  getApproachesByPsychologist: (psychologistId: string) => delay(approaches.filter((a) => a.psychologistIds.includes(psychologistId))),
+
   // ---- Parcours guidés ----
   getAllPaths: () => delay(paths),
   getPath: (id: string) => delay(pathById.get(id) ?? null),
@@ -166,6 +178,10 @@ export function getExperimentSync(id: string): Experiment | undefined {
 
 export function getWorkSync(id: string): Work | undefined {
   return workById.get(id);
+}
+
+export function getApproachSync(id: string): Approach | undefined {
+  return approachById.get(id);
 }
 
 export function getMethodSync(id: string): Method | undefined {

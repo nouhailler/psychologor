@@ -48,7 +48,7 @@ Chaque fiche — psychologue, théorie, concept — est reliée aux autres. L'ap
 | | |
 |---|---|
 | 🔍 **Recherche** | Recherche plein texte tolérante, en temps réel, groupée par type (personnes / théories / concepts / courants / œuvres / événements) |
-| 🧑‍🔬 **Fiches croisées** | Psychologues, théories, concepts, courants, œuvres, événements, expériences et méthodes intégralement navigables entre eux |
+| 🧑‍🔬 **Fiches croisées** | Psychologues, théories, concepts, courants, œuvres, événements, expériences, méthodes et approches intégralement navigables entre eux |
 | 📜 **Contexte historique** | Chaque type de fiche situe sa contribution dans son climat scientifique propre — jamais un doublon d'une autre fiche : le débat qu'une théorie résout, le manque qu'un concept comble, le procès qui motive une expérience… |
 | 🌳 **Genèse de l'idée** | Généalogie intellectuelle calculée automatiquement à partir des influences réelles entre psychologues, sur les fiches théorie et concept — « Comment est-on arrivé à cette idée ? » |
 | 🧭 **Parcours guidés** | Bibliothèque de 33 parcours pas à pas (introduction, courants, biographies, concepts, débats, expériences, histoire, révision…), avec progression persistée hors ligne — dont « Comprendre une étude psychologique », qui suit l'anatomie complète d'une étude, de la question de recherche à sa réplication |
@@ -58,8 +58,9 @@ Chaque fiche — psychologue, théorie, concept — est reliée aux autres. L'ap
 | 🧪 **Expériences & études** | Fiche par expérience historique — objectif, méthode, résultat, interprétation, ⚠️ limites et controverses, héritage — pour ne jamais présenter une expérience comme une vérité scientifique intouchable |
 | 🔁 **Réplication & robustesse** | Sur les expériences dont l'interprétation a été rediscutée : résultat historique, ce que les recherches ultérieures ont montré, état actuel des connaissances — pour distinguer « historiquement célèbre » de « scientifiquement robuste aujourd'hui » |
 | 🔬 **Méthodes de recherche** | Comment la connaissance psychologique est produite — 14 méthodes (expérimentation, observation, étude de cas, entretien clinique, questionnaire, test, longitudinale/transversale/de cohorte, corrélation, méta-analyse, réplication, randomisation, double aveugle), chacune avec ses forces et ses limites, reliée aux concepts, théories et expériences qui l'illustrent |
+| 🔭 **Approches contemporaines** | La psychologie d'aujourd'hui ne fonctionne plus seulement en grandes écoles rivales : 10 approches complémentaires (biologique, cognitive, comportementale, psychodynamique, humaniste, évolutionniste, sociale, culturelle, neuropsychologique, développementale), distinctes des courants historiques, combinables librement pour éclairer un même phénomène |
 | ⚖️ **Comparaison** | Comparez jusqu'à 3 éléments côte à côte — théories, concepts, psychologues ou courants — avec tableau croisé (✓ / —) sur les entités partagées |
-| ⭐ **Favoris & historique** | Sauvegarde locale persistante via IndexedDB (Dexie), sur les huit types d'entités |
+| ⭐ **Favoris & historique** | Sauvegarde locale persistante via IndexedDB (Dexie), sur les neuf types d'entités |
 | 🍔 **Menu & mise à jour** | Menu hamburger catégorisé sur mobile ; mise à jour automatique de l'application, avec vérification manuelle et suivi de version depuis le Profil |
 | 🌗 **Thème clair / sombre** | Véritable thème graphique, pas une simple inversion, avec transition douce |
 | 📶 **Hors ligne** | Service worker + cache des données : consultable sans connexion |
@@ -77,12 +78,13 @@ Base de connaissances entièrement factuelle et sourcée (aucune citation, date 
 | 🏛️ Courants de pensée | 10 |
 | 🧪 Expériences & études | 11 (objectif · méthode · résultat · interprétation · limites/controverses · héritage), dont 5 avec un verdict de réplication/robustesse |
 | 🔬 Méthodes de recherche | 14 (définition · objectif · protocole · forces · limites) |
+| 🔭 Approches contemporaines | 10 (question centrale · ce qu'elle examine · forces · limites), distinctes des courants et complémentaires entre elles |
 | 📖 Œuvres majeures | 32 |
 | 💬 Citations attribuées | 13 |
 | 🗓️ Événements chronologiques | 29 |
 | 🧭 Parcours guidés | 33, en 10 familles thématiques |
 
-Chaque psychologue, théorie, concept, courant, œuvre, événement, expérience et méthode porte désormais son propre **contexte historique**, écrit pour répondre à une question distincte selon sa nature plutôt que répéter les fiches voisines. Les courants ont fondateurs, représentants, lignée intellectuelle et courants concurrents/descendants ; les œuvres ont thèmes, concepts précisément introduits, réception, influence et œuvres liées — un vrai graphe bidirectionnel vérifié, pas une liste ad hoc. Les méthodes sont reliées aux concepts, théories et expériences qui les illustrent, et réciproquement : la fiche Milgram affiche ainsi les méthodes qu'elle met en œuvre (expérimentation, randomisation, réplication), sans qu'aucune de ces relations ne soit saisie deux fois. Le glossaire couvre aussi la lecture critique des résultats — corrélation vs causalité, variables indépendante/dépendante, significativité, intervalle de confiance, taille et puissance statistiques, biais d'échantillonnage et de publication, effets placebo et Hawthorne — pour donner les outils de lire une étude plutôt que de la prendre pour argent comptant. Cinq expériences célèbres (Milgram, Zimbardo, Asch, Bandura, Stroop) portent en plus un verdict de réplication : ce que les recherches ultérieures ont montré et l'état actuel des connaissances, du contesté (Zimbardo) au robuste (Stroop) — jamais ajouté par défaut, seulement quand cette histoire est réellement documentée. Aucun de ces contenus n'a été inventé : tout est dérivé ou recoupé avec des faits déjà établis ailleurs dans la base, et les associations incertaines ont été omises plutôt que forcées.
+Chaque psychologue, théorie, concept, courant, œuvre, événement, expérience et méthode porte désormais son propre **contexte historique**, écrit pour répondre à une question distincte selon sa nature plutôt que répéter les fiches voisines. Les courants ont fondateurs, représentants, lignée intellectuelle et courants concurrents/descendants ; les œuvres ont thèmes, concepts précisément introduits, réception, influence et œuvres liées — un vrai graphe bidirectionnel vérifié, pas une liste ad hoc. Les méthodes sont reliées aux concepts, théories et expériences qui les illustrent, et réciproquement : la fiche Milgram affiche ainsi les méthodes qu'elle met en œuvre (expérimentation, randomisation, réplication), sans qu'aucune de ces relations ne soit saisie deux fois. Le glossaire couvre aussi la lecture critique des résultats — corrélation vs causalité, variables indépendante/dépendante, significativité, intervalle de confiance, taille et puissance statistiques, biais d'échantillonnage et de publication, effets placebo et Hawthorne — pour donner les outils de lire une étude plutôt que de la prendre pour argent comptant. Cinq expériences célèbres (Milgram, Zimbardo, Asch, Bandura, Stroop) portent en plus un verdict de réplication : ce que les recherches ultérieures ont montré et l'état actuel des connaissances, du contesté (Zimbardo) au robuste (Stroop) — jamais ajouté par défaut, seulement quand cette histoire est réellement documentée. Les approches contemporaines complètent les courants historiques sans les remplacer : un courant est un mouvement daté et souvent concurrent d'un autre (le behaviorisme s'oppose à la psychanalyse), une approche est un angle d'analyse toujours actif qu'on combine librement (étudier la dépression sous l'angle biologique, cognitif et social à la fois n'a rien de contradictoire) — la fiche d'un courant affiche d'ailleurs les approches contemporaines qui en héritent. Aucun de ces contenus n'a été inventé : tout est dérivé ou recoupé avec des faits déjà établis ailleurs dans la base, et les associations incertaines ont été omises plutôt que forcées.
 
 ## 🧭 Parcours guidés
 
@@ -146,12 +148,12 @@ npm run lint       # lint du code avec Oxlint
 src/
   components/       # UI, cartes, layout (design system)
   pages/             # écrans routés — fiches (psychologue, théorie, concept,
-                     #   courant, œuvre, événement, expérience, méthode), Explorer,
-                     #   Carte des idées, Comparaison, Profil…
+                     #   courant, œuvre, événement, expérience, méthode, approche),
+                     #   Explorer, Carte des idées, Comparaison, Profil…
   visualizations/    # graphe de connaissances, graphe « autour de moi »
                      #   (desktop React Flow / drill-down mobile), chaîne d'influence
   data/              # contenu — psychologues, théories, concepts, courants,
-                     #   œuvres, événements, expériences, méthodes, parcours…
+                     #   œuvres, événements, expériences, méthodes, approches, parcours…
   models/            # types TypeScript des entités
   services/          # repository, recherche, généalogie (genesis), graphe
                      #   d'influence (egoGraph), IndexedDB (Dexie)
@@ -203,6 +205,11 @@ Experiment ──┬── psychologistIds · conceptIds · theoryIds
 
 Method ──┬── relatedConceptIds · relatedExperimentIds · relatedTheoryIds · relatedMethodIds
          └── historicalContext · objective · protocol · strengths[] · limitations[]
+
+Approach ──┬── psychologistIds · relatedTheoryIds · relatedConceptIds
+           ├── relatedSchoolIds   (courants dont elle hérite — jamais des rivaux)
+           ├── relatedMethodIds · relatedApproachIds   (approches complémentaires)
+           └── historicalContext · centralQuestion · focus · strengths[] · limitations[]
 ```
 
 Aucune entité ne référence les autres par du texte libre : toutes les relations — y compris la généalogie intellectuelle (« Genèse de l'idée »), le graphe « autour de moi » et les courants descendants — sont calculées à partir de ces identifiants stables, ce qui permet d'accueillir de nouvelles fiches sans réécriture majeure.

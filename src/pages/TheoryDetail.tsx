@@ -1,4 +1,4 @@
-import { ArrowLeft, Layers, Microscope } from 'lucide-react';
+import { ArrowLeft, Layers, Microscope, Telescope } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import { ConceptChip } from '../components/cards/ConceptChip';
 import { RelationshipCard } from '../components/cards/RelationshipCard';
@@ -28,6 +28,7 @@ export default function TheoryDetail() {
     [theory?.id],
   );
   const { data: methods } = useAsync(() => repository.getMethodsByTheory(theory?.id ?? ''), [theory?.id]);
+  const { data: approaches } = useAsync(() => repository.getApproachesByTheory(theory?.id ?? ''), [theory?.id]);
 
   if (loading) return <PageLoader />;
   if (!theory) return <NotFound />;
@@ -194,6 +195,17 @@ export default function TheoryDetail() {
                 <div style={{ display: 'grid', gap: 'var(--space-3)', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))' }}>
                   {methods.map((m) => (
                     <RelationshipCard key={m.id} to={`/methodes/${m.id}`} icon={<Microscope size={18} />} title={m.name} subtitle={m.shortDefinition} />
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {approaches && approaches.length > 0 && (
+              <section className={styles.section}>
+                <h2 className={`text-h2 ${styles.sectionTitle}`}>Approches associées</h2>
+                <div style={{ display: 'grid', gap: 'var(--space-3)', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))' }}>
+                  {approaches.map((a) => (
+                    <RelationshipCard key={a.id} to={`/approches/${a.id}`} icon={<Telescope size={18} />} title={a.name} subtitle={a.shortDefinition} />
                   ))}
                 </div>
               </section>

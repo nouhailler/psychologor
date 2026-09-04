@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import ReactFlow, { Background, Controls, Handle, MarkerType, Position, type Edge, type Node } from 'reactflow';
 import 'reactflow/dist/style.css';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Calendar, FlaskConical, Lightbulb, Microscope, ScrollText } from 'lucide-react';
+import { BookOpen, Calendar, FlaskConical, Lightbulb, Microscope, ScrollText, Telescope } from 'lucide-react';
 import { buildEgoGraph, layoutRadial, type EgoRef, type GraphNodeType } from '../services/egoGraph';
 import styles from './EgoGraph.module.css';
 
@@ -13,6 +13,7 @@ const TYPE_ICONS: Record<Exclude<GraphNodeType, 'psychologist'>, typeof BookOpen
   event: Calendar,
   experiment: FlaskConical,
   method: Microscope,
+  approach: Telescope,
 };
 
 const centeredHandleStyle: React.CSSProperties = {
@@ -62,6 +63,7 @@ const TYPE_LABELS: Record<GraphNodeType, string> = {
   event: 'Événements',
   experiment: 'Expériences',
   method: 'Méthodes',
+  approach: 'Approches',
 };
 
 const TYPE_COLORS: Record<GraphNodeType, string> = {
@@ -72,6 +74,7 @@ const TYPE_COLORS: Record<GraphNodeType, string> = {
   event: '#A64A4A',
   experiment: '#2E6B8A',
   method: '#C4632F',
+  approach: '#6B7A3F',
 };
 
 interface EgoGraphProps {
