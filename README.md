@@ -56,6 +56,7 @@ Chaque fiche — psychologue, théorie, concept — est reliée aux autres. L'ap
 | 🕸️ **Carte des idées** | Graphe de connaissances interactif (React Flow) sur desktop, chaîne d'influence adaptée sur mobile — vue d'ensemble ou mode « Explorer autour de… », centré sur une entité au choix, avec profondeur (1 à 3 niveaux) et filtres par type |
 | 📖 **Bibliothèque des œuvres** | Fiche par œuvre — thèmes, concepts effectivement introduits, réception, influence durable, œuvres liées, et « Pourquoi cette œuvre est importante ? » |
 | 🧪 **Expériences & études** | Fiche par expérience historique — objectif, méthode, résultat, interprétation, ⚠️ limites et controverses, héritage — pour ne jamais présenter une expérience comme une vérité scientifique intouchable |
+| 🔁 **Réplication & robustesse** | Sur les expériences dont l'interprétation a été rediscutée : résultat historique, ce que les recherches ultérieures ont montré, état actuel des connaissances — pour distinguer « historiquement célèbre » de « scientifiquement robuste aujourd'hui » |
 | 🔬 **Méthodes de recherche** | Comment la connaissance psychologique est produite — 14 méthodes (expérimentation, observation, étude de cas, entretien clinique, questionnaire, test, longitudinale/transversale/de cohorte, corrélation, méta-analyse, réplication, randomisation, double aveugle), chacune avec ses forces et ses limites, reliée aux concepts, théories et expériences qui l'illustrent |
 | ⚖️ **Comparaison** | Comparez jusqu'à 3 éléments côte à côte — théories, concepts, psychologues ou courants — avec tableau croisé (✓ / —) sur les entités partagées |
 | ⭐ **Favoris & historique** | Sauvegarde locale persistante via IndexedDB (Dexie), sur les huit types d'entités |
@@ -74,14 +75,14 @@ Base de connaissances entièrement factuelle et sourcée (aucune citation, date 
 | 💡 Théories | 24 |
 | 🔤 Concepts (glossaire) | 55 (dont 11 sur la lecture critique des études : causalité, variables, significativité, taille d'effet, biais de publication…) |
 | 🏛️ Courants de pensée | 10 |
-| 🧪 Expériences & études | 11 (objectif · méthode · résultat · interprétation · limites/controverses · héritage) |
+| 🧪 Expériences & études | 11 (objectif · méthode · résultat · interprétation · limites/controverses · héritage), dont 5 avec un verdict de réplication/robustesse |
 | 🔬 Méthodes de recherche | 14 (définition · objectif · protocole · forces · limites) |
 | 📖 Œuvres majeures | 32 |
 | 💬 Citations attribuées | 13 |
 | 🗓️ Événements chronologiques | 29 |
 | 🧭 Parcours guidés | 33, en 10 familles thématiques |
 
-Chaque psychologue, théorie, concept, courant, œuvre, événement, expérience et méthode porte désormais son propre **contexte historique**, écrit pour répondre à une question distincte selon sa nature plutôt que répéter les fiches voisines. Les courants ont fondateurs, représentants, lignée intellectuelle et courants concurrents/descendants ; les œuvres ont thèmes, concepts précisément introduits, réception, influence et œuvres liées — un vrai graphe bidirectionnel vérifié, pas une liste ad hoc. Les méthodes sont reliées aux concepts, théories et expériences qui les illustrent, et réciproquement : la fiche Milgram affiche ainsi les méthodes qu'elle met en œuvre (expérimentation, randomisation, réplication), sans qu'aucune de ces relations ne soit saisie deux fois. Le glossaire couvre aussi la lecture critique des résultats — corrélation vs causalité, variables indépendante/dépendante, significativité, intervalle de confiance, taille et puissance statistiques, biais d'échantillonnage et de publication, effets placebo et Hawthorne — pour donner les outils de lire une étude plutôt que de la prendre pour argent comptant. Aucun de ces contenus n'a été inventé : tout est dérivé ou recoupé avec des faits déjà établis ailleurs dans la base, et les associations incertaines ont été omises plutôt que forcées.
+Chaque psychologue, théorie, concept, courant, œuvre, événement, expérience et méthode porte désormais son propre **contexte historique**, écrit pour répondre à une question distincte selon sa nature plutôt que répéter les fiches voisines. Les courants ont fondateurs, représentants, lignée intellectuelle et courants concurrents/descendants ; les œuvres ont thèmes, concepts précisément introduits, réception, influence et œuvres liées — un vrai graphe bidirectionnel vérifié, pas une liste ad hoc. Les méthodes sont reliées aux concepts, théories et expériences qui les illustrent, et réciproquement : la fiche Milgram affiche ainsi les méthodes qu'elle met en œuvre (expérimentation, randomisation, réplication), sans qu'aucune de ces relations ne soit saisie deux fois. Le glossaire couvre aussi la lecture critique des résultats — corrélation vs causalité, variables indépendante/dépendante, significativité, intervalle de confiance, taille et puissance statistiques, biais d'échantillonnage et de publication, effets placebo et Hawthorne — pour donner les outils de lire une étude plutôt que de la prendre pour argent comptant. Cinq expériences célèbres (Milgram, Zimbardo, Asch, Bandura, Stroop) portent en plus un verdict de réplication : ce que les recherches ultérieures ont montré et l'état actuel des connaissances, du contesté (Zimbardo) au robuste (Stroop) — jamais ajouté par défaut, seulement quand cette histoire est réellement documentée. Aucun de ces contenus n'a été inventé : tout est dérivé ou recoupé avec des faits déjà établis ailleurs dans la base, et les associations incertaines ont été omises plutôt que forcées.
 
 ## 🧭 Parcours guidés
 
@@ -197,7 +198,8 @@ Work ──┬── psychologistIds · conceptIds (introduits) · relatedWorkId
 HistoricalEvent ── workId (renvoi vers l'œuvre correspondante, si publication)
 
 Experiment ──┬── psychologistIds · conceptIds · theoryIds
-             └── historicalContext · objective · critiques[] · legacy
+             ├── historicalContext · objective · critiques[] · legacy
+             └── robustness?   (facultatif : résultat historique · recherches ultérieures · consensus actuel)
 
 Method ──┬── relatedConceptIds · relatedExperimentIds · relatedTheoryIds · relatedMethodIds
          └── historicalContext · objective · protocol · strengths[] · limitations[]

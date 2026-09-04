@@ -1,4 +1,4 @@
-import { AlertTriangle, ArrowLeft, ClipboardList, FlaskConical, Lightbulb, Microscope, Sparkles, Target } from 'lucide-react';
+import { AlertTriangle, ArrowLeft, ClipboardList, FlaskConical, Lightbulb, Microscope, RefreshCw, Sparkles, Target } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import { ConceptChip } from '../components/cards/ConceptChip';
 import { RelationshipCard } from '../components/cards/RelationshipCard';
@@ -10,6 +10,12 @@ import { useRecordVisit } from '../hooks/useHistory';
 import { repository } from '../services/repository';
 import NotFound from './NotFound';
 import styles from './ExperimentDetail.module.css';
+
+const ROBUSTNESS_LABELS: Record<'robuste' | 'nuance' | 'conteste', string> = {
+  robuste: 'Robuste',
+  nuance: 'Nuancé',
+  conteste: 'Contesté',
+};
 
 export default function ExperimentDetail() {
   const { id = '' } = useParams();
@@ -132,6 +138,33 @@ export default function ExperimentDetail() {
             <p className={`text-label ${styles.sectionTitle}`}>Héritage</p>
             <p className="text-body-sm">{experiment.legacy}</p>
           </section>
+
+          {experiment.robustness && (
+            <section className={`${styles.robustnessBlock} ${styles[`robustness-${experiment.robustness.status}`]}`}>
+              <div className={styles.robustnessHeader}>
+                <p className={`text-label ${styles.robustnessTitle}`}>
+                  <RefreshCw size={14} />
+                  Réplication &amp; robustesse
+                </p>
+                <span className={styles.robustnessBadge}>{ROBUSTNESS_LABELS[experiment.robustness.status]}</span>
+              </div>
+
+              <div className={styles.robustnessItem}>
+                <p className="text-label" style={{ marginBottom: 6 }}>Résultat historique</p>
+                <p className="text-body-sm">{experiment.robustness.historicalResult}</p>
+              </div>
+
+              <div className={styles.robustnessItem}>
+                <p className="text-label" style={{ marginBottom: 6 }}>Ce que les recherches ultérieures ont montré</p>
+                <p className="text-body-sm">{experiment.robustness.laterFindings}</p>
+              </div>
+
+              <div className={styles.robustnessItem}>
+                <p className="text-label" style={{ marginBottom: 6 }}>État actuel des connaissances</p>
+                <p className="text-body-sm" style={{ fontWeight: 600 }}>{experiment.robustness.currentConsensus}</p>
+              </div>
+            </section>
+          )}
 
           {concepts && concepts.length > 0 && (
             <section className={styles.section}>

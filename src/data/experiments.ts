@@ -94,6 +94,15 @@ export const experiments: Experiment[] = [
     ],
     legacy:
       "Devient l'une des démonstrations fondatrices de l'influence sociale et reste, aujourd'hui encore, une référence pour étudier la conformité, y compris dans des contextes numériques et collectifs contemporains.",
+    robustness: {
+      historicalResult:
+        "Environ un tiers des participants se conforment à la réponse erronée du groupe sur au moins un essai, présenté comme la preuve que la pression sociale peut l'emporter sur l'évidence perceptive.",
+      laterFindings:
+        "Une méta-analyse rassemblant des dizaines de réplications menées dans une quinzaine de pays (Bond et Smith, 1996) confirme la réalité de l'effet, mais montre que son ampleur varie fortement : plus marquée dans les cultures collectivistes, elle tend aussi à décliner aux États-Unis depuis les années 1950.",
+      currentConsensus:
+        "Le phénomène de conformité à un groupe unanime est considéré comme solidement établi et largement répliqué à travers le monde, mais son ampleur n'est ni universelle ni fixe : elle dépend fortement du contexte culturel et historique, plutôt que d'être une constante psychologique unique.",
+      status: 'nuance',
+    },
     psychologistIds: ['solomon-asch'],
     conceptIds: ['conformite'],
     theoryIds: [],
@@ -126,6 +135,15 @@ export const experiments: Experiment[] = [
     ],
     legacy:
       "Devient l'une des expériences les plus citées de toute la psychologie sociale, centrale dans l'enseignement de l'éthique de la recherche autant que dans l'étude de l'obéissance à l'autorité.",
+    robustness: {
+      historicalResult:
+        "Une majorité de participants (environ deux tiers) va jusqu'au niveau de choc maximal, présenté comme la preuve qu'une majorité de personnes ordinaires obéit à une autorité perçue comme légitime, même contre leur conscience.",
+      laterFindings:
+        "Une réplication partielle menée par Jerry Burger en 2008, avec des garde-fous éthiques renforcés (arrêt automatique au moment où la détresse devient la plus nette), retrouve des taux d'obéissance proches de ceux de Milgram. Mais les travaux d'archives de l'historienne Gina Perry révèlent aussi des écarts entre le protocole tel que décrit et son déroulement réel, et suggèrent qu'une partie des participants a pu deviner que les chocs n'étaient pas réels.",
+      currentConsensus:
+        "Le phénomène central — une majorité de personnes ordinaires peut obéir à une autorité perçue comme légitime au point d'infliger une souffrance apparente à autrui — est considéré comme globalement confirmé par plusieurs réplications partielles. Mais le taux exact d'obéissance et l'explication théorique de Milgram (l'« état agentique ») restent débattus.",
+      status: 'nuance',
+    },
     psychologistIds: ['stanley-milgram'],
     conceptIds: ['obeissance-a-l-autorite'],
     theoryIds: ['etat-agentique'],
@@ -160,6 +178,15 @@ export const experiments: Experiment[] = [
     ],
     legacy:
       "Reste un cas d'école cité dans la plupart des manuels sur le pouvoir des situations et des rôles sociaux, mais est aujourd'hui présenté avec ses limites méthodologiques et éthiques, comme une démonstration à interpréter avec prudence plutôt qu'une preuve scientifique définitive ; il a contribué au renforcement des comités d'éthique encadrant la recherche avec des participants humains.",
+    robustness: {
+      historicalResult:
+        "En quelques jours, plusieurs gardiens adoptent spontanément des comportements autoritaires et humiliants, présenté comme la preuve que le rôle et la situation, à eux seuls, transforment le comportement — indépendamment de la personnalité de ceux qui l'occupent.",
+      laterFindings:
+        "Une réplication partielle menée pour la BBC par Reicher et Haslam au début des années 2000 ne retrouve pas cette bascule spontanée vers la tyrannie. Des enregistrements et témoignages exhumés plus tard révèlent que Zimbardo et son équipe ont activement encouragé certains gardiens à se montrer plus durs, plutôt que de simplement observer une dérive spontanée.",
+      currentConsensus:
+        "Aujourd'hui largement considérée comme une démonstration mise en scène plutôt qu'une expérience rigoureuse, dont la méthodologie ne permet pas de soutenir la conclusion originale telle qu'elle a été popularisée. Le pouvoir des situations et des rôles sociaux reste un phénomène réel et documenté par ailleurs, mais ce cas précis n'en constitue plus une preuve solide.",
+      status: 'conteste',
+    },
     psychologistIds: [],
     conceptIds: [],
     theoryIds: [],
@@ -192,6 +219,15 @@ export const experiments: Experiment[] = [
     ],
     legacy:
       "Fonde l'apprentissage social puis la théorie sociale cognitive de Bandura, et continue de nourrir les débats sur l'influence des modèles violents observés par les enfants, y compris à la télévision et dans les jeux vidéo.",
+    robustness: {
+      historicalResult:
+        "Les enfants ayant observé un modèle adulte agressif envers la poupée Bobo reproduisent significativement plus de comportements agressifs que les autres groupes, présenté comme la preuve d'un apprentissage par simple observation.",
+      laterFindings:
+        "L'imitation directe et immédiate d'un modèle observé, en laboratoire, compte parmi les résultats les plus systématiquement répliqués de la psychologie du développement. L'extrapolation plus large — l'idée qu'exposer un enfant à des médias violents cause durablement un comportement agressif dans la vie réelle — reste, elle, activement débattue et beaucoup plus difficile à établir avec la même rigueur causale.",
+      currentConsensus:
+        "L'apprentissage par observation lui-même est un phénomène robuste et largement admis. Le lien entre exposition médiatique à la violence et agressivité durable, souvent présenté comme un prolongement direct de cette étude, reste une question empirique distincte et beaucoup plus disputée.",
+      status: 'nuance',
+    },
     psychologistIds: ['albert-bandura'],
     conceptIds: ['apprentissage-vicariant'],
     theoryIds: ['theorie-sociale-cognitive'],
@@ -321,6 +357,15 @@ export const experiments: Experiment[] = [
     ],
     legacy:
       "Devient l'une des tâches les plus utilisées en psychologie cognitive et en neuropsychologie pour mesurer le contrôle attentionnel et l'automatisme, encore largement employée aujourd'hui en recherche et en clinique.",
+    robustness: {
+      historicalResult:
+        "Nommer la couleur de l'encre d'un mot est nettement plus lent et plus sujet à erreur lorsque ce mot désigne une couleur différente, présenté comme la preuve que la lecture est un processus automatique difficile à inhiber.",
+      laterFindings:
+        "L'effet Stroop compte parmi les résultats les plus répliqués de toute la psychologie expérimentale, reproduit des milliers de fois depuis 1935, dans des dizaines de langues et de populations, avec une remarquable constance.",
+      currentConsensus:
+        "Considéré comme l'un des effets les plus solides et les moins contestés de la discipline ; il sert aujourd'hui de tâche de référence pour mesurer le contrôle attentionnel, y compris en recherche clinique et en neuropsychologie.",
+      status: 'robuste',
+    },
     psychologistIds: [],
     conceptIds: [],
     theoryIds: [],

@@ -2,6 +2,12 @@
 
 Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/). Les numéros de version correspondent à `package.json` et au numéro affiché dans Profil → Mises à jour.
 
+## [1.5.0] - 2026-09-04
+
+### Ajouté
+- Section **Réplication & robustesse** sur les fiches expérience, distincte des critiques et controverses déjà existantes : résultat historique → ce que les recherches ultérieures ont montré → état actuel des connaissances, avec un badge de statut (robuste / nuancé / contesté) visible sur la fiche et sur la carte dans Explorer.
+- Renseignée sur 5 expériences dont l'histoire de réplication est documentée — Zimbardo (contesté, étude BBC de Reicher et Haslam), Milgram et Asch (nuancé), Bandura/poupée Bobo (nuancé, l'imitation est robuste mais l'extrapolation aux médias violents contestée), effet Stroop (robuste) — plutôt que forcée sur les 11, pour distinguer « historiquement célèbre » de « scientifiquement robuste aujourd'hui ».
+
 ## [1.4.0] - 2026-09-03
 
 ### Ajouté

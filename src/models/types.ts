@@ -182,6 +182,23 @@ export interface Experiment {
   critiques: string[];
   /** Héritage : son influence durable sur la recherche, la discipline ou les pratiques. */
   legacy: string;
+  /**
+   * Facultatif : distingue la notoriété historique de la robustesse
+   * scientifique actuelle, quand la réplication ou l'interprétation du
+   * résultat a été spécifiquement discutée par des travaux ultérieurs.
+   * À ne renseigner que lorsque cette histoire de réplication est
+   * documentée — ne jamais la forcer pour une expérience qui n'a pas
+   * été spécifiquement rediscutée.
+   */
+  robustness?: {
+    /** Le résultat tel qu'il a été présenté et popularisé à l'origine. */
+    historicalResult: string;
+    /** Ce que les tentatives de réplication ou les travaux ultérieurs ont montré. */
+    laterFindings: string;
+    /** Le verdict scientifique actuel, au-delà de la seule notoriété historique. */
+    currentConsensus: string;
+    status: 'robuste' | 'nuance' | 'conteste';
+  };
   psychologistIds: string[];
   conceptIds: string[];
   theoryIds: string[];
