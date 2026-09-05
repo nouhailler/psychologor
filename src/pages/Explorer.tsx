@@ -8,6 +8,7 @@ import { WorkCard } from '../components/cards/WorkCard';
 import { ExperimentCard } from '../components/cards/ExperimentCard';
 import { MethodCard } from '../components/cards/MethodCard';
 import { ApproachCard } from '../components/cards/ApproachCard';
+import { FieldCard } from '../components/cards/FieldCard';
 import { EmptyState } from '../components/ui/EmptyState';
 import { ListRowSkeleton } from '../components/ui/Skeleton';
 import { METHOD_CATEGORY_LABELS } from '../data/methods';
@@ -17,17 +18,17 @@ import { repository } from '../services/repository';
 import { normalizeForSearch } from '../utils/slug';
 import styles from './Explorer.module.css';
 
+type TabId = 'psychologues' | 'theories' | 'courants' | 'oeuvres' | 'experiences' | 'methodes' | 'approches' | 'domaines';
+
 interface ExplorerProps {
-  initialTab?: 'psychologues' | 'theories' | 'courants' | 'oeuvres' | 'experiences' | 'methodes' | 'approches';
+  initialTab?: TabId;
 }
 
 type SortOrder = 'name' | 'date';
 
 export default function Explorer({ initialTab }: ExplorerProps) {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [tab, setTab] = useState<
-    'psychologues' | 'theories' | 'courants' | 'oeuvres' | 'experiences' | 'methodes' | 'approches'
-  >(initialTab ?? 'psychologues');
+  const [tab, setTab] = useState<TabId>(initialTab ?? 'psychologues');
   const [query, setQuery] = useState('');
   const [view, setView] = useState<'grid' | 'list'>('grid');
   const [sort, setSort] = useState<SortOrder>('name');
@@ -40,6 +41,7 @@ export default function Explorer({ initialTab }: ExplorerProps) {
   const { data: experimentsData, loading: loadingExperiments } = useAsync(() => repository.getAllExperiments(), []);
   const { data: methodsData, loading: loadingMethods } = useAsync(() => repository.getAllMethods(), []);
   const { data: approachesData, loading: loadingApproaches } = useAsync(() => repository.getAllApproaches(), []);
+  const { data: fieldsData, loading: loadingFields } = useAsync(() => repository.getAllFields(), []);
 
   const filteredPsychologists = useMemo(() => {
     let list = psychologists ?? [];
@@ -118,6 +120,15 @@ export default function Explorer({ initialTab }: ExplorerProps) {
     return [...list].sort((a, b) => a.name.localeCompare(b.name));
   }, [approachesData, query]);
 
+  const filteredFields = useMemo(() => {
+    let list = fieldsData ?? [];
+    if (query.trim()) {
+      const q = normalizeForSearch(query);
+      list = list.filter((f) => normalizeForSearch(`${f.name} ${f.shortDefinition}`).includes(q));
+    }
+    return [...list].sort((a, b) => a.name.localeCompare(b.name));
+  }, [fieldsData, query]);
+
   const toggleSchool = (id: string) => {
     const next = new URLSearchParams(searchParams);
     if (activeSchool === id) next.delete('courant');
@@ -138,7 +149,9 @@ export default function Explorer({ initialTab }: ExplorerProps) {
               ? loadingExperiments
               : tab === 'methodes'
                 ? loadingMethods
-                : loadingApproaches;
+                : tab === 'approches'
+                  ? loadingApproaches
+                  : loadingFields;
   const isEmpty =
     tab === 'psychologues'
       ? filteredPsychologists.length === 0
@@ -152,7 +165,9 @@ export default function Explorer({ initialTab }: ExplorerProps) {
               ? filteredExperiments.length === 0
               : tab === 'methodes'
                 ? filteredMethods.length === 0
-                : filteredApproaches.length === 0;
+                : tab === 'approches'
+                  ? filteredApproaches.length === 0
+                  : filteredFields.length === 0;
 
   return (
     <div className="container">
@@ -160,7 +175,7 @@ export default function Explorer({ initialTab }: ExplorerProps) {
         <h1 className="text-h1" style={{ marginBottom: 'var(--space-2)' }}>
           Explorer
         </h1>
-        <p className="text-body-sm">Parcourez l'ensemble des psychologues, des théories, des courants, des œuvres, des expériences, des méthodes et des approches de la base.</p>
+        <p className="text-body-sm">Parcourez l'ensemble des psychologues, des théories, des courants, des œuvres, des expériences, des méthodes, des approches et des domaines de la base.</p>
       </div>
 
       <div className={styles.tabs} role="tablist">
@@ -227,6 +242,15 @@ export default function Explorer({ initialTab }: ExplorerProps) {
         >
           Approches
         </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={tab === 'domaines'}
+          className={`${styles.tab} ${tab === 'domaines' ? styles.active : ''}`}
+          onClick={() => setTab('domaines')}
+        >
+          Domaines
+        </button>
       </div>
 
       <div className={styles.toolbar}>
@@ -247,7 +271,9 @@ export default function Explorer({ initialTab }: ExplorerProps) {
                         ? 'Rechercher une expérience…'
                         : tab === 'methodes'
                           ? 'Rechercher une méthode…'
-                          : 'Rechercher une approche…'
+                          : tab === 'approches'
+                            ? 'Rechercher une approche…'
+                            : 'Rechercher un domaine…'
             }
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -256,7 +282,7 @@ export default function Explorer({ initialTab }: ExplorerProps) {
         </div>
 
         <div className={styles.filterRow}>
-          {tab !== 'courants' && tab !== 'methodes' && tab !== 'approches' && (
+          {tab !== 'courants' && tab !== 'methodes' && tab !== 'approches' && tab !== 'domaines' && (
             <div className={styles.chips}>
               {(schools ?? []).map((school) => (
                 <button
@@ -285,7 +311,7 @@ export default function Explorer({ initialTab }: ExplorerProps) {
           )}
 
           <div style={{ display: 'flex', gap: 'var(--space-3)', alignItems: 'center', flexShrink: 0 }}>
-            {tab !== 'approches' && (
+            {tab !== 'approches' && tab !== 'domaines' && (
               <select
                 value={sort}
                 onChange={(e) => setSort(e.target.value as SortOrder)}
@@ -349,7 +375,7 @@ export default function Explorer({ initialTab }: ExplorerProps) {
           icon={<Search size={24} />}
           title="Aucun résultat"
           description={
-            tab === 'courants' || tab === 'methodes' || tab === 'approches'
+            tab === 'courants' || tab === 'methodes' || tab === 'approches' || tab === 'domaines'
               ? 'Essayez de modifier votre recherche.'
               : 'Essayez de modifier votre recherche ou vos filtres de courant.'
           }
@@ -408,6 +434,14 @@ export default function Explorer({ initialTab }: ExplorerProps) {
         <div className={view === 'grid' ? styles.resultsGridTheories : styles.resultsList}>
           {filteredApproaches.map((a) => (
             <ApproachCard key={a.id} approach={a} layout={view === 'grid' ? 'grid' : 'list'} />
+          ))}
+        </div>
+      )}
+
+      {!loading && !isEmpty && tab === 'domaines' && (
+        <div className={view === 'grid' ? styles.resultsGridTheories : styles.resultsList}>
+          {filteredFields.map((f) => (
+            <FieldCard key={f.id} field={f} layout={view === 'grid' ? 'grid' : 'list'} />
           ))}
         </div>
       )}

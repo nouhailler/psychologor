@@ -1,4 +1,4 @@
-import { ArrowLeft, BookOpen, Brain, Sparkles, Telescope, Users } from 'lucide-react';
+import { ArrowLeft, BookOpen, Brain, Map, Sparkles, Telescope, Users } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import { ConceptChip } from '../components/cards/ConceptChip';
 import { RelationshipCard } from '../components/cards/RelationshipCard';
@@ -36,6 +36,10 @@ export default function PsychologistDetail() {
   const { data: quotes } = useAsync(() => repository.getQuotesByIds(psychologist?.quoteIds ?? []), [psychologist?.id]);
   const { data: approaches } = useAsync(
     () => repository.getApproachesByPsychologist(psychologist?.id ?? ''),
+    [psychologist?.id],
+  );
+  const { data: fields } = useAsync(
+    () => repository.getFieldsByPsychologist(psychologist?.id ?? ''),
     [psychologist?.id],
   );
 
@@ -255,6 +259,17 @@ export default function PsychologistDetail() {
                 <div className={styles.relationGrid}>
                   {approaches.map((a) => (
                     <RelationshipCard key={a.id} to={`/approches/${a.id}`} icon={<Telescope size={18} />} title={a.name} subtitle={a.shortDefinition} />
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {fields && fields.length > 0 && (
+              <section className={styles.section}>
+                <h2 className={`text-h2 ${styles.sectionTitle}`}>Domaines associés</h2>
+                <div className={styles.relationGrid}>
+                  {fields.map((f) => (
+                    <RelationshipCard key={f.id} to={`/domaines/${f.id}`} icon={<Map size={18} />} title={f.name} subtitle={f.shortDefinition} />
                   ))}
                 </div>
               </section>

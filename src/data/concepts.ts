@@ -991,4 +991,94 @@ export const concepts: Concept[] = [
     theoryIds: [],
     relatedConceptIds: ['effet-placebo'],
   },
+  {
+    id: 'psychologie-discipline',
+    keyTakeaways: [
+      "La psychologie est une science, pas une branche de la médecine : un psychologue n'est pas médecin.",
+      "Son champ dépasse largement la clinique : recherche, éducation, travail, sport en font aussi partie.",
+      "Elle se distingue de la psychiatrie, des neurosciences, de la psychanalyse et de la psychothérapie, avec lesquelles elle est souvent confondue.",
+    ] as [string, string, string],
+    term: 'Psychologie',
+    shortDefinition: "La science qui étudie scientifiquement l'esprit et le comportement — une discipline non médicale, à ne pas confondre avec la psychiatrie.",
+    definition:
+      "La psychologie est la discipline scientifique qui étudie les processus mentaux (pensée, perception, mémoire, émotion) et le comportement, chez l'être humain comme chez l'animal, par l'observation et l'expérimentation. Contrairement à une confusion fréquente, un psychologue n'est pas un médecin : sa formation est universitaire, généralement en sciences humaines, et il ne peut ni poser de diagnostic médical ni prescrire de médicament.",
+    historicalContext:
+      "Détachée progressivement de la philosophie à partir de la fondation du laboratoire de Wundt en 1879, la psychologie se constitue comme science autonome dotée de ses propres méthodes — un statut qui reste pourtant mal compris du grand public, qui la confond souvent avec la psychiatrie ou réduit son champ à la seule clinique, alors qu'elle couvre aussi la recherche fondamentale, l'éducation, le travail ou le sport.",
+    origin: 'Discipline fondée comme science autonome par Wilhelm Wundt en 1879.',
+    psychologistIds: ['wilhelm-wundt'],
+    theoryIds: [],
+    relatedConceptIds: ['psychiatrie', 'neurosciences', 'psychanalyse-pratique', 'psychotherapie'],
+  },
+  {
+    id: 'psychiatrie',
+    keyTakeaways: [
+      'Un psychiatre est un médecin, seul habilité à prescrire un traitement médicamenteux.',
+      'Elle peut combiner médicaments et psychothérapie, contrairement à une psychothérapie seule.',
+      'Elle se distingue de la psychologie par sa formation médicale et sa capacité de prescription.',
+    ] as [string, string, string],
+    term: 'Psychiatrie',
+    shortDefinition: 'La spécialité médicale qui diagnostique et traite les troubles mentaux, avec la possibilité de prescrire des médicaments.',
+    definition:
+      "La psychiatrie est une spécialité médicale : un psychiatre est un médecin, formé en faculté de médecine puis spécialisé, qui diagnostique et traite les troubles mentaux selon une approche qui peut combiner médicaments (psychotropes) et psychothérapie. C'est la seule des cinq disciplines comparées ici habilitée à prescrire un traitement médicamenteux.",
+    historicalContext:
+      "Elle se constitue comme spécialité médicale au XIXe siècle, quand la folie cesse d'être traitée comme un problème moral ou judiciaire pour devenir un objet de diagnostic et de traitement médical — une évolution distincte de celle de la psychologie, qui naît à la même époque mais comme science expérimentale plutôt que comme pratique clinique médicale.",
+    origin: 'Constituée comme spécialité médicale au XIXe siècle.',
+    psychologistIds: [],
+    theoryIds: [],
+    relatedConceptIds: ['psychologie-discipline', 'neurosciences', 'psychotherapie', 'psychanalyse-pratique'],
+  },
+  {
+    id: 'neurosciences',
+    keyTakeaways: [
+      'Étudient le cerveau et le système nerveux à l\'échelle biologique, pas les patients directement.',
+      'Champ de recherche pluridisciplinaire, à la croisée de la biologie, de la médecine et de la psychologie.',
+      "Apportent un niveau d'explication complémentaire, pas concurrent, à la psychologie et à la psychiatrie.",
+    ] as [string, string, string],
+    term: 'Neurosciences',
+    shortDefinition: 'L\'étude scientifique du système nerveux et du cerveau, à l\'échelle biologique.',
+    definition:
+      "Les neurosciences étudient la structure et le fonctionnement du système nerveux — en particulier du cerveau — à l'échelle biologique, cellulaire et moléculaire. Elles constituent un champ pluridisciplinaire, à la croisée de la biologie, de la médecine et de la psychologie, plutôt qu'une discipline clinique destinée à traiter directement des patients.",
+    historicalContext:
+      "Elles se constituent comme champ de recherche distinct à partir de la seconde moitié du XXe siècle, quand les progrès de la biologie cellulaire puis des techniques d'imagerie cérébrale rendent possible l'étude directe de l'activité du cerveau, offrant à la psychologie un niveau d'explication biologique complémentaire à l'étude du comportement et de l'esprit.",
+    origin: 'Champ de recherche constitué à partir de la seconde moitié du XXe siècle.',
+    psychologistIds: [],
+    theoryIds: [],
+    relatedConceptIds: ['psychologie-discipline', 'psychiatrie'],
+  },
+  {
+    id: 'psychanalyse-pratique',
+    keyTakeaways: [
+      "Désigne à la fois une théorie de l'esprit (voir la fiche Théorie) et une pratique clinique distincte.",
+      'N\'est pas réservée aux psychiatres : psychologues et praticiens spécifiquement formés la pratiquent aussi.',
+      'Une des sources fréquentes de confusion avec la psychothérapie et la psychiatrie.',
+    ] as [string, string, string],
+    term: 'Psychanalyse',
+    shortDefinition: "Une pratique clinique et un courant théorique fondés par Freud sur l'exploration de l'inconscient — ni un synonyme de psychothérapie, ni une spécialité médicale en soi.",
+    definition:
+      "Au-delà du cadre théorique développé par Freud (voir la fiche Théorie « Psychanalyse »), la psychanalyse désigne aussi une pratique clinique fondée sur l'exploration de l'inconscient par la parole, généralement sur le long terme et à raison de plusieurs séances par semaine. Elle est exercée aussi bien par des psychologues que par des psychiatres ou des praticiens formés spécifiquement à la psychanalyse, ce qui en fait une pratique transversale plutôt qu'une profession réglementée à part entière.",
+    historicalContext:
+      "Freud la conçoit à la fois comme une théorie de l'esprit et comme une méthode de traitement, les deux restant depuis étroitement liées ; mais la pratique s'est ensuite diversifiée et peut aujourd'hui être exercée par des professionnels d'origines très différentes, ce qui explique une partie de la confusion fréquente entre psychanalyse, psychothérapie et psychiatrie.",
+    origin: 'Fondée par Sigmund Freud à la fin du XIXe siècle.',
+    psychologistIds: ['sigmund-freud'],
+    theoryIds: ['psychanalyse'],
+    relatedConceptIds: ['psychotherapie', 'psychologie-discipline', 'psychiatrie'],
+  },
+  {
+    id: 'psychotherapie',
+    keyTakeaways: [
+      'Terme générique pour tout traitement par la parole, pas une méthode ou une profession unique.',
+      "Regroupe des courants aussi différents que la psychanalyse, les thérapies cognitivo-comportementales ou l'approche humaniste.",
+      'Peut être pratiquée par un psychologue, un psychiatre ou un autre professionnel formé, selon les pays.',
+    ] as [string, string, string],
+    term: 'Psychothérapie',
+    shortDefinition: 'Le traitement par la parole des difficultés psychologiques, quelle que soit la méthode ou la profession de celui qui la pratique.',
+    definition:
+      "La psychothérapie désigne, de façon générale, tout traitement des difficultés psychologiques ou émotionnelles fondé sur la parole et la relation avec un praticien, quelle que soit la méthode employée — psychanalytique, cognitivo-comportementale, humaniste, systémique. C'est un terme générique pour une pratique, pas une profession ni une méthode unique : elle peut être exercée par un psychologue, un psychiatre ou un autre professionnel spécifiquement formé, selon les réglementations en vigueur.",
+    historicalContext:
+      "Le terme se généralise à mesure que se multiplient, au cours du XXe siècle, des méthodes de traitement par la parole issues de courants différents — psychanalyse, approche centrée sur la personne, thérapie cognitive — qui partagent la relation thérapeutique comme outil commun, sans partager ni la même théorie ni la même profession d'origine.",
+    origin: 'Terme générique qui se généralise au cours du XXe siècle à mesure que se diversifient les courants thérapeutiques.',
+    psychologistIds: ['carl-rogers', 'aaron-beck'],
+    theoryIds: ['approche-centree-sur-la-personne', 'therapie-cognitive'],
+    relatedConceptIds: ['psychanalyse-pratique', 'psychologie-discipline', 'psychiatrie'],
+  },
 ];

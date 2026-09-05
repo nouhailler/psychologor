@@ -8,6 +8,7 @@ import {
   Home,
   Landmark,
   Lightbulb,
+  Map,
   Microscope,
   Network,
   Route as RouteIcon,
@@ -50,6 +51,7 @@ const CATEGORIES: { title: string; items: MenuItem[] }[] = [
       { to: '/experiences', label: 'Expériences & études', description: 'Protocoles, résultats et controverses', icon: FlaskConical },
       { to: '/methodes', label: 'Méthodes', description: 'Comment on produit la connaissance', icon: Microscope },
       { to: '/approches', label: 'Approches', description: 'Les grands angles de la psychologie contemporaine', icon: Telescope },
+      { to: '/domaines', label: 'Domaines', description: 'La cartographie des spécialisations de la discipline', icon: Map },
     ],
   },
   {

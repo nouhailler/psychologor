@@ -1838,4 +1838,56 @@ export const paths: LearningPath[] = [
       },
     ],
   },
+  {
+    id: 'psychologie-psychiatrie-qui-fait-quoi',
+    category: 'transversal',
+    title: 'Psychologie, psychiatrie, psychanalyse : qui fait quoi ?',
+    subtitle: "Cinq disciplines qu'on confond souvent, et ce qui les distingue vraiment",
+    description:
+      "Un parcours en six étapes pour ne plus confondre psychologie, psychiatrie, neurosciences, psychanalyse et psychothérapie — leur objet, leur formation, ce qu'elles peuvent ou ne peuvent pas faire, et comment elles se combinent plutôt qu'elles ne s'opposent.",
+    accentColor: '#5B4FC7',
+    estimatedMinutes: 10,
+    steps: [
+      {
+        id: 'la-psychologie',
+        entityType: 'concept',
+        entityId: 'psychologie-discipline',
+        keyTakeaway: "Un psychologue n'est pas un médecin : sa formation est universitaire, pas médicale, et il ne peut pas prescrire de médicament.",
+      },
+      {
+        id: 'la-psychiatrie',
+        entityType: 'concept',
+        entityId: 'psychiatrie',
+        keyTakeaway: "Un psychiatre est un médecin — c'est la seule des cinq disciplines habilitée à prescrire un traitement médicamenteux.",
+        reflectionQuestion: "Face à une même difficulté psychologique, dans quels cas un accompagnement médicamenteux serait-il envisagé plutôt qu'un accompagnement par la seule parole ?",
+      },
+      {
+        id: 'les-neurosciences',
+        entityType: 'concept',
+        entityId: 'neurosciences',
+        keyTakeaway: "Les neurosciences étudient le cerveau à l'échelle biologique — elles éclairent la psychologie et la psychiatrie sans se substituer à elles.",
+      },
+      {
+        id: 'la-psychanalyse',
+        entityType: 'concept',
+        entityId: 'psychanalyse-pratique',
+        keyTakeaway: "La psychanalyse est à la fois une théorie de l'esprit et une pratique clinique — et n'importe laquelle des professions précédentes peut, selon sa formation, la pratiquer.",
+      },
+      {
+        id: 'la-psychotherapie',
+        entityType: 'concept',
+        entityId: 'psychotherapie',
+        keyTakeaway: "« Psychothérapie » ne désigne aucune méthode ni profession précise : c'est un terme générique pour tout traitement par la parole.",
+        reflectionQuestion: "Pourquoi deux personnes en psychothérapie peuvent-elles vivre des séances très différentes, alors qu'elles utilisent le même mot pour les décrire ?",
+      },
+      {
+        id: 'qui-consulter',
+        entityType: 'custom',
+        customTitle: 'Qui consulter, pour quoi ?',
+        customDescription:
+          "Ces cinq disciplines ne sont pas concurrentes mais complémentaires, et se combinent fréquemment : un psychiatre peut prescrire un traitement tout en orientant vers une psychothérapie ; un psychologue peut pratiquer une thérapie cognitivo-comportementale ou une psychanalyse selon sa formation complémentaire ; les neurosciences nourrissent les deux sans remplacer ni l'une ni l'autre. Le bon interlocuteur dépend moins de l'étiquette de sa profession que de sa formation précise et de la nature de la difficulté rencontrée.",
+        keyTakeaway: "Ces disciplines se combinent plus souvent qu'elles ne s'opposent : le choix du bon interlocuteur dépend de la situation, pas d'une hiérarchie entre elles.",
+      },
+    ],
+  },
 ];

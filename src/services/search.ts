@@ -7,7 +7,8 @@ import { events } from '../data/events';
 import { experiments } from '../data/experiments';
 import { methods } from '../data/methods';
 import { approaches } from '../data/approaches';
-import type { Approach, Concept, Experiment, HistoricalEvent, Method, Psychologist, School, Theory, Work } from '../models/types';
+import { fields } from '../data/fields';
+import type { Approach, Concept, Experiment, Field, HistoricalEvent, Method, Psychologist, School, Theory, Work } from '../models/types';
 import { normalizeForSearch } from '../utils/slug';
 
 export interface SearchResults {
@@ -20,6 +21,7 @@ export interface SearchResults {
   experiments: Experiment[];
   methods: Method[];
   approaches: Approach[];
+  fields: Field[];
   total: number;
 }
 
@@ -33,6 +35,7 @@ const EMPTY: SearchResults = {
   experiments: [],
   methods: [],
   approaches: [],
+  fields: [],
   total: 0,
 };
 
@@ -81,6 +84,10 @@ export function search(rawQuery: string, limitPerGroup = 6): SearchResults {
     .filter((a) => normalizeForSearch(`${a.name} ${a.shortDefinition}`).includes(query))
     .slice(0, limitPerGroup);
 
+  const matchedFields = fields
+    .filter((f) => normalizeForSearch(`${f.name} ${f.shortDefinition}`).includes(query))
+    .slice(0, limitPerGroup);
+
   return {
     psychologists: matchedPsychologists,
     theories: matchedTheories,
@@ -91,6 +98,7 @@ export function search(rawQuery: string, limitPerGroup = 6): SearchResults {
     experiments: matchedExperiments,
     methods: matchedMethods,
     approaches: matchedApproaches,
+    fields: matchedFields,
     total:
       matchedPsychologists.length +
       matchedTheories.length +
@@ -100,6 +108,7 @@ export function search(rawQuery: string, limitPerGroup = 6): SearchResults {
       matchedEvents.length +
       matchedExperiments.length +
       matchedMethods.length +
-      matchedApproaches.length,
+      matchedApproaches.length +
+      matchedFields.length,
   };
 }

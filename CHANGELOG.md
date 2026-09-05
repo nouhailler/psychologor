@@ -2,7 +2,19 @@
 
 Format inspiré de [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/). Les numéros de version correspondent à `package.json` et au numéro affiché dans Profil → Mises à jour.
 
-## [1.6.0] - 2026-09-04
+## [1.8.0] - 2026-09-04
+
+### Ajouté
+- Cinq nouveaux concepts au glossaire, comparatifs et volontairement mis en regard les uns des autres : **Psychologie**, **Psychiatrie**, **Neurosciences**, **Psychanalyse** (la pratique clinique, distincte de la théorie freudienne déjà présente, à laquelle elle renvoie explicitement) et **Psychothérapie**. Chacun précise qui est médecin, qui peut prescrire, et ce qui relève d'une profession réglementée ou d'un terme générique.
+- Nouveau parcours **« Psychologie, psychiatrie, psychanalyse : qui fait quoi ? »** (famille Regards transversaux, 6 étapes), qui se conclut par une synthèse pratique — « Qui consulter, pour quoi ? » — plutôt qu'un simple récapitulatif.
+
+## [1.7.0] - 2026-09-04
+
+### Ajouté
+- Nouvelle entité **Domaine** (`Field`) : la cartographie professionnelle et académique de la discipline, troisième axe de classification aux côtés des courants (historiques) et des approches (angles d'analyse). 15 domaines — psychologie cognitive, sociale, du développement, clinique, neuropsychologie, différentielle, de la personnalité, du travail, de la santé, scolaire, environnementale, interculturelle, expérimentale, légale, du sport.
+- Chaque fiche détaille définition, contexte historique, **questions clés** et **applications** concrètes (débouchés), et se relie aux psychologues, théories, concepts, méthodes, expériences et œuvres qui l'illustrent, plus les domaines voisins.
+- Lookup inversé sur les six types d'entités concernés : les fiches psychologue, théorie, concept, méthode, expérience et **œuvre** (une première pour cette dernière) affichent désormais leurs domaines associés.
+- Intégration complète dès la conception : onglet Explorer, entrée de menu, recherche, favoris, historique, carte des idées.
 
 ### Ajouté
 - Nouvelle entité **Approche**, distincte des courants : 10 approches contemporaines (biologique, cognitive, comportementale, psychodynamique, humaniste, évolutionniste, sociale, culturelle, neuropsychologique, développementale). Contrairement à un courant, une approche n'est jamais rivale d'une autre — elle se combine librement avec d'autres pour éclairer un même phénomène — et reste active aujourd'hui plutôt que datée dans le temps.

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/Button';
 import {
   getApproachSync,
+  getFieldSync,
   getPathSync,
   getPsychologistSync,
   getSchoolSync,
@@ -42,6 +43,7 @@ function resolveEntity(entityId: string, entityType: string) {
   if (entityType === 'experiment') return getExperimentSync(entityId);
   if (entityType === 'method') return getMethodSync(entityId);
   if (entityType === 'approach') return getApproachSync(entityId);
+  if (entityType === 'field') return getFieldSync(entityId);
   return undefined;
 }
 
@@ -143,7 +145,9 @@ export default function Profile() {
                               ? `/methodes/${h.entityId}`
                               : h.entityType === 'approach'
                                 ? `/approches/${h.entityId}`
-                                : `/concepts/${h.entityId}`;
+                                : h.entityType === 'field'
+                                  ? `/domaines/${h.entityId}`
+                                  : `/concepts/${h.entityId}`;
               const name = 'name' in entity ? entity.name : 'term' in entity ? entity.term : 'title' in entity ? entity.title : '';
               const accent = 'accentColor' in entity ? entity.accentColor : 'color' in entity ? entity.color : 'var(--color-primary)';
               const initials = 'portraitInitials' in entity ? entity.portraitInitials : name.slice(0, 2).toUpperCase();

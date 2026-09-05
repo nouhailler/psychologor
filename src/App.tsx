@@ -20,6 +20,7 @@ const PathPlayer = lazy(() => import('./pages/PathPlayer'));
 const ExperimentDetail = lazy(() => import('./pages/ExperimentDetail'));
 const MethodDetail = lazy(() => import('./pages/MethodDetail'));
 const ApproachDetail = lazy(() => import('./pages/ApproachDetail'));
+const FieldDetail = lazy(() => import('./pages/FieldDetail'));
 const Favorites = lazy(() => import('./pages/Favorites'));
 const Profile = lazy(() => import('./pages/Profile'));
 const NotFound = lazy(() => import('./pages/NotFound'));
@@ -53,6 +54,8 @@ function App() {
           <Route path="/methodes/:id" element={<MethodDetail />} />
           <Route path="/approches" element={<Explorer initialTab="approches" />} />
           <Route path="/approches/:id" element={<ApproachDetail />} />
+          <Route path="/domaines" element={<Explorer initialTab="domaines" />} />
+          <Route path="/domaines/:id" element={<FieldDetail />} />
           <Route path="/favoris" element={<Favorites />} />
           <Route path="/profil" element={<Profile />} />
           <Route path="/accueil" element={<Navigate to="/" replace />} />

@@ -9,6 +9,7 @@ export type EntityKind =
   | 'experiment'
   | 'method'
   | 'approach'
+  | 'field'
   | 'path';
 
 export type StepEntityKind = 'psychologist' | 'theory' | 'concept' | 'experiment' | 'method' | 'custom';
@@ -262,6 +263,35 @@ export interface Approach {
   relatedMethodIds: string[];
   /** Approches complémentaires, souvent combinées pour éclairer un même phénomène. */
   relatedApproachIds: string[];
+}
+
+/**
+ * Un domaine de spécialisation de la psychologie — une sous-discipline
+ * académique et professionnelle définie par son terrain d'application
+ * (le travail, l'école, la clinique, le sport…), distincte à la fois d'un
+ * courant (un mouvement historique daté) et d'une approche (un angle
+ * d'analyse). Un domaine peut mobiliser plusieurs approches à la fois.
+ */
+export interface Field {
+  id: string;
+  name: string;
+  shortDefinition: string;
+  definition: string;
+  /** Comment ce domaine s'est constitué comme spécialisation distincte de la psychologie. */
+  historicalContext: string;
+  /** Les questions concrètes que ce domaine cherche à résoudre. */
+  keyQuestions: string[];
+  /** Débouchés et applications pratiques. */
+  applications: string[];
+  accentColor: string;
+  psychologistIds: string[];
+  relatedTheoryIds: string[];
+  relatedConceptIds: string[];
+  relatedMethodIds: string[];
+  relatedExperimentIds: string[];
+  relatedWorkIds: string[];
+  /** Domaines voisins, avec lesquels celui-ci se recoupe fréquemment. */
+  relatedFieldIds: string[];
 }
 
 export interface SearchResultGroup<T> {

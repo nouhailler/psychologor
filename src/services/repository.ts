@@ -8,12 +8,14 @@ import { events } from '../data/events';
 import { experiments } from '../data/experiments';
 import { methods } from '../data/methods';
 import { approaches } from '../data/approaches';
+import { fields } from '../data/fields';
 import { portraitCredits } from '../data/portraitCredits';
 import { paths } from '../data/paths';
 import type {
   Approach,
   Concept,
   Experiment,
+  Field,
   HistoricalEvent,
   LearningPath,
   Method,
@@ -43,6 +45,7 @@ const eventById = new Map(events.map((e) => [e.id, e]));
 const experimentById = new Map(experiments.map((e) => [e.id, e]));
 const methodById = new Map(methods.map((m) => [m.id, m]));
 const approachById = new Map(approaches.map((a) => [a.id, a]));
+const fieldById = new Map(fields.map((f) => [f.id, f]));
 const pathById = new Map(paths.map((p) => [p.id, p]));
 
 function delay<T>(value: T): Promise<T> {
@@ -147,6 +150,17 @@ export const repository = {
   getApproachesBySchool: (schoolId: string) => delay(approaches.filter((a) => a.relatedSchoolIds.includes(schoolId))),
   getApproachesByPsychologist: (psychologistId: string) => delay(approaches.filter((a) => a.psychologistIds.includes(psychologistId))),
 
+  // ---- Domaines ----
+  getAllFields: () => delay(fields),
+  getField: (id: string) => delay(fieldById.get(id) ?? null),
+  getFieldsByIds: (ids: string[]) => delay(ids.map((id) => fieldById.get(id)).filter(Boolean) as Field[]),
+  getFieldsByPsychologist: (psychologistId: string) => delay(fields.filter((f) => f.psychologistIds.includes(psychologistId))),
+  getFieldsByTheory: (theoryId: string) => delay(fields.filter((f) => f.relatedTheoryIds.includes(theoryId))),
+  getFieldsByConcept: (conceptId: string) => delay(fields.filter((f) => f.relatedConceptIds.includes(conceptId))),
+  getFieldsByMethod: (methodId: string) => delay(fields.filter((f) => f.relatedMethodIds.includes(methodId))),
+  getFieldsByExperiment: (experimentId: string) => delay(fields.filter((f) => f.relatedExperimentIds.includes(experimentId))),
+  getFieldsByWork: (workId: string) => delay(fields.filter((f) => f.relatedWorkIds.includes(workId))),
+
   // ---- Parcours guidés ----
   getAllPaths: () => delay(paths),
   getPath: (id: string) => delay(pathById.get(id) ?? null),
@@ -182,6 +196,10 @@ export function getWorkSync(id: string): Work | undefined {
 
 export function getApproachSync(id: string): Approach | undefined {
   return approachById.get(id);
+}
+
+export function getFieldSync(id: string): Field | undefined {
+  return fieldById.get(id);
 }
 
 export function getMethodSync(id: string): Method | undefined {

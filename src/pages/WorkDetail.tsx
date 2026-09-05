@@ -1,4 +1,4 @@
-import { ArrowLeft, BookOpen, ScrollText, Sparkles, Users } from 'lucide-react';
+import { ArrowLeft, BookOpen, Map, ScrollText, Sparkles, Users } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import { ConceptChip } from '../components/cards/ConceptChip';
 import { RelationshipCard } from '../components/cards/RelationshipCard';
@@ -21,6 +21,7 @@ export default function WorkDetail() {
   const { data: theories } = useAsync(() => repository.getTheoriesByIds(authorTheoryIds), [work?.id, authors]);
   const { data: concepts } = useAsync(() => repository.getConceptsByIds(work?.conceptIds ?? []), [work?.id]);
   const { data: relatedWorks } = useAsync(() => repository.getWorksByIds(work?.relatedWorkIds ?? []), [work?.id]);
+  const { data: fields } = useAsync(() => repository.getFieldsByWork(work?.id ?? ''), [work?.id]);
 
   if (loading) return <PageLoader />;
   if (!work) return <NotFound />;
@@ -146,6 +147,17 @@ export default function WorkDetail() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
             {relatedWorks.map((w) => (
               <RelationshipCard key={w.id} to={`/oeuvres/${w.id}`} icon={<ScrollText size={18} />} title={w.title} subtitle={w.year} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {fields && fields.length > 0 && (
+        <section className={styles.section}>
+          <h2 className="text-h3" style={{ marginBottom: 'var(--space-4)' }}>Domaines associés</h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+            {fields.map((f) => (
+              <RelationshipCard key={f.id} to={`/domaines/${f.id}`} icon={<Map size={18} />} title={f.name} subtitle={f.shortDefinition} />
             ))}
           </div>
         </section>

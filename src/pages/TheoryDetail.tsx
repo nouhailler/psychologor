@@ -1,4 +1,4 @@
-import { ArrowLeft, Layers, Microscope, Telescope } from 'lucide-react';
+import { ArrowLeft, Layers, Map, Microscope, Telescope } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import { ConceptChip } from '../components/cards/ConceptChip';
 import { RelationshipCard } from '../components/cards/RelationshipCard';
@@ -29,6 +29,7 @@ export default function TheoryDetail() {
   );
   const { data: methods } = useAsync(() => repository.getMethodsByTheory(theory?.id ?? ''), [theory?.id]);
   const { data: approaches } = useAsync(() => repository.getApproachesByTheory(theory?.id ?? ''), [theory?.id]);
+  const { data: fields } = useAsync(() => repository.getFieldsByTheory(theory?.id ?? ''), [theory?.id]);
 
   if (loading) return <PageLoader />;
   if (!theory) return <NotFound />;
@@ -206,6 +207,17 @@ export default function TheoryDetail() {
                 <div style={{ display: 'grid', gap: 'var(--space-3)', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))' }}>
                   {approaches.map((a) => (
                     <RelationshipCard key={a.id} to={`/approches/${a.id}`} icon={<Telescope size={18} />} title={a.name} subtitle={a.shortDefinition} />
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {fields && fields.length > 0 && (
+              <section className={styles.section}>
+                <h2 className={`text-h2 ${styles.sectionTitle}`}>Domaines associés</h2>
+                <div style={{ display: 'grid', gap: 'var(--space-3)', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))' }}>
+                  {fields.map((f) => (
+                    <RelationshipCard key={f.id} to={`/domaines/${f.id}`} icon={<Map size={18} />} title={f.name} subtitle={f.shortDefinition} />
                   ))}
                 </div>
               </section>

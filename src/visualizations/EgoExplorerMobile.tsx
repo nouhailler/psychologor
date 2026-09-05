@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Calendar, ChevronRight, FlaskConical, Lightbulb, Microscope, ScrollText, Telescope } from 'lucide-react';
+import { BookOpen, Calendar, ChevronRight, FlaskConical, Lightbulb, Map as MapIcon, Microscope, ScrollText, Telescope } from 'lucide-react';
 import { buildEgoGraph, type EgoNode, type EgoRef, type GraphNodeType } from '../services/egoGraph';
 import { EmptyState } from '../components/ui/EmptyState';
 import styles from './EgoExplorerMobile.module.css';
@@ -13,6 +13,7 @@ const TYPE_ICONS: Record<Exclude<GraphNodeType, 'psychologist'>, typeof BookOpen
   experiment: FlaskConical,
   method: Microscope,
   approach: Telescope,
+  field: MapIcon,
 };
 
 const TYPE_LABELS: Record<GraphNodeType, string> = {
@@ -24,6 +25,7 @@ const TYPE_LABELS: Record<GraphNodeType, string> = {
   experiment: 'Expériences',
   method: 'Méthodes',
   approach: 'Approches',
+  field: 'Domaines',
 };
 
 const TYPE_COLORS: Record<GraphNodeType, string> = {
@@ -35,6 +37,7 @@ const TYPE_COLORS: Record<GraphNodeType, string> = {
   experiment: '#2E6B8A',
   method: '#C4632F',
   approach: '#6B7A3F',
+  field: '#4A6FA5',
 };
 
 interface EgoExplorerMobileProps {

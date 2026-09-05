@@ -2,11 +2,13 @@ import { events } from '../data/events';
 import { experiments } from '../data/experiments';
 import { methods } from '../data/methods';
 import { approaches } from '../data/approaches';
+import { fields } from '../data/fields';
 import {
   getApproachSync,
   getConceptSync,
   getEventSync,
   getExperimentSync,
+  getFieldSync,
   getMethodSync,
   getPsychologistSync,
   getSchoolSync,
@@ -14,7 +16,7 @@ import {
   getWorkSync,
 } from './repository';
 
-export type GraphNodeType = 'psychologist' | 'theory' | 'concept' | 'work' | 'event' | 'experiment' | 'method' | 'approach';
+export type GraphNodeType = 'psychologist' | 'theory' | 'concept' | 'work' | 'event' | 'experiment' | 'method' | 'approach' | 'field';
 
 export interface EgoRef {
   type: GraphNodeType;
@@ -126,6 +128,39 @@ for (const a of approaches) {
   }
 }
 
+const fieldsByPsychologist = new Map<string, string[]>();
+const fieldsByTheory = new Map<string, string[]>();
+const fieldsByConcept = new Map<string, string[]>();
+const fieldsByMethod = new Map<string, string[]>();
+const fieldsByExperiment = new Map<string, string[]>();
+const fieldsByWork = new Map<string, string[]>();
+for (const f of fields) {
+  for (const pid of f.psychologistIds) {
+    if (!fieldsByPsychologist.has(pid)) fieldsByPsychologist.set(pid, []);
+    fieldsByPsychologist.get(pid)!.push(f.id);
+  }
+  for (const tid of f.relatedTheoryIds) {
+    if (!fieldsByTheory.has(tid)) fieldsByTheory.set(tid, []);
+    fieldsByTheory.get(tid)!.push(f.id);
+  }
+  for (const cid of f.relatedConceptIds) {
+    if (!fieldsByConcept.has(cid)) fieldsByConcept.set(cid, []);
+    fieldsByConcept.get(cid)!.push(f.id);
+  }
+  for (const mid of f.relatedMethodIds) {
+    if (!fieldsByMethod.has(mid)) fieldsByMethod.set(mid, []);
+    fieldsByMethod.get(mid)!.push(f.id);
+  }
+  for (const xid of f.relatedExperimentIds) {
+    if (!fieldsByExperiment.has(xid)) fieldsByExperiment.set(xid, []);
+    fieldsByExperiment.get(xid)!.push(f.id);
+  }
+  for (const wid of f.relatedWorkIds) {
+    if (!fieldsByWork.has(wid)) fieldsByWork.set(wid, []);
+    fieldsByWork.get(wid)!.push(f.id);
+  }
+}
+
 function key(ref: EgoRef): string {
   return `${ref.type}:${ref.id}`;
 }
@@ -232,6 +267,20 @@ function toNode(ref: EgoRef, depth: number, parentKey?: string): EgoNode | undef
       accentColor: a.accentColor,
     };
   }
+  if (ref.type === 'field') {
+    const f = getFieldSync(ref.id);
+    if (!f) return undefined;
+    return {
+      key: key(ref),
+      type: ref.type,
+      id: ref.id,
+      depth,
+      parentKey,
+      name: f.name,
+      href: `/domaines/${f.id}`,
+      accentColor: f.accentColor,
+    };
+  }
   // event
   const e = getEventSync(ref.id);
   if (!e) return undefined;
@@ -263,6 +312,7 @@ function getConnections(ref: EgoRef): EgoRef[] {
     push('experiment', experimentsByPsychologist.get(ref.id) ?? []);
     push('method', methodsByPsychologist.get(ref.id) ?? []);
     push('approach', approachesByPsychologist.get(ref.id) ?? []);
+    push('field', fieldsByPsychologist.get(ref.id) ?? []);
   } else if (ref.type === 'theory') {
     const t = getTheorySync(ref.id);
     if (!t) return out;
@@ -273,6 +323,7 @@ function getConnections(ref: EgoRef): EgoRef[] {
     push('experiment', experimentsByTheory.get(ref.id) ?? []);
     push('method', methodsByTheory.get(ref.id) ?? []);
     push('approach', approachesByTheory.get(ref.id) ?? []);
+    push('field', fieldsByTheory.get(ref.id) ?? []);
   } else if (ref.type === 'concept') {
     const c = getConceptSync(ref.id);
     if (!c) return out;
@@ -282,10 +333,12 @@ function getConnections(ref: EgoRef): EgoRef[] {
     push('experiment', experimentsByConcept.get(ref.id) ?? []);
     push('method', methodsByConcept.get(ref.id) ?? []);
     push('approach', approachesByConcept.get(ref.id) ?? []);
+    push('field', fieldsByConcept.get(ref.id) ?? []);
   } else if (ref.type === 'work') {
     const w = getWorkSync(ref.id);
     if (!w) return out;
     push('psychologist', w.psychologistIds);
+    push('field', fieldsByWork.get(ref.id) ?? []);
   } else if (ref.type === 'event') {
     const e = getEventSync(ref.id);
     if (!e) return out;
@@ -298,6 +351,7 @@ function getConnections(ref: EgoRef): EgoRef[] {
     push('concept', x.conceptIds);
     push('theory', x.theoryIds);
     push('method', methodsByExperiment.get(ref.id) ?? []);
+    push('field', fieldsByExperiment.get(ref.id) ?? []);
   } else if (ref.type === 'method') {
     const m = getMethodSync(ref.id);
     if (!m) return out;
@@ -307,6 +361,7 @@ function getConnections(ref: EgoRef): EgoRef[] {
     push('experiment', m.relatedExperimentIds);
     push('method', m.relatedMethodIds);
     push('approach', approachesByMethod.get(ref.id) ?? []);
+    push('field', fieldsByMethod.get(ref.id) ?? []);
   } else if (ref.type === 'approach') {
     const a = getApproachSync(ref.id);
     if (!a) return out;
@@ -315,6 +370,16 @@ function getConnections(ref: EgoRef): EgoRef[] {
     push('theory', a.relatedTheoryIds);
     push('method', a.relatedMethodIds);
     push('approach', a.relatedApproachIds);
+  } else if (ref.type === 'field') {
+    const f = getFieldSync(ref.id);
+    if (!f) return out;
+    push('psychologist', f.psychologistIds);
+    push('theory', f.relatedTheoryIds);
+    push('concept', f.relatedConceptIds);
+    push('method', f.relatedMethodIds);
+    push('experiment', f.relatedExperimentIds);
+    push('work', f.relatedWorkIds);
+    push('field', f.relatedFieldIds);
   }
   return out;
 }

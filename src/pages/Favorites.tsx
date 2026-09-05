@@ -1,4 +1,4 @@
-import { Calendar, FlaskConical, Landmark, Microscope, ScrollText, Star, Telescope } from 'lucide-react';
+import { Calendar, FlaskConical, Landmark, Map, Microscope, ScrollText, Star, Telescope } from 'lucide-react';
 import { PersonCard } from '../components/cards/PersonCard';
 import { TheoryCard } from '../components/cards/TheoryCard';
 import { ConceptChip } from '../components/cards/ConceptChip';
@@ -11,6 +11,7 @@ import {
   getConceptSync,
   getEventSync,
   getExperimentSync,
+  getFieldSync,
   getMethodSync,
   getPsychologistSync,
   getSchoolSync,
@@ -67,6 +68,11 @@ export default function Favorites() {
     .map((f) => getApproachSync(f.entityId))
     .filter(Boolean);
 
+  const fields = (favorites ?? [])
+    .filter((f) => f.entityType === 'field')
+    .map((f) => getFieldSync(f.entityId))
+    .filter(Boolean);
+
   const isEmpty =
     psychologists.length === 0 &&
     theories.length === 0 &&
@@ -76,7 +82,8 @@ export default function Favorites() {
     historicalEvents.length === 0 &&
     experiments.length === 0 &&
     methods.length === 0 &&
-    approaches.length === 0;
+    approaches.length === 0 &&
+    fields.length === 0;
 
   return (
     <div className="container">
@@ -84,14 +91,14 @@ export default function Favorites() {
         <h1 className="text-h1" style={{ marginBottom: 'var(--space-2)' }}>
           Favoris
         </h1>
-        <p className="text-body-sm">Les personnes, théories, concepts, courants, œuvres, événements, expériences, méthodes et approches que vous avez sauvegardés.</p>
+        <p className="text-body-sm">Les personnes, théories, concepts, courants, œuvres, événements, expériences, méthodes, approches et domaines que vous avez sauvegardés.</p>
       </div>
 
       {isEmpty && (
         <EmptyState
           icon={<Star size={24} />}
           title="Aucun favori pour le moment"
-          description="Ajoutez des psychologues, théories, concepts, courants, œuvres, événements, expériences, méthodes ou approches à vos favoris en appuyant sur l'étoile de leur fiche."
+          description="Ajoutez des psychologues, théories, concepts, courants, œuvres, événements, expériences, méthodes, approches ou domaines à vos favoris en appuyant sur l'étoile de leur fiche."
         />
       )}
 
@@ -203,6 +210,19 @@ export default function Favorites() {
               (a) =>
                 a && (
                   <RelationshipCard key={a.id} to={`/approches/${a.id}`} icon={<Telescope size={18} />} title={a.name} subtitle={a.shortDefinition} />
+                ),
+            )}
+          </div>
+        </Section>
+      )}
+
+      {fields.length > 0 && (
+        <Section title="Domaines" className={styles.section}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+            {fields.map(
+              (f) =>
+                f && (
+                  <RelationshipCard key={f.id} to={`/domaines/${f.id}`} icon={<Map size={18} />} title={f.name} subtitle={f.shortDefinition} />
                 ),
             )}
           </div>

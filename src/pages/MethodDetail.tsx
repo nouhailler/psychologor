@@ -1,4 +1,4 @@
-import { ArrowLeft, CheckCircle2, ClipboardList, FlaskConical, Layers, Sparkles, Target, Users, XCircle } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, ClipboardList, FlaskConical, Layers, Map, Sparkles, Target, Users, XCircle } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import { ConceptChip } from '../components/cards/ConceptChip';
 import { RelationshipCard } from '../components/cards/RelationshipCard';
@@ -27,6 +27,7 @@ export default function MethodDetail() {
     [method?.id],
   );
   const { data: relatedMethods } = useAsync(() => repository.getMethodsByIds(method?.relatedMethodIds ?? []), [method?.id]);
+  const { data: fields } = useAsync(() => repository.getFieldsByMethod(method?.id ?? ''), [method?.id]);
 
   if (loading) return <PageLoader />;
   if (!method) return <NotFound />;
@@ -179,6 +180,17 @@ export default function MethodDetail() {
                     title={m.name}
                     subtitle={METHOD_CATEGORY_LABELS[m.category]}
                   />
+                ))}
+              </div>
+            </section>
+          )}
+
+          {fields && fields.length > 0 && (
+            <section className={styles.section}>
+              <h2 className="text-h3" style={{ marginBottom: 'var(--space-4)' }}>Domaines associés</h2>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
+                {fields.map((f) => (
+                  <RelationshipCard key={f.id} to={`/domaines/${f.id}`} icon={<Map size={18} />} title={f.name} subtitle={f.shortDefinition} />
                 ))}
               </div>
             </section>
